@@ -1,0 +1,6 @@
+﻿  battle.cpp
+  main.cpp
+D:\Courses\GDAD\ProjectOUC\main.cpp(29,13): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  scene.cpp
+  正在生成代码...
+  ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\x64\Debug\ProjectOUC.exe
