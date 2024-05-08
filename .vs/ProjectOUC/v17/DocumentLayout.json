@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Courses\\GDAD\\ProjectOUC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -21,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "player.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\player.cpp",
               "RelativeDocumentMoniker": "player.cpp",
@@ -51,7 +51,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "tile.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\tile.cpp",
               "RelativeDocumentMoniker": "tile.cpp",
@@ -59,12 +59,11 @@
               "RelativeToolTip": "tile.cpp",
               "ViewState": "AQIAACQAAAAAAAAAAAAAAEYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-08T05:33:40.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T05:33:40.98Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "scene.h",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\scene.h",
               "RelativeDocumentMoniker": "scene.h",
@@ -72,12 +71,11 @@
               "RelativeToolTip": "scene.h",
               "ViewState": "AQIAABkAAAAAAAAAAAAAABoAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-08T04:13:00.542Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T04:13:00.542Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "tile.h",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\tile.h",
               "RelativeDocumentMoniker": "tile.h",
@@ -85,25 +83,24 @@
               "RelativeToolTip": "tile.h",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAABMAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-08T04:12:43.119Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T04:12:43.119Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 0,
               "Title": "scene.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp",
               "RelativeDocumentMoniker": "scene.cpp",
               "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp",
               "RelativeToolTip": "scene.cpp",
-              "ViewState": "AQIAAGYAAAAAAAAAAAAQwH4AAAARAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAQwH4AAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-08T04:12:37.382Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "main.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\main.cpp",
               "RelativeDocumentMoniker": "main.cpp",
@@ -111,8 +108,7 @@
               "RelativeToolTip": "main.cpp",
               "ViewState": "AQIAAA8AAAAAAAAAAAAAABQAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-08T04:11:49.723Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T04:11:49.723Z"
             }
           ]
         }

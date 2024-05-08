@@ -150,3 +150,6 @@
   - checkTile：检测当前tile是否存在Monster/Event/Chest等，并触发
   - move：向一个方向移动，并checkTile
   - initScene：初始化场景，包括确定场景大小，分配每个tile的类型，确定起点和终点等。
+  - initSceneByNum：初始化场景，通过数组num控制每种tile的数量
+    - 输入一个数组num，代表types中每个type的tile的数量
+    - 保证均匀采样
