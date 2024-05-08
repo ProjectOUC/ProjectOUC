@@ -1,6 +1,42 @@
 #include "tile.h"
 #include <iostream>
 
+void Tile::randomInitTile(std::vector<int> weights)
+{
+	static std::vector<tile_type> types
+	{
+		BATTLE_TILE,
+		CHEST_TILE,
+		EVENT_TILE,
+		WALL_TILE,
+		EMPTY_TILE
+	};
+	int sum = 0;
+	for (int weight : weights) sum += weight;
+	int psum = rand() % sum; 
+	for (int i = 0; i < weights.size(); ++i)
+	{
+		if (psum < weights[i])
+		{
+			initTile(types[i]);
+			return;
+		}
+		psum -= weights[i];
+	}
+}
+
+void Tile::initTile(tile_type type)
+{
+	switch (type)
+	{
+	case WALL_TILE: initWallTile(); break;
+	case EMPTY_TILE: initEmptyTile(); break;
+	case BATTLE_TILE: initBattleTile(); break;
+	case CHEST_TILE: initChestTile(); break;
+	default: break;
+	}
+}
+
 void Tile::initWallTile()
 {
 	type = WALL_TILE;

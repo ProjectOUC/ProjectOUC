@@ -3,72 +3,28 @@
   "WorkspaceRootPath": "D:\\Courses\\GDAD\\ProjectOUC\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:character.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\gadget.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:gadget.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\chest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:chest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\monster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:monster.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:tile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\gadget.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:gadget.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:character.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\monster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:monster.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\chest.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:chest.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\battle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:battle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\battle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:battle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,90 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "tile.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\tile.h",
-              "RelativeDocumentMoniker": "tile.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\tile.h",
-              "RelativeToolTip": "tile.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-02T12:26:17.376Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "scene.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\scene.h",
-              "RelativeDocumentMoniker": "scene.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\scene.h",
-              "RelativeToolTip": "scene.h",
-              "ViewState": "AQIAACoAAAAAAAAAAAAQwC0AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-02T04:46:24.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "character.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\character.h",
-              "RelativeDocumentMoniker": "character.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\character.h",
-              "RelativeToolTip": "character.h",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAwA0AAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-03T04:51:01.167Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "gadget.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\gadget.h",
-              "RelativeDocumentMoniker": "gadget.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\gadget.h",
-              "RelativeToolTip": "gadget.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-03T04:07:46.535Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "main.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\main.cpp",
-              "RelativeDocumentMoniker": "main.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\main.cpp",
-              "RelativeToolTip": "main.cpp",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB4AAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-02T03:45:59.711Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "player.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\player.h",
-              "RelativeDocumentMoniker": "player.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\player.h",
-              "RelativeToolTip": "player.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-02T04:59:52.908Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "player.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\player.cpp",
               "RelativeDocumentMoniker": "player.cpp",
@@ -169,131 +46,73 @@
               "RelativeToolTip": "player.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-03T07:14:38.421Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "monster.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\monster.cpp",
-              "RelativeDocumentMoniker": "monster.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\monster.cpp",
-              "RelativeToolTip": "monster.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA/AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-02T05:39:26.051Z",
+              "WhenOpened": "2024-05-08T05:36:13.271Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "scene.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp",
-              "RelativeDocumentMoniker": "scene.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp",
-              "RelativeToolTip": "scene.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-02T12:04:21.415Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "chest.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\chest.cpp",
-              "RelativeDocumentMoniker": "chest.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\chest.cpp",
-              "RelativeToolTip": "chest.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-03T07:12:50.387Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "gadget.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\gadget.cpp",
-              "RelativeDocumentMoniker": "gadget.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\gadget.cpp",
-              "RelativeToolTip": "gadget.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-03T06:09:27.169Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "character.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\character.cpp",
-              "RelativeDocumentMoniker": "character.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\character.cpp",
-              "RelativeToolTip": "character.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAABwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-02T04:42:26.198Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "chest.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\chest.h",
-              "RelativeDocumentMoniker": "chest.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\chest.h",
-              "RelativeToolTip": "chest.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-03T04:07:48.296Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "monster.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\monster.h",
-              "RelativeDocumentMoniker": "monster.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\monster.h",
-              "RelativeToolTip": "monster.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-02T05:02:39.043Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "battle.h",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\battle.h",
-              "RelativeDocumentMoniker": "battle.h",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\battle.h",
-              "RelativeToolTip": "battle.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-02T13:14:27.07Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "battle.cpp",
-              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\battle.cpp",
-              "RelativeDocumentMoniker": "battle.cpp",
-              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\battle.cpp",
-              "RelativeToolTip": "battle.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAUAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-02T13:14:40.164Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
               "Title": "tile.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\tile.cpp",
               "RelativeDocumentMoniker": "tile.cpp",
               "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\tile.cpp",
               "RelativeToolTip": "tile.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAaAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAAEYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-05-02T12:26:23.606Z"
+              "WhenOpened": "2024-05-08T05:33:40.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "scene.h",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\scene.h",
+              "RelativeDocumentMoniker": "scene.h",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\scene.h",
+              "RelativeToolTip": "scene.h",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAABoAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-08T04:13:00.542Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "tile.h",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\tile.h",
+              "RelativeDocumentMoniker": "tile.h",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\tile.h",
+              "RelativeToolTip": "tile.h",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABMAAAAGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-08T04:12:43.119Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "scene.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp",
+              "RelativeDocumentMoniker": "scene.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\scene.cpp",
+              "RelativeToolTip": "scene.cpp",
+              "ViewState": "AQIAAGYAAAAAAAAAAAAQwH4AAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-08T04:12:37.382Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABQAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-08T04:11:49.723Z",
+              "EditorCaption": ""
             }
           ]
         }

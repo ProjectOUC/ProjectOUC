@@ -78,14 +78,41 @@ bool Scene::checkTile()
 	return false;
 }
 
+void Scene::initSceneByNum(std::vector<int> num)
+{
+	static std::vector<tile_type> types
+	{
+		BATTLE_TILE,
+		CHEST_TILE,
+		EVENT_TILE,
+		WALL_TILE,
+		EMPTY_TILE
+	};
+
+	int k = 0;
+	for (int n : num) k += n;
+
+	srand(time(0));
+	int pivot = 0;
+	for (int i = boundary; i < height + boundary; ++i)
+	{
+		for (int j = boundary; j < width + boundary; ++j)
+		{
+			while (k && num[pivot] == 0) pivot++;
+			int rd = rand() % (height * width);
+			if (rd < k)
+			{
+				tiles[i][j].initTile(types[pivot]);
+				num[pivot]--;
+				k--;
+			}
+		}
+	}
+}
+
+
 void Scene::initScene()
 {
-	tiles.resize(height + 2 * boundary);
-	for (int i = 0; i < height + 2 * boundary; ++i)
-	{
-		tiles[i].resize(width + 2 * boundary);
-	}
-
 	for (int h = 0; h < height + 2 * boundary; ++h)
 	{
 		for (int w = 0; w < width + 2 * boundary; ++w)
@@ -97,9 +124,13 @@ void Scene::initScene()
 			{
 				tiles[h][w].initWallTile();
 			}
-			else
+			else if (h != boundary || w != boundary)
 			{
 				// Todo: 添加更多种类的Tile
+				tiles[h][w].randomInitTile({5, 5, 0, 0, 10, 0});
+			}
+			else
+			{
 				tiles[h][w].initEmptyTile();
 			}
 		}
@@ -110,6 +141,7 @@ void Scene::initScene()
 	player_pos_x = boundary;
 	player_pos_y = boundary;
 
+	tiles[1][1].initEmptyTile();
 	tiles[2][2].initBattleTile();
 	tiles[1][4].initBattleTile();
 	tiles[3][1].initBattleTile();

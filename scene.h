@@ -18,13 +18,19 @@ enum direction
 class Scene
 {
 public:
-	Scene(int w = 10, int h = 10) :
-		player(1000, 10, 0, "Nyan Nyan")
+	Scene(int w, int h, int b, std::vector<int> num) :
+		player(10000, 10, 0, "Nyan Nyan")
 	{
 		width = w;
 		height = h;
-		initScene();
+		boundary = b;
+		player_pos_x = player_pos_y = b;
+		tiles.resize(height + 2 * boundary);
+		for (int i = 0; i < height + 2 * boundary; ++i)
+			tiles[i].resize(width + 2 * boundary);
+		initSceneByNum(num);
 	};
+
 
 	int get_width() const { return width; }
 	int get_height() const { return height; }
@@ -37,13 +43,14 @@ public:
 
 	bool checkTile();
 
+	void initSceneByNum(std::vector<int> num);
 	void initScene();
 
 	~Scene() {};
 private:
 	int width;
 	int height;
-	const static int boundary = 1;
+	int boundary;
 	std::vector<std::vector<Tile> > tiles;
 
 	Player player;

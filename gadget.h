@@ -31,4 +31,8 @@ private:
 };
 
 
-const std::vector<Gadget> gadgetList({ {0, 0, 10, 1, "Sword"}, {1, 10, 0, 5, "Shield"}, {2, 100, 0, 0, "heal potion"} });
+const std::vector<Gadget> gadgetList({ 
+	{0, 0, 10, 1, "Sword"}, 
+	{1, 10, 0, 5, "Shield"}, 
+	{2, 100, 0, 0, "heal potion"} 
+	});

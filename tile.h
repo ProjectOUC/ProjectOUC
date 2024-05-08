@@ -4,6 +4,7 @@
 #include "chest.h"
 
 #include <list>
+#include <vector>
 
 enum tile_type
 {
@@ -11,14 +12,14 @@ enum tile_type
 	CHEST_TILE,
 	EVENT_TILE,
 	WALL_TILE,
-	EMPTY_TILE,
-	START_TILE,
-	END_TILE
+	EMPTY_TILE
 };
 
 class Tile
 {
 public:
+	void randomInitTile(std::vector<int> weights);
+	void initTile(tile_type type);
 	void initWallTile();
 	void initEmptyTile();
 	void initBattleTile();
