@@ -45,6 +45,12 @@
     <ClCompile Include="paint.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="attribute.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h">
@@ -72,6 +78,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="paint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="attribute.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

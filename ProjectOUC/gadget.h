@@ -2,33 +2,112 @@
 
 #include <string>
 #include <vector>
+#include <set>
 
-const int max_gadget_index = 3;
+#include "attribute.h"
+
+
 class Gadget
 {
 public:
 	// Todo: 添加主动使用的道具
 
 	// Todo: 添加条件(如移动，回合后)触发的道具
-	Gadget(int _gadgetIndex = 0, int _health = 0, int _attack = 0,
-		int _defense = 0, std::string _name = "");
+	Gadget(int _gadgetIndex = 0, std::string _name = "");
 
 	Gadget(const Gadget& g);
 
 	int get_gadgetIndex() const { return gadgetIndex; };
-	int get_health() const { return health; }
-	int get_attack() const { return attack; }
-	int get_defense() const { return defense; }
 	std::string get_name() const { return name; }
+
+	virtual Attr get_gadget() const { return Attr(); };
+	virtual Attr lose_gadget() const { return Attr(); };
+	virtual Attr use_gadget() const { return Attr(); };
 
 private:
 	int gadgetIndex;
-	int health;
-	int	attack;
-	int defense;
 
 	std::string name;
 };
 
+class Sword : public Gadget
+{
+public:
+	Sword(int _gadgetIndex = 0, std::string _name = "Sword") :
+		Gadget(_gadgetIndex, _name)
+	{  };
 
-const std::vector<Gadget> gadgetList({ {0, 0, 10, 1, "Sword"}, {1, 0, 0, 5, "Shield"}, {2, 20, 0, 0, "heal potion"} });
+	Sword(const Sword& other) :
+		Gadget(other)
+	{};
+
+	Attr get_gadget() const;
+	Attr lose_gadget() const;
+	Attr use_gadget() const;
+};
+
+class Shield : public Gadget
+{
+public:
+	Shield(int _gadgetIndex = 1, std::string _name = "Shield") :
+		Gadget(_gadgetIndex, _name)
+	{  };
+
+	Shield(const Shield& other) :
+		Gadget(other)
+	{};
+
+	Attr get_gadget() const;
+	Attr lose_gadget() const;
+	Attr use_gadget() const;
+};
+
+class HealPotion : public Gadget
+{
+public:
+	HealPotion(int _gadgetIndex = 2, std::string _name = "HealPotion") :
+		Gadget(_gadgetIndex, _name)
+	{  };
+
+	HealPotion(const HealPotion& other) :
+		Gadget(other)
+	{};
+
+	Attr get_gadget() const;
+	Attr lose_gadget() const;
+	Attr use_gadget() const ;
+};
+
+class CursedStone : public Gadget
+{
+public:
+	CursedStone(int _gadgetIndex = 2, std::string _name = "CursedStone") :
+		Gadget(_gadgetIndex, _name) {};
+
+	CursedStone(const CursedStone& other) :
+		Gadget(other)
+	{};
+
+	Attr get_gadget() const;
+	Attr lose_gadget() const;
+	Attr use_gadget() const;
+};
+
+class Bow : public Gadget
+{
+public:
+	Bow(int _gadgetIndex = 4, std::string _name = "HealPotion") :
+		Gadget(_gadgetIndex, _name)
+	{  };
+
+	Bow(const HealPotion& other) :
+		Gadget(other)
+	{};
+
+	Attr get_gadget() const;
+	Attr lose_gadget() const;
+	Attr use_gadget() const;
+};
+
+void initGadgetList();
+void destroyGadgetList();

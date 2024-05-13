@@ -1,12 +1,19 @@
 #include "battle.h"
 #include <iostream>
 
-const int MAX_BATTLE_TURN = 1000;
+extern const int MAX_BATTLE_TURN = 1000;
+extern const int max_gadget_index;
+extern std::vector<Gadget*> gadgetList;
 
-Battle::Battle(Character* _attacker, Character* _defenser) :
-	attacker(_attacker),
-	defenser(_defenser)
+Battle::Battle(Character* _attacker, Character* _defenser)
 {
+	attacker = _attacker;
+	defenser = _defenser;
+	if (_attacker->get_attr().attackFirstLevel < _defenser->get_attr().attackFirstLevel)
+	{
+		attacker = _defenser;
+		defenser = _attacker;
+	}
 	turn = 0;
 }
 
@@ -31,12 +38,13 @@ bool Battle::battle()
 	*/
 	while (!battleStep())
 	{
-		//
+		std::cout << "战斗进行中，当前回合: " << turn << "\n";
 		if (turn >= MAX_BATTLE_TURN)
 		{
 			return false;
 		}
 	}
+
 	if (attacker->dead() && attacker->get_type() == PLAYER) return false;
 	else if (defenser->dead() && defenser->get_type() == PLAYER) return false;
 
@@ -49,27 +57,52 @@ bool Battle::battle()
 bool Battle::battleStep()
 {
 	//std::cout << defenser->get_health() << " " << attacker->get_health() << "\n";
-	int damage;
 	turn = turn + 1;
 
-	//Todo: 加入gadget
-	damage = max(1, attacker->get_attack() - defenser->get_defense());
-	// 首轮保护，防止玩家秒怪
-	if (turn == 1 && defenser->get_type() != PLAYER)
+	// 回合开始道具
+
+	if (attack(0)) return true;
+	if (attack(1)) return true;
+
+	// 回合结束道具
+	
+	return false;
+}
+
+bool Battle::attack(int player)
+{
+	Character* c1, *c2;
+	if (player == 0)
 	{
-		damage = min(damage, defenser->get_health() + 1);
+		c1 = attacker;
+		c2 = defenser;
 	}
-	defenser->modify_health(-damage);
-	if (defenser->dead() || attacker->dead())
+	else
 	{
-		return true;
+		c1 = defenser;
+		c2 = attacker;
 	}
 
-	damage = max(1, defenser->get_attack() - attacker->get_defense());
-	attacker->modify_health(-damage);
-	if (defenser->dead() || attacker->dead())
-	{
-		return true;
-	}
+	int damage = 0;
+	bool miss = false;
+	bool critical = 0;
+	int attack = c1->get_attack();
+	int defense = c2->get_defense();
+
+	if (random(0, 100) < c1->get_attr().criticalAttackRate) critical = true;
+	if (random(0, 100) < c1->get_attr().missRate) miss = true;
+
+	if (miss) damage = 0;
+	if (critical) attack = attack * 2;
+	damage = attack - defense;
+	damage = max(damage, 0);
+
+	if (miss) std::cout << c2->get_name() << "闪避了" << c1->get_name() << "的攻击\n";
+	else if (critical) std::cout << c1->get_name() << "造成了暴击\n";
+	c2->modify_health(-damage);
+	std::cout << c1->get_name() << "对" << c2->get_name() << "造成" << damage << "点伤害\n\n";
+
+
+	if (c1->dead() || c2->dead()) return true;
 	return false;
 }

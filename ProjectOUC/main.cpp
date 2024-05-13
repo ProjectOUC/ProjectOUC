@@ -12,16 +12,22 @@
 
 #pragma execution_character_set("utf-8")
 
+int gadgetInHand;
+extern const int max_gadget_index;
+extern std::vector<Gadget*> gadgetList;
+
 window_type current_window_type = MAIN_WINDOW;
 
 int main()
 {
+	srand(time(0u));
 	SetConsoleOutputCP(CP_UTF8);
 	bool running = true;
 	initgraph(WIDTH, HEIGHT, EW_SHOWCONSOLE);
 	//initgraph(GAME_WIDTH, GAME_HEIGHT);
 	//SwitchToWindow(current_window_type);
 	
+	initGadgetList();
 	Scene scene;
 	Paint paint(WIDTH, HEIGHT);
 	
@@ -46,7 +52,7 @@ int main()
 		case 72://上键的虚拟值
 		case 'W':
 		case 'w':
-			scene.move(UP);;
+			scene.move(UP);
 			break;
 		case 80://下键的虚拟值
 		case 'S':
@@ -63,10 +69,20 @@ int main()
 		case 'd':
 			scene.move(RIGHT);
 			break;
+		case 'E':
+		case 'e':
+			gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
+			std::cout << gadgetList[gadgetInHand]->get_name() << " 当前拥有" << scene.get_player()->gadgets[gadgetInHand] << "个\n";
+			break;
+		case 'R':
+		case 'r':
+			scene.get_player()->use_gadget();
+			break;
 		}
 		if (!scene.checkTile())
 		{
 			Gameover_paint(WIDTH, HEIGHT);
+			destroyGadgetList();
 			break;
 		}
 	}

@@ -1,13 +1,6 @@
-﻿  battle.cpp
-  character.cpp
-  chest.cpp
-  gadget.cpp
+﻿  gadget.cpp
 D:\Courses\GDAD\ProjectOUC\ProjectOUC\gadget.cpp(2,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  main.cpp
-  monster.cpp
-  paint.cpp
-  player.cpp
-  scene.cpp
-  tile.cpp
-  正在生成代码...
-  ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe
+battle.obj : error LNK2001: 无法解析的外部符号 "int const max_gadget_index" (?max_gadget_index@@3HB)
+character.obj : error LNK2001: 无法解析的外部符号 "int const max_gadget_index" (?max_gadget_index@@3HB)
+main.obj : error LNK2001: 无法解析的外部符号 "int const max_gadget_index" (?max_gadget_index@@3HB)
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe : fatal error LNK1120: 1 个无法解析的外部命令

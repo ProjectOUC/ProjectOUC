@@ -5,6 +5,8 @@
 
 #include <list>
 
+#pragma execution_character_set("utf-8")
+
 enum tile_type
 {
 	BATTLE_TILE,

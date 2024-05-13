@@ -10,9 +10,8 @@
 class Monster : public Character
 {
 public:
-	Monster(int _health = 0, int _attack = 0, int _defense = 0,
-		std::string _name = "", int _coin = 0) :
-		Character(_health, _attack, _defense, _name, MONSTER, _coin) {};
+	Monster(Attr _attr, std::string _name = "", int _coin = 0) :
+		Character(_attr, _name, MONSTER, _coin) {};
 
 	Monster(const Monster& monster);
 };

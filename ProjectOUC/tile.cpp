@@ -1,5 +1,5 @@
 #include "tile.h"
-#include <iostream>
+#include "utils.h"
 
 void Tile::initTile(tile_type type)
 {
@@ -30,11 +30,17 @@ void Tile::initBattleTile()
 	type = BATTLE_TILE;
 	unreachable = false;
 	// Todo:  改为随机生成Monster
-	monsters.push_back(new Monster(getMonster(0)));
-	monsters.push_back(new Monster(getMonster(1)));
-	monsters.push_back(new Monster(getMonster(2)));
-	monsters[1]->gadgets[1] = 1;
-	monsters[2]->gadgets[0] = 1;
+	int level = random(1, 5);
+	Attr attr;
+	attr.maxHealth = attr.health = random(level * 11, level * 11 + 5);
+	attr.attack = random(level * 5, level * 5 + 2);
+	attr.defense = random(level * 3, level * 3 + 1);
+	attr.missRate = 10 - 2 * level;
+	attr.criticalAttackRate = 2 * level;
+	std::string name = "Goblin";
+	Monster* monster = new Monster(attr, name);
+
+	monsters.push_back(monster);
 }
 
 void Tile::initChestTile()

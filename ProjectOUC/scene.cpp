@@ -5,9 +5,11 @@
 
 #pragma execution_character_set("utf-8")
 
+const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
+
 Scene::Scene(int h, int w)
 {
-	player = new Player(100, 100, 0, "Nyan Nyan");
+	player = getPlayer(1);
 	player_pos_x = player_pos_y = boundary;
 	width = w;
 	height = h;
@@ -22,7 +24,7 @@ Scene::Scene(int h, int w)
 		}
 	}
 
-	initSceneByNum({ 30, 30, 0, 0 });
+	initSceneByNum({ 20, 20, 0, 0 });
 }
 
 
@@ -48,6 +50,7 @@ bool Scene::checkTile()
 		std::cout << "这是一个错误，不应该走到这个格子上\n";
 		return false;
 	}
+
 	else if (tile->get_type() == BATTLE_TILE)
 	{
 		
@@ -56,7 +59,10 @@ bool Scene::checkTile()
 			//std::cout << i+1 <<  " " << tile->monsters[i].get_health() << " "
 			//	<< tile->monsters[i].get_attack() << " " << tile->monsters[i].get_defense() << "\n";
 			std::cout << "遭遇" << tile->monsters[i]->get_name() << "\n";
+			std::cout << "HP: " << tile->monsters[i]->get_health() << "\natk: " << tile->monsters[i]->get_attack();
+			std::cout << "\ndef: " << tile->monsters[i]->get_defense() << "\n";
 			Battle battle((Character*)tile->monsters[i], (Character*)player);
+
 			if (!battle.battle())
 			{
 				return false;
@@ -68,11 +74,13 @@ bool Scene::checkTile()
 		tile->modify_type(EMPTY_TILE);
 		return true;
 	}
+
 	else if (tile->get_type() == EMPTY_TILE)
 	{
-		std::cout << "Nothing there\n";
+		std::cout << "这里什么都没有\n";
 		return true;
 	}
+
 	else if (tile->get_type() == CHEST_TILE)
 	{
 		for (int i = 0; i < tile->chests.size(); ++i)
@@ -190,6 +198,14 @@ void Scene::initSceneByNum(std::vector<int> num)
 		}
 	}
 }
+
+Scene::~Scene()
+{
+	delete player;
+	for (int i = 0; i < height + 2 * boundary; ++i)
+		for (int j = 0; j < width + 2 * boundary; ++j)
+			delete tiles[i][j];
+};
 
 void SwitchToWindow(window_type t)
 {

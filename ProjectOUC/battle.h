@@ -4,6 +4,9 @@
 #include "player.h"
 #include "monster.h"
 #include "scene.h"
+#include "utils.h"
+
+#pragma execution_character_set("utf-8")
 
 class Battle
 {
@@ -12,6 +15,7 @@ public:
 
 	bool battle();
 	bool battleStep();
+	bool attack(int player);
 	void winnerGetGadgets(Character* winner, Character* loser);
 	~Battle() {};
 private:

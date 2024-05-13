@@ -6,7 +6,8 @@
 #include <vector>
 #include <ctime>
 
-const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
+#pragma execution_character_set("utf-8")
+
 enum direction
 {
 	LEFT,
@@ -35,13 +36,7 @@ public:
 	void initScene();
 	void initSceneByNum(std::vector<int> num);
 
-	~Scene() 
-	{
-		delete player;
-		for (int i = 0; i < height + 2 * boundary; ++i)
-			for (int j = 0; j < width + 2 * boundary; ++j)
-				delete tiles[i][j];
-	};
+	~Scene();
 private:
 	int width;
 	int height;
