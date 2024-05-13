@@ -42,6 +42,9 @@
     <ClCompile Include="tile.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="paint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h">
@@ -68,5 +71,16 @@
     <ClInclude Include="tile.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="paint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="half_heart.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="heart.png">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

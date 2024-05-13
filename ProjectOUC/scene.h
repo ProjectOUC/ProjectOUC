@@ -3,8 +3,8 @@
 #include "tile.h"
 #include "player.h"
 #include "battle.h"
-
 #include <vector>
+#include <ctime>
 
 const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
 enum direction
@@ -18,42 +18,37 @@ enum direction
 class Scene
 {
 public:
-	Scene(int w, int h, int b, std::vector<int> num) :
-		player(10000, 10, 0, "Nyan Nyan")
-	{
-		width = w;
-		height = h;
-		boundary = b;
-		player_pos_x = player_pos_y = b;
-		tiles.resize(height + 2 * boundary);
-		for (int i = 0; i < height + 2 * boundary; ++i)
-			tiles[i].resize(width + 2 * boundary);
-		initSceneByNum(num);
-	};
-
+	Scene(int w = 10, int h = 10);
 
 	int get_width() const { return width; }
 	int get_height() const { return height; }
 
-	Player get_player() { return player; }
+	Player* get_player() { return player; }
 	int get_player_pos_x() const { return player_pos_x; }
 	int get_player_pos_y() const { return player_pos_y; }
+	Tile* get_tiles(int x, int y) const {return tiles[x][y]; }
 
 	void move(direction dir);
 
 	bool checkTile();
 
-	void initSceneByNum(std::vector<int> num);
 	void initScene();
+	void initSceneByNum(std::vector<int> num);
 
-	~Scene() {};
+	~Scene() 
+	{
+		delete player;
+		for (int i = 0; i < height + 2 * boundary; ++i)
+			for (int j = 0; j < width + 2 * boundary; ++j)
+				delete tiles[i][j];
+	};
 private:
 	int width;
 	int height;
-	int boundary;
-	std::vector<std::vector<Tile> > tiles;
+	const static int boundary = 1;
+	std::vector<std::vector<Tile*> > tiles;
 
-	Player player;
+	Player* player;
 	int player_pos_x;
 	int player_pos_y;
 

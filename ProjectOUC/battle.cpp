@@ -3,9 +3,9 @@
 
 const int MAX_BATTLE_TURN = 1000;
 
-Battle::Battle(Character& _attacker, Character& _defenser) :
-	attacker(&_attacker),
-	defenser(&_defenser)
+Battle::Battle(Character* _attacker, Character* _defenser) :
+	attacker(_attacker),
+	defenser(_defenser)
 {
 	turn = 0;
 }

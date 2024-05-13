@@ -8,7 +8,7 @@
 class Battle
 {
 public:
-	Battle(Character& _attacker, Character& _defenser);
+	Battle(Character* _attacker, Character* _defenser);
 
 	bool battle();
 	bool battleStep();

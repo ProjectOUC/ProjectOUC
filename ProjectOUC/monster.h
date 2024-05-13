@@ -14,6 +14,7 @@ public:
 		std::string _name = "", int _coin = 0) :
 		Character(_health, _attack, _defense, _name, MONSTER, _coin) {};
 
+	Monster(const Monster& monster);
 };
 
 Monster getMonster(int level);
