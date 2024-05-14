@@ -6,6 +6,8 @@
 #include "gadget.h"
 #include "attribute.h"
 
+class Gadget;
+
 enum char_type
 {
 	MONSTER,

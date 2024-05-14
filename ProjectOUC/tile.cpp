@@ -1,6 +1,8 @@
 #include "tile.h"
 #include "utils.h"
 
+extern const int max_gadget_index;
+
 void Tile::initTile(tile_type type)
 {
 	switch (type)
@@ -39,7 +41,7 @@ void Tile::initBattleTile()
 	attr.criticalAttackRate = 2 * level;
 	std::string name = "Goblin";
 	Monster* monster = new Monster(attr, name);
-
+	monster->gadgets[random(0, max_gadget_index)]++;
 	monsters.push_back(monster);
 }
 

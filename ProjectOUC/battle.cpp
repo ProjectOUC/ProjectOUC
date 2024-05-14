@@ -26,16 +26,74 @@ void Battle::winnerGetGadgets(Character* winner, Character* loser)
 	winner->modify_coin(loser->get_coin());
 }
 
+void Battle::useAllGadgets(Character* owner, Character* enemy, int cond)
+{
+	/*
+	cond:
+		1: 战斗开始
+		2: 战斗结束
+		3: 战斗中
+	*/
+	for (int i = 0; i < max_gadget_index; ++i)
+	{
+		for (int j = 0; j < owner->gadgets[i]; ++j)
+		{
+			switch (cond)
+			{
+			case 1:gadgetList[i]->before_battle(owner, enemy);
+			case 2:gadgetList[i]->after_battle(owner, enemy);
+			case 3:gadgetList[i]->during_battle(owner, enemy);
+			}
+		}
+	}
+}
+
+
+int Battle::checkEnd(Character* c1, Character* c2)
+{
+	/*
+	return:
+		0: 游戏结束
+		1: 获胜
+		2: 游戏未结束
+	*/
+	if (c1->get_type() == PLAYER && c1->dead()) return 0;
+	if (c2->get_type() == PLAYER && c2->dead()) return 0;
+	if (c1->get_type() != PLAYER && c1->dead())
+	{
+		useAllGadgets(c2, c1, 2);
+		winnerGetGadgets(c2, c1);
+		return 1;
+	}
+	if (c2->get_type() != PLAYER && c2->dead())
+	{
+		useAllGadgets(c1, c2, 2);
+		winnerGetGadgets(c1, c2);
+		return 1;
+	}
+	return 2;
+}
+
 bool Battle::battle()
 {
 	/* Todo
 	* while(!battleStep());
-	* 
+	*
 	* if player dead:
 	*     return false;
 	* winner takes loser's gadgets
 	* return true;
 	*/
+	useAllGadgets(attacker, defenser, 1);
+	int ending = checkEnd(attacker, defenser);
+	if (ending == 0) return false;
+	else if (ending == 1) return true;
+
+	useAllGadgets(defenser, attacker, 1);
+	ending = checkEnd(defenser, attacker);
+	if (ending == 0) return false;
+	else if (ending == 1) return true;
+
 	while (!battleStep())
 	{
 		std::cout << "战斗进行中，当前回合: " << turn << "\n";
@@ -45,13 +103,10 @@ bool Battle::battle()
 		}
 	}
 
-	if (attacker->dead() && attacker->get_type() == PLAYER) return false;
-	else if (defenser->dead() && defenser->get_type() == PLAYER) return false;
-
-	if (attacker->get_type() == PLAYER) winnerGetGadgets(attacker, defenser);
-	else winnerGetGadgets(defenser, attacker);
-
-	return true;
+	ending = checkEnd(attacker, defenser);
+	if (ending == 0) return false;
+	else if (ending == 1) return true;
+	return false;
 }
 
 bool Battle::battleStep()
@@ -89,8 +144,8 @@ bool Battle::attack(int player)
 	int attack = c1->get_attack();
 	int defense = c2->get_defense();
 
-	if (random(0, 100) < c1->get_attr().criticalAttackRate) critical = true;
-	if (random(0, 100) < c1->get_attr().missRate) miss = true;
+	if (random(0, 10000) < (int)(100 * c1->get_attr().criticalAttackRate)) critical = true;
+	if (random(0, 10000) < (int)(100 * c1->get_attr().missRate)) miss = true;
 
 	if (miss) damage = 0;
 	if (critical) attack = attack * 2;

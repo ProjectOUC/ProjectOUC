@@ -17,6 +17,8 @@ public:
 	bool battleStep();
 	bool attack(int player);
 	void winnerGetGadgets(Character* winner, Character* loser);
+	int checkEnd(Character* c1, Character* c2);
+	void useAllGadgets(Character* onwer, Character* enemy, int cond);
 	~Battle() {};
 private:
 	int turn;

@@ -47,7 +47,6 @@ bool Scene::checkTile()
 	Tile* tile = tiles[player_pos_x][player_pos_y];
 	if (tile->get_type() == WALL_TILE)
 	{
-		std::cout << "这是一个错误，不应该走到这个格子上\n";
 		return false;
 	}
 
@@ -68,7 +67,9 @@ bool Scene::checkTile()
 				return false;
 			}
 			std::cout << "战胜" << tile->monsters[i]->get_name() << "\n";
-			std::cout << "剩余生命: " << player->get_health() << " 防御: " << player->get_defense() << " 攻击: " << player->get_attack() << "\n\n";
+			std::cout << "剩余生命: " << player->get_health() << 
+				"\n防御: " << player->get_defense() << 
+				"\n攻击: " << player->get_attack() << "\n\n";
 		}
 		tile->monsters.clear();
 		tile->modify_type(EMPTY_TILE);
@@ -77,7 +78,6 @@ bool Scene::checkTile()
 
 	else if (tile->get_type() == EMPTY_TILE)
 	{
-		std::cout << "这里什么都没有\n";
 		return true;
 	}
 

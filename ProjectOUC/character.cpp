@@ -29,7 +29,7 @@ Character::Character(const Character& c) :
 
 void Character::take_gadget(const Gadget* g, int num)
 {
-	Attr attr = g->lose_gadget();
+	Attr attr = g->get_gadget();
 
 	this->modify_attr(num * attr);
 	this->gadgets[g->get_gadgetIndex()] += num;

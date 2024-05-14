@@ -1,11 +1,15 @@
 #pragma once
+#pragma execution_character_set("utf-8")
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <set>
 
 #include "attribute.h"
+#include "character.h"
 
+class Character;
 
 class Gadget
 {
@@ -19,6 +23,10 @@ public:
 
 	int get_gadgetIndex() const { return gadgetIndex; };
 	std::string get_name() const { return name; }
+
+	virtual void before_battle(Character* owner, Character* enemy) { return; }
+	virtual void after_battle(Character* owner, Character* enemy) { return; }
+	virtual void during_battle(Character* owner, Character* enemy) { return; }
 
 	virtual Attr get_gadget() const { return Attr(); };
 	virtual Attr lose_gadget() const { return Attr(); };
@@ -96,7 +104,7 @@ public:
 class Bow : public Gadget
 {
 public:
-	Bow(int _gadgetIndex = 4, std::string _name = "HealPotion") :
+	Bow(int _gadgetIndex = 4, std::string _name = "Bow") :
 		Gadget(_gadgetIndex, _name)
 	{  };
 
@@ -107,6 +115,7 @@ public:
 	Attr get_gadget() const;
 	Attr lose_gadget() const;
 	Attr use_gadget() const;
+	void before_battle(Character* owner, Character* enemy);
 };
 
 void initGadgetList();
