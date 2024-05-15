@@ -3,6 +3,8 @@
 #include "tile.h"
 #include "player.h"
 #include "battle.h"
+#include "PCG.h"
+
 #include <vector>
 #include <ctime>
 
@@ -20,6 +22,7 @@ class Scene
 {
 public:
 	Scene(int w = 10, int h = 10);
+	Scene(std::vector < std::vector<int> >& scene);
 
 	int get_width() const { return width; }
 	int get_height() const { return height; }

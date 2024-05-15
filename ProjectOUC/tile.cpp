@@ -1,5 +1,5 @@
 #include "tile.h"
-#include "utils.h"
+#include "utils/random.h"
 
 extern const int max_gadget_index;
 

@@ -7,6 +7,8 @@
 #include "player.h"
 #include "scene.h"
 #include "paint.h"
+#include "PCG.h"
+
 #define WIDTH 800
 #define HEIGHT 600
 
@@ -25,6 +27,10 @@ int main()
 {
 	srand(time(0u));
 	SetConsoleOutputCP(CP_UTF8);
+	caveGenerate(30, 30, 6, 45, 0.6);
+	//mazeGenerate(20, 20, 50, 1, 4, 5, 0);
+	return 0;
+
 	bool running = true;
 	initgraph(WIDTH, HEIGHT, EW_SHOWCONSOLE);
 	//initgraph(GAME_WIDTH, GAME_HEIGHT);

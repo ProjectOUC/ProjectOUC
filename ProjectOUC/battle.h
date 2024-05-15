@@ -4,7 +4,7 @@
 #include "player.h"
 #include "monster.h"
 #include "scene.h"
-#include "utils.h"
+#include "utils/random.h"
 
 #pragma execution_character_set("utf-8")
 

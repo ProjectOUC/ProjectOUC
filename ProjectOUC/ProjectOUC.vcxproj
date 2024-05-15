@@ -136,10 +136,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="monster.cpp" />
     <ClCompile Include="paint.cpp" />
+    <ClCompile Include="PCG.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="tile.cpp" />
-    <ClCompile Include="utils.cpp" />
+    <ClCompile Include="utils\random.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attribute.h" />
@@ -149,10 +150,12 @@
     <ClInclude Include="gadget.h" />
     <ClInclude Include="monster.h" />
     <ClInclude Include="paint.h" />
+    <ClInclude Include="PCG.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="tile.h" />
-    <ClInclude Include="utils.h" />
+    <ClInclude Include="utils\random.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="half_heart.png" />

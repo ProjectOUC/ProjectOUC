@@ -6,6 +6,9 @@
 #pragma execution_character_set("utf-8")
 
 const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
+extern const int EMPTY;
+extern const int WALL;
+extern const int BIRTH;
 
 Scene::Scene(int h, int w)
 {
@@ -27,6 +30,31 @@ Scene::Scene(int h, int w)
 	initSceneByNum({ 20, 20, 0, 0 });
 }
 
+Scene::Scene(std::vector < std::vector<int> >& scene)
+{
+	player = getPlayer(1);
+
+
+	height = (int)scene.size()-2;
+	width = (int)scene[0].size() - 2;
+	tiles.resize(height + 2 * boundary);
+	for (int i = 0; i < height + 2 * boundary; ++i)
+	{
+		tiles[i].resize(width + 2 * boundary);
+		for (int j = 0; j < width + 2 * boundary; ++j)
+		{
+			tiles[i][j] = new Tile;
+			if (scene[i][j] == WALL) tiles[i][j]->initWallTile();
+			else if (scene[i][j] == EMPTY) tiles[i][j]->initEmptyTile();
+			else if (scene[i][j] == BIRTH)
+			{
+				player_pos_x = i;
+				player_pos_y = j;
+				tiles[i][j]->initEmptyTile();
+			}
+		}
+	}
+}
 
 void Scene::move(direction dir)
 {
@@ -147,9 +175,6 @@ void Scene::initSceneByNum(std::vector<int> num)
 		WALL_TILE,
 		EMPTY_TILE
 	};
-
-
-
 
 	int k = 0;
 	for (int n : num) k += n;
