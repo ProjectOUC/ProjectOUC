@@ -25,30 +25,20 @@ window_type current_window_type = MAIN_WINDOW;
 
 void pt(Scene& scene)
 {
-	setbkcolor(WHITE);
 	cleardevice();
-	int x1, y1, x2, y2;
-	int px = scene.get_player_pos_x(), py = scene.get_player_pos_y();
-	x1 = max(px - 2, 0);
-	y1 = max(py - 2, 0);
-	x2 = min(px + 2, scene.get_width() - 1);
-	y2 = min(py + 2, scene.get_height() - 1);
-
-	for (int x = x1; x <= x2; ++x)
+	for (int i = 0; i < scene.get_width(); ++i)
 	{
-		for (int y = y1; y <= y2; ++y)
+		for (int j = 0; j < scene.get_height(); ++j)
 		{
-			Tile* tile = scene.get_tiles(x, y);
-			rectangle(100 * (x - x1 + 1), 100 * (y - y1 + 1), 100 * (x - x1 + 2), 100 * (y - y1 + 2));
-			if (tile->get_type() == EMPTY_TILE) continue;
+			Tile* tile = scene.get_tiles(i, j);
 			if (tile->get_type() == BATTLE_TILE) setfillcolor(RED);
 			else if (tile->get_type() == CHEST_TILE) setfillcolor(GREEN);
+			else if (i == scene.get_player_pos_x() && j == scene.get_player_pos_y()) setfillcolor(BLUE);
 			else if (tile->get_type() == WALL_TILE) setfillcolor(BLACK);
-			fillrectangle(20 + 100 * (x - x1 + 1), 20 + 100 * (y - y1 + 1), 100 * (x - x1 + 2) - 20, 100 * (y - y1 + 2) - 20);
+			else if (tile->get_type() == EMPTY_TILE) setfillcolor(WHITE);
+			fillrectangle(100 + 15 * i, 100 + 15 * j, 100 + 15 * i + 14, 100 + 15 * j + 14);
 		}
 	}
-	setfillcolor(BLUE);
-	fillrectangle(20 + 100 * (px - x1 + 1), 20 + 100 * (py - y1 + 1), 100 * (px - x1 + 2) - 20, 100 * (py - y1 + 2) - 20);
 }
 
 int main()
@@ -64,7 +54,7 @@ int main()
 	//SwitchToWindow(current_window_type);
 	
 	initGadgetList();
-	Scene scene(mazeGenerate(10, 10, 10, 1, 3, 5, 80, 0.5), Scene::MAZE);
+	Scene scene(mazeGenerate(15, 15, 10, 1, 3, 5, 80, 0.5), Scene::MAZE);
 	Paint paint(WIDTH, HEIGHT);
 	
 	direction d[4] = { LEFT, RIGHT, UP, DOWN };
@@ -83,7 +73,7 @@ int main()
 		//paint_wall(scene);
 		pt(scene);
 		//std::cout << "µ±Ç°Î»ÖÃ: " << scene.get_player_pos_x() << " " << scene.get_player_pos_y() << "\n";
-		Player_paint(scene);
+		//Player_paint(scene);
 		EndBatchDraw();
 		ExMessage msg;
 		while (peekmessage(&msg))
