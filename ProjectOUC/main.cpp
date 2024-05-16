@@ -1,8 +1,8 @@
 #include <iostream>
-#include<conio.h>
+#include <conio.h>
 #include "graphics.h"
 #include "chest.h"
-#include "gadget.h"
+#include "gadgets/gadgets.h"
 #include "monster.h"
 #include "player.h"
 #include "scene.h"
@@ -23,13 +23,40 @@ extern std::set<int> usefulGadgetSet;
 
 window_type current_window_type = MAIN_WINDOW;
 
+void pt(Scene& scene)
+{
+	setbkcolor(WHITE);
+	cleardevice();
+	int x1, y1, x2, y2;
+	int px = scene.get_player_pos_x(), py = scene.get_player_pos_y();
+	x1 = max(px - 2, 0);
+	y1 = max(py - 2, 0);
+	x2 = min(px + 2, scene.get_width() - 1);
+	y2 = min(py + 2, scene.get_height() - 1);
+
+	for (int x = x1; x <= x2; ++x)
+	{
+		for (int y = y1; y <= y2; ++y)
+		{
+			Tile* tile = scene.get_tiles(x, y);
+			rectangle(100 * (x - x1 + 1), 100 * (y - y1 + 1), 100 * (x - x1 + 2), 100 * (y - y1 + 2));
+			if (tile->get_type() == EMPTY_TILE) continue;
+			if (tile->get_type() == BATTLE_TILE) setfillcolor(RED);
+			else if (tile->get_type() == CHEST_TILE) setfillcolor(GREEN);
+			else if (tile->get_type() == WALL_TILE) setfillcolor(BLACK);
+			fillrectangle(20 + 100 * (x - x1 + 1), 20 + 100 * (y - y1 + 1), 100 * (x - x1 + 2) - 20, 100 * (y - y1 + 2) - 20);
+		}
+	}
+	setfillcolor(BLUE);
+	fillrectangle(20 + 100 * (px - x1 + 1), 20 + 100 * (py - y1 + 1), 100 * (px - x1 + 2) - 20, 100 * (py - y1 + 2) - 20);
+}
+
 int main()
 {
-	srand(time(0u));
+	srand(time(nullptr));
 	SetConsoleOutputCP(CP_UTF8);
-	caveGenerate(30, 30, 6, 45, 0.6);
-	//mazeGenerate(20, 20, 50, 1, 4, 5, 0);
-	return 0;
+	//caveGenerate(30, 30, 6, 45, 0.6);
+	//mazeGenerate(30, 30, 60, 1, 4, 5, 80, 0.5);
 
 	bool running = true;
 	initgraph(WIDTH, HEIGHT, EW_SHOWCONSOLE);
@@ -37,7 +64,7 @@ int main()
 	//SwitchToWindow(current_window_type);
 	
 	initGadgetList();
-	Scene scene;
+	Scene scene(mazeGenerate(10, 10, 10, 1, 3, 5, 80, 0.5), Scene::MAZE);
 	Paint paint(WIDTH, HEIGHT);
 	
 	direction d[4] = { LEFT, RIGHT, UP, DOWN };
@@ -46,15 +73,16 @@ int main()
 	{
 		DWORD start_time = GetTickCount();
 		BeginBatchDraw();
-		Map_paint(WIDTH, HEIGHT);
-		monster_paint(scene);
-		chest_paint(scene);
+		//Map_paint(WIDTH, HEIGHT);
+		//setbkcolor(WHITE);
+		//cleardevice();
+		//monster_paint(scene);
+		//chest_paint(scene);
 		Money_paint(scene);
 		paint_heart(scene);
+		//paint_wall(scene);
+		pt(scene);
 		//std::cout << "当前位置: " << scene.get_player_pos_x() << " " << scene.get_player_pos_y() << "\n";
-		//std::cout << "生命值: " << scene.get_player()->get_health() << " 攻击: "
-		//	<< scene.get_player()->get_attack() << " 防御: " << scene.get_player()->get_defense() << "\n";
-
 		Player_paint(scene);
 		EndBatchDraw();
 		ExMessage msg;

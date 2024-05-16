@@ -16,6 +16,11 @@ struct Room
 	bool include(const Room& other) const;
 };
 
+struct Coord
+{
+	int x, y;
+};
+
 void scenePaint(std::vector<std::vector<int>>& scene, int height, int width);
 
 std::vector<std::vector<int>> mazeGenerate(
@@ -25,14 +30,23 @@ std::vector<std::vector<int>> mazeGenerate(
 	int minRoomSize,
 	int maxRoomSize,
 	int maxIter,
-	int maxOverlap);
+	int windingPercent,
+	double keepDeadEndRate,
+	bool paint=false);
+
+void generatePath(std::vector<std::vector<int>>& maze, int h, int w, int windingPercent);
+
+void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, int h, int w);
+
+void eraseDeadEnd(std::vector<std::vector<int>>& maze, int h, int w, double keepDeadEndRate);
 
 std::vector<std::vector<int>> caveGenerate(
 	int height,
 	int width,
 	int maxIter,
 	int wallWeight,
-	float fillIter);
+	double fillIter,
+	bool paint=false);
 
 void fillFragments(std::vector<std::vector<int>>& scene);
 

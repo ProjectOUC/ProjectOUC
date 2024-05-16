@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="道具">
+      <UniqueIdentifier>{ff5d514e-1d19-49fb-b695-5cf6725d30fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -22,9 +25,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="scene.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="gadget.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="player.cpp">
@@ -54,15 +54,33 @@
     <ClCompile Include="utils\random.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="gadgets\bow.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\cursedstone.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\gadget.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\gadgets.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\healpotion.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\shield.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\sword.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="character.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="scene.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="gadget.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
@@ -94,6 +112,27 @@
     </ClInclude>
     <ClInclude Include="utils\random.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\bow.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\cursedstone.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\gadget.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\gadgets.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\healpotion.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\shield.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\sword.h">
+      <Filter>道具</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

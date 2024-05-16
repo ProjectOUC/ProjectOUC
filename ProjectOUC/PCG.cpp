@@ -1,8 +1,13 @@
 #include "PCG.h"
+#include <queue>
+
 
 extern const int EMPTY = 0;
 extern const int WALL = 1;
 extern const int BIRTH = 2;
+extern const int FILLED = 3;
+extern const int MONSTER = 4;
+extern const int CLOSEDOOR = 5;
 
 Room::Room()
 {
@@ -64,22 +69,32 @@ void scenePaint(std::vector<std::vector<int>>& scene, int height, int width)
 		}
 	}
 	getchar();
+	cleardevice();
 	closegraph();
 }
 
 std::vector<std::vector<int>> mazeGenerate(
-	int height, 
+	int height,
 	int width,
 	int maxRoomNum,
 	int minRoomSize,
 	int maxRoomSize,
 	int maxIter,
-	int maxOverlap)
+	int windingPercent,
+	double keepDeadEndRate,
+	bool paint)
 {
+	//1. 随机生成一些房间
+	//2. 使用flood fill生成道路
+	//3. 连接房间和道路
+	//4. 删除一些死胡同
+	//5. 生成出生点
+	//6. 生成怪物、NPC、宝箱
 
+	// Step 1
 	std::vector < std::vector<int> > maze(2*height+1);
 	std::vector <Room*> rooms;
-	for (int i = 0; i < 2*height+1; ++i) maze[i].resize(2*width+1);
+	for (int i = 0; i < 2 * height + 1; ++i) maze[i].resize(2*width+1);
 	for (int i = 0; i < 2 * height + 1; ++i) maze[i][0] = maze[i][2 * width] = WALL;
 	for (int i = 0; i < 2 * width + 1; ++i) maze[0][i] = maze[2*height][i] = WALL;
 	//put room
@@ -87,11 +102,11 @@ std::vector<std::vector<int>> mazeGenerate(
 	{
 		for (int iter = 0; iter < maxIter; ++iter)
 		{
-			int x1 = random(0, height - 1);
-			int y1 = random(0, width - 1);
-			int x2 = x1 + random(minRoomSize, maxRoomSize);
-			int y2 = y1 + random(minRoomSize, maxRoomSize);
-			if (x2 >= height || y2 >= width) continue;
+			int x1 = random(0, height);
+			int y1 = random(0, width);
+			int x2 = x1 + random(minRoomSize+1, maxRoomSize);
+			int y2 = y1 + random(minRoomSize+1, min(maxRoomSize, 2*(x2-x1)));
+			if (x2 > height || y2 > width) continue;
 			Room* room = new Room(x1, y1, x2, y2);
 			bool overlap = false;
 			for (Room* r : rooms)
@@ -109,32 +124,199 @@ std::vector<std::vector<int>> mazeGenerate(
 	}
 
 	for (Room* r : rooms)
-		for (int x = 2 * (r->x1)+1; x <= 2 * (r->x2)+1; ++x)
-			for (int y = 2 * (r->y1)+1; y <= 2 * (r->y2)+1; ++y)
-				maze[x][y] = (x == 2 * (r->x1)+1 || x == 2 * (r->x2)+1 || y == 2 * (r->y1)+1 || y == 2 * (r->y2)+1) ? WALL : EMPTY;
+		for (int x = 2 * (r->x1); x <= 2 * (r->x2); ++x)
+			for (int y = 2 * (r->y1); y <= 2 * (r->y2); ++y)
+				maze[x][y] = (x == 2 * (r->x1) || x == 2 * (r->x2) || y == 2 * (r->y1) || y == 2 * (r->y2)) ? WALL : FILLED;
 	
-	scenePaint(maze, 2 * height + 1, 2 * width + 1);
-	for (int x = 0; x < 2 * height + 1; ++x)
+	// Step2
+	generatePath(maze, 2*height+1, 2*width+1, windingPercent);
+	// Step3
+	connectPath(maze, rooms, 2*height+1, 2*width+1);
+	// Step4
+	eraseDeadEnd(maze, 2*height+1, 2*width+1, keepDeadEndRate);
+	// Step5
+	initBirthPoint(maze);
+	// Step6
+	if (paint) scenePaint(maze, 2 * height + 1, 2 * width + 1);
+
+	for (int i = 0; i < rooms.size(); ++i) delete rooms[i];
+	return maze;
+}
+
+void generatePath(std::vector<std::vector<int>>& maze, int h, int w, int windingPercent)
+{
+	int bx = 0, by = 0, lastdir = -1;
+	const static int dx[4] = { -2, 0, 2, 0 }, dy[4] = { 0, -2, 0, 2 };
+	for (int i = 1; i < h; i += 2)
 	{
-		for (int y = 0; y < 2 * width + 1; ++y)
+		if (bx != 0) break;
+		for (int j = 1; j < w; j += 2)
 		{
-			if (maze[x][y] == WALL)
+			if (maze[i][j] != FILLED)
 			{
-				fillrectangle(10 * x + 1, 10 * y + 1, 10 * x + 9, 10 * y + 9);
+				bx = i;
+				by = j;
 			}
 		}
 	}
+
+	std::vector<int> qx, qy, dir;
+	qx.push_back(bx);
+	qy.push_back(by);
+	dir.push_back(-1);
+	maze[bx][by] = FILLED;
+
+	while (!qx.empty())
+	{
+		int newdir = 0;
+		bx = qx.back();
+		by = qy.back();
+		lastdir = dir.back();
+		maze[bx][by] = FILLED;
+		std::vector<int> unmadeDir;
+
+		for (int d = 0; d < 4; ++d)
+		{
+			if (bx + dx[d] >= 0 && by + dy[d] >= 0 && bx + dx[d] < h && by + dy[d] < w && maze[bx+dx[d]][by+dy[d]] == EMPTY) 
+				unmadeDir.push_back(d);
+		}
+
+		if (!unmadeDir.empty())
+		{
+			if (lastdir != -1 && random(0, 100) > windingPercent && count(unmadeDir.begin(), unmadeDir.end(), lastdir)) 
+				newdir = lastdir;
+			else 
+				newdir = random(unmadeDir);
+			dir.push_back(newdir);
+			qx.push_back(bx + dx[newdir]);
+			qy.push_back(by + dy[newdir]);
+			maze[bx + dx[newdir]][by + dy[newdir]] = maze[bx + dx[newdir] / 2][by + dy[newdir] / 2] = FILLED;
+		}
+		else
+		{
+			qx.pop_back();
+			qy.pop_back();
+			dir.pop_back();
+		}
+	}
+
+	for (int i = 0; i < h; ++i)
+		for (int j = 0; j < w; ++j)
+			if (maze[i][j] == EMPTY) maze[i][j] = WALL;
 	
+	return;
+}
 
-	//generate paths
+void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, int h, int w)
+{
+	for (Room* room : rooms)
+	{
+		std::vector<int> px, py;
+		for (int x = 2 * room->x1 + 1; x < 2 * room->x2; ++x)
+		{
+			if (2 * room->y1 != 0)
+			{
+				if (maze[x][2 * room->y1 + 1] != WALL && maze[x][2 * room->y1 - 1] != WALL)
+				{
 
-	//connect room and paths
+					px.push_back(x);
+					py.push_back(2 * room->y1);
+				}
+			}
+			if (2 * room->y2 != w-1) 
+			{
+				if (maze[x][2 * room->y2 + 1] != WALL && maze[x][2 * room->y2 - 1] != WALL)
+				{
+					px.push_back(x);
+					py.push_back(2 * room->y2);
+				}
+			}
+		}
+		for (int y = 2 * room->y1 + 1; y < 2 * room->y2; ++y)
+		{
+			if (2 * room->x1 != 0)
+			{
+				if (maze[2 * room->x1 - 1][y] != WALL && maze[2 * room->x1 + 1][y] != WALL)
+				{
+					px.push_back(2 * room->x1);
+					py.push_back(y);
+				}
+			}
+			if (2 * room->x2 != h - 1)
+			{
+				if (maze[2 * room->x2 - 1][y] != WALL && maze[2 * room->x2 + 1][y] != WALL)
+				{
+					px.push_back(2 * room->x2);
+					py.push_back(y);
+				}
+			}
+		}
+		int ind = randInd(px);
+		maze[px[ind]][py[ind]] = MONSTER;
+	}
 
-	//delete dead ends
 
-	//put monsters
-	for (int i = 0; i < rooms.size(); ++i) delete rooms[i];
-	return maze;
+	std::vector<int> px, py;
+	for (int i = 1; i < h - 1; ++i)
+	{
+		for (int j = 1; j < h - 1; ++j)
+		{
+			if (maze[i][j] != WALL) continue;
+			if ((maze[i][j - 1] != WALL && maze[i][j + 1] != WALL) || (maze[i - 1][j] != WALL && maze[i + 1][j] != WALL))
+			{
+				if (oneIn(50))
+				{
+					maze[i][j] = oneIn(2) ? FILLED : (oneIn(3) ? MONSTER : CLOSEDOOR);
+				}
+			}
+		}
+	}
+}
+
+void eraseDeadEnd(std::vector<std::vector<int>>& maze, int h, int w, double keepDeadEndRate)
+{
+	std::vector<int> qx, qy;
+	const static int dx[4] = { -1, 0, 1, 0 }, dy[4] = { 0, -1, 0, 1 };
+	for (int i = 1; i < h - 1; ++i)
+	{
+		for (int j = 1; j < h - 1; ++j)
+		{
+			if (maze[i][j] == WALL) continue;
+			int unmadeDir = 0;
+			for (int d = 0; d < 4; ++d)
+				if (maze[i + dx[d]][j + dy[d]] != WALL) unmadeDir++;
+			if (unmadeDir == 1) qx.push_back(i), qy.push_back(j);
+		}
+	}
+
+	int x = 0, y = 0, size = qx.size();
+	std::vector<int> vecx, vecy, rd(random(0, size - 1, (int)(size * keepDeadEndRate), false));
+	for (int ind : rd)
+	{
+		x = qx[ind], y = qy[ind];
+		while (1)
+		{
+			int unmadeDir = 0;
+			for (int d = 0; d < 4; ++d)
+			{
+				int nx = x + dx[d], ny = y + dy[d];
+				if (maze[nx][ny] == WALL) continue;
+				unmadeDir++;
+			}
+			if (unmadeDir != 1) break;
+			else
+			{
+				maze[x][y] = WALL;
+				for (int d = 0; d < 4; ++d)
+				{
+					int nx = x + dx[d], ny = y + dy[d];
+					if (maze[nx][ny] == WALL) continue;
+					x = nx, y = ny;
+					break;
+				}
+			}
+		}
+	}
 }
 
 std::vector<std::vector<int>> caveGenerate(
@@ -142,7 +324,8 @@ std::vector<std::vector<int>> caveGenerate(
 	int width,
 	int maxIter,
 	int wallWeight,
-	float fillIter)
+	double fillIter,
+	bool paint)
 {
 	/*	1. 生成cave, 随机初始化
 		2. 迭代maxIter次

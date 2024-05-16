@@ -37,11 +37,11 @@ void Tile::initBattleTile()
 	attr.maxHealth = attr.health = random(level * 11, level * 11 + 5);
 	attr.attack = random(level * 5, level * 5 + 2);
 	attr.defense = random(level * 3, level * 3 + 1);
-	attr.missRate = 10 - 2 * level;
-	attr.criticalAttackRate = 2 * level;
+	attr.missRate = 10.0 - 2 * level;
+	attr.criticalAttackRate = 2.0 * level;
 	std::string name = "Goblin";
 	Monster* monster = new Monster(attr, name);
-	monster->gadgets[random(0, max_gadget_index)]++;
+	monster->gadgets[random(0, max_gadget_index-1)]++;
 	monsters.push_back(monster);
 }
 

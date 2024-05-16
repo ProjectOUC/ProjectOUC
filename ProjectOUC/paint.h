@@ -15,3 +15,4 @@ void chest_paint(Scene& scene);
 void monster_paint(Scene& scene);
 void Health_paint(Scene& scene);
 void paint_heart(Scene& scene);
+void paint_wall(Scene& scene);

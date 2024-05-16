@@ -2,6 +2,7 @@
 
 #include <conio.h>
 #include <iostream>
+#include <queue>
 
 #pragma execution_character_set("utf-8")
 
@@ -9,19 +10,21 @@ const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
 extern const int EMPTY;
 extern const int WALL;
 extern const int BIRTH;
+extern const int FILLED;
 
 Scene::Scene(int h, int w)
 {
 	player = getPlayer(1);
 	player_pos_x = player_pos_y = boundary;
+	
 	width = w;
 	height = h;
 
-	tiles.resize(height + 2 * boundary);
-	for (int i = 0; i < height + 2 * boundary; ++i)
+	tiles.resize(height);
+	for (int i = 0; i < height; ++i)
 	{
-		tiles[i].resize(width + 2 * boundary);
-		for (int j = 0; j < width + 2 * boundary; ++j)
+		tiles[i].resize(width);
+		for (int j = 0; j < width; ++j)
 		{
 			tiles[i][j] = new Tile;
 		}
@@ -30,18 +33,20 @@ Scene::Scene(int h, int w)
 	initSceneByNum({ 20, 20, 0, 0 });
 }
 
-Scene::Scene(std::vector < std::vector<int> >& scene)
+Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type) :
+	scene_type(_scene_type)
 {
 	player = getPlayer(1);
+	player_pos_x = player_pos_y = last_x = last_y = 0;
 
 
-	height = (int)scene.size()-2;
-	width = (int)scene[0].size() - 2;
-	tiles.resize(height + 2 * boundary);
-	for (int i = 0; i < height + 2 * boundary; ++i)
+	height = (int)scene.size();
+	width = (int)scene[0].size();
+	tiles.resize(height);
+	for (int i = 0; i < height; ++i)
 	{
-		tiles[i].resize(width + 2 * boundary);
-		for (int j = 0; j < width + 2 * boundary; ++j)
+		tiles[i].resize(width);
+		for (int j = 0; j < width; ++j)
 		{
 			tiles[i][j] = new Tile;
 			if (scene[i][j] == WALL) tiles[i][j]->initWallTile();
@@ -54,19 +59,72 @@ Scene::Scene(std::vector < std::vector<int> >& scene)
 			}
 		}
 	}
+
+	std::vector<std::vector<int>> dist(height, std::vector<int>(width, 0));
+	dist[player_pos_x][player_pos_y] = 1;
+	std::queue<int> qx, qy, qdist;
+	qx.push(player_pos_x), qy.push(player_pos_y), qdist.push(1);
+	const static int dx[4] = { -1, 0, 1, 0 }, dy[4] = { 0, -1, 0, 1 };
+	while (!qx.empty())
+	{
+		int x = qx.front(), y = qy.front(), dis = qdist.front();
+		qx.pop(), qy.pop(), qdist.pop();
+		for (int d = 0; d < 4; ++d)
+		{
+			if (scene[x + dx[d]][y + dy[d]] == WALL || dist[x+dx[d]][y+dy[d]] != 0) continue;
+			qx.push(x + dx[d]), qy.push(y + dy[d]), qdist.push(dis+1);
+			dist[x + dx[d]][y + dy[d]] = dis + 1;
+		}
+	}
+
+	for (int i = 0; i < height; ++i)
+	{
+		for (int j = 0; j < width; ++j)
+		{
+			if (scene[i][j] == WALL) continue;
+			else if (dist[i][j] <= 5) tiles[i][j]->initEmptyTile();
+			else
+			{
+				if (scene[i][j] == MONSTER) tiles[i][j]->initBattleTile();
+				else if (scene[i][j] == FILLED)
+				{
+					if (oneIn(2)) tiles[i][j]->initEmptyTile();
+					else if (oneIn(2)) tiles[i][j]->initChestTile();
+					else tiles[i][j]->initBattleTile();
+				}
+			}
+		}
+	}
+
 }
 
 void Scene::move(direction dir)
 {
 	// Todo: 向四个方向移动，使用button/键盘交互
 	tiles[player_pos_x][player_pos_y]->modify_visited();
+	last_x = player_pos_x, last_y = player_pos_y;
 	switch (dir)
 	{
-	case LEFT: player_pos_x = max(player_pos_x - 1, boundary);  break;
-	case RIGHT: player_pos_x = min(player_pos_x + 1, height + boundary - 1); break;
-	case UP: player_pos_y = max(player_pos_y -1, boundary); break;
-	case DOWN: player_pos_y = min(player_pos_y +1, width + boundary - 1);  break;
+	case LEFT: player_pos_x = player_pos_x - 1;  break;
+	case RIGHT: player_pos_x = player_pos_x + 1; break;
+	case UP: player_pos_y = player_pos_y -1; break;
+	case DOWN: player_pos_y = player_pos_y +1;  break;
 	}
+	if (tiles[player_pos_x][player_pos_y]->get_unreachable())
+	{
+		player_pos_x = last_x;
+		player_pos_y = last_y;
+	}
+	std::cout << "生命值: " << get_player()->get_health() << " 攻击: "
+		<< get_player()->get_attack() << " 防御: " << get_player()->get_defense() << "\n";
+
+}
+
+void Scene::moveTo(int x, int y)
+{
+	last_x = player_pos_x, last_y = player_pos_y;
+	if (tiles[x][y]->get_unreachable()) return;
+	player_pos_x = x, player_pos_y = y;
 }
 
 bool Scene::checkTile()
@@ -134,14 +192,14 @@ bool Scene::checkTile()
 
 void Scene::initScene()
 {
-	for (int h = 0; h < height + 2 * boundary; ++h)
+	for (int h = 0; h < height; ++h)
 	{
-		for (int w = 0; w < width + 2 * boundary; ++w)
+		for (int w = 0; w < width; ++w)
 		{
 			if (h < boundary ||
-				h >= height + boundary ||
+				h + boundary >= height ||
 				w < boundary ||
-				w >= width + boundary)
+				w + boundary >= width)
 			{
 				tiles[h][w]->initWallTile();
 			}
@@ -184,14 +242,14 @@ void Scene::initSceneByNum(std::vector<int> num)
 	int pivot = 0;
 	int rem = height * width;
 	srand((unsigned int)time(0));
-	for (int h = 0; h < height + 2 * boundary; ++h)
+	for (int h = 0; h < height; ++h)
 	{
-		for (int w = 0; w < width + 2 * boundary; ++w)
+		for (int w = 0; w < width; ++w)
 		{
 			if (h < boundary ||
-				h >= height + boundary ||
+				h + boundary >= height ||
 				w < boundary ||
-				w >= width + boundary)
+				w + boundary >= width)
 			{
 				tiles[h][w]->initWallTile();
 			}
@@ -227,8 +285,8 @@ void Scene::initSceneByNum(std::vector<int> num)
 Scene::~Scene()
 {
 	delete player;
-	for (int i = 0; i < height + 2 * boundary; ++i)
-		for (int j = 0; j < width + 2 * boundary; ++j)
+	for (int i = 0; i < height; ++i)
+		for (int j = 0; j < width; ++j)
 			delete tiles[i][j];
 };
 

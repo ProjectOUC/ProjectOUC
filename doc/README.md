@@ -150,11 +150,44 @@
 - 函数：
   - getMonster：返回一个用于测试的Monster
 
+### PCG.h
+
+### Room
+
+- 功能：用于生成迷宫地形的房间，以及在洞穴地形中生成一些事件。
+- 成员：左下和右上的坐标；重载了赋值运算符
+- 函数：
+  - intersect(const Room& other)：判断两个Room是否相交
+  - include(const Room& other)：判断两个Room是否存在包含关系
+
+- 提供了两个算法，分别用于生成迷宫地形和洞穴地形
+
+- 洞穴地形生成接口如下，具体过程见代码注释
+
+  - ```c++
+    std::vector<std::vector<int>> caveGenerate(
+    	int height, 
+    	int width,
+    	int maxIter, //细胞自动机迭代轮数，通常不超过10，建议为5
+    	int wallWeight, //初始化时，wall在地图中的占比，通常为45%-50%，建议为45%
+    	float fillIter); //用于控制细胞自动机迭代过程中，填充大片空地的轮数，建议为0.5以上
+    ```
+
+- 迷宫地形生成接口如下，具体过程见代码注释
+
+  - 
+
+
+
 ### player.h
 
 - 功能：Character的子类，玩家操控的单位，负责探索场景，击败怪物，发现宝箱，完成任务。
 - 成员：Todo
 - 函数：Todo
+
+### random.h
+
+- 提供了一些生成随机数的函数
 
 ### scene.h
 

@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "gadget.h"
+#include "gadgets/gadget.h"
 #include "attribute.h"
 
 class Gadget;

@@ -76,8 +76,9 @@ void Player_paint(Scene& scene)
 	setlinecolor(BLACK);
 	setlinestyle(PS_SOLID, 3);
 	setfillcolor(BLUE);
-	fillrectangle(25 + (x- 1) * 100, 125 + (y - 1) * 100, 75 + (x - 1) * 100, 175 + (y - 1) * 100);
+	fillrectangle(25 + x * 100, 125 + y * 100, 75 + x * 100, 175 + y * 100);
 }
+
 void Money_paint(Scene& scene)
 {
 	int money = scene.get_player()->get_coin();
@@ -94,9 +95,9 @@ void chest_paint(Scene& scene)
 {
 	int i, j;
 	Tile* tile;
-	for (i = 0; i <= scene.get_width(); i++)
+	for (i = 0; i < scene.get_width(); i++)
 	{
-		for (j = 0; j <= scene.get_height(); j++)
+		for (j = 0; j < scene.get_height(); j++)
 		{
 			tile = scene.get_tiles(i, j);
 			if (tile->get_type() == CHEST_TILE)
@@ -104,20 +105,39 @@ void chest_paint(Scene& scene)
 				setlinecolor(BLACK);
 				setlinestyle(PS_SOLID, 2);
 				setfillcolor(GREEN);
-				fillrectangle(25 + (i - 1) * 100, 125 + (j - 1) * 100, 75 + (i - 1) * 100, 175 + (j - 1) * 100);
+				fillrectangle(25 + i * 100, 125 + j * 100, 75 + i * 100, 175 + j * 100);
+			}
+		}
+	}	
+}
+
+void paint_wall (Scene& scene)
+{
+	int i, j;
+	Tile* tile;
+	for (i = 0; i < scene.get_width(); ++i)
+	{
+		for (j = 0; j < scene.get_height(); ++j)
+		{
+			tile = scene.get_tiles(i, j);
+			if (tile->get_type() == WALL_TILE)
+			{
+				setlinecolor(BLACK);
+				setlinestyle(PS_SOLID, 2);
+				setfillcolor(BLACK);
+				fillrectangle(25 + i * 100, 125 + j * 100, 75 + i * 100, 175 + j * 100);
 			}
 		}
 	}
-	
 }
 
 void monster_paint(Scene& scene)
 {
 	int i, j;
 	Tile* tile;
-	for (i = 0; i <= scene.get_width(); i++)
+	for (i = 0; i < scene.get_width(); i++)
 	{
-		for (j = 0; j <= scene.get_height(); j++)
+		for (j = 0; j < scene.get_height(); j++)
 		{
 			tile = scene.get_tiles(i, j);
 			if (tile->get_type()==BATTLE_TILE)
@@ -125,7 +145,7 @@ void monster_paint(Scene& scene)
 				setlinecolor(BLACK);
 				setlinestyle(PS_SOLID, 2);
 				setfillcolor(RED);
-				fillrectangle(25 + (i - 1) * 100, 125 + (j - 1) * 100, 75 + (i - 1) * 100, 175 + (j - 1) * 100);
+				fillrectangle(25 + i * 100, 125 + j * 100, 75 + i * 100, 175 + j * 100);
 			}
 		}
 	}
