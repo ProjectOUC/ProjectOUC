@@ -15,5 +15,5 @@ public:
 	Attr get_gadget() const;
 	Attr lose_gadget() const;
 	Attr use_gadget() const;
-	void before_battle(Character* owner, Character* enemy);
+	void before_battle(Character* owner, Character* enemy, int count);
 };

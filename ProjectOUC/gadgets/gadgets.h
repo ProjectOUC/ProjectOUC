@@ -4,6 +4,7 @@
 #include "healpotion.h"
 #include "cursedstone.h"
 #include "bow.h"
+#include "teleportscroll.h"
 
 void initGadgetList();
 void destroyGadgetList();

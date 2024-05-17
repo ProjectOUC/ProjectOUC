@@ -1,10 +1,10 @@
 #include <iostream>
 #include <conio.h>
 #include "graphics.h"
-#include "chest.h"
+#include "roles/chest.h"
 #include "gadgets/gadgets.h"
-#include "monster.h"
-#include "player.h"
+#include "roles/monster.h"
+#include "roles/player.h"
 #include "scene.h"
 #include "paint.h"
 #include "PCG.h"
@@ -23,30 +23,132 @@ extern std::set<int> usefulGadgetSet;
 
 window_type current_window_type = MAIN_WINDOW;
 
-void pt(Scene& scene)
+void pt(std::vector<Scene*>& scenes, Player* player)
 {
 	cleardevice();
-	for (int i = 0; i < scene.get_width(); ++i)
+	Position pos = player->get_pos();
+	Scene* scene = scenes[pos.stage];
+	for (int i = 0; i < scene->get_width(); ++i)
 	{
-		for (int j = 0; j < scene.get_height(); ++j)
+		for (int j = 0; j < scene->get_height(); ++j)
 		{
-			Tile* tile = scene.get_tiles(i, j);
+			Tile* tile = scene->get_tiles(i, j);
 			if (tile->get_type() == BATTLE_TILE) setfillcolor(RED);
 			else if (tile->get_type() == CHEST_TILE) setfillcolor(GREEN);
-			else if (i == scene.get_player_pos_x() && j == scene.get_player_pos_y()) setfillcolor(BLUE);
+			else if (i == pos.x && j == pos.y) setfillcolor(BLUE);
 			else if (tile->get_type() == WALL_TILE) setfillcolor(BLACK);
+			else if (tile->get_type() == START_TILE) setfillcolor(YELLOW);
+			else if (tile->get_type() == END_TILE) setfillcolor(BROWN);
 			else if (tile->get_type() == EMPTY_TILE) setfillcolor(WHITE);
 			fillrectangle(100 + 15 * i, 100 + 15 * j, 100 + 15 * i + 14, 100 + 15 * j + 14);
 		}
 	}
 }
 
+void checkTile(std::vector<Scene*>& scenes, Player* player)
+{
+	SetConsoleOutputCP(CP_UTF8);
+	Position pos = player->get_pos();
+	if (player->get_attr().teleport)
+	{
+		player->moveTo(scenes[0]->get_startPos());
+		player->set_teleport(false);
+		return;
+	}
+	if (pos.stage < 0 || pos.stage >= scenes.size())
+	{
+		player->modify_pos(player->get_lastPos());
+		return;
+	}
+	Scene* scene = scenes[pos.stage];
+	if (pos.x <= 0 || pos.y <= 0 || pos.x >= scene->get_height() || pos.y >= scene->get_width())
+	{
+		player->modify_pos(player->get_lastPos());
+		return;
+	}
+
+	Tile* tile = scene->get_tiles(pos.x, pos.y);
+	if (tile->get_unreachable())
+	{
+		player->modify_pos(player->get_lastPos());
+		return;
+	}
+
+
+	if (tile->get_type() == WALL_TILE)
+	{
+		player->modify_moved(false);
+		return;
+	}
+
+	else if (tile->get_type() == BATTLE_TILE)
+	{
+		player->modify_moved(true);
+		for (int i = 0; i < tile->monsters.size(); ++i)
+		{
+			std::cout << "遭遇" << tile->monsters[i]->get_name() << "\n";
+			std::cout << "HP: " << tile->monsters[i]->get_health() << "\natk: " << tile->monsters[i]->get_attack();
+			std::cout << "\ndef: " << tile->monsters[i]->get_defense() << "\n";
+			Battle battle((Character*)tile->monsters[i], (Character*)player);
+
+			if (!battle.battle())
+			{
+				return;
+			}
+			std::cout << "战胜" << tile->monsters[i]->get_name() << "\n" <<
+				"剩余生命: " << player->get_health() <<
+				"\n防御: " << player->get_defense() <<
+				"\n攻击: " << player->get_attack() << "\n\n";
+		}
+		tile->monsters.clear();
+		tile->modify_type(EMPTY_TILE);
+		return;
+	}
+
+	else if (tile->get_type() == EMPTY_TILE)
+	{
+		player->modify_moved(true);
+		return;
+	}
+
+	else if (tile->get_type() == CHEST_TILE)
+	{
+		player->modify_moved(true);
+		for (int i = 0; i < tile->chests.size(); ++i)
+		{
+			std::cout << "打开" << tile->chests[i]->get_name() << "\n";
+			Battle battle((Character*)tile->chests[i], (Character*)player);
+			if (!battle.battle())
+			{
+				return;
+			}
+			std::cout << "获得" << tile->chests[i]->get_coin() << "铜币\n";
+			std::cout << "当前金钱: " << player->get_coin() << "\n\n";
+		}
+		tile->chests.clear();
+		tile->modify_type(EMPTY_TILE);
+		return;
+	}
+
+	else if (tile->get_type() == START_TILE)
+	{
+		if (player->get_moved() && pos.stage > 0) player->moveTo(scenes[pos.stage - 1]->get_endPos());
+		player->modify_moved(false);
+		return;
+	}
+	else if (tile->get_type() == END_TILE)
+	{
+		if (player->get_moved() && pos.stage < scenes.size() - 1) player->moveTo(scenes[pos.stage + 1]->get_startPos());
+		player->modify_moved(false);
+		return;
+	}
+	return;
+}
+
 int main()
 {
 	srand(time(nullptr));
 	SetConsoleOutputCP(CP_UTF8);
-	//caveGenerate(30, 30, 6, 45, 0.6);
-	//mazeGenerate(30, 30, 60, 1, 4, 5, 80, 0.5);
 
 	bool running = true;
 	initgraph(WIDTH, HEIGHT, EW_SHOWCONSOLE);
@@ -54,71 +156,88 @@ int main()
 	//SwitchToWindow(current_window_type);
 	
 	initGadgetList();
-	Scene scene(mazeGenerate(15, 15, 10, 1, 3, 5, 80, 0.5), Scene::MAZE);
+	Player* player = getPlayer(1);
+	std::vector<Scene*> scene(2);
+	scene[0] = new Scene(caveGenerate(15, 15, 6, 45, 0.6), Scene::CAVE, 0);
+	scene[1] = new Scene(mazeGenerate(15, 15, 10, 1, 3, 5, 80, 0.5), Scene::MAZE, 1);
+	player->moveTo(scene[0]->get_startPos());
+
 	Paint paint(WIDTH, HEIGHT);
 	
 	direction d[4] = { LEFT, RIGHT, UP, DOWN };
-
+	int movePause = 0; //防止卡进墙里
 	while (running)
 	{
+		movePause = max(movePause-1, 0);
 		DWORD start_time = GetTickCount();
+
 		BeginBatchDraw();
 		//Map_paint(WIDTH, HEIGHT);
 		//setbkcolor(WHITE);
 		//cleardevice();
 		//monster_paint(scene);
 		//chest_paint(scene);
-		Money_paint(scene);
-		paint_heart(scene);
+		Money_paint(player);
+		paint_heart(player);
 		//paint_wall(scene);
-		pt(scene);
-		//std::cout << "当前位置: " << scene.get_player_pos_x() << " " << scene.get_player_pos_y() << "\n";
+		pt(scene, player);
 		//Player_paint(scene);
 		EndBatchDraw();
+
 		ExMessage msg;
 		while (peekmessage(&msg))
 		{
 			if (msg.message == WM_KEYDOWN)
 			{
+				if (movePause) continue;
+				movePause = 2;
 				switch (msg.ch)
 				{
 				case 72://上键的虚拟值
 				case 'W':
 				case 'w':
-					scene.move(UP);
+				case VK_UP:
+					player->move(UP);
 					break;
 				case 80://下键的虚拟值
 				case 'S':
 				case 's':
-					scene.move(DOWN);
+				case VK_DOWN:
+					player->move(DOWN);
 					break;
 				case 75://左键的虚拟值
 				case 'A':
 				case 'a':
-					scene.move(LEFT);
+				case VK_LEFT:
+					player->move(LEFT);
 					break;
 				case 77://右键的虚拟值
 				case 'D':
 				case 'd':
-					scene.move(RIGHT);
+				case VK_RIGHT:
+					player->move(RIGHT);
 					break;
 				case 'E':
 				case 'e':
-					while (!usefulGadgetSet.count(gadgetInHand)) gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
-					std::cout << gadgetList[gadgetInHand]->get_name() << " 当前拥有" << scene.get_player()->gadgets[gadgetInHand] << "个\n";
+					do gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
+					while (!usefulGadgetSet.count(gadgetInHand));
+					std::cout << gadgetList[gadgetInHand]->get_name() << " 当前拥有" << player->gadgets[gadgetInHand] << "个\n";
 					break;
 				case 'R':
 				case 'r':
-					scene.get_player()->use_gadget();
+					player->use_gadget();
 					break;
+				case VK_SPACE:
+					player->modify_moved(true);
 				}
 			}
 		}
 		
-		if (!scene.checkTile())
+		checkTile(scene, player);
+
+		if (player->dead())
 		{
 			Gameover_paint(WIDTH, HEIGHT);
-			destroyGadgetList();
 			break;
 		}
 
@@ -130,7 +249,11 @@ int main()
 		}
 	}
 
+	// Ending 
+	destroyGadgetList();
+	for (int i = 0; i < scene.size(); ++i) delete scene[i];
 	getchar();
 	closegraph();
+	//
 	return 0;
 }

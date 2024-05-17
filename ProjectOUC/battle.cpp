@@ -36,14 +36,12 @@ void Battle::useAllGadgets(Character* owner, Character* enemy, int cond)
 	*/
 	for (int i = 0; i < max_gadget_index; ++i)
 	{
-		for (int j = 0; j < owner->gadgets[i]; ++j)
+		if (owner->gadgets[i] == 0) continue;
+		switch (cond)
 		{
-			switch (cond)
-			{
-			case 1:gadgetList[i]->before_battle(owner, enemy);
-			case 2:gadgetList[i]->after_battle(owner, enemy);
-			case 3:gadgetList[i]->during_battle(owner, enemy);
-			}
+		case 1:gadgetList[i]->before_battle(owner, enemy, owner->gadgets[i]); break;
+		case 2:gadgetList[i]->after_battle(owner, enemy, owner->gadgets[i]); break;
+		case 3:gadgetList[i]->during_battle(owner, enemy, owner->gadgets[i]); break;
 		}
 	}
 }

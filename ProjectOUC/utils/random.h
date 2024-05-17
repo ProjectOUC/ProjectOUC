@@ -14,3 +14,5 @@ int randIndByWeights(std::vector<int>& weights);
 
 
 bool oneIn(int facet);
+
+bool aInb(int a, int b);

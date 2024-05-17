@@ -52,3 +52,8 @@ bool oneIn(int facet)
 {
 	return random(1, facet) == 1;
 }
+
+bool aInb(int a, int b)
+{
+	return random(1, b) <= a;
+}

@@ -11,6 +11,8 @@ void Tile::initTile(tile_type type)
 	case EMPTY_TILE: initEmptyTile(); break;
 	case BATTLE_TILE: initBattleTile(); break;
 	case CHEST_TILE: initChestTile(); break;
+	case START_TILE: initStartTile(); break;
+	case END_TILE: initEndTile(); break;
 	default: break;
 	}
 }
@@ -36,7 +38,7 @@ void Tile::initBattleTile()
 	Attr attr;
 	attr.maxHealth = attr.health = random(level * 11, level * 11 + 5);
 	attr.attack = random(level * 5, level * 5 + 2);
-	attr.defense = random(level * 3, level * 3 + 1);
+	attr.defense = random(level * 2, level * 2 + 1);
 	attr.missRate = 10.0 - 2 * level;
 	attr.criticalAttackRate = 2.0 * level;
 	std::string name = "Goblin";
@@ -52,4 +54,16 @@ void Tile::initChestTile()
 
 	for (int i = 2; i >= -1; --i) chests.push_back(new Chest(getChest(i)));
 	chests[3]->gadgets[2] = 2;
+}
+
+void Tile::initStartTile()
+{
+	type = START_TILE;
+	unreachable = false;
+}
+
+void Tile::initEndTile()
+{
+	type = END_TILE;
+	unreachable = false;
 }

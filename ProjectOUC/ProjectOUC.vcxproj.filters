@@ -16,24 +16,18 @@
     <Filter Include="道具">
       <UniqueIdentifier>{ff5d514e-1d19-49fb-b695-5cf6725d30fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{e2808b1c-35b7-4f29-99ae-f27b3dbaf5a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="role">
+      <UniqueIdentifier>{d41c970c-81e8-4892-b847-02563390434e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="character.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="scene.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="player.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="chest.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="monster.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="battle.cpp">
@@ -49,9 +43,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="PCG.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\random.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="gadgets\bow.cpp">
@@ -75,21 +66,30 @@
     <ClCompile Include="gadgets\sword.cpp">
       <Filter>道具</Filter>
     </ClCompile>
+    <ClCompile Include="utils\random.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\position.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\character.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\chest.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monster.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\player.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\teleportscroll.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="character.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="scene.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="chest.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="monster.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="battle.h">
@@ -108,9 +108,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\random.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="gadgets\bow.h">
@@ -132,6 +129,27 @@
       <Filter>道具</Filter>
     </ClInclude>
     <ClInclude Include="gadgets\sword.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\random.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\position.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\character.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\chest.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monster.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\player.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\teleportscroll.h">
       <Filter>道具</Filter>
     </ClInclude>
   </ItemGroup>

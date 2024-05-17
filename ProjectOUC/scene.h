@@ -1,46 +1,32 @@
 #pragma once
 #include "graphics.h"
 #include "tile.h"
-#include "player.h"
 #include "battle.h"
 #include "PCG.h"
 #include "utils/random.h"
+#include "utils/position.h"
 
 #include <vector>
 #include <ctime>
 
 #pragma execution_character_set("utf-8")
 
-enum direction
-{
-	LEFT,
-	RIGHT,
-	UP,
-	DOWN
-};
-
 class Scene
 {
 public:
-	Scene(int w = 10, int h = 10);
-	Scene(std::vector < std::vector<int> > scene, int _scene_type);
+	Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage);
 
 	int get_width() const { return width; }
 	int get_height() const { return height; }
-
-	Player* get_player() { return player; }
-	int get_player_pos_x() const { return player_pos_x; }
-	int get_player_pos_y() const { return player_pos_y; }
 	int get_scene_type() const { return scene_type; }
+	Position get_startPos() const { return startPos; }
+	Position get_endPos() const { return endPos; }
 	Tile* get_tiles(int x, int y) const {return tiles[x][y]; }
 
-	void move(direction dir);
-	void moveTo(int x, int y);
+	//bool checkTile();
 
-	bool checkTile();
-
-	void initScene();
-	void initSceneByNum(std::vector<int> num);
+	//void initScene();
+	//void initSceneByNum(std::vector<int> num);
 
 	~Scene();
 
@@ -56,11 +42,8 @@ private:
 	const static int boundary = 1;
 	std::vector<std::vector<Tile*> > tiles;
 
-	Player* player;
-	int player_pos_x;
-	int player_pos_y;
-	int last_x;
-	int last_y;
+	
+	Position startPos, endPos;
 };
 
 enum window_type

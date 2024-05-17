@@ -1,7 +1,6 @@
 #pragma once
-#include "monster.h"
-#include "character.h"
-#include "chest.h"
+#include "roles/monster.h"
+#include "roles/chest.h"
 
 #include <list>
 
@@ -25,6 +24,8 @@ public:
 	void initEmptyTile();
 	void initBattleTile();
 	void initChestTile();
+	void initStartTile();
+	void initEndTile();
 
 	void modify_visited() { visited = true; }
 	void modify_type(tile_type new_type) { type = new_type; }

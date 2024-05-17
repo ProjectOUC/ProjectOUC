@@ -68,20 +68,20 @@ void Gameover_paint(int width, int height)
 	outtextxy(width / 2 - 100+p_x, height / 2-50+p_y, "Game Over");
 }
 
-void Player_paint(Scene& scene)
+void Player_paint(std::vector<Scene*> scenes, Player* player)
 {
 	int x, y;
-	x = scene.get_player_pos_x();
-	y = scene.get_player_pos_y();
+	x = player->get_pos().x;
+	y = player->get_pos().y;
 	setlinecolor(BLACK);
 	setlinestyle(PS_SOLID, 3);
 	setfillcolor(BLUE);
 	fillrectangle(25 + x * 100, 125 + y * 100, 75 + x * 100, 175 + y * 100);
 }
 
-void Money_paint(Scene& scene)
+void Money_paint(Player* player)
 {
-	int money = scene.get_player()->get_coin();
+	int money = player->get_coin();
 	char moneycoin[20]; //用于存放字符串
 	sprintf_s(moneycoin, "%d", money);
 	settextcolor(RED);
@@ -91,6 +91,7 @@ void Money_paint(Scene& scene)
 	outtextxy(0, h, "MONEY:");
 	outtextxy(w, h, moneycoin);
 }
+
 void chest_paint(Scene& scene)
 {
 	int i, j;
@@ -151,9 +152,9 @@ void monster_paint(Scene& scene)
 	}
 }
 
-void Health_paint(Scene& scene)
+void Health_paint(Player* player)
 {
-	int health = scene.get_player()->get_health();
+	int health = player->get_health();
 	char healthpoint[20]; //用于存放字符串
 	sprintf_s(healthpoint, "%d", health);
 	settextcolor(RED);
@@ -163,7 +164,7 @@ void Health_paint(Scene& scene)
 	outtextxy(w, 0, healthpoint);
 }
 
-void paint_heart(Scene& scene)
+void paint_heart(Player* player)
 {
 	static int i = 0, j = 0;
 	static bool flag = false;
@@ -175,7 +176,7 @@ void paint_heart(Scene& scene)
 		loadimage(&img3, _T("empty_heart.png"));
 		flag = true;
 	}
-	int heartpoint = scene.get_player()->get_health();
+	int heartpoint = player->get_health();
 	int heartnum = heartpoint / 2;
 	int half_heartnum = heartpoint % 2;
 	int empth_heartnum = (10 - heartpoint) / 2;

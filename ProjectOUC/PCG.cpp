@@ -6,7 +6,7 @@ extern const int EMPTY = 0;
 extern const int WALL = 1;
 extern const int BIRTH = 2;
 extern const int FILLED = 3;
-extern const int MONSTER = 4;
+extern const int MONST = 4;
 extern const int CLOSEDOOR = 5;
 
 Room::Room()
@@ -252,7 +252,7 @@ void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, 
 			}
 		}
 		int ind = randInd(px);
-		maze[px[ind]][py[ind]] = MONSTER;
+		maze[px[ind]][py[ind]] = MONST;
 	}
 
 
@@ -266,7 +266,7 @@ void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, 
 			{
 				if (oneIn(50))
 				{
-					maze[i][j] = oneIn(2) ? FILLED : (oneIn(3) ? MONSTER : CLOSEDOOR);
+					maze[i][j] = oneIn(2) ? FILLED : (oneIn(3) ? MONST : CLOSEDOOR);
 				}
 			}
 		}
@@ -378,7 +378,7 @@ std::vector<std::vector<int>> caveGenerate(
 	initBirthPoint(cave);
 
 	// Step 5: Todo
-	scenePaint(cave, 2 * height + 1, 2 * width + 1);
+	if (paint) scenePaint(cave, 2 * height + 1, 2 * width + 1);
 
 	return cave;
 }
@@ -431,6 +431,7 @@ void fillFragments(std::vector<std::vector<int>>& scene)
 		for (int j = 0; j < w; ++j)
 		{
 			if (belong[i][j] != ind) scene[i][j] = WALL;
+			else scene[i][j] = EMPTY;
 		}
 	}
 }

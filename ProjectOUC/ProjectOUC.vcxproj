@@ -130,8 +130,8 @@
   <ItemGroup>
     <ClCompile Include="attribute.cpp" />
     <ClCompile Include="battle.cpp" />
-    <ClCompile Include="character.cpp" />
-    <ClCompile Include="chest.cpp" />
+    <ClCompile Include="roles\character.cpp" />
+    <ClCompile Include="roles\chest.cpp" />
     <ClCompile Include="gadgets\bow.cpp" />
     <ClCompile Include="gadgets\cursedstone.cpp" />
     <ClCompile Include="gadgets\gadget.cpp" />
@@ -140,19 +140,21 @@
     <ClCompile Include="gadgets\shield.cpp" />
     <ClCompile Include="gadgets\sword.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="monster.cpp" />
+    <ClCompile Include="roles\monster.cpp" />
     <ClCompile Include="paint.cpp" />
     <ClCompile Include="PCG.cpp" />
-    <ClCompile Include="player.cpp" />
+    <ClCompile Include="roles\player.cpp" />
     <ClCompile Include="scene.cpp" />
+    <ClCompile Include="gadgets\teleportscroll.cpp" />
     <ClCompile Include="tile.cpp" />
+    <ClCompile Include="utils\position.cpp" />
     <ClCompile Include="utils\random.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attribute.h" />
     <ClInclude Include="battle.h" />
-    <ClInclude Include="character.h" />
-    <ClInclude Include="chest.h" />
+    <ClInclude Include="roles\character.h" />
+    <ClInclude Include="roles\chest.h" />
     <ClInclude Include="gadgets\bow.h" />
     <ClInclude Include="gadgets\cursedstone.h" />
     <ClInclude Include="gadgets\gadget.h" />
@@ -160,13 +162,15 @@
     <ClInclude Include="gadgets\healpotion.h" />
     <ClInclude Include="gadgets\shield.h" />
     <ClInclude Include="gadgets\sword.h" />
-    <ClInclude Include="monster.h" />
+    <ClInclude Include="roles\monster.h" />
     <ClInclude Include="paint.h" />
     <ClInclude Include="PCG.h" />
-    <ClInclude Include="player.h" />
+    <ClInclude Include="roles\player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scene.h" />
+    <ClInclude Include="gadgets\teleportscroll.h" />
     <ClInclude Include="tile.h" />
+    <ClInclude Include="utils\position.h" />
     <ClInclude Include="utils\random.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,8 @@
 #pragma once
-#include "character.h"
-#include "chest.h"
-#include "player.h"
-#include "monster.h"
+#include "roles/character.h"
+#include "roles/chest.h"
+#include "roles/player.h"
+#include "roles/monster.h"
 #include "scene.h"
 #include "utils/random.h"
 

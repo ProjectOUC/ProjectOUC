@@ -7,7 +7,7 @@
 #include <set>
 
 #include "attribute.h"
-#include "character.h"
+#include "roles/character.h"
 
 class Character;
 
