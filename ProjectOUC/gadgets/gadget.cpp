@@ -1,5 +1,5 @@
 #pragma once
-#include "gadget.h";
+#include "gadget.h"
 Gadget::Gadget(int _gadgetIndex, std::string _name) :
 	gadgetIndex(_gadgetIndex),
 	name(_name)

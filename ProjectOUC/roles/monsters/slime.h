@@ -8,12 +8,12 @@ public:
 		Monster(_attr, _name, _coin, _pos, _moved)
 	{
 		Attr attr;
-		attr.maxHealth = 150 + 30 * level + roll(5, 20);
+		attr.maxHealth = 40 + 15 * level + roll(3, 4);
 		attr.health = attr.maxHealth;
 		attr.attack = 10 + 20 * level;
 		attr.diceNum = 5;
 		attr.facet = 20;
-		attr.defense = 10 + 4 * level;
+		attr.defense = 40 + 15 * level + roll(3, 4);
 		attr.attackFirstLevel = 4;
 		attr.criticalAttackRate = 0.0f;
 		attr.missRate = 50.0f;

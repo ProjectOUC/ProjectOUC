@@ -96,10 +96,9 @@ bool Battle::battle()
 	if (ending == 0) return false;
 	else if (ending == 1) return true;
 
-	spA = 0;
-	spB = 0;
 	while (!battleStep())
 	{
+		turn = turn + 1;
 		if (turn >= MAX_BATTLE_TURN)
 		{
 			return false;
@@ -175,12 +174,14 @@ bool Battle::attack(int player)
 	bool critical = 0;
 	int attack = c1->calc_attack();
 	int defense = c2->get_defense();
+	float hitRate = c1->get_hitRate() - c2->get_missRate();
+	float car = c1->get_criticalAttackRate();
 
-	if (random(0, 10000) < (int)(100 * c1->get_attr().criticalAttackRate)) critical = true;
-	if (random(0, 10000) < (int)(100 * c2->get_attr().missRate)) miss = true;
+	if (random(0, 10000) < (int)(10000.0 * car / (car+100))) critical = true;
+	if (random(0, 10000) < (int)(10000.0 * hitRate / (hitRate+100))) miss = true;
 
 	if (critical) attack = attack * 2;
-	damage = attack - defense;
+	damage = calc_damage(attack, defense);
 	damage = max(damage, 0);
 	if (miss) damage = 0;
 

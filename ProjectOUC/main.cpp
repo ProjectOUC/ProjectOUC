@@ -62,8 +62,6 @@ int main()
 	scenes[2] = new Scene("init/basic-maze.txt");
 	player->moveTo(scenes[0]->get_startPos());
 	player->gadgets[findGadget("TeleportScroll")]++;
-	player->set_food_capacity(200);
-	player->set_food(100);
 	
 
 	Paint paint(WIDTH, HEIGHT);

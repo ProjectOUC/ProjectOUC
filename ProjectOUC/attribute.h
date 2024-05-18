@@ -6,7 +6,7 @@ struct Attr
 
 	Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
 		int _health, int _attack, int _diceNum, int _facet, int _defense, 
-		int visibleRadius, float _criticalAttackRate, float _missRate, bool _teleport);
+		int visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport);
 
 	Attr(const Attr& other);
 
@@ -15,6 +15,7 @@ struct Attr
 	Attr operator-(const Attr& other);
 	Attr operator*(const int mul);
 	friend Attr operator*(const int mul, const Attr& other);
+	int get_maxHealth();
 
 	int attackFirstLevel;
 
@@ -33,6 +34,7 @@ struct Attr
 	int visibleRadius;
 
 	float criticalAttackRate;
+	float hitRate;
 	float missRate;
 
 	bool teleport;

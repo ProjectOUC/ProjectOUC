@@ -55,9 +55,16 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 				return;
 			}
 			std::cout << "Õ½Ê¤" << tile->monsters[i]->get_name() << "\n" <<
-				"Ê£ÓàÉúÃü: " << player->get_health() <<
+				"×î´óÉúÃü: " << player->get_maxHealth() <<
+				"\nÊ£ÓàÉúÃü: " << player->get_health() <<
 				"\n·ÀÓù: " << player->get_defense() <<
-				"\n¹¥»÷: " << player->get_attack() << "\n\n";
+				"\n¹¥»÷: " << player->calc_min_attack() << "-" << player->calc_max_attack() <<
+				"\nËÙ¶È: " << player->get_attackFirstLevel() <<
+				"\nÁ¦Á¿: " << player->get_strength() <<
+				"\nÃô½Ý: " << player->get_agility() <<
+				"\nÖÇÁ¦: " << player->get_wisdom() <<
+				"\nÃüÖÐ: " << player->get_hitRate() <<
+				"\nÉÁ±Ü: " << player->get_missRate() << "\n\n";
 		}
 		tile->monsters.clear();
 		tile->modify_type(EMPTY_TILE);

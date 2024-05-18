@@ -1,5 +1,6 @@
 #include "attribute.h"
 
+
 Attr::Attr()
 {
 	attackFirstLevel = 0;
@@ -18,6 +19,7 @@ Attr::Attr()
 	visibleRadius = 0;
 
 	criticalAttackRate = 0;
+	hitRate = 0;
 	missRate = 0;
 
 	teleport = false;
@@ -25,7 +27,7 @@ Attr::Attr()
 
 Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
 	int _health, int _attack, int _diceNum, int _facet, int _defense,
-	int _visibleRadius, float _criticalAttackRate, float _missRate, bool _teleport)
+	int _visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport)
 {
 	this->attackFirstLevel = _attackFirstLevel;
 	this->strength = _strength;
@@ -39,6 +41,7 @@ Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int 
 	this->defense = _defense;
 	this->visibleRadius = _visibleRadius;
 	this->criticalAttackRate = _criticalAttackRate;
+	this->hitRate = _hitRate;
 	this->missRate = _missRate;
 	this->teleport = _teleport;
 }
@@ -57,6 +60,7 @@ Attr::Attr(const Attr& other)
 	this->defense = other.defense;
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
+	this->hitRate = other.hitRate;
 	this->missRate = other.missRate;
 	this->teleport = other.teleport;
 }
@@ -75,6 +79,7 @@ Attr& Attr::operator=(const Attr& other)
 	this->defense = other.defense;
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
+	this->hitRate = other.hitRate;
 	this->missRate = other.missRate;
 	this->teleport = other.teleport;
 
@@ -96,10 +101,11 @@ Attr Attr::operator+(const Attr& other)
 		this->defense + other.defense,
 		this->visibleRadius + other.visibleRadius,
 		this->criticalAttackRate + other.criticalAttackRate,
+		this->hitRate + other.hitRate,
 		this->missRate + other.missRate,
 		this->teleport + other.teleport
 	);
-	if (attr.health > attr.maxHealth) attr.health = attr.maxHealth;
+	if (attr.health > attr.get_maxHealth()) attr.health = attr.get_maxHealth();
 	return attr;
 }
 
@@ -118,10 +124,11 @@ Attr Attr::operator-(const Attr& other)
 		this->defense - other.defense,
 		this->visibleRadius - other.visibleRadius,
 		this->criticalAttackRate - other.criticalAttackRate,
+		this->hitRate - other.hitRate,
 		this->missRate - other.missRate,
 		this->teleport 
 	);
-	if (attr.health > attr.maxHealth) attr.health = attr.maxHealth;
+	if (attr.health > attr.get_maxHealth()) attr.health = attr.get_maxHealth();
 	return attr;
 }
 
@@ -140,6 +147,7 @@ Attr Attr::operator*(const int mul)
 		mul * this->defense,
 		mul * this->visibleRadius,
 		mul * this->criticalAttackRate,
+		mul * this->hitRate,
 		mul * this->missRate,
 		this->teleport
 	);
@@ -160,7 +168,13 @@ Attr operator*(const int mul, const Attr& other)
 		mul * other.defense,
 		mul * other.visibleRadius,
 		mul * other.criticalAttackRate,
+		mul * other.hitRate,
 		mul * other.missRate,
 		other.teleport
 	);
+}
+
+int Attr::get_maxHealth()
+{
+	return maxHealth + 10 * strength;
 }

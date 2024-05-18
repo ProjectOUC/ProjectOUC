@@ -18,7 +18,8 @@ Character::Character() :
 	lastPos(Position()),
 	moved(false),
 	food(0),
-	food_capacity(0)
+	food_capacity(0),
+	essentialAttribute(0)
 {}
 
 
@@ -32,6 +33,7 @@ Character::Character(Attr _attr, std::string _name, char_type _character_type, i
 	moved(_moved)
 {
 	food = food_capacity = 0;
+	essentialAttribute = 0;
 	gadgets.resize(max_gadget_index);
 };
 
@@ -44,7 +46,8 @@ Character::Character(const Character& c) :
 	lastPos(c.lastPos),
 	moved(c.moved),
 	food(c.food),
-	food_capacity(c.food_capacity)
+	food_capacity(c.food_capacity),
+	essentialAttribute(c.essentialAttribute)
 {
 	gadgets.resize(max_gadget_index);
 };
@@ -122,4 +125,9 @@ void Character::move(direction dir)
 		food -= pos.stage;
 		std::cout << "food: " << food << '\n';
 	}
+}
+
+int calc_damage(int attack, int defense)
+{
+	return (int)(1.0f * attack / (defense + 50) * 50);
 }
