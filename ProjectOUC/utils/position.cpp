@@ -14,12 +14,20 @@ Position& Position::operator=(const Position& other)
 	stage = other.stage;
 	return *this;
 }
-bool Position::operator==(const Position& other)
+bool Position::operator==(const Position& other) const
 {
 	return
 		(x == other.x) &&
 		(y == other.y) &&
 		(stage == other.stage);
+}
+
+bool Position::operator!=(const Position& other) const
+{
+	return
+		(x != other.x) ||
+		(y != other.y) ||
+		(stage != other.stage);
 }
 
 Position Position::operator-(const Position& other)

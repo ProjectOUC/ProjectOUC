@@ -18,6 +18,6 @@ Attr HealPotion::use_gadget() const
 
 void HealPotion::before_battle(Character* owner, Character* enemy, int count)
 {
-	owner->modify_health(5 * count);
-	std::cout << owner->get_name() << "恢复了" << 5 * count << "点生命\n";
+	owner->modify_health(2 * count);
+	std::cout << owner->get_name() << "恢复了" << 2 * count << "点生命\n";
 }

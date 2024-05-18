@@ -11,6 +11,8 @@ Attr::Attr()
 	maxHealth = 0;
 	health = 0;
 	attack = 0;
+	diceNum = 0;
+	facet = 0;
 	defense = 0;
 
 	visibleRadius = 0;
@@ -22,8 +24,8 @@ Attr::Attr()
 }
 
 Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
-	int _health, int _attack, int _defense, int _visibleRadius, float _criticalAttackRate,
-	float _missRate, bool _teleport)
+	int _health, int _attack, int _diceNum, int _facet, int _defense,
+	int _visibleRadius, float _criticalAttackRate, float _missRate, bool _teleport)
 {
 	this->attackFirstLevel = _attackFirstLevel;
 	this->strength = _strength;
@@ -32,6 +34,8 @@ Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int 
 	this->maxHealth = _maxHealth;
 	this->health = _health;
 	this->attack = _attack;
+	this->diceNum = _diceNum;
+	this->facet = _facet;
 	this->defense = _defense;
 	this->visibleRadius = _visibleRadius;
 	this->criticalAttackRate = _criticalAttackRate;
@@ -48,6 +52,8 @@ Attr::Attr(const Attr& other)
 	this->maxHealth = other.maxHealth;
 	this->health = other.health;
 	this->attack = other.attack;
+	this->diceNum = other.diceNum;
+	this->facet = other.facet;
 	this->defense = other.defense;
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
@@ -64,6 +70,8 @@ Attr& Attr::operator=(const Attr& other)
 	this->maxHealth = other.maxHealth;
 	this->health = other.health;
 	this->attack = other.attack;
+	this->diceNum = other.diceNum;
+	this->facet = other.facet;
 	this->defense = other.defense;
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
@@ -83,6 +91,8 @@ Attr Attr::operator+(const Attr& other)
 		this->maxHealth + other.maxHealth,
 		this->health + other.health,
 		this->attack + other.attack,
+		this->diceNum + other.diceNum,
+		this->facet + other.facet,
 		this->defense + other.defense,
 		this->visibleRadius + other.visibleRadius,
 		this->criticalAttackRate + other.criticalAttackRate,
@@ -103,6 +113,8 @@ Attr Attr::operator-(const Attr& other)
 		this->maxHealth - other.maxHealth,
 		this->health - other.health,
 		this->attack - other.attack,
+		this->diceNum - other.diceNum,		
+		this->facet - other.facet,
 		this->defense - other.defense,
 		this->visibleRadius - other.visibleRadius,
 		this->criticalAttackRate - other.criticalAttackRate,
@@ -123,6 +135,8 @@ Attr Attr::operator*(const int mul)
 		mul * this->maxHealth,
 		mul * this->health,
 		mul * this->attack,
+		mul * this->diceNum,
+		mul * this->facet,
 		mul * this->defense,
 		mul * this->visibleRadius,
 		mul * this->criticalAttackRate,
@@ -141,6 +155,8 @@ Attr operator*(const int mul, const Attr& other)
 		mul * other.maxHealth,
 		mul * other.health,
 		mul * other.attack,
+		mul * other.diceNum,
+		mul * other.facet,
 		mul * other.defense,
 		mul * other.visibleRadius,
 		mul * other.criticalAttackRate,

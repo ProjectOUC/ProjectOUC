@@ -72,10 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level2</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/D_CRT_SECURE_NO_WARNINGS </AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,8 +131,13 @@
   <ItemGroup>
     <ClCompile Include="attribute.cpp" />
     <ClCompile Include="battle.cpp" />
+    <ClCompile Include="utils\rect.cpp" />
+    <ClCompile Include="roles\monsters\goblin.cpp" />
+    <ClCompile Include="roles\chests\chests.cpp" />
+    <ClCompile Include="gaming.cpp" />
+    <ClCompile Include="roles\monsters\monsters.cpp" />
     <ClCompile Include="roles\character.cpp" />
-    <ClCompile Include="roles\chest.cpp" />
+    <ClCompile Include="roles\chests\chest.cpp" />
     <ClCompile Include="gadgets\bow.cpp" />
     <ClCompile Include="gadgets\cursedstone.cpp" />
     <ClCompile Include="gadgets\gadget.cpp" />
@@ -140,12 +146,13 @@
     <ClCompile Include="gadgets\shield.cpp" />
     <ClCompile Include="gadgets\sword.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="roles\monster.cpp" />
+    <ClCompile Include="roles\monsters\monster.cpp" />
     <ClCompile Include="paint.cpp" />
-    <ClCompile Include="PCG.cpp" />
+    <ClCompile Include="utils\PCG.cpp" />
     <ClCompile Include="roles\player.cpp" />
     <ClCompile Include="scene.cpp" />
     <ClCompile Include="gadgets\teleportscroll.cpp" />
+    <ClCompile Include="roles\monsters\slime.cpp" />
     <ClCompile Include="tile.cpp" />
     <ClCompile Include="utils\position.cpp" />
     <ClCompile Include="utils\random.cpp" />
@@ -153,8 +160,14 @@
   <ItemGroup>
     <ClInclude Include="attribute.h" />
     <ClInclude Include="battle.h" />
+    <ClInclude Include="utils\rect.h" />
+    <ClInclude Include="roles\monsters\goblin.h" />
+    <ClInclude Include="roles\chests\chests.h" />
+    <ClInclude Include="roles\monsters\monsters.h" />
+    <ClInclude Include="roles\characters.h" />
+    <ClInclude Include="gaming.h" />
     <ClInclude Include="roles\character.h" />
-    <ClInclude Include="roles\chest.h" />
+    <ClInclude Include="roles\chests\chest.h" />
     <ClInclude Include="gadgets\bow.h" />
     <ClInclude Include="gadgets\cursedstone.h" />
     <ClInclude Include="gadgets\gadget.h" />
@@ -162,13 +175,14 @@
     <ClInclude Include="gadgets\healpotion.h" />
     <ClInclude Include="gadgets\shield.h" />
     <ClInclude Include="gadgets\sword.h" />
-    <ClInclude Include="roles\monster.h" />
+    <ClInclude Include="roles\monsters\monster.h" />
     <ClInclude Include="paint.h" />
-    <ClInclude Include="PCG.h" />
+    <ClInclude Include="utils\PCG.h" />
     <ClInclude Include="roles\player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="gadgets\teleportscroll.h" />
+    <ClInclude Include="roles\monsters\slime.h" />
     <ClInclude Include="tile.h" />
     <ClInclude Include="utils\position.h" />
     <ClInclude Include="utils\random.h" />

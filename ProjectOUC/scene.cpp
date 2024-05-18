@@ -1,10 +1,15 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "scene.h"
 
 #include <conio.h>
 #include <iostream>
 #include <queue>
+#include <string>
+
 
 #pragma execution_character_set("utf-8")
+
 
 const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
 extern const int EMPTY;
@@ -12,6 +17,113 @@ extern const int WALL;
 extern const int BIRTH;
 extern const int FILLED;
 extern const int MONST;
+extern const int TREASURE;
+
+Scene::Scene(std::string path)
+{
+	FILE* fp;
+	if (!(fp = fopen(path.c_str(), "r")))
+	{
+		std::cout << "File doesn't exist.\n";
+		exit(0);
+	}
+
+	char buffer[1024];
+	fscanf(fp, "%s\n", buffer);
+	if (strncmp(buffer, "TOWN", 4) == 0) scene_type = TOWN;
+	else if (strncmp(buffer, "CAVE", 4) == 0) scene_type = CAVE;
+	else if (strncmp(buffer, "MAZE", 4) == 0) scene_type = MAZE;
+	else 
+	{
+		printf("Unknown scene type %s", buffer);
+		exit(0);
+	}
+
+	int stage = 0;
+	fscanf(fp, "height: %d\n", &height);
+	fscanf(fp, "width: %d\n", &width);
+	fscanf(fp, "stage: %d\n", &stage);
+	startPos.stage = endPos.stage = stage;
+	tiles.resize(height); refresh.resize(height); dist.resize(height);
+	for (int i = 0; i < height; ++i)
+	{
+		tiles[i].resize(width);
+		refresh[i].resize(width);
+		dist[i].resize(width);
+		for (int j = 0; j < width; ++j) tiles[i][j] = new Tile;
+	}
+	fscanf(fp, "%s\n", buffer);
+	if (strncmp(buffer, "parameter", 9) == 0)
+	{
+		if (scene_type == TOWN)
+		{
+			std::cout << "TOWN can't be initialized with parameters.\n";
+			exit(0);
+		}
+		else if (scene_type == CAVE)
+		{
+			int maxIter, wallWeight;
+			double fillIter;
+			fscanf(fp, "maxIter: %d\n", &maxIter);
+			fscanf(fp, "wallWeight: %d\n", &wallWeight);
+			fscanf(fp, "fillIter: %lf\n", &fillIter);
+			this->Scene::Scene(caveGenerate(height, width, maxIter, wallWeight, fillIter, false), CAVE, stage);
+		}
+		else if (scene_type == MAZE)
+		{
+			int maxRoomNum, minRoomSize, maxRoomSize, maxIter, windingPercent;
+			double keepDeadEndRate;
+			fscanf(fp, "maxRoomNum: %d\n", &maxRoomNum);
+			fscanf(fp, "minRoomSize: %d\n", &minRoomSize);
+			fscanf(fp, "maxRoomSize: %d\n", &maxRoomSize);
+			fscanf(fp, "maxIter: %d\n", &maxIter);
+			fscanf(fp, "windingPercent: %d\n", &windingPercent);
+			fscanf(fp, "keepDeadEndRate: %lf\n", &keepDeadEndRate);
+			this->Scene::Scene(mazeGenerate(height, width, maxRoomNum, minRoomSize, maxRoomSize, maxIter, windingPercent, keepDeadEndRate, false), MAZE, stage);
+		}
+	}
+	else if (strncmp(buffer, "storage", 7) == 0)
+	{
+		fscanf(fp, "startPos: %d %d\n", &startPos.x, &startPos.y);
+		fscanf(fp, "endPos: %d %d\n", &endPos.x, &endPos.y);
+		fscanf(fp, "refresh: \n");
+		for (int i = 0; i < height; ++i)
+			for (int j = 0; j < width; ++j)
+				fscanf(fp, "%d", &refresh[i][j]);
+		
+		fgetc(fp);
+		fscanf(fp, "dist: \n");
+		for (int i = 0; i < height; ++i)
+			for (int j = 0; j < width; ++j)
+				fscanf(fp, "%d", &dist[i][j]);
+		fgetc(fp);
+
+		fscanf(fp, "tiles: \n");
+		for (int i = 0; i < height; ++i)
+		{
+			for (int j = 0; j < width; ++j)
+			{
+				int level = (dist[i][j] - 5) / 10;
+				static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
+				level = max(0, level - 5 + randIndByWeights(weights));
+				level += 10 * (scene_type - 1);
+				Tile* tile = tiles[i][j];
+				tile_type ttype;
+				fscanf(fp, "%d", &ttype);
+				tile->initTile(ttype, level);
+			}
+		}
+	}
+	else
+	{
+		std::cout << "Unknown archive type ";
+		printf("%s", buffer);
+		exit(0);
+	}
+
+
+	fclose(fp);
+}
 
 Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage) :
 	scene_type(_scene_type)
@@ -24,18 +136,17 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 	height = (int)scene.size();
 	width = (int)scene[0].size();
 	tiles.resize(height);
+	refresh.resize(height);
+	dist.resize(height);
 	for (int i = 0; i < height; ++i)
 	{
+		refresh[i].resize(width);
 		tiles[i].resize(width);
+		dist[i].resize(width);
 		for (int j = 0; j < width; ++j)
 		{
 			tiles[i][j] = new Tile;
 			if (scene[i][j] == WALL) tiles[i][j]->initWallTile();
-			else if (endPos == Position())
-			{
-				tiles[i][j]->initEndTile();
-				endPos = Position(stage, i, j);
-			}
 			else if (scene[i][j] == FILLED || scene[i][j] == EMPTY) tiles[i][j]->initEmptyTile();
 			else if (scene[i][j] == BIRTH)
 			{
@@ -45,15 +156,18 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 		}
 	}
 
-	std::vector<std::vector<int>> dist(height, std::vector<int>(width, 0));
 	dist[startPos.x][startPos.y] = 1;
 	std::queue<int> qx, qy, qdist;
-	qx.push(startPos.x), qy.push(startPos.y), qdist.push(1);
 	const static int dx[4] = { -1, 0, 1, 0 }, dy[4] = { 0, -1, 0, 1 };
+	int fx = 0, fy = 0, fdis = 0;
+	
+	qx.push(startPos.x), qy.push(startPos.y), qdist.push(1);
 	while (!qx.empty())
 	{
 		int x = qx.front(), y = qy.front(), dis = qdist.front();
 		qx.pop(), qy.pop(), qdist.pop();
+
+		if (dis > fdis) fx = x, fy = y, fdis = dis;
 		for (int d = 0; d < 4; ++d)
 		{
 			if (scene[x + dx[d]][y + dy[d]] == WALL || dist[x+dx[d]][y+dy[d]] != 0) continue;
@@ -62,25 +176,54 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 		}
 	}
 
+
 	for (int i = 0; i < height; ++i)
 	{
 		for (int j = 0; j < width; ++j)
 		{
 			if (tiles[i][j]->get_type() != EMPTY_TILE) continue;
+			else if (i == fx && j == fy) tiles[i][j]->initEndTile(), endPos = Position(stage, i, j);
 			else if (dist[i][j] <= 5) tiles[i][j]->initEmptyTile();
 			else
 			{
-				if (scene[i][j] == MONST) tiles[i][j]->initBattleTile();
+				int level = (dist[i][j] - 5) / 10;
+				static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
+				level = max(0, level - 5 + randIndByWeights(weights));
+				level += 10 * (scene_type-1);
+
+				if (scene[i][j] == MONST) tiles[i][j]->initBattleTile(level);
+				else if (scene[i][j] == TREASURE) tiles[i][j]->initChestTile(level);
 				else if (scene[i][j] == FILLED || scene[i][j] == EMPTY)
 				{
-					if (aInb(4, 5)) tiles[i][j]->initEmptyTile();
-					else if (oneIn(4)) tiles[i][j]->initChestTile();
-					else tiles[i][j]->initBattleTile();
+					refresh[i][j] = 1;
+
+					if (!oneIn(8)) tiles[i][j]->initEmptyTile(level);
+					else if (oneIn(10)) tiles[i][j]->initChestTile(level);
+					else tiles[i][j]->initBattleTile(level);
 				}
 			}
 		}
 	}
 
+}
+
+void Scene::refreshMonsters()
+{
+	for (int i = 0; i < height; ++i)
+	{
+		for (int j = 0; j < width; ++j)
+		{
+			if (refresh[i][j] != 1) continue;
+			tiles[i][j]->initEmptyTile();
+			int level = (dist[i][j] - 5) / 10;
+			static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
+			level = max(0, level - 5 + randIndByWeights(weights));
+			level += 10 * (scene_type - 1);
+			if (!oneIn(8)) tiles[i][j]->initEmptyTile(level);
+			else if (oneIn(10)) tiles[i][j]->initChestTile(level);
+			else tiles[i][j]->initBattleTile(level);
+		}
+	}
 }
 
 /*

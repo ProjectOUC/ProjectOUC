@@ -8,6 +8,7 @@ extern const int BIRTH = 2;
 extern const int FILLED = 3;
 extern const int MONST = 4;
 extern const int CLOSEDOOR = 5;
+extern const int TREASURE = 6;
 
 Room::Room()
 {
@@ -209,6 +210,17 @@ void generatePath(std::vector<std::vector<int>>& maze, int h, int w, int winding
 
 void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, int h, int w)
 {
+	for (Room* room : rooms)
+	{
+		for (int x = 2 * room->x1 + 1; x < 2 * room->x2; ++x)
+		{
+			for (int y = 2 * room->y1 + 1; y < 2 * room->y2; ++y)
+			{
+				if (oneIn(5)) maze[x][y] = TREASURE;
+			}
+		}
+	}
+
 	for (Room* room : rooms)
 	{
 		std::vector<int> px, py;

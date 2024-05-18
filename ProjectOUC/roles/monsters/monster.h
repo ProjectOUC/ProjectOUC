@@ -3,9 +3,11 @@
 #define _MONSTER_H
 #endif
 
-#include "character.h"
+#include "../character.h"
 
 #include <iostream>
+
+extern std::vector<Gadget*> gadgetList;
 
 class Monster : public Character
 {

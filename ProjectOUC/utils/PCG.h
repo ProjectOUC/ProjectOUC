@@ -1,5 +1,5 @@
 #pragma once
-#include "utils/random.h"
+#include "random.h"
 #include "graphics.h"
 
 #include <vector>

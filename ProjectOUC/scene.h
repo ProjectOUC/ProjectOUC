@@ -2,12 +2,14 @@
 #include "graphics.h"
 #include "tile.h"
 #include "battle.h"
-#include "PCG.h"
+#include "utils/PCG.h"
 #include "utils/random.h"
 #include "utils/position.h"
 
 #include <vector>
 #include <ctime>
+#include <iostream>
+#include <fstream>
 
 #pragma execution_character_set("utf-8")
 
@@ -15,6 +17,7 @@ class Scene
 {
 public:
 	Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage);
+	Scene(std::string path);
 
 	int get_width() const { return width; }
 	int get_height() const { return height; }
@@ -23,6 +26,7 @@ public:
 	Position get_endPos() const { return endPos; }
 	Tile* get_tiles(int x, int y) const {return tiles[x][y]; }
 
+	void refreshMonsters();
 	//bool checkTile();
 
 	//void initScene();
@@ -41,6 +45,8 @@ private:
 
 	const static int boundary = 1;
 	std::vector<std::vector<Tile*> > tiles;
+	std::vector<std::vector<int>> refresh;
+	std::vector<std::vector<int>> dist;
 
 	
 	Position startPos, endPos;

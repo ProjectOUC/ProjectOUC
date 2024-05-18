@@ -57,3 +57,10 @@ bool aInb(int a, int b)
 {
 	return random(1, b) <= a;
 }
+
+int roll(int diceNum, int facet)
+{
+	int res = 0;
+	for (int i = 0; i < diceNum; ++i) res += random(1, facet);
+	return res;
+}

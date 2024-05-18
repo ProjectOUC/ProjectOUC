@@ -7,6 +7,7 @@ extern std::vector<Gadget*> gadgetList;
 
 Battle::Battle(Character* _attacker, Character* _defenser)
 {
+	tA = tB = spA = spB = 0;
 	attacker = _attacker;
 	defenser = _defenser;
 	if (_attacker->get_attr().attackFirstLevel < _defenser->get_attr().attackFirstLevel)
@@ -24,6 +25,9 @@ void Battle::winnerGetGadgets(Character* winner, Character* loser)
 		winner->take_gadget(gadgetList[i], loser->gadgets[i]);
 	}
 	winner->modify_coin(loser->get_coin());
+	if (loser->get_coin()) std::cout << "获得了" << loser->get_coin() << "个铜币\n";
+	winner->modify_food(loser->get_food());
+	if (loser->get_food()) std::cout << "获得了" << loser->get_food() << "个食物\n";
 }
 
 void Battle::useAllGadgets(Character* owner, Character* enemy, int cond)
@@ -92,9 +96,10 @@ bool Battle::battle()
 	if (ending == 0) return false;
 	else if (ending == 1) return true;
 
+	spA = 0;
+	spB = 0;
 	while (!battleStep())
 	{
-		std::cout << "战斗进行中，当前回合: " << turn << "\n";
 		if (turn >= MAX_BATTLE_TURN)
 		{
 			return false;
@@ -110,12 +115,41 @@ bool Battle::battle()
 bool Battle::battleStep()
 {
 	//std::cout << defenser->get_health() << " " << attacker->get_health() << "\n";
-	turn = turn + 1;
-
 	// 回合开始道具
-
-	if (attack(0)) return true;
-	if (attack(1)) return true;
+	// 行动点先到达attackInterval的行动
+	int afl1 = attacker->get_attr().attackFirstLevel, afl2 = defenser->get_attr().attackFirstLevel;
+	if (afl1 <= 0) afl1 = 1;
+	if (afl2 <= 0) afl2 = 1;
+	int t = min((attackInterval - spA + afl1 - 1) / afl1, (attackInterval - spB + afl2 - 1) / afl2);
+	spA = spA + afl1 * t; spB = spB + afl2 * t;
+	if (spA > spB)
+	{
+		if (spA >= attackInterval)
+		{
+			tA++;
+			if (attack(0)) return true;
+		}
+		if (spB >= attackInterval)
+		{
+			tB++;
+			if (attack(1)) return true;
+		}
+	}
+	else
+	{
+		if (spB >= attackInterval)
+		{
+			tB++;
+			if (attack(1)) return true;
+		}
+		if (spA >= attackInterval)
+		{
+			tA++;
+			if (attack(0)) return true;
+		}
+	}
+	spA = spA % attackInterval;
+	spB = spB % attackInterval;
 
 	// 回合结束道具
 	
@@ -139,21 +173,21 @@ bool Battle::attack(int player)
 	int damage = 0;
 	bool miss = false;
 	bool critical = 0;
-	int attack = c1->get_attack();
+	int attack = c1->calc_attack();
 	int defense = c2->get_defense();
 
 	if (random(0, 10000) < (int)(100 * c1->get_attr().criticalAttackRate)) critical = true;
-	if (random(0, 10000) < (int)(100 * c1->get_attr().missRate)) miss = true;
+	if (random(0, 10000) < (int)(100 * c2->get_attr().missRate)) miss = true;
 
-	if (miss) damage = 0;
 	if (critical) attack = attack * 2;
 	damage = attack - defense;
 	damage = max(damage, 0);
+	if (miss) damage = 0;
 
-	if (miss) std::cout << c2->get_name() << "闪避了" << c1->get_name() << "的攻击\n";
+	if (miss) std::cout << c2->get_name() << "闪避了" << c1->get_name() << "的攻击\n\n";
 	else if (critical) std::cout << c1->get_name() << "造成了暴击\n";
 	c2->modify_health(-damage);
-	std::cout << c1->get_name() << "对" << c2->get_name() << "造成" << damage << "点伤害\n\n";
+	if (!miss) std::cout << c1->get_name() << "对" << c2->get_name() << "造成" << damage << "点伤害\n\n";
 
 
 	if (c1->dead() || c2->dead()) return true;

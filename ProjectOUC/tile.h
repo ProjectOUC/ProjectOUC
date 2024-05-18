@@ -1,6 +1,5 @@
 #pragma once
-#include "roles/monster.h"
-#include "roles/chest.h"
+#include "roles/characters.h"
 
 #include <list>
 
@@ -20,21 +19,22 @@ enum tile_type
 class Tile
 {
 public:
-	void initWallTile();
-	void initEmptyTile();
-	void initBattleTile();
-	void initChestTile();
-	void initStartTile();
-	void initEndTile();
+	void initWallTile(int level=-1);
+	void initEmptyTile(int level = -1);
+	void initBattleTile(int level = -1);
+	void initChestTile(int level = -1);
+	void initStartTile(int level = -1);
+	void initEndTile(int level = -1);
 
 	void modify_visited() { visited = true; }
 	void modify_type(tile_type new_type) { type = new_type; }
+
 
 	tile_type get_type() const { return type; }
 	bool get_visited() const { return visited; }
 	bool get_unreachable() const { return unreachable; }
 
-	void initTile(tile_type type);
+	void initTile(tile_type type, int level=-1);
 
 	std::vector<Monster*> monsters;
 	std::vector<Chest*> chests;

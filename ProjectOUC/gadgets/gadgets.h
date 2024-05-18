@@ -8,3 +8,4 @@
 
 void initGadgetList();
 void destroyGadgetList();
+int findGadget(std::string str);

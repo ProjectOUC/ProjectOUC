@@ -16,7 +16,9 @@ Character::Character() :
 	coin(0),
 	pos(Position()),
 	lastPos(Position()),
-	moved(false)
+	moved(false),
+	food(0),
+	food_capacity(0)
 {}
 
 
@@ -29,6 +31,7 @@ Character::Character(Attr _attr, std::string _name, char_type _character_type, i
 	lastPos(_pos),
 	moved(_moved)
 {
+	food = food_capacity = 0;
 	gadgets.resize(max_gadget_index);
 };
 
@@ -39,7 +42,9 @@ Character::Character(const Character& c) :
 	coin(c.coin),
 	pos(c.pos),
 	lastPos(c.lastPos),
-	moved(c.moved)
+	moved(c.moved),
+	food(c.food),
+	food_capacity(c.food_capacity)
 {
 	gadgets.resize(max_gadget_index);
 };
@@ -48,11 +53,16 @@ void Character::take_gadget(const Gadget* g, int num)
 {
 	Attr attr = g->get_gadget();
 
+	if (this->gadgets[g->get_gadgetIndex()] > 0 && g->get_stackable() == false)
+		attr = Attr();
+	else if (g->get_stackable() == true)
+		attr = num * attr;
+	
 	this->modify_attr(num * attr);
 	this->gadgets[g->get_gadgetIndex()] += num;
 	if (this->get_type() == PLAYER) gadgetVisited[g->get_gadgetIndex()] = 1;
 
-	if (num > 0)
+	if (num > 0 && this->get_type() == PLAYER)
 	{
 		std::cout << "Get " << num << " gadget " << g->get_name() << "\n";
 		//std::cout << this->health << " " << this->attack << " " << this->defense << "\n";
@@ -62,15 +72,30 @@ void Character::take_gadget(const Gadget* g, int num)
 void Character::lose_gadget(const Gadget* g, int num)
 {
 	Attr attr = g->lose_gadget();
+	if (num < 0) return;
+	int ind = g->get_gadgetIndex();
+	if (this->gadgets[ind] < num) num = this->gadgets[ind];
+	if (g->get_stackable() == true)
+		attr = attr * num;
+	else if (g->get_stackable() == false && this->gadgets[ind] > num)
+		attr = Attr();
 
-	this->modify_attr(-num * attr);
+	this->modify_attr(attr);
 	this->gadgets[g->get_gadgetIndex()] -= num;
 }
 
 void Character::use_gadget()
 {
-	if (!usefulGadgetSet.count(gadgetInHand)) return;
-	if (gadgets[gadgetInHand] <= 0) return;
+	if (!gadgetList[gadgetInHand]->get_useful())
+	{
+		std::cout << gadgetList[gadgetInHand]->get_name() << "无法使用\n";
+		return;
+	}
+	if (gadgets[gadgetInHand] <= 0)
+	{
+		std::cout << gadgetList[gadgetInHand]->get_name() << "数量不足\n";
+		return;
+	}
 	gadgets[gadgetInHand]--;
 	this->modify_attr(gadgetList[gadgetInHand]->lose_gadget());
 	this->modify_attr(gadgetList[gadgetInHand]->use_gadget());
@@ -91,5 +116,10 @@ void Character::move(direction dir)
 	case DOWN: pos = pos + Position(0, 0, 1); break;
 	case LEFT: pos = pos + Position(0, -1, 0); break;
 	case RIGHT: pos = pos + Position(0, 1, 0); break;
+	}
+	if (pos.stage)
+	{
+		food -= pos.stage;
+		std::cout << "food: " << food << '\n';
 	}
 }

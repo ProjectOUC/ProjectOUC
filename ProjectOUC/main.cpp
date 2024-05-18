@@ -1,13 +1,11 @@
 #include <iostream>
 #include <conio.h>
 #include "graphics.h"
-#include "roles/chest.h"
+#include "roles/characters.h"
 #include "gadgets/gadgets.h"
-#include "roles/monster.h"
-#include "roles/player.h"
 #include "scene.h"
 #include "paint.h"
-#include "PCG.h"
+#include "gaming.h"
 
 #define WIDTH 800
 #define HEIGHT 600
@@ -45,106 +43,6 @@ void pt(std::vector<Scene*>& scenes, Player* player)
 	}
 }
 
-void checkTile(std::vector<Scene*>& scenes, Player* player)
-{
-	SetConsoleOutputCP(CP_UTF8);
-	Position pos = player->get_pos();
-	if (player->get_attr().teleport)
-	{
-		player->moveTo(scenes[0]->get_startPos());
-		player->set_teleport(false);
-		return;
-	}
-	if (pos.stage < 0 || pos.stage >= scenes.size())
-	{
-		player->modify_pos(player->get_lastPos());
-		return;
-	}
-	Scene* scene = scenes[pos.stage];
-	if (pos.x <= 0 || pos.y <= 0 || pos.x >= scene->get_height() || pos.y >= scene->get_width())
-	{
-		player->modify_pos(player->get_lastPos());
-		return;
-	}
-
-	Tile* tile = scene->get_tiles(pos.x, pos.y);
-	if (tile->get_unreachable())
-	{
-		player->modify_pos(player->get_lastPos());
-		return;
-	}
-
-
-	if (tile->get_type() == WALL_TILE)
-	{
-		player->modify_moved(false);
-		return;
-	}
-
-	else if (tile->get_type() == BATTLE_TILE)
-	{
-		player->modify_moved(true);
-		for (int i = 0; i < tile->monsters.size(); ++i)
-		{
-			std::cout << "遭遇" << tile->monsters[i]->get_name() << "\n";
-			std::cout << "HP: " << tile->monsters[i]->get_health() << "\natk: " << tile->monsters[i]->get_attack();
-			std::cout << "\ndef: " << tile->monsters[i]->get_defense() << "\n";
-			Battle battle((Character*)tile->monsters[i], (Character*)player);
-
-			if (!battle.battle())
-			{
-				return;
-			}
-			std::cout << "战胜" << tile->monsters[i]->get_name() << "\n" <<
-				"剩余生命: " << player->get_health() <<
-				"\n防御: " << player->get_defense() <<
-				"\n攻击: " << player->get_attack() << "\n\n";
-		}
-		tile->monsters.clear();
-		tile->modify_type(EMPTY_TILE);
-		return;
-	}
-
-	else if (tile->get_type() == EMPTY_TILE)
-	{
-		player->modify_moved(true);
-		return;
-	}
-
-	else if (tile->get_type() == CHEST_TILE)
-	{
-		player->modify_moved(true);
-		for (int i = 0; i < tile->chests.size(); ++i)
-		{
-			std::cout << "打开" << tile->chests[i]->get_name() << "\n";
-			Battle battle((Character*)tile->chests[i], (Character*)player);
-			if (!battle.battle())
-			{
-				return;
-			}
-			std::cout << "获得" << tile->chests[i]->get_coin() << "铜币\n";
-			std::cout << "当前金钱: " << player->get_coin() << "\n\n";
-		}
-		tile->chests.clear();
-		tile->modify_type(EMPTY_TILE);
-		return;
-	}
-
-	else if (tile->get_type() == START_TILE)
-	{
-		if (player->get_moved() && pos.stage > 0) player->moveTo(scenes[pos.stage - 1]->get_endPos());
-		player->modify_moved(false);
-		return;
-	}
-	else if (tile->get_type() == END_TILE)
-	{
-		if (player->get_moved() && pos.stage < scenes.size() - 1) player->moveTo(scenes[pos.stage + 1]->get_startPos());
-		player->modify_moved(false);
-		return;
-	}
-	return;
-}
-
 int main()
 {
 	srand(time(nullptr));
@@ -156,11 +54,17 @@ int main()
 	//SwitchToWindow(current_window_type);
 	
 	initGadgetList();
-	Player* player = getPlayer(1);
-	std::vector<Scene*> scene(2);
-	scene[0] = new Scene(caveGenerate(15, 15, 6, 45, 0.6), Scene::CAVE, 0);
-	scene[1] = new Scene(mazeGenerate(15, 15, 10, 1, 3, 5, 80, 0.5), Scene::MAZE, 1);
-	player->moveTo(scene[0]->get_startPos());
+	Player* player = getPlayer(random(1, 2));
+	std::vector<Scene*> scenes(3);
+	bool loadGame = false;
+	scenes[0] = new Scene("init/basic-town.txt");
+	scenes[1] = new Scene("init/basic-cave.txt");
+	scenes[2] = new Scene("init/basic-maze.txt");
+	player->moveTo(scenes[0]->get_startPos());
+	player->gadgets[findGadget("TeleportScroll")]++;
+	player->set_food_capacity(200);
+	player->set_food(100);
+	
 
 	Paint paint(WIDTH, HEIGHT);
 	
@@ -180,7 +84,7 @@ int main()
 		Money_paint(player);
 		paint_heart(player);
 		//paint_wall(scene);
-		pt(scene, player);
+		pt(scenes, player);
 		//Player_paint(scene);
 		EndBatchDraw();
 
@@ -219,8 +123,7 @@ int main()
 					break;
 				case 'E':
 				case 'e':
-					do gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
-					while (!usefulGadgetSet.count(gadgetInHand));
+					gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
 					std::cout << gadgetList[gadgetInHand]->get_name() << " 当前拥有" << player->gadgets[gadgetInHand] << "个\n";
 					break;
 				case 'R':
@@ -233,12 +136,26 @@ int main()
 			}
 		}
 		
-		checkTile(scene, player);
+		checkTile(scenes, player);
 
 		if (player->dead())
 		{
-			Gameover_paint(WIDTH, HEIGHT);
-			break;
+			int ind = findGadget("TeleportScroll");
+			if (player->gadgets[ind] != 0)
+			{
+				std::cout << "你使用回城卷轴逃离了" << ((player->get_pos().stage == Scene::CAVE) ? "洞穴" : "迷宫") << "\n";
+				gadgetInHand = ind;
+				player->use_gadget();
+				player->set_health(player->get_maxHealth());
+			}
+			else
+			{
+				delete player;
+				destroyGadgetList();
+				for (int i = 0; i < scenes.size(); ++i) delete scenes[i];
+				Gameover_paint(WIDTH, HEIGHT);
+				break;
+			}
 		}
 
 		DWORD end_time = GetTickCount();
@@ -250,8 +167,7 @@ int main()
 	}
 
 	// Ending 
-	destroyGadgetList();
-	for (int i = 0; i < scene.size(); ++i) delete scene[i];
+	
 	getchar();
 	closegraph();
 	//

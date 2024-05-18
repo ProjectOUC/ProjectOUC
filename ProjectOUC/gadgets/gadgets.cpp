@@ -2,8 +2,8 @@
 
 extern const int max_gadget_index = 6;
 std::vector<Gadget*> gadgetList;
-std::set<int> usefulGadgetSet;
 std::vector<int> gadgetVisited;
+
 
 void initGadgetList()
 {
@@ -15,15 +15,18 @@ void initGadgetList()
 	gadgetList[1] = new Shield;
 
 	gadgetList[2] = new HealPotion;
-	usefulGadgetSet.insert(2);
 
 	gadgetList[3] = new CursedStone;
 
 	gadgetList[4] = new Bow;
 
 	gadgetList[5] = new TeleportScroll;
-	usefulGadgetSet.insert(5);
 
+	for (int i = 0; i < max_gadget_index; ++i)
+	{
+		std::string path = gadgetList[i]->get_name() + ".jpg";
+		loadimage(&gadgetList[i]->img, path.c_str());
+	}
 }
 
 void destroyGadgetList()
@@ -32,4 +35,11 @@ void destroyGadgetList()
 	{
 		delete gadgetList[i];
 	}
+}
+
+int findGadget(std::string str)
+{
+	for (int i = 0; i < gadgetList.size(); ++i)
+		if (gadgetList[i]->get_name() == str) return i;
+	return -1;
 }

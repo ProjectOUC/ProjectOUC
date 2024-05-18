@@ -1,8 +1,5 @@
 #pragma once
 #include "roles/character.h"
-#include "roles/chest.h"
-#include "roles/player.h"
-#include "roles/monster.h"
 #include "scene.h"
 #include "utils/random.h"
 
@@ -22,6 +19,8 @@ public:
 	~Battle() {};
 private:
 	int turn;
+	int spA, spB, tA, tB;
+	const static int attackInterval = 10000;
 	Character* attacker, *defenser;
 };
 

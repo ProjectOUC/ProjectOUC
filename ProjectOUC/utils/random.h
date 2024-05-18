@@ -16,3 +16,5 @@ int randIndByWeights(std::vector<int>& weights);
 bool oneIn(int facet);
 
 bool aInb(int a, int b);
+
+int roll(int diceNum, int facet);

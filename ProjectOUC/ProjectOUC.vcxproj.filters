@@ -42,7 +42,7 @@
     <ClCompile Include="attribute.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="PCG.cpp">
+    <ClCompile Include="utils\PCG.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="gadgets\bow.cpp">
@@ -75,10 +75,10 @@
     <ClCompile Include="roles\character.cpp">
       <Filter>role</Filter>
     </ClCompile>
-    <ClCompile Include="roles\chest.cpp">
+    <ClCompile Include="roles\chests\chest.cpp">
       <Filter>role</Filter>
     </ClCompile>
-    <ClCompile Include="roles\monster.cpp">
+    <ClCompile Include="roles\monsters\monster.cpp">
       <Filter>role</Filter>
     </ClCompile>
     <ClCompile Include="roles\player.cpp">
@@ -86,6 +86,24 @@
     </ClCompile>
     <ClCompile Include="gadgets\teleportscroll.cpp">
       <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gaming.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\monsters.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\chests\chests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\goblin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\slime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\rect.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,7 +122,7 @@
     <ClInclude Include="attribute.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="PCG.h">
+    <ClInclude Include="utils\PCG.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
@@ -140,10 +158,10 @@
     <ClInclude Include="roles\character.h">
       <Filter>role</Filter>
     </ClInclude>
-    <ClInclude Include="roles\chest.h">
+    <ClInclude Include="roles\chests\chest.h">
       <Filter>role</Filter>
     </ClInclude>
-    <ClInclude Include="roles\monster.h">
+    <ClInclude Include="roles\monsters\monster.h">
       <Filter>role</Filter>
     </ClInclude>
     <ClInclude Include="roles\player.h">
@@ -151,6 +169,27 @@
     </ClInclude>
     <ClInclude Include="gadgets\teleportscroll.h">
       <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gaming.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\characters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\monsters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\chests\chests.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\goblin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\slime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\rect.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
