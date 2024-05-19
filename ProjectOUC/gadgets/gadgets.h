@@ -5,6 +5,7 @@
 #include "cursedstone.h"
 #include "bow.h"
 #include "teleportscroll.h"
+#include "key.h"
 
 void initGadgetList();
 void destroyGadgetList();

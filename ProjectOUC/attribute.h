@@ -5,7 +5,7 @@ struct Attr
 	Attr();
 
 	Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
-		int _health, int _attack, int _diceNum, int _facet, int _defense, 
+		int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 		int visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport);
 
 	Attr(const Attr& other);
@@ -30,6 +30,7 @@ struct Attr
 	int diceNum;
 	int facet;
 	int defense;
+	int block;
 
 	int visibleRadius;
 

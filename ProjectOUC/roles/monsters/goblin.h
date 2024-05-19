@@ -14,6 +14,7 @@ public:
 		attr.diceNum = 5;
 		attr.facet = 2;
 		attr.defense = 4 + 2 * level + roll(2, 2);
+		attr.block = level + 1;
 		attr.attackFirstLevel = 5 + 2 * level + roll(5, 2);
 		attr.criticalAttackRate = (float)(10 + 2 * level + roll(2, 2));
 		attr.missRate = (float)(10 - level + random(-1, 1));
@@ -23,7 +24,7 @@ public:
 		set_coin(10 * level + roll(5, 2));
 		if (oneIn(10))
 		{
-			static std::vector<int> weights{10, 5, 5, 1, 2, 1};
+			static std::vector<int> weights{5, 3, 3, 1, 2, 1, 3};
 			this->take_gadget(gadgetList[randIndByWeights(weights)]);
 		}
 	};

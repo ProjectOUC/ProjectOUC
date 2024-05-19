@@ -18,6 +18,7 @@ extern const int BIRTH;
 extern const int FILLED;
 extern const int MONST;
 extern const int TREASURE;
+extern const int CLOSEDOOR;
 
 Scene::Scene(std::string path)
 {
@@ -147,11 +148,14 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 		{
 			tiles[i][j] = new Tile;
 			if (scene[i][j] == WALL) tiles[i][j]->initWallTile();
-			else if (scene[i][j] == FILLED || scene[i][j] == EMPTY) tiles[i][j]->initEmptyTile();
 			else if (scene[i][j] == BIRTH)
 			{
 				startPos = Position(stage, i, j);
 				tiles[i][j]->initStartTile();
+			} 
+			else
+			{
+				tiles[i][j]->initEmptyTile();
 			}
 		}
 	}
@@ -193,6 +197,7 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 
 				if (scene[i][j] == MONST) tiles[i][j]->initBattleTile(level);
 				else if (scene[i][j] == TREASURE) tiles[i][j]->initChestTile(level);
+				else if (scene[i][j] == CLOSEDOOR) tiles[i][j]->initDoorTile(level);
 				else if (scene[i][j] == FILLED || scene[i][j] == EMPTY)
 				{
 					refresh[i][j] = 1;
@@ -215,12 +220,14 @@ void Scene::refreshMonsters()
 		{
 			if (refresh[i][j] != 1) continue;
 			tiles[i][j]->initEmptyTile();
+			if (!oneIn(8)) continue;
+			if (dist[i][j] <= 5) continue;
 			int level = (dist[i][j] - 5) / 10;
 			static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
-			level = max(0, level - 5 + randIndByWeights(weights));
-			level += 10 * (scene_type - 1);
-			if (!oneIn(8)) tiles[i][j]->initEmptyTile(level);
-			else if (oneIn(10)) tiles[i][j]->initChestTile(level);
+			int rd = level - 3 + randIndByWeights(weights);
+			level = max(0, rd);
+			level = level + 10 * (scene_type - 1);
+			if (oneIn(10)) tiles[i][j]->initChestTile(level);
 			else tiles[i][j]->initBattleTile(level);
 		}
 	}

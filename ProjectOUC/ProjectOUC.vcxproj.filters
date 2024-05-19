@@ -105,6 +105,9 @@
     <ClCompile Include="utils\rect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="gadgets\key.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene.h">
@@ -189,6 +192,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="utils\rect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\key.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

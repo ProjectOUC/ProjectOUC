@@ -5,7 +5,7 @@ Attr Sword::get_gadget() const
 	attr.strength = 2;
 	attr.attack = 8;
 	attr.diceNum = -1;
-	attr.facet = -2;
+	attr.facet = 2;
 	return attr;
 }
 Attr Sword::lose_gadget() const

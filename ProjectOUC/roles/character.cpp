@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #pragma once
 #include "character.h"
 
@@ -51,6 +52,51 @@ Character::Character(const Character& c) :
 {
 	gadgets.resize(max_gadget_index);
 };
+
+Character::Character(std::string path)
+{
+	FILE* fp;
+	char buffer[1024];
+	if ((fp = fopen(path.c_str(), "r")) == nullptr)
+	{
+		std::cout << "path " << path << "doesn't exist.\n";
+		exit(0);
+	}
+
+	fscanf(fp, "character type: %d\n", &character_type);
+	fscanf(fp, "name: %s\n", buffer);
+	name = buffer;
+	fscanf(fp, "pos: %d %d %d\n", &pos.stage, &pos.x, &pos.y);
+	fscanf(fp, "lastPos: %d %d %d\n", &lastPos.stage, &lastPos.x, &lastPos.y);
+	fscanf(fp, "coin: %d\n", &coin);
+	fscanf(fp, "food capacity: %d\n", &food_capacity);
+	fscanf(fp, "food: %d\n", &food);
+	fscanf(fp, "essentialAttribute: %d\n", &essentialAttribute);
+ 	fscanf(fp, "attribute:\n");
+	fscanf(fp, "strength: %d\n", &attr.strength);
+	fscanf(fp, "agility: %d\n", &attr.agility);
+	fscanf(fp, "wisdom: %d\n", &attr.wisdom);
+	fscanf(fp, "maxHealth: %d\n", &attr.maxHealth);
+	fscanf(fp, "health: %d\n", &attr.health);
+	fscanf(fp, "attackFirstLevel: %d\n", &attr.attackFirstLevel);
+	fscanf(fp, "attack: %d\n", &attr.attack);
+	fscanf(fp, "diceNum: %d\n", &attr.diceNum);
+	fscanf(fp, "facet: %d\n", &attr.facet);
+	fscanf(fp, "defense: %d\n", &attr.defense);
+	fscanf(fp, "visibleRadius: %d\n", &attr.visibleRadius);
+	fscanf(fp, "criticalAttackRate: %f\n", &attr.criticalAttackRate);
+	fscanf(fp, "hitRate: %f\n", &attr.hitRate);
+	fscanf(fp, "missRate: %f\n", &attr.missRate);
+	fscanf(fp, "teleport: %d\n", &attr.teleport);
+
+	int max_gadget_index = 0;
+	fscanf(fp, "gadgets: %d\n", &max_gadget_index);
+	gadgets.resize(max_gadget_index);
+	for (int i = 0; i < max_gadget_index; ++i) fscanf(fp, " %d", &gadgets[i]);
+	fprintf(fp, "\n");
+
+	fclose(fp);
+}
 
 void Character::take_gadget(const Gadget* g, int num)
 {
@@ -127,7 +173,45 @@ void Character::move(direction dir)
 	}
 }
 
-int calc_damage(int attack, int defense)
+void Character::saveCharacter(std::string path)
 {
-	return (int)(1.0f * attack / (defense + 50) * 50);
+	FILE* fp;
+	if ((fp = fopen(path.c_str(), "w")) != nullptr)
+	{
+		fprintf(fp, "character type: %d\n", this->get_type());
+		fprintf(fp, "name: %s\n", this->get_name().c_str());
+		fprintf(fp, "pos: %d %d %d\n", pos.stage, pos.x, pos.y);
+		fprintf(fp, "lastPos: %d %d %d\n", lastPos.stage, lastPos.x, lastPos.y);
+		fprintf(fp, "coin: %d\n", coin);
+		fprintf(fp, "food capacity: %d\n", food_capacity);
+		fprintf(fp, "food: %d\n", food);
+		fprintf(fp, "essentialAttribute: %d\n", essentialAttribute);
+
+		fprintf(fp, "attribute:\n");
+		fprintf(fp, "strength: %d\n", attr.strength);
+		fprintf(fp, "agility: %d\n", attr.agility);
+		fprintf(fp, "wisdom: %d\n", attr.wisdom);
+		fprintf(fp, "maxHealth: %d\n", attr.maxHealth);
+		fprintf(fp, "health: %d\n", attr.health);
+		fprintf(fp, "attackFirstLevel: %d\n", attr.attackFirstLevel);
+		fprintf(fp, "attack: %d\n", attr.attack);
+		fprintf(fp, "diceNum: %d\n", attr.diceNum);
+		fprintf(fp, "facet: %d\n", attr.facet);
+		fprintf(fp, "defense: %d\n", attr.defense);
+		fprintf(fp, "visibleRadius: %d\n", attr.visibleRadius);
+		fprintf(fp, "criticalAttackRate: %f\n", attr.criticalAttackRate);
+		fprintf(fp, "hitRate: %f\n", attr.hitRate);
+		fprintf(fp, "missRate: %f\n", attr.missRate);
+		fprintf(fp, "teleport: %d\n", attr.teleport);
+
+		fprintf(fp, "gadgets: %d\n", max_gadget_index);
+		for (int i = 0; i < max_gadget_index; ++i) fprintf(fp, " %d", gadgets[i]);
+		fprintf(fp, "\n");
+	}
+	fclose(fp);
+}
+
+int calc_damage(int attack, int defense, int block)
+{
+	return max((int)(1.0f * attack / (defense + 50) * 50) - block, 0);
 }

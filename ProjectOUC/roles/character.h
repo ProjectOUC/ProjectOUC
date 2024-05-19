@@ -36,6 +36,8 @@ public:
 
 	Character(const Character& c);
 
+	Character(std::string path);
+
 
 	Position get_pos() const { return pos; }
 	Position get_lastPos() const { return lastPos; }
@@ -80,6 +82,8 @@ public:
 	int get_attack() const { return attr.attack + get_essentialAttributeValue() + get_strength(); }
 	int get_defense() const { return attr.defense + 1 * get_agility(); }
 	int get_attackFirstLevel() const { return attr.attackFirstLevel + get_agility() * 2 - get_strength(); }
+	int get_visibleRadius() const { return attr.visibleRadius; }
+	int get_block() const { return attr.block + (int)(0.2 * get_strength()); }
 	float get_criticalAttackRate() const { return (float)(attr.criticalAttackRate + 2 * get_agility()); }
 	float get_hitRate() const { return (float)(attr.hitRate - 0.5 * get_strength() + 1 * get_agility()); }
 	float get_missRate() const { return (float)(attr.missRate + 0.5 * get_strength() - 1 * get_agility()); }
@@ -91,7 +95,7 @@ public:
 	int get_food_capacity() const { return food_capacity + 2 * get_strength(); }
 	
 	int calc_maxHealth() const { return attr.maxHealth + 10 * attr.strength; }
-	int calc_attack() const { return get_attack() + roll(attr.diceNum, attr.facet); }
+	int calc_attack() { return get_attack() + roll(attr.diceNum, attr.facet); }
 	int calc_defense() const { return attr.defense + 1 * get_agility(); }
 	int calc_min_attack() const { return get_attack() + attr.diceNum; }
 	int calc_max_attack() const { return get_attack() + attr.diceNum * attr.facet; }
@@ -107,6 +111,8 @@ public:
 
 	void moveTo(const Position& somewhere);
 	void move(direction dir);
+
+	void saveCharacter(std::string path);
 	
 	std::vector<int> gadgets;
 
@@ -130,4 +136,4 @@ private:
 	bool moved;
 };
 
-int calc_damage(int attack, int defense);
+int calc_damage(int attack, int defense, int block);

@@ -13,7 +13,8 @@ enum tile_type
 	WALL_TILE,
 	EMPTY_TILE,
 	START_TILE,
-	END_TILE
+	END_TILE,
+	DOOR_TILE
 };
 
 class Tile
@@ -25,6 +26,7 @@ public:
 	void initChestTile(int level = -1);
 	void initStartTile(int level = -1);
 	void initEndTile(int level = -1);
+	void initDoorTile(int level = -1);
 
 	void modify_visited() { visited = true; }
 	void modify_type(tile_type new_type) { type = new_type; }
