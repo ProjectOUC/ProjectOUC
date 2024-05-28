@@ -1,0 +1,8 @@
+CAVE
+height: 15
+width: 15
+stage: 1
+parameter
+maxIter: 6
+wallWeight: 45
+fillIter: 0.6

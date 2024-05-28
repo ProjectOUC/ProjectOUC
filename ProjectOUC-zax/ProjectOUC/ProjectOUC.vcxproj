@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{5f9daee1-7349-4c5a-8e0f-fbaeb4f8d8c3}</ProjectGuid>
+    <RootNamespace>ProjectOUC</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level2</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalOptions>/D_CRT_SECURE_NO_WARNINGS </AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="attribute.cpp" />
+    <ClCompile Include="battle.cpp" />
+    <ClCompile Include="utils\rect.cpp" />
+    <ClCompile Include="roles\monsters\goblin.cpp" />
+    <ClCompile Include="roles\chests\chests.cpp" />
+    <ClCompile Include="gaming.cpp" />
+    <ClCompile Include="roles\monsters\monsters.cpp" />
+    <ClCompile Include="roles\character.cpp" />
+    <ClCompile Include="roles\chests\chest.cpp" />
+    <ClCompile Include="gadgets\bow.cpp" />
+    <ClCompile Include="gadgets\cursedstone.cpp" />
+    <ClCompile Include="gadgets\gadget.cpp" />
+    <ClCompile Include="gadgets\gadgets.cpp" />
+    <ClCompile Include="gadgets\healpotion.cpp" />
+    <ClCompile Include="gadgets\shield.cpp" />
+    <ClCompile Include="gadgets\sword.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="roles\monsters\monster.cpp" />
+    <ClCompile Include="paint.cpp" />
+    <ClCompile Include="utils\PCG.cpp" />
+    <ClCompile Include="roles\player.cpp" />
+    <ClCompile Include="scene.cpp" />
+    <ClCompile Include="gadgets\teleportscroll.cpp" />
+    <ClCompile Include="roles\monsters\slime.cpp" />
+    <ClCompile Include="tile.cpp" />
+    <ClCompile Include="utils\position.cpp" />
+    <ClCompile Include="utils\random.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="attribute.h" />
+    <ClInclude Include="battle.h" />
+    <ClInclude Include="utils\rect.h" />
+    <ClInclude Include="roles\monsters\goblin.h" />
+    <ClInclude Include="roles\chests\chests.h" />
+    <ClInclude Include="roles\monsters\monsters.h" />
+    <ClInclude Include="roles\characters.h" />
+    <ClInclude Include="gaming.h" />
+    <ClInclude Include="roles\character.h" />
+    <ClInclude Include="roles\chests\chest.h" />
+    <ClInclude Include="gadgets\bow.h" />
+    <ClInclude Include="gadgets\cursedstone.h" />
+    <ClInclude Include="gadgets\gadget.h" />
+    <ClInclude Include="gadgets\gadgets.h" />
+    <ClInclude Include="gadgets\healpotion.h" />
+    <ClInclude Include="gadgets\shield.h" />
+    <ClInclude Include="gadgets\sword.h" />
+    <ClInclude Include="roles\monsters\monster.h" />
+    <ClInclude Include="paint.h" />
+    <ClInclude Include="utils\PCG.h" />
+    <ClInclude Include="roles\player.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="scene.h" />
+    <ClInclude Include="gadgets\teleportscroll.h" />
+    <ClInclude Include="roles\monsters\slime.h" />
+    <ClInclude Include="tile.h" />
+    <ClInclude Include="utils\position.h" />
+    <ClInclude Include="utils\random.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\background\background-mountain-bg.png" />
+    <Image Include="res\background\background-mountain-far.png" />
+    <Image Include="res\background\background-mountain-mountains.png" />
+    <Image Include="res\cave_floor\cave_down_floor.png" />
+    <Image Include="res\cave_floor\cave_floor.png" />
+    <Image Include="res\cave_floor\cave_leftright_down_floor.png" />
+    <Image Include="res\cave_floor\cave_leftright_floor.png" />
+    <Image Include="res\cave_floor\cave_leftright_up_floor.png" />
+    <Image Include="res\cave_floor\cave_left_down_floor.png" />
+    <Image Include="res\cave_floor\cave_left_floor.png" />
+    <Image Include="res\cave_floor\cave_left_up_floor.png" />
+    <Image Include="res\cave_floor\cave_middle_floor.png" />
+    <Image Include="res\cave_floor\cave_right_down_floor.png" />
+    <Image Include="res\cave_floor\cave_right_floor.png" />
+    <Image Include="res\cave_floor\cave_right_up_floor.png" />
+    <Image Include="res\cave_floor\cave_updown_floor.png" />
+    <Image Include="res\cave_floor\cave_updown_left_floor.png" />
+    <Image Include="res\cave_floor\cave_updown_right_floor.png" />
+    <Image Include="res\cave_floor\cave_up_floor.png" />
+    <Image Include="res\cave_wall\cave_down.png" />
+    <Image Include="res\cave_wall\cave_down_middle_wall.png" />
+    <Image Include="res\cave_wall\cave_left_down_wall.png" />
+    <Image Include="res\cave_wall\cave_left_middle_wall.png" />
+    <Image Include="res\cave_wall\cave_left_wall.png" />
+    <Image Include="res\cave_wall\cave_middle_wall.png" />
+    <Image Include="res\cave_wall\cave_right_down_wall.png" />
+    <Image Include="res\cave_wall\cave_right_middle_wall.png" />
+    <Image Include="res\cave_wall\cave_up_left_wall.png" />
+    <Image Include="res\cave_wall\cave_up_middle_wall.png" />
+    <Image Include="res\cave_wall\cave_up_right_wall.png" />
+    <Image Include="res\cave_wall\cave_up_wall.png" />
+    <Image Include="res\cave_wall\cave_wall.png" />
+    <Image Include="res\chest\chest.png" />
+    <Image Include="res\GUI\GUI_down.png" />
+    <Image Include="res\GUI\GUI_left.png" />
+    <Image Include="res\GUI\GUI_left_down.png" />
+    <Image Include="res\GUI\GUI_left_up.png" />
+    <Image Include="res\GUI\GUI_middle.png" />
+    <Image Include="res\GUI\GUI_right.png" />
+    <Image Include="res\GUI\GUI_right_down.png" />
+    <Image Include="res\GUI\GUI_right_up.png" />
+    <Image Include="res\GUI\GUI_up.png" />
+    <Image Include="res\GUI\heart.png" />
+    <Image Include="res\GUI\Message_down.png" />
+    <Image Include="res\GUI\Message_left.png" />
+    <Image Include="res\GUI\Message_left_down.png" />
+    <Image Include="res\GUI\Message_left_up.png" />
+    <Image Include="res\GUI\Message_middle.png" />
+    <Image Include="res\GUI\Message_right.png" />
+    <Image Include="res\GUI\Message_right_down.png" />
+    <Image Include="res\GUI\Message_right_up.png" />
+    <Image Include="res\GUI\Message_up.png" />
+    <Image Include="res\GUI\money_bag.png" />
+    <Image Include="res\maze_floor\maze_down_floor.png" />
+    <Image Include="res\maze_floor\maze_floor.png" />
+    <Image Include="res\maze_floor\maze_leftright_down_floor.png" />
+    <Image Include="res\maze_floor\maze_leftright_floor.png" />
+    <Image Include="res\maze_floor\maze_leftright_up_floor.png" />
+    <Image Include="res\maze_floor\maze_left_down_floor.png" />
+    <Image Include="res\maze_floor\maze_left_floor.png" />
+    <Image Include="res\maze_floor\maze_left_up_floor.png" />
+    <Image Include="res\maze_floor\maze_middle_floor.png" />
+    <Image Include="res\maze_floor\maze_right_down_floor.png" />
+    <Image Include="res\maze_floor\maze_right_floor.png" />
+    <Image Include="res\maze_floor\maze_right_up_floor.png" />
+    <Image Include="res\maze_floor\maze_updown_floor.png" />
+    <Image Include="res\maze_floor\maze_updown_left_floor.png" />
+    <Image Include="res\maze_floor\maze_updown_right_floor.png" />
+    <Image Include="res\maze_floor\maze_up_floor.png" />
+    <Image Include="res\maze_wall\maze_down.png" />
+    <Image Include="res\maze_wall\maze_down_middle_wall.png" />
+    <Image Include="res\maze_wall\maze_left_down_wall.png" />
+    <Image Include="res\maze_wall\maze_left_middle_wall.png" />
+    <Image Include="res\maze_wall\maze_left_wall.png" />
+    <Image Include="res\maze_wall\maze_middle_wall.png" />
+    <Image Include="res\maze_wall\maze_right_down_wall.png" />
+    <Image Include="res\maze_wall\maze_right_middle_wall.png" />
+    <Image Include="res\maze_wall\maze_up_left_wall.png" />
+    <Image Include="res\maze_wall\maze_up_middle_wall.png" />
+    <Image Include="res\maze_wall\maze_up_right_wall.png" />
+    <Image Include="res\maze_wall\maze_up_wall.png" />
+    <Image Include="res\maze_wall\maze_wall.png" />
+    <Image Include="res\monster\skull.png" />
+    <Image Include="res\player\player_1.png" />
+    <Image Include="res\player\player_2.png" />
+    <Image Include="res\status\end.png" />
+    <Image Include="res\status\start.png" />
+    <Image Include="res\town_wall\town_down.png" />
+    <Image Include="res\town_wall\town_down_middle_wall.png" />
+    <Image Include="res\town_wall\town_left_down_wall.png" />
+    <Image Include="res\town_wall\town_left_middle_wall.png" />
+    <Image Include="res\town_wall\town_left_wall.png" />
+    <Image Include="res\town_wall\town_middle_wall.png" />
+    <Image Include="res\town_wall\town_right_down_wall.png" />
+    <Image Include="res\town_wall\town_right_middle_wall.png" />
+    <Image Include="res\town_wall\town_up_left_wall.png" />
+    <Image Include="res\town_wall\town_up_middle_wall.png" />
+    <Image Include="res\town_wall\town_up_right_wall.png" />
+    <Image Include="res\town_wall\town_up_wall.png" />
+    <Image Include="res\town_wall\town_wall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\UnicornTales(Master)9.wav" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
