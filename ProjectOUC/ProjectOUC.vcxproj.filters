@@ -22,6 +22,51 @@
     <Filter Include="role">
       <UniqueIdentifier>{d41c970c-81e8-4892-b847-02563390434e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="资源文件\wall">
+      <UniqueIdentifier>{03d32394-08d5-4c66-9897-c6bf05de17d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\floor">
+      <UniqueIdentifier>{409b291c-9fd2-487b-9244-f5fdfa9415ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\floor\cave">
+      <UniqueIdentifier>{db29ad4c-e61b-49e1-bc4e-c11663995b0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\wall\cave">
+      <UniqueIdentifier>{0d2b49ff-d03c-458d-a861-77a2e2c51ed7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\player">
+      <UniqueIdentifier>{bcdd5213-eac0-43b6-b707-1b5b30c6e48f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\monster">
+      <UniqueIdentifier>{867d5392-47b9-4306-b10f-15a19bcf5212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\item">
+      <UniqueIdentifier>{99a2fb11-9de2-45d7-9317-493ba15b7298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\status">
+      <UniqueIdentifier>{05b63566-da47-4a99-be1f-5a242970bf01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\GUI">
+      <UniqueIdentifier>{efa821d2-cea7-41bd-9e29-995af92ebd77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\wall\maze">
+      <UniqueIdentifier>{f6e6adef-2c80-468d-bbf9-12427360c563}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\floor\maze">
+      <UniqueIdentifier>{5eaec56f-4aa7-418c-a451-61bfaf9826ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\Message">
+      <UniqueIdentifier>{d2a1e94a-4f96-437e-8b77-9734e561232a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\background">
+      <UniqueIdentifier>{b21bbe24-986b-4bd1-a34f-975f668a7d69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\wall\town">
+      <UniqueIdentifier>{a19652f4-c903-4137-8f2f-b8a17c76dd09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件\gadgets">
+      <UniqueIdentifier>{ee5b0b3d-467e-4ec8-8939-e4b456643660}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -199,11 +244,328 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="half_heart.png">
-      <Filter>资源文件</Filter>
+    <Image Include="res\cave_wall\cave_right_middle_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
     </Image>
-    <Image Include="heart.png">
-      <Filter>资源文件</Filter>
+    <Image Include="res\cave_wall\cave_up_left_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
     </Image>
+    <Image Include="res\cave_wall\cave_up_middle_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_up_right_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_up_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_down.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_down_middle_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_left_down_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_left_middle_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_left_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_middle_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_wall\cave_right_down_wall.png">
+      <Filter>资源文件\wall\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\player\player_1.png">
+      <Filter>资源文件\player</Filter>
+    </Image>
+    <Image Include="res\chest\chest.png">
+      <Filter>资源文件\item</Filter>
+    </Image>
+    <Image Include="res\monster\skull.png">
+      <Filter>资源文件\monster</Filter>
+    </Image>
+    <Image Include="res\status\end.png">
+      <Filter>资源文件\status</Filter>
+    </Image>
+    <Image Include="res\status\start.png">
+      <Filter>资源文件\status</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_right_up.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_up.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_down.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_left.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_left_down.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_left_up.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_middle.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_right.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\GUI_right_down.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_left_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_left_up_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_leftright_down_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_leftright_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_leftright_up_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_middle_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_right_down_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_right_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_right_up_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_up_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_updown_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_updown_left_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_updown_right_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_left_down_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\cave_floor\cave_down_floor.png">
+      <Filter>资源文件\floor\cave</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_right_middle_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_up_left_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_up_middle_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_up_right_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_up_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_down.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_down_middle_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_left_down_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_left_middle_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_left_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_middle_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\maze_wall\maze_right_down_wall.png">
+      <Filter>资源文件\wall\maze</Filter>
+    </Image>
+    <Image Include="res\GUI\heart.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\GUI\money_bag.png">
+      <Filter>资源文件\GUI</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_leftright_up_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_middle_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_right_down_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_right_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_right_up_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_up_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_updown_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_updown_left_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_updown_right_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_down_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_left_down_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_left_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_left_up_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_leftright_down_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\maze_floor\maze_leftright_floor.png">
+      <Filter>资源文件\floor\maze</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_down.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_middle.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_right.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_right_down.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_right_up.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_up.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_left.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_left_down.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\GUI\Message_left_up.png">
+      <Filter>资源文件\Message</Filter>
+    </Image>
+    <Image Include="res\player\player_2.png">
+      <Filter>资源文件\player</Filter>
+    </Image>
+    <Image Include="res\background\background-mountain-mountains.png">
+      <Filter>资源文件\background</Filter>
+    </Image>
+    <Image Include="res\background\background-mountain-bg.png">
+      <Filter>资源文件\background</Filter>
+    </Image>
+    <Image Include="res\background\background-mountain-far.png">
+      <Filter>资源文件\background</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_down.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_down_middle_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_left_down_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_left_middle_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_left_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_middle_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_right_down_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_right_middle_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_up_left_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_up_middle_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_up_right_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_up_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\town_wall\town_wall.png">
+      <Filter>资源文件\wall\town</Filter>
+    </Image>
+    <Image Include="res\gadgets\bow.png">
+      <Filter>资源文件\gadgets</Filter>
+    </Image>
+    <Image Include="res\gadgets\cursedstone.png">
+      <Filter>资源文件\gadgets</Filter>
+    </Image>
+    <Image Include="res\gadgets\healpotion.png">
+      <Filter>资源文件\gadgets</Filter>
+    </Image>
+    <Image Include="res\gadgets\shield.png">
+      <Filter>资源文件\gadgets</Filter>
+    </Image>
+    <Image Include="res\gadgets\sword.png">
+      <Filter>资源文件\gadgets</Filter>
+    </Image>
+    <Image Include="res\gadgets\telescroll.png">
+      <Filter>资源文件\gadgets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="res\UnicornTales(Master)9.wav">
+      <Filter>资源文件</Filter>
+    </Media>
   </ItemGroup>
 </Project>

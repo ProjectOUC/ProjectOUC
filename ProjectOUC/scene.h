@@ -17,7 +17,7 @@ class Scene
 {
 public:
 	Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage);
-	Scene(std::string path);
+	Scene(std::string path, int given_stage = -1);
 
 	int get_width() const { return width; }
 	int get_height() const { return height; }
