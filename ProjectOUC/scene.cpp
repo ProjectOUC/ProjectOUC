@@ -19,7 +19,7 @@ extern const int FILLED;
 extern const int MONST;
 extern const int TREASURE;
 
-Scene::Scene(std::string path)
+Scene::Scene(std::string path, int given_stage)
 {
 	FILE* fp;
 	if (!(fp = fopen(path.c_str(), "r")))
@@ -43,6 +43,7 @@ Scene::Scene(std::string path)
 	fscanf(fp, "height: %d\n", &height);
 	fscanf(fp, "width: %d\n", &width);
 	fscanf(fp, "stage: %d\n", &stage);
+	if (given_stage != -1) stage = given_stage;
 	startPos.stage = endPos.stage = stage;
 	tiles.resize(height); refresh.resize(height); dist.resize(height);
 	for (int i = 0; i < height; ++i)
@@ -130,9 +131,6 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 {
 	startPos = Position();
 	endPos = Position();
-
-
-
 	height = (int)scene.size();
 	width = (int)scene[0].size();
 	tiles.resize(height);

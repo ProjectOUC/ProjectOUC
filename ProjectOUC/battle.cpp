@@ -43,9 +43,9 @@ void Battle::useAllGadgets(Character* owner, Character* enemy, int cond)
 		if (owner->gadgets[i] == 0) continue;
 		switch (cond)
 		{
-		case 1:gadgetList[i]->before_battle(owner, enemy, owner->gadgets[i]); break;
-		case 2:gadgetList[i]->after_battle(owner, enemy, owner->gadgets[i]); break;
-		case 3:gadgetList[i]->during_battle(owner, enemy, owner->gadgets[i]); break;
+			case 1:gadgetList[i]->before_battle(owner, enemy, owner->gadgets[i]); break;
+			case 2:gadgetList[i]->after_battle(owner, enemy, owner->gadgets[i]); break;
+			case 3:gadgetList[i]->during_battle(owner, enemy, owner->gadgets[i]); break;
 		}
 	}
 }
@@ -90,7 +90,6 @@ bool Battle::battle()
 	int ending = checkEnd(attacker, defenser);
 	if (ending == 0) return false;
 	else if (ending == 1) return true;
-
 	useAllGadgets(defenser, attacker, 1);
 	ending = checkEnd(defenser, attacker);
 	if (ending == 0) return false;
