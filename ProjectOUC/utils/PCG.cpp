@@ -347,55 +347,57 @@ std::vector<std::vector<int>> caveGenerate(
 	*/
 
 	// Step 1
-	std::vector<std::vector<int>> cave(2*height+1);
-	std::vector<std::vector<int>> new_cave;
-	for (int i = 0; i < cave.size(); ++i)
+	std::vector<std::vector<int>> cave;
+	while (1)
 	{
-		cave[i].resize(2 * width + 1);
-	}
+		cave.clear();
+		cave.resize(2 * height + 1);
+		std::vector<std::vector<int>> new_cave;
+		for (int i = 0; i < cave.size(); ++i)
+			cave[i].resize(2 * width + 1);
 
-	for (int i = 0; i < 1 + 2 * height; ++i)
-	{
-		for (int j = 0; j < 1 + 2 * width; ++j)
+		for (int i = 0; i < 1 + 2 * height; ++i)
 		{
-			if (i == 0 || j == 0 || i == 2 * height || j == 2 * width) 
+			for (int j = 0; j < 1 + 2 * width; ++j)
 			{
-				cave[i][j] = WALL;
-			}
-			else cave[i][j] = (random(0, 100) < wallWeight) ? WALL : EMPTY;
-		}
-	}
-
-	// Step 2
-	for (int iter = 0; iter < maxIter; ++iter)
-	{
-		getPrefix(cave, new_cave, 2);
-
-		for (int h = 1; h < 2 * height; ++h)
-		{
-			for (int w = 1; w < 2 * width; ++w)
-			{
-				int wallCount1 = getSum(new_cave, h - 1, w - 1, h + 1, w + 1, 2);
-				int wallCount2 = getSum(new_cave, h - 2, w - 2, h + 2, w + 2, 2);
-				if (wallCount1 >= 5 || (iter < fillIter * maxIter && wallCount2 <= 2)) cave[h][w] = WALL;
-				else cave[h][w] = EMPTY;
+				if (i == 0 || j == 0 || i == 2 * height || j == 2 * width)
+				{
+					cave[i][j] = WALL;
+				}
+				else cave[i][j] = (random(0, 100) < wallWeight) ? WALL : EMPTY;
 			}
 		}
+
+		// Step 2
+		for (int iter = 0; iter < maxIter; ++iter)
+		{
+			getPrefix(cave, new_cave, 2);
+
+			for (int h = 1; h < 2 * height; ++h)
+			{
+				for (int w = 1; w < 2 * width; ++w)
+				{
+					int wallCount1 = getSum(new_cave, h - 1, w - 1, h + 1, w + 1, 2);
+					int wallCount2 = getSum(new_cave, h - 2, w - 2, h + 2, w + 2, 2);
+					if (wallCount1 >= 5 || (iter < fillIter * maxIter && wallCount2 <= 2)) cave[h][w] = WALL;
+					else cave[h][w] = EMPTY;
+				}
+			}
+		}
+
+		// Step 3
+		int caveSize = fillFragments(cave);
+		if (caveSize < 2 * height * width) continue;
+		// Step 4
+		initBirthPoint(cave);
+
+		// Step 5: Todo
+		if (paint) scenePaint(cave, 2 * height + 1, 2 * width + 1);
+		return cave;
 	}
-
-	// Step 3
-	fillFragments(cave);
-
-	// Step 4
-	initBirthPoint(cave);
-
-	// Step 5: Todo
-	if (paint) scenePaint(cave, 2 * height + 1, 2 * width + 1);
-
-	return cave;
 }
 
-void fillFragments(std::vector<std::vector<int>>& scene)
+int fillFragments(std::vector<std::vector<int>>& scene)
 {
 	int h = (int)scene.size(), w = (int)scene[0].size();
 	std::vector<std::vector<int>> visited(h, std::vector<int>(w, 0));
@@ -446,6 +448,7 @@ void fillFragments(std::vector<std::vector<int>>& scene)
 			else scene[i][j] = EMPTY;
 		}
 	}
+	return chunkSize[ind];
 }
 
 void initBirthPoint(std::vector<std::vector<int>>& scene)

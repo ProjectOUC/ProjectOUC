@@ -64,7 +64,7 @@ public:
 	void modify_pos(const Position& other) { pos.set(other); }
 	void modify_lastPos(const Position& other) { lastPos.set(other); }
 	void modify_moved(const bool other) { moved = other; }
-	void modify_food(const int other) { food += other; if (food > food_capacity) food = food_capacity; }
+	void modify_food(const int other) { food += other; if (food > calc_food_capacity()) food = calc_food_capacity(); }
 	void modify_food_capacity(const int other) { food_capacity += other; }
 	void modify_exp(const int other) { exp += other; }
 
@@ -102,9 +102,9 @@ public:
 
 	float get_criticalAttackRate() const { return (float)(attr.criticalAttackRate + 2 * get_agility()); }
 
-	float get_hitRate() const { return (float)(attr.hitRate - 0.5 * get_strength() + 1 * get_agility()); }
+	float get_hitRate() const { return (float)(attr.hitRate - 0.5f * get_strength() + 1 * get_agility()); }
 
-	float get_missRate() const { return (float)(attr.missRate + 0.5 * get_strength() - 1 * get_agility()); }
+	float get_missRate() const { return (float)(attr.missRate - 0.5f * get_strength() + 1 * get_agility()); }
 
 	int get_level() const { return level; }
 	int get_exp() const { return exp; }

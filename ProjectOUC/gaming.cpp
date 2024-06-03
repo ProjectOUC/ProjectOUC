@@ -157,7 +157,7 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 {
 	FILE* fp;
 	std::string pathPrefix = autoSave ? "init/autoSave-" : "init/";
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		std::string path = pathPrefix + "scene" + std::to_string(i);
 		Scene* scene = scenes[i];
@@ -220,9 +220,18 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 
 void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 {
+	/*
+	功能: 加载存档
+	参数: 
+	- saveIndex: 选择的存档
+		- 0: 自动存档
+		- k: 存档k, 路径为init/scene<k>, 将<k>替换为字符k即可
+
+	*/
+
 	FILE* fp;
 	std::string pathPrefix = saveIndex ? "init/" : "init/autoSave-";
-	for (int i = 0; i < 3; ++i)
+	for (int i = 0; i < 5; ++i)
 	{
 		std::string path = pathPrefix + "scene" + std::to_string(i);
 		Scene* scene = scenes[i];

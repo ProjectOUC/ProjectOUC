@@ -212,19 +212,23 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 
 void Scene::refreshMonsters()
 {
+	int cnt = 0;
 	for (int i = 0; i < height; ++i)
 	{
 		for (int j = 0; j < width; ++j)
 		{
 			if (refresh[i][j] != 1) continue;
+			cnt++;
 			tiles[i][j]->initEmptyTile();
-			if (!oneIn(8)) continue;
+			if (!oneIn(32/cnt)) continue;
+
+			cnt = 0;
 			if (dist[i][j] <= 5) continue;
 			int level = (dist[i][j] - 5) / 8;
 			static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
 			int rd = level - 3 + randIndByWeights(weights);
 			level = max(0, rd);
-			level = level + 10 * (scene_type - 1);
+			level = level + 10 * (startPos.stage - 1);
 			if (oneIn(10)) tiles[i][j]->initChestTile(level);
 			else tiles[i][j]->initBattleTile(level);
 		}
@@ -332,40 +336,3 @@ Scene::~Scene()
 		for (int j = 0; j < width; ++j)
 			delete tiles[i][j];
 };
-
-void SwitchToWindow(window_type t)
-{
-	cleardevice();
-	switch (t)
-	{
-	case BAG_WINDOW: SwitchToBagWindow(); break;
-	case MAIN_WINDOW: SwitchToMainWindow(); break;
-	case MAP_WINDOW: SwitchToMapWindow(); break;
-	default: break;
-	}
-}
-
-void SwitchToBagWindow()
-{
-	//Todo
-	;
-}
-
-void SwitchToBattleWindow()
-{
-	//Todo
-	;
-}
-
-void SwitchToMainWindow()
-{
-	line(0, 100, GAME_WIDTH, 100);
-	line(100, 0, 100, GAME_HEIGHT);
-	outtextxy(105, 0, _T("ÄãºÃ"));
-}
-
-void SwitchToMapWindow()
-{
-	//Todo
-	;
-}

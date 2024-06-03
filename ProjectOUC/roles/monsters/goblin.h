@@ -8,8 +8,8 @@ public:
 		Monster(_level, _attr, _name, _coin, _pos, _moved)
 	{
 		Attr attr;
-		attr.strength = 5 * (_level + 1) + roll(3, 3);
-		attr.agility = 4 * (_level + 1) + roll(2, 3);
+		attr.strength = 8 + 3 * _level + roll(2, 3);
+		attr.agility = 6 + 2 * _level + roll(2, 3);
 		attr.wisdom = 1 * (_level + 1);
 		attr.maxHealth = roll(2, 20);
 
@@ -26,7 +26,7 @@ public:
 
 		set_attr(attr);
 		set_food(attr.strength);
-		set_coin(10 * _level + roll(5, 2));
+		set_coin(10 * _level + roll(2, 5));
 		if (oneIn(5))
 		{
 			static std::vector<int> weights{5, 3, 3, 1, 2, 1, 3};

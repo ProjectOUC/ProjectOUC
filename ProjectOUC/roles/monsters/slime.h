@@ -8,8 +8,8 @@ public:
 		Monster(_level, _attr, _name, _coin, _pos, _moved)
 	{
 		Attr attr;
-		attr.agility = 3 * (_level + 1) + roll(1, 4);
-		attr.strength = 4 * (_level + 1) + roll(3, 4);
+		attr.agility = 4 + _level + roll(1, 4);
+		attr.strength = 10 + 2 * _level + roll(3, 4);
 		attr.maxHealth = roll(1, 20);
 
 		attr.health = attr.get_maxHealth();
