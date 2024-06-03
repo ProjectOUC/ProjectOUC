@@ -216,7 +216,7 @@ void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, 
 		{
 			for (int y = 2 * room->y1 + 1; y < 2 * room->y2; ++y)
 			{
-				if (oneIn(5)) maze[x][y] = TREASURE;
+				if (oneIn(5)) maze[x][y] = TREASURE;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
 			}
 		}
 	}
