@@ -105,7 +105,7 @@ Scene::Scene(std::string path, int given_stage)
 		{
 			for (int j = 0; j < width; ++j)
 			{
-				int level = (dist[i][j] - 5) / 10;
+				int level = (dist[i][j] - 5) / 8;
 				static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
 				level = max(0, level - 5 + randIndByWeights(weights));
 				level += 10 * (scene_type - 1);
@@ -188,7 +188,7 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 			else if (dist[i][j] <= 5) tiles[i][j]->initEmptyTile();
 			else
 			{
-				int level = (dist[i][j] - 5) / 10;
+				int level = (dist[i][j] - 5) / 8;
 				static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
 				level = max(0, level - 5 + randIndByWeights(weights));
 				level += 10 * (scene_type-1);
@@ -220,7 +220,7 @@ void Scene::refreshMonsters()
 			tiles[i][j]->initEmptyTile();
 			if (!oneIn(8)) continue;
 			if (dist[i][j] <= 5) continue;
-			int level = (dist[i][j] - 5) / 10;
+			int level = (dist[i][j] - 5) / 8;
 			static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
 			int rd = level - 3 + randIndByWeights(weights);
 			level = max(0, rd);

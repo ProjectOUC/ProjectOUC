@@ -42,19 +42,9 @@ void Tile::initBattleTile(int level)
 	unreachable = false;
 	// Todo:  改为随机生成Monster
 	// 已完成
-	if (level == -1)
+	if (level < 0)
 	{
-		int level = random(1, 5);
-		Attr attr;
-		attr.maxHealth = attr.health = random(level * 11, level * 11 + 5);
-		attr.attack = random(level * 5, level * 5 + 2);
-		attr.defense = random(level * 2, level * 2 + 1);
-		attr.missRate = 10.0f - 2 * level;
-		attr.criticalAttackRate = 2.0f * level;
-		std::string name = "Goblin";
-		Monster* monster = new Monster(attr, name);
-		monster->gadgets[random(0, max_gadget_index - 1)]++;
-		monsters.push_back(monster);
+		return;
 	}
 	else
 	{
@@ -72,10 +62,9 @@ void Tile::initChestTile(int level)
 {
 	type = CHEST_TILE;
 	unreachable = false;
-	if (level == -1)
+	if (level < 0)
 	{
-		for (int i = 2; i >= -1; --i) chests.push_back(new Chest(getChest(i)));
-		chests[3]->gadgets[2] = 2;
+		return;
 	}
 	else
 	{

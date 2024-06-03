@@ -55,16 +55,22 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 				return;
 			}
 			std::cout << "战胜" << tile->monsters[i]->get_name() << "\n" <<
-				"最大生命: " << player->get_maxHealth() <<
+				"最大生命: " << player->calc_maxHealth() <<
 				"\n剩余生命: " << player->get_health() <<
 				"\n防御: " << player->get_defense() <<
 				"\n攻击: " << player->calc_min_attack() << "-" << player->calc_max_attack() <<
-				"\n速度: " << player->get_attackFirstLevel() <<
+				"\n速度: " << player->get_speed() <<
 				"\n力量: " << player->get_strength() <<
 				"\n敏捷: " << player->get_agility() <<
 				"\n智力: " << player->get_wisdom() <<
 				"\n命中: " << player->get_hitRate() <<
-				"\n闪避: " << player->get_missRate() << "\n\n";
+				"\n闪避: " << player->get_missRate() <<
+				"\n格挡: " << player->calc_block() <<
+				"\n\n当前经验: " << player->get_exp() <<
+				"\n升级经验: " << player->get_levelUpExp() <<
+				"\n等级: " << player->get_level() <<
+				"\n\n当前食物: " << player->get_food() <<
+				"\n最大食物: " << player->calc_food_capacity() << "\n\n";
 		}
 		tile->monsters.clear();
 		tile->modify_type(EMPTY_TILE);
@@ -236,4 +242,9 @@ void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 		exit(0);
 	}
 	*player = new Player(path);
+}
+
+void loadGadgetImage()
+{
+	return;
 }

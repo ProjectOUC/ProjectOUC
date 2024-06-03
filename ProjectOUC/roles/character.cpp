@@ -20,7 +20,13 @@ Character::Character() :
 	moved(false),
 	food(0),
 	food_capacity(0),
-	essentialAttribute(0)
+	essentialAttribute(0),
+	level(0),
+	exp(0),
+	levelUpExp(0),
+	strengthGen(0),
+	agilityGen(0),
+	wisdomGen(0)
 {}
 
 
@@ -36,6 +42,7 @@ Character::Character(Attr _attr, std::string _name, char_type _character_type, i
 	food = food_capacity = 0;
 	essentialAttribute = 0;
 	gadgets.resize(max_gadget_index);
+	level = exp = levelUpExp = agilityGen = strengthGen = wisdomGen = 0;
 };
 
 Character::Character(const Character& c) :
@@ -48,7 +55,13 @@ Character::Character(const Character& c) :
 	moved(c.moved),
 	food(c.food),
 	food_capacity(c.food_capacity),
-	essentialAttribute(c.essentialAttribute)
+	essentialAttribute(c.essentialAttribute),
+	level(c.level),
+	exp(c.exp),
+	levelUpExp(c.levelUpExp),
+	strengthGen(c.strengthGen),
+	agilityGen(c.agilityGen),
+	wisdomGen(c.wisdomGen)
 {
 	gadgets.resize(max_gadget_index);
 };
@@ -72,17 +85,24 @@ Character::Character(std::string path)
 	fscanf(fp, "food capacity: %d\n", &food_capacity);
 	fscanf(fp, "food: %d\n", &food);
 	fscanf(fp, "essentialAttribute: %d\n", &essentialAttribute);
+	fscanf(fp, "level: %d\n", &level);
+	fscanf(fp, "exp: %d\n", &exp);
+	fscanf(fp, "levelUpExp: %d\n", &levelUpExp);
+	fscanf(fp, "strengthGen: %d\n", &strengthGen);
+	fscanf(fp, "agilityGen: %d\n", &agilityGen);
+	fscanf(fp, "wisdomGen: %d\n", &wisdomGen);
  	fscanf(fp, "attribute:\n");
 	fscanf(fp, "strength: %d\n", &attr.strength);
 	fscanf(fp, "agility: %d\n", &attr.agility);
 	fscanf(fp, "wisdom: %d\n", &attr.wisdom);
 	fscanf(fp, "maxHealth: %d\n", &attr.maxHealth);
 	fscanf(fp, "health: %d\n", &attr.health);
-	fscanf(fp, "attackFirstLevel: %d\n", &attr.attackFirstLevel);
+	fscanf(fp, "speed: %d\n", &attr.speed);
 	fscanf(fp, "attack: %d\n", &attr.attack);
 	fscanf(fp, "diceNum: %d\n", &attr.diceNum);
 	fscanf(fp, "facet: %d\n", &attr.facet);
 	fscanf(fp, "defense: %d\n", &attr.defense);
+	fscanf(fp, "block: %d\n", &attr.block);
 	fscanf(fp, "visibleRadius: %d\n", &attr.visibleRadius);
 	fscanf(fp, "criticalAttackRate: %f\n", &attr.criticalAttackRate);
 	fscanf(fp, "hitRate: %f\n", &attr.hitRate);
@@ -186,18 +206,24 @@ void Character::saveCharacter(std::string path)
 		fprintf(fp, "food capacity: %d\n", food_capacity);
 		fprintf(fp, "food: %d\n", food);
 		fprintf(fp, "essentialAttribute: %d\n", essentialAttribute);
-
+		fprintf(fp, "level: %d\n", level);
+		fprintf(fp, "exp: %d\n", exp);
+		fprintf(fp, "levelUpExp: %d\n", levelUpExp);
+		fprintf(fp, "strengthGen: %d\n", strengthGen);
+		fprintf(fp, "agilityGen: %d\n", agilityGen);
+		fprintf(fp, "wisdomGen: %d\n", wisdomGen);
 		fprintf(fp, "attribute:\n");
 		fprintf(fp, "strength: %d\n", attr.strength);
 		fprintf(fp, "agility: %d\n", attr.agility);
 		fprintf(fp, "wisdom: %d\n", attr.wisdom);
 		fprintf(fp, "maxHealth: %d\n", attr.maxHealth);
 		fprintf(fp, "health: %d\n", attr.health);
-		fprintf(fp, "attackFirstLevel: %d\n", attr.attackFirstLevel);
+		fprintf(fp, "speed: %d\n", attr.speed);
 		fprintf(fp, "attack: %d\n", attr.attack);
 		fprintf(fp, "diceNum: %d\n", attr.diceNum);
 		fprintf(fp, "facet: %d\n", attr.facet);
 		fprintf(fp, "defense: %d\n", attr.defense);
+		fprintf(fp, "block: %d\n", attr.block);
 		fprintf(fp, "visibleRadius: %d\n", attr.visibleRadius);
 		fprintf(fp, "criticalAttackRate: %f\n", attr.criticalAttackRate);
 		fprintf(fp, "hitRate: %f\n", attr.hitRate);
@@ -211,7 +237,25 @@ void Character::saveCharacter(std::string path)
 	fclose(fp);
 }
 
+void Character::levelUp()
+{
+	if (character_type != PLAYER) return;
+	static Attr attrGen;
+	static int maxLevel = 20;
+	attrGen.strength = strengthGen;
+	attrGen.agility = agilityGen;
+	attrGen.wisdom = wisdomGen;
+	while (exp >= levelUpExp && level < maxLevel)
+	{
+		exp = exp - levelUpExp;
+		level++;
+		levelUpExp = (int)(25 * level);
+		attr = attr + attrGen;
+		set_health(calc_maxHealth());
+	}
+}
+
 int calc_damage(int attack, int defense, int block)
 {
-	return max((int)(1.0f * attack / (defense + 50) * 50) - block, 0);
+	return max((int)(1.0f * attack / (defense + 30) * 30) - block, 0);
 }
