@@ -22,7 +22,6 @@ extern const int max_gadget_index;
 extern std::vector<Gadget*> gadgetList;
 extern std::set<int> usefulGadgetSet;
 
-window_type current_window_type = MAIN_WINDOW;
 void pt_scene(std::vector<Scene*>& scenes, Player* player)
 {
 	cleardevice();
@@ -55,6 +54,7 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 		}
 	}
 }
+
 
 int main()
 {
