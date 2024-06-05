@@ -1,9 +1,2 @@
-﻿  event.cpp
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\event\event.cpp(38,13): warning C4477: “fscanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“std::string”
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\event\event.cpp(39,13): warning C4477: “fscanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“std::string”
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\event\event.cpp(55,14): warning C4477: “fscanf”: 格式字符串“%s”需要类型“char *”的参数，但可变参数 1 拥有了类型“std::string *”
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\event\event.cpp(82,15): warning C4477: “fscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“bool *”
-  button.cpp
-  正在生成代码...
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\utils\button.cpp(92,1): warning C4715: “Button::checkCondition”: 不是所有的控件路径都返回值
+﻿  button.cpp
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

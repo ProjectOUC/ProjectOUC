@@ -18,8 +18,8 @@ void Button::tradeButton(Character** player)
 	Character* p = *player;
 	if (checkCondition(p))
 	{
-		p->modify_coin(coinCost);
-		p->modify_health(healthCost);
+		p->modify_coin(-coinCost);
+		p->modify_health(-healthCost);
 		p->modify_attr(attrGain);
 		Button::isShown = 0;
 	}
@@ -30,7 +30,7 @@ void Button::foodButton(Character** player)
 	Character* p = *player;
 	int num = p->calc_food_capacity() - p->get_food();
 	if (num > p->get_coin() / 3) num = p->get_coin() / 3;
-	p->modify_coin(num * 3);
+	p->modify_coin(-num * 3);
 	p->modify_food(num);
 	Button::isShown = 0;
 }
@@ -89,4 +89,5 @@ bool Button::checkCondition(Character* player)
 	if (player->get_health() < healthCost) return false;
 	if (player->get_strength() < minStrength) return false;
 	if (player->get_agility() < minAgility) return false;
+	return true;
 }

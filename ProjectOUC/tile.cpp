@@ -40,8 +40,6 @@ void Tile::initBattleTile(int level)
 {
 	type = BATTLE_TILE;
 	unreachable = false;
-	// Todo:  改为随机生成Monster
-	// 已完成
 	if (level < 0)
 	{
 		return;
@@ -69,10 +67,10 @@ void Tile::initChestTile(int level)
 	else
 	{
 		Chest* chest = new Chest();
-		chest->set_coin(50 + 20 * level + roll(5, 3));
-		chest->set_food_capacity(10 * 5 * level);
+		chest->set_coin(50 + 10 * level + roll(2, 5));
+		chest->set_food_capacity(10 + 5 * level);
 		chest->set_food(5 + 5 * level + roll(2, 2));
-		int treasure_count = -level / 2 + roll(level, 2);
+		int treasure_count = level / 4 + 1;
 		for (int i = 0; i < treasure_count; ++i)
 		{
 			int ind = random(0, max_gadget_index-1);
@@ -97,5 +95,11 @@ void Tile::initEndTile(int level)
 void Tile::initDoorTile(int level)
 {
 	type = DOOR_TILE;
+	unreachable = false;
+}
+
+void Tile::initEventTile(int level)
+{
+	type = EVENT_TILE;
 	unreachable = false;
 }

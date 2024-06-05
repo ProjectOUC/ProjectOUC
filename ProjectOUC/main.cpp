@@ -53,6 +53,18 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			else if (tile->get_type() == END_TILE) End_paint(i,j);
 		}
 	}
+
+	for (i = 0; i < scene->get_width(); ++i)
+	{
+		for (j = 0; j < scene->get_height(); ++j)
+		{
+			Tile* tile = scene->get_tiles(i, j);
+			if (tile->event)
+			{
+				putimage_alpha(16 * i + 64, 16 * j + 64, &tile->event->img);
+			}
+		}
+	}
 }
 
 
@@ -213,7 +225,6 @@ int main()
 				case 'e':
 					while(item)
 					{
-						int type;
 						item_paint();
 						for (int index=0 ; index < max_gadget_index; index++)
 						{

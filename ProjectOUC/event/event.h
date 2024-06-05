@@ -23,6 +23,10 @@ public:
 
 	eventType getType() const;
 	int getEventCount() const;
+	std::string getEventName() const;
+	std::string getEventDescription() const;
+	std::string getEventPath() const;
+	std::string getImgPath() const;
 
 	void setType(const eventType& _type);
 	void setButtonCount(const int& _buttonCount);
@@ -38,5 +42,7 @@ private:
 	std::vector<Button*> buttons;
 	std::string eventName;
 	std::string eventDescription;
+	std::string eventPath;
+	std::string imgPath;
 };
 

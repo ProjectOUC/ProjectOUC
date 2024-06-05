@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "event.h"
 #include <iostream>
+#include <io.h>
 
 Event::Event()
 {
@@ -35,18 +36,19 @@ Event::Event(std::string path)
 		exit(0);
 	}
 
-	fscanf(fp, "%s\n", eventName);
-	fscanf(fp, "%s\n", eventDescription);
-	/***** 
-	* 
-	* 
-	Todo: 修改这里的函数，读取图片
-	*
-	*
-	*****/
-	std::string img_path;
-	fscanf(fp, "%s\n", img_path);
-	loadimage(&img, img_path.c_str());
+	eventName.resize(32);
+	eventDescription.resize(128);
+	fscanf(fp, "%s\n", &eventName[0]);
+	fscanf(fp, "%s\n", &eventDescription[0]);
+	
+	eventPath.resize(64);
+	fscanf(fp, "%s\n", &eventPath[0]);
+	imgPath.resize(64);
+	fscanf(fp, "%s\n", &imgPath[0]);
+
+	if (_access(imgPath.c_str(), 0))
+		imgPath = "event/img/placeholder.png";
+	loadimage(&img, imgPath.c_str());
 
 	fscanf(fp, "%d\n", &buttonCount);
 	buttons.resize(buttonCount);
@@ -63,7 +65,8 @@ Event::Event(std::string path)
 			buttons[i]->type = BUTTON_TRADE;
 		else if (strncmp(buffer, "BUTTON_FOOD", 11) == 0)
 			buttons[i]->type = BUTTON_FOOD;
-		fscanf(fp, "Description:%s\n", &buttons[i]->description);
+		buttons[i]->description.resize(128);
+		fscanf(fp, "Description:%s\n", &buttons[i]->description[0]);
 
 		if (buttons[i]->type == BUTTON_TRADE)
 		{
@@ -121,6 +124,26 @@ void Event::setType(const eventType& _type)
 	type = _type;
 }
 
+std::string Event::getEventName() const
+{
+	return this->eventName;
+}
+
+std::string Event::getEventDescription() const
+{
+	return this->eventDescription;
+}
+
+std::string Event::getEventPath() const
+{
+	return this->eventPath;
+}
+
+std::string Event::getImgPath() const
+{
+	return this->imgPath;
+}
+
 void Event::setButtonCount(const int& _buttonCount)
 {
 	buttonCount = _buttonCount;
@@ -137,10 +160,14 @@ void Event::occurEvent(Character** player)
 	1. 预处理Event中button的layout，根据buttonCount直接确定layout
 	2. 绘制Event和buttons的Description与Name
 	3. 在scene中绘制Event
-		这里将Event的IMG存在对象中，读取时直接通过文件中的path读取
+		这里将Event的IMG存在对象中，读取时直接通过文件中的path读取.
+		eventPath和imgPath在event/NPC/<file>中
+		eventPath格式要求: event/NPC/<filename>
+		imgPath格式要求: event/img/<filename>
 	*/
 	ExMessage msg;
 	Button::isShown = 1;
+	int DEBUG = 1;
 	while (Button::isShown)
 	{
 		//
@@ -148,11 +175,22 @@ void Event::occurEvent(Character** player)
 		for (Button* btn : buttons)
 			btn->onClick(msg, player);
 
-		cleardevice();
+		/*注释或删除break以正常循环*/
+		if (DEBUG)
+		{
+			for (Button* btn : buttons)
+			{
+				if (btn->getType() == BUTTON_TRADE)
+					btn->tradeButton(player);
+				else if (btn->getType() == BUTTON_FOOD)
+					btn->foodButton(player);
+			}
+		}
+		
 	}
 }
 
 Event::~Event()
 {
-	for (int i = 0; i < buttonCount; ++i) delete buttons[i];
+	for (int i = 0; i < buttonCount; ++i) if (buttons[i]) delete buttons[i];
 }

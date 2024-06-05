@@ -122,7 +122,20 @@ Scene::Scene(std::string path, int given_stage)
 		printf("%s", buffer);
 		exit(0);
 	}
-
+	int eventCount = 0;
+	getc(fp);
+	fscanf(fp, "Event:%d\n", &eventCount);
+	for (int i = 0; i < eventCount; ++i)
+	{
+		fscanf(fp, "Event:\n");
+		int ex, ey;
+		fscanf(fp, "%d %d\n", &ex, &ey);
+		fscanf(fp, "%s\n", buffer);
+		Tile* tile = tiles[ex][ey];
+		tile->initTile(EMPTY_TILE, -1);
+		tile->initEventTile();
+		tile->event = new Event(std::string(buffer));
+	}
 
 	fclose(fp);
 }
