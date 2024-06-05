@@ -2,7 +2,7 @@ EVENT_NPC
 床
 可以恢复所有体力
 event/NPC/event-bed.txt
-event/img/bed.jpg
+res/event/bed.jpg
 2
 Button1:
 BUTTON_TRADE

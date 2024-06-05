@@ -21,7 +21,7 @@ public:
 		attr.missRate = 50.0f;
 		attr.criticalAttackRate = 0.0f;
 
-		set_coin(3 * _level + roll(1, 2));
+		set_coin(2 * _level + roll(1, 2));
 		set_attr(attr);
 
 	};

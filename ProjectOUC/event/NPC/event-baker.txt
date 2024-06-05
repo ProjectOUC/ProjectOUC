@@ -2,7 +2,7 @@ EVENT_NPC
 面包师
 购买食物
 event/NPC/event-baker.txt
-event/img/baker.jpg
+res/event/baker.jpg
 2
 Button1:
 BUTTON_FOOD

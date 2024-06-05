@@ -23,12 +23,6 @@ void initGadgetList()
 	gadgetList[5] = new TeleportScroll;
 
 	gadgetList[6] = new Key;
-
-	for (int i = 0; i < max_gadget_index; ++i)
-	{
-		std::string path = gadgetList[i]->get_name() + ".jpg";
-		loadimage(&gadgetList[i]->img, path.c_str());
-	}
 }
 
 void destroyGadgetList()

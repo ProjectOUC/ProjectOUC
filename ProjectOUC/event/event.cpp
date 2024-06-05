@@ -47,7 +47,7 @@ Event::Event(std::string path)
 	fscanf(fp, "%s\n", &imgPath[0]);
 
 	if (_access(imgPath.c_str(), 0))
-		imgPath = "event/img/placeholder.png";
+		imgPath = "res/event/placeholder.png";
 	loadimage(&img, imgPath.c_str());
 
 	fscanf(fp, "%d\n", &buttonCount);
@@ -185,6 +185,7 @@ void Event::occurEvent(Character** player)
 				else if (btn->getType() == BUTTON_FOOD)
 					btn->foodButton(player);
 			}
+			break;
 		}
 		
 	}
