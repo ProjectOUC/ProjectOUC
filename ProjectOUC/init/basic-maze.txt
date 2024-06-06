@@ -1,0 +1,11 @@
+MAZE
+height: 15
+width: 15
+stage: 2
+parameter
+maxRoomNum: 15
+minRoomSize: 1
+maxRoomSize: 3
+maxIter: 5
+windingPercent: 80
+keepDeadEndRate: 0.5

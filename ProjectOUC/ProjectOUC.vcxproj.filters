@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="道具">
+      <UniqueIdentifier>{ff5d514e-1d19-49fb-b695-5cf6725d30fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="utils">
+      <UniqueIdentifier>{e2808b1c-35b7-4f29-99ae-f27b3dbaf5a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="role">
+      <UniqueIdentifier>{d41c970c-81e8-4892-b847-02563390434e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="scene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="battle.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="tile.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="paint.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="attribute.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\PCG.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\bow.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\cursedstone.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\gadget.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\gadgets.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\healpotion.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\shield.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\sword.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\random.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\position.cpp">
+      <Filter>utils</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\character.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\chests\chest.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\monster.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\player.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\teleportscroll.cpp">
+      <Filter>道具</Filter>
+    </ClCompile>
+    <ClCompile Include="gaming.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\monsters.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\chests\chests.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\goblin.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\slime.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\rect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="gadgets\key.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="item\equipment\EquipmentTool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="item\equipment\EquipmentFactory.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="item\BackPack.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="item\equipment\equipment.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="battle.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="paint.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="attribute.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\PCG.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\bow.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\cursedstone.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\gadget.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\gadgets.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\healpotion.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\shield.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\sword.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\random.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\position.h">
+      <Filter>utils</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\character.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\chests\chest.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\monster.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\player.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\teleportscroll.h">
+      <Filter>道具</Filter>
+    </ClInclude>
+    <ClInclude Include="gaming.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\characters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\monsters.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\chests\chests.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\goblin.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\slime.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\rect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="gadgets\key.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\equipment.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\weapon\bow.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\armor\armor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\accessory\accessory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\accessory\ring.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\accessory\amulet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\equipment_tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\equipment_factory.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\backpack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\item.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\weapon\lance.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\weapon\sword.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\equipment\weapon\weapon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\gadget.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\key.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\cursedstone.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\teleportscroll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\healingPotion.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\expansiongem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="item\gadget\forgingstone.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="half_heart.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="heart.png">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
