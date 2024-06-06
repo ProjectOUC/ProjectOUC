@@ -13,8 +13,12 @@ enum tile_type
 	WALL_TILE,
 	EMPTY_TILE,
 	START_TILE,
+<<<<<<< HEAD
 	END_TILE,
 	DOOR_TILE
+=======
+	END_TILE
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 };
 
 class Tile
@@ -26,7 +30,10 @@ public:
 	void initChestTile(int level = -1);
 	void initStartTile(int level = -1);
 	void initEndTile(int level = -1);
+<<<<<<< HEAD
 	void initDoorTile(int level = -1);
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 
 	void modify_visited() { visited = true; }
 	void modify_type(tile_type new_type) { type = new_type; }

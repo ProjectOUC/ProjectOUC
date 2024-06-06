@@ -13,7 +13,10 @@ void Tile::initTile(tile_type type, int level)
 	case CHEST_TILE: initChestTile(level); break;
 	case START_TILE: initStartTile(level); break;
 	case END_TILE: initEndTile(level); break;
+<<<<<<< HEAD
 	case DOOR_TILE: initDoorTile(level); break;
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	default: break;
 	}
 }
@@ -26,8 +29,11 @@ void Tile::initWallTile(int level)
 
 void Tile::initEmptyTile(int level)
 {
+<<<<<<< HEAD
 	for (int i = 0; i < monsters.size(); ++i) delete monsters[i];
 	for (int i = 0; i < chests.size(); ++i) delete chests[i];
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	monsters.clear();
 	monsters.shrink_to_fit();
 	chests.clear();
@@ -58,7 +64,10 @@ void Tile::initBattleTile(int level)
 	}
 	else
 	{
+<<<<<<< HEAD
 		//std::cout << level << "\n";
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		Monster* monster;
 		static std::vector<int> weights = { 10, 10 };
 		int ind = randIndByWeights(weights);
@@ -72,6 +81,7 @@ void Tile::initChestTile(int level)
 {
 	type = CHEST_TILE;
 	unreachable = false;
+<<<<<<< HEAD
 	if (level == -1)
 	{
 		for (int i = 2; i >= -1; --i) chests.push_back(new Chest(getChest(i)));
@@ -91,6 +101,11 @@ void Tile::initChestTile(int level)
 		}
 		chests.push_back(chest);
 	}
+=======
+
+	for (int i = 2; i >= -1; --i) chests.push_back(new Chest(getChest(i)));
+	chests[3]->gadgets[2] = 2;
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 }
 
 void Tile::initStartTile(int level)
@@ -103,10 +118,13 @@ void Tile::initEndTile(int level)
 {
 	type = END_TILE;
 	unreachable = false;
+<<<<<<< HEAD
 }
 
 void Tile::initDoorTile(int level)
 {
 	type = DOOR_TILE;
 	unreachable = false;
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 }

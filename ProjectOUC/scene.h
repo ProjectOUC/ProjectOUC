@@ -25,8 +25,11 @@ public:
 	Position get_startPos() const { return startPos; }
 	Position get_endPos() const { return endPos; }
 	Tile* get_tiles(int x, int y) const {return tiles[x][y]; }
+<<<<<<< HEAD
 	int get_refresh(int x, int y) const { return refresh[x][y]; }
 	int get_dist(int x, int y) const { return dist[x][y]; }
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 
 	void refreshMonsters();
 	//bool checkTile();

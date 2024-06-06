@@ -105,6 +105,7 @@
     <ClCompile Include="utils\rect.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="gadgets\key.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -120,6 +121,8 @@
     <ClCompile Include="item\equipment\equipment.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene.h">
@@ -206,6 +209,7 @@
     <ClInclude Include="utils\rect.h">
       <Filter>头文件</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="gadgets\key.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -269,6 +273,8 @@
     <ClInclude Include="item\gadget\forgingstone.h">
       <Filter>头文件</Filter>
     </ClInclude>
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
   </ItemGroup>
   <ItemGroup>
     <Image Include="half_heart.png">

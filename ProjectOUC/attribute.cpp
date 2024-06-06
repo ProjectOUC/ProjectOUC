@@ -15,7 +15,10 @@ Attr::Attr()
 	diceNum = 0;
 	facet = 0;
 	defense = 0;
+<<<<<<< HEAD
 	block = 0;
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 
 	visibleRadius = 0;
 
@@ -27,7 +30,11 @@ Attr::Attr()
 }
 
 Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
+<<<<<<< HEAD
 	int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
+=======
+	int _health, int _attack, int _diceNum, int _facet, int _defense,
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	int _visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport)
 {
 	this->attackFirstLevel = _attackFirstLevel;
@@ -40,7 +47,10 @@ Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int 
 	this->diceNum = _diceNum;
 	this->facet = _facet;
 	this->defense = _defense;
+<<<<<<< HEAD
 	this->block = _block;
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	this->visibleRadius = _visibleRadius;
 	this->criticalAttackRate = _criticalAttackRate;
 	this->hitRate = _hitRate;
@@ -60,7 +70,10 @@ Attr::Attr(const Attr& other)
 	this->diceNum = other.diceNum;
 	this->facet = other.facet;
 	this->defense = other.defense;
+<<<<<<< HEAD
 	this->block = other.block;
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
 	this->hitRate = other.hitRate;
@@ -69,9 +82,30 @@ Attr::Attr(const Attr& other)
 }
 
 Attr& Attr::operator=(const Attr& other)
+<<<<<<< HEAD
 {	
 	Attr attr(other);
 	return attr;
+=======
+{
+	this->attackFirstLevel = other.attackFirstLevel;
+	this->strength = other.strength;
+	this->agility = other.agility;
+	this->wisdom = other.wisdom;
+	this->maxHealth = other.maxHealth;
+	this->health = other.health;
+	this->attack = other.attack;
+	this->diceNum = other.diceNum;
+	this->facet = other.facet;
+	this->defense = other.defense;
+	this->visibleRadius = other.visibleRadius;
+	this->criticalAttackRate = other.criticalAttackRate;
+	this->hitRate = other.hitRate;
+	this->missRate = other.missRate;
+	this->teleport = other.teleport;
+
+	return *this;
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 }
 
 Attr Attr::operator+(const Attr& other)
@@ -87,7 +121,10 @@ Attr Attr::operator+(const Attr& other)
 		this->diceNum + other.diceNum,
 		this->facet + other.facet,
 		this->defense + other.defense,
+<<<<<<< HEAD
 		this->block + other.block,
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		this->visibleRadius + other.visibleRadius,
 		this->criticalAttackRate + other.criticalAttackRate,
 		this->hitRate + other.hitRate,
@@ -111,7 +148,10 @@ Attr Attr::operator-(const Attr& other)
 		this->diceNum - other.diceNum,		
 		this->facet - other.facet,
 		this->defense - other.defense,
+<<<<<<< HEAD
 		this->block - other.block,
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		this->visibleRadius - other.visibleRadius,
 		this->criticalAttackRate - other.criticalAttackRate,
 		this->hitRate - other.hitRate,
@@ -122,6 +162,7 @@ Attr Attr::operator-(const Attr& other)
 	return attr;
 }
 
+<<<<<<< HEAD
 // ÖØÔØ¸ººÅÔËËã·û
 Attr  Attr::operator-() const {
 	return Attr(
@@ -145,6 +186,8 @@ Attr  Attr::operator-() const {
 }
 
 
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 Attr Attr::operator*(const int mul)
 {
 	return Attr(
@@ -158,7 +201,10 @@ Attr Attr::operator*(const int mul)
 		mul * this->diceNum,
 		mul * this->facet,
 		mul * this->defense,
+<<<<<<< HEAD
 		mul * this->block,
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		mul * this->visibleRadius,
 		mul * this->criticalAttackRate,
 		mul * this->hitRate,
@@ -180,7 +226,10 @@ Attr operator*(const int mul, const Attr& other)
 		mul * other.diceNum,
 		mul * other.facet,
 		mul * other.defense,
+<<<<<<< HEAD
 		mul * other.block,
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		mul * other.visibleRadius,
 		mul * other.criticalAttackRate,
 		mul * other.hitRate,

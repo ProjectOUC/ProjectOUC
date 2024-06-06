@@ -216,7 +216,11 @@ void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, 
 		{
 			for (int y = 2 * room->y1 + 1; y < 2 * room->y2; ++y)
 			{
+<<<<<<< HEAD
 				if (oneIn(4)) maze[x][y] = TREASURE;
+=======
+				if (oneIn(5)) maze[x][y] = TREASURE;
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 			}
 		}
 	}
@@ -264,7 +268,11 @@ void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, 
 			}
 		}
 		int ind = randInd(px);
+<<<<<<< HEAD
 		maze[px[ind]][py[ind]] = oneIn(2) ? MONST : CLOSEDOOR;
+=======
+		maze[px[ind]][py[ind]] = MONST;
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	}
 
 

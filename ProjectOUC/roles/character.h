@@ -36,8 +36,11 @@ public:
 
 	Character(const Character& c);
 
+<<<<<<< HEAD
 	Character(std::string path);
 
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 
 	Position get_pos() const { return pos; }
 	Position get_lastPos() const { return lastPos; }
@@ -82,8 +85,11 @@ public:
 	int get_attack() const { return attr.attack + get_essentialAttributeValue() + get_strength(); }
 	int get_defense() const { return attr.defense + 1 * get_agility(); }
 	int get_attackFirstLevel() const { return attr.attackFirstLevel + get_agility() * 2 - get_strength(); }
+<<<<<<< HEAD
 	int get_visibleRadius() const { return attr.visibleRadius; }
 	int get_block() const { return attr.block + (int)(0.2 * get_strength()); }
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	float get_criticalAttackRate() const { return (float)(attr.criticalAttackRate + 2 * get_agility()); }
 	float get_hitRate() const { return (float)(attr.hitRate - 0.5 * get_strength() + 1 * get_agility()); }
 	float get_missRate() const { return (float)(attr.missRate + 0.5 * get_strength() - 1 * get_agility()); }
@@ -95,7 +101,11 @@ public:
 	int get_food_capacity() const { return food_capacity + 2 * get_strength(); }
 	
 	int calc_maxHealth() const { return attr.maxHealth + 10 * attr.strength; }
+<<<<<<< HEAD
 	int calc_attack() { return get_attack() + roll(attr.diceNum, attr.facet); }
+=======
+	int calc_attack() const { return get_attack() + roll(attr.diceNum, attr.facet); }
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	int calc_defense() const { return attr.defense + 1 * get_agility(); }
 	int calc_min_attack() const { return get_attack() + attr.diceNum; }
 	int calc_max_attack() const { return get_attack() + attr.diceNum * attr.facet; }
@@ -111,8 +121,11 @@ public:
 
 	void moveTo(const Position& somewhere);
 	void move(direction dir);
+<<<<<<< HEAD
 
 	void saveCharacter(std::string path);
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	
 	std::vector<int> gadgets;
 
@@ -136,4 +149,8 @@ private:
 	bool moved;
 };
 
+<<<<<<< HEAD
 int calc_damage(int attack, int defense, int block);
+=======
+int calc_damage(int attack, int defense);
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d

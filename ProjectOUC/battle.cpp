@@ -174,7 +174,10 @@ bool Battle::attack(int player)
 	bool critical = 0;
 	int attack = c1->calc_attack();
 	int defense = c2->get_defense();
+<<<<<<< HEAD
 	int block = c2->get_block();
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	float hitRate = c1->get_hitRate() - c2->get_missRate();
 	float car = c1->get_criticalAttackRate();
 
@@ -182,7 +185,11 @@ bool Battle::attack(int player)
 	if (random(0, 10000) < (int)(10000.0 * hitRate / (hitRate+100))) miss = true;
 
 	if (critical) attack = attack * 2;
+<<<<<<< HEAD
 	damage = calc_damage(attack, defense, block);
+=======
+	damage = calc_damage(attack, defense);
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	damage = max(damage, 0);
 	if (miss) damage = 0;
 

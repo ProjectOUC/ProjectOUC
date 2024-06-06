@@ -1,6 +1,10 @@
 #include "gadgets.h"
 
+<<<<<<< HEAD
 extern const int max_gadget_index = 7;
+=======
+extern const int max_gadget_index = 6;
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 std::vector<Gadget*> gadgetList;
 std::vector<int> gadgetVisited;
 
@@ -22,8 +26,11 @@ void initGadgetList()
 
 	gadgetList[5] = new TeleportScroll;
 
+<<<<<<< HEAD
 	gadgetList[6] = new Key;
 
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	for (int i = 0; i < max_gadget_index; ++i)
 	{
 		std::string path = gadgetList[i]->get_name() + ".jpg";

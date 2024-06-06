@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 #define _CRT_SECURE_NO_WARNINGS
 #include "gaming.h"
 
+=======
+#include "gaming.h"
+
+
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 void checkTile(std::vector<Scene*>& scenes, Player* player)
 {
 	SetConsoleOutputCP(CP_UTF8);
@@ -77,6 +83,7 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 
 	else if (tile->get_type() == CHEST_TILE)
 	{
+<<<<<<< HEAD
 		if (player->gadgets[findGadget("Key")] > 0)
 		{
 			player->gadgets[findGadget("Key")]--;
@@ -103,6 +110,22 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 			player->modify_food(pos.stage);
 			std::cout << "没有钥匙，无法打开宝箱\n";
 		}
+=======
+		player->modify_moved(true);
+		for (int i = 0; i < tile->chests.size(); ++i)
+		{
+			std::cout << "打开" << tile->chests[i]->get_name() << "\n";
+			Battle battle((Character*)tile->chests[i], (Character*)player);
+			if (!battle.battle())
+			{
+				return;
+			}
+			std::cout << "获得" << tile->chests[i]->get_coin() << "铜币\n";
+			std::cout << "当前金钱: " << player->get_coin() << "\n\n";
+		}
+		tile->chests.clear();
+		tile->modify_type(EMPTY_TILE);
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	}
 
 	else if (tile->get_type() == START_TILE)
@@ -110,8 +133,12 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		if (player->get_moved() && pos.stage > 0)
 		{
 			player->moveTo(scenes[pos.stage - 1]->get_endPos());
+<<<<<<< HEAD
 			pos = player->get_pos();
 			scenes[pos.stage]->refreshMonsters();
+=======
+			scenes[pos.stage - 1]->refreshMonsters();
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		}
 		player->modify_moved(false);
 		
@@ -121,12 +148,17 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		if (player->get_moved() && pos.stage < scenes.size() - 1)
 		{
 			player->moveTo(scenes[pos.stage + 1]->get_startPos());
+<<<<<<< HEAD
 			pos = player->get_pos();
 			scenes[pos.stage]->refreshMonsters();
+=======
+			scenes[pos.stage + 1]->refreshMonsters();
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		}
 		player->modify_moved(false);
 	}
 
+<<<<<<< HEAD
 	else if (tile->get_type() == DOOR_TILE)
 	{
 		if (player->gadgets[findGadget("Key")] > 0)
@@ -237,3 +269,7 @@ void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 	}
 	*player = new Player(path);
 }
+=======
+	return;
+}
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d

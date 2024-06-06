@@ -21,9 +21,14 @@ void Bow::before_battle(Character* owner, Character* enemy, int count)
 {
 	int attack = owner->calc_attack();
 	int defense = enemy->get_defense();
+<<<<<<< HEAD
 	int block = enemy->get_block();
 	int damage = 0;
 	damage = calc_damage(attack, defense, block);
+=======
+	int damage = 0;
+	damage = calc_damage(attack, defense);
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 	enemy->modify_health(-damage);
 	if (damage) std::cout << "¹­Ôì³É" << damage << "µãÉËº¦\n";
 }

@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #define _CRT_SECURE_NO_WARNINGS
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 #pragma once
 #include "character.h"
 
@@ -53,6 +56,7 @@ Character::Character(const Character& c) :
 	gadgets.resize(max_gadget_index);
 };
 
+<<<<<<< HEAD
 Character::Character(std::string path)
 {
 	FILE* fp;
@@ -98,6 +102,8 @@ Character::Character(std::string path)
 	fclose(fp);
 }
 
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 void Character::take_gadget(const Gadget* g, int num)
 {
 	Attr attr = g->get_gadget();
@@ -173,6 +179,7 @@ void Character::move(direction dir)
 	}
 }
 
+<<<<<<< HEAD
 void Character::saveCharacter(std::string path)
 {
 	FILE* fp;
@@ -214,4 +221,9 @@ void Character::saveCharacter(std::string path)
 int calc_damage(int attack, int defense, int block)
 {
 	return max((int)(1.0f * attack / (defense + 50) * 50) - block, 0);
+=======
+int calc_damage(int attack, int defense)
+{
+	return (int)(1.0f * attack / (defense + 50) * 50);
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 }

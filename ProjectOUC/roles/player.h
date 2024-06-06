@@ -8,9 +8,12 @@ public:
 
 	Player(const Player& player) :
 		Character(player) {};
+<<<<<<< HEAD
 
 	Player(std::string path) :
 		Character(path) {};
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 };
 
 Player* getPlayer(int level);

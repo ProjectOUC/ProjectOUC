@@ -38,7 +38,10 @@ void pt(std::vector<Scene*>& scenes, Player* player)
 			else if (tile->get_type() == START_TILE) setfillcolor(YELLOW);
 			else if (tile->get_type() == END_TILE) setfillcolor(BROWN);
 			else if (tile->get_type() == EMPTY_TILE) setfillcolor(WHITE);
+<<<<<<< HEAD
 			else if (tile->get_type() == DOOR_TILE) setfillcolor(0x55ff55);
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 			fillrectangle(100 + 15 * i, 100 + 15 * j, 100 + 15 * i + 14, 100 + 15 * j + 14);
 		}
 	}
@@ -53,6 +56,7 @@ int main()
 	initgraph(WIDTH, HEIGHT, EW_SHOWCONSOLE);
 	//initgraph(GAME_WIDTH, GAME_HEIGHT);
 	//SwitchToWindow(current_window_type);
+<<<<<<< HEAD
 
 	initGadgetList();
 	Player* player = getPlayer(random(1, 2));
@@ -85,6 +89,27 @@ int main()
 	{
 		loopCount = (loopCount + 1) % 1000;
 		if (loopCount == 0) saveGame(scenes, player);
+=======
+	
+	initGadgetList();
+	Player* player = getPlayer(random(1, 2));
+	std::vector<Scene*> scenes(3);
+	bool loadGame = false;
+	scenes[0] = new Scene("init/basic-town.txt");
+	scenes[1] = new Scene("init/basic-cave.txt");
+	scenes[2] = new Scene("init/basic-maze.txt");
+	player->moveTo(scenes[0]->get_startPos());
+	player->gadgets[findGadget("TeleportScroll")]++;
+	
+
+	Paint paint(WIDTH, HEIGHT);
+	
+	direction d[4] = { LEFT, RIGHT, UP, DOWN };
+	int movePause = 0; //防止卡进墙里
+	while (running)
+	{
+		movePause = max(movePause-1, 0);
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		DWORD start_time = GetTickCount();
 
 		BeginBatchDraw();
@@ -105,8 +130,13 @@ int main()
 		{
 			if (msg.message == WM_KEYDOWN)
 			{
+<<<<<<< HEAD
 				if (moved[msg.ch]) continue;
 				moved[msg.ch] = true;
+=======
+				if (movePause) continue;
+				movePause = 2;
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 				switch (msg.ch)
 				{
 				case 72://上键的虚拟值
@@ -138,10 +168,13 @@ int main()
 					gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
 					std::cout << gadgetList[gadgetInHand]->get_name() << " 当前拥有" << player->gadgets[gadgetInHand] << "个\n";
 					break;
+<<<<<<< HEAD
 				case 'Q':
 					gadgetInHand = (gadgetInHand + max_gadget_index - 1) % max_gadget_index;
 					std::cout << gadgetList[gadgetInHand]->get_name() << " 当前拥有" << player->gadgets[gadgetInHand] << "个\n";
 					break;
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 				case 'R':
 				case 'r':
 					player->use_gadget();
@@ -150,10 +183,13 @@ int main()
 					player->modify_moved(true);
 				}
 			}
+<<<<<<< HEAD
 			if (msg.message == WM_KEYUP)
 			{
 				moved[msg.ch] = false;
 			}
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 		}
 		
 		checkTile(scenes, player);
@@ -167,7 +203,10 @@ int main()
 				gadgetInHand = ind;
 				player->use_gadget();
 				player->set_health(player->get_maxHealth());
+<<<<<<< HEAD
 				player->set_food(player->get_food_capacity());
+=======
+>>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
 			}
 			else
 			{
