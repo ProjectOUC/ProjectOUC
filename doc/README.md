@@ -50,18 +50,7 @@
 
 #### Attr
 
-<<<<<<< HEAD
-- 功能：所有基础属性，包括生命、攻击、防御、闪避、暴击率等。重载了+、-、*运算符。
-- 变量
-  - attackFirstLevel：先攻值，确定双方攻击顺序
-  - strength：力量值，暂时没用
-  - agility：敏捷值，暂时没用
-  - wisdom：智力值，暂时没用
-  - criticalAttackRate：暴击概率，最高100
-  - missRate：被闪避概率，最高100
-=======
 - 功能：所有基础属性，包括生命、攻击、防御、闪避、暴击率等。重载了+、-、*运算符。详见游戏攻略。
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 
 ### battle.h
 
@@ -179,9 +168,6 @@
 
 - 迷宫地形生成接口如下，具体过程见代码注释
 
-<<<<<<< HEAD
-  - 
-=======
   - ```C++
     std::vector<std::vector<int>> mazeGenerate(
     	int height, 
@@ -196,7 +182,6 @@
     ```
   
     
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 
 
 
@@ -234,7 +219,4 @@
 
 ### 图形库
 
-<<<<<<< HEAD
-=======
 使用easyx完成
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

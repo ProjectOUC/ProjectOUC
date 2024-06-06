@@ -1,6 +1,4 @@
 #include "rect.h"
-<<<<<<< HEAD
-=======
 
 Rect::Rect()
 {
@@ -28,4 +26,3 @@ bool Rect::include(const int x, const int y)
 {
 	return x >= left && x <= right && y >= bottom && y <= top;
 }
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

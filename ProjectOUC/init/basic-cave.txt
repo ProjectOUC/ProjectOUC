@@ -5,9 +5,5 @@ stage: 1
 parameter
 maxIter: 6
 wallWeight: 45
-<<<<<<< HEAD
-fillIter: 0.6
-=======
 fillIter: 0.6
 Event:0
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

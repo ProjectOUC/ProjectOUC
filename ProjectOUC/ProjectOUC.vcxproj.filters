@@ -22,8 +22,6 @@
     <Filter Include="role">
       <UniqueIdentifier>{d41c970c-81e8-4892-b847-02563390434e}</UniqueIdentifier>
     </Filter>
-<<<<<<< HEAD
-=======
     <Filter Include="资源文件\wall">
       <UniqueIdentifier>{03d32394-08d5-4c66-9897-c6bf05de17d3}</UniqueIdentifier>
     </Filter>
@@ -69,7 +67,6 @@
     <Filter Include="资源文件\gadgets">
       <UniqueIdentifier>{ee5b0b3d-467e-4ec8-8939-e4b456643660}</UniqueIdentifier>
     </Filter>
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -138,41 +135,6 @@
     <ClCompile Include="gaming.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="roles\monsters\monsters.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="roles\chests\chests.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="roles\monsters\goblin.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="roles\monsters\slime.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="utils\rect.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-<<<<<<< HEAD
-    <ClCompile Include="gadgets\key.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="item\equipment\EquipmentTool.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="item\equipment\EquipmentFactory.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="item\BackPack.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="item\equipment\equipment.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-=======
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-=======
     <ClCompile Include="utils\rect.cpp">
       <Filter>utils</Filter>
     </ClCompile>
@@ -200,7 +162,6 @@
     <ClCompile Include="utils\button.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene.h">
@@ -269,101 +230,6 @@
     <ClInclude Include="gaming.h">
       <Filter>头文件</Filter>
     </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="roles\characters.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="roles\monsters\monsters.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="roles\chests\chests.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="roles\monsters\goblin.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="roles\monsters\slime.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="utils\rect.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="gadgets\key.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\equipment.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\weapon\bow.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\armor\armor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\accessory\accessory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\accessory\ring.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\accessory\amulet.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\equipment_tool.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\equipment_factory.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\backpack.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\item.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\weapon\lance.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\weapon\sword.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\equipment\weapon\weapon.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\gadget.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\key.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\cursedstone.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\teleportscroll.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\healingPotion.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\expansiongem.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="item\gadget\forgingstone.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-=======
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="half_heart.png">
-      <Filter>资源文件</Filter>
-    </Image>
-    <Image Include="heart.png">
-      <Filter>资源文件</Filter>
-    </Image>
-  </ItemGroup>
-=======
     <ClInclude Include="utils\rect.h">
       <Filter>utils</Filter>
     </ClInclude>
@@ -720,5 +586,4 @@
       <Filter>资源文件</Filter>
     </Media>
   </ItemGroup>
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 </Project>

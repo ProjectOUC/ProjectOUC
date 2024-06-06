@@ -6,18 +6,6 @@ public:
 	Paint(int width, int height);
 };
 
-<<<<<<< HEAD
-void transparentimage(int x, int y, IMAGE img);
-void Map_paint(int width, int height);
-void Gameover_paint(int width,int height);
-void Player_paint(std::vector<Scene*> scenes, Player* player);
-void Money_paint(Player* player);
-void chest_paint(Scene& scene);
-void monster_paint(Scene& scene);
-void Health_paint(Player* player);
-void paint_heart(Player* player);
-void paint_wall(Scene& scene);
-=======
 void Loading_image();
 void GUI_paint(std::vector<Scene*>& scenes, Player* player);
 void start_paint(int width, int height);
@@ -38,4 +26,3 @@ void End_paint(int x, int y);
 void Start_paint(int x, int y);
 void Cave_Empty_paint(int x, int y, Scene* scene, int pos);
 void Maze_Empty_paint(int x, int y, Scene* scene, int pos);
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

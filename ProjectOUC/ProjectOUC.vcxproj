@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<?xml version="1.0" encoding="utf-8"?>
-=======
 ﻿<?xml version="1.0" encoding="utf-8"?>
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -135,21 +131,10 @@
   <ItemGroup>
     <ClCompile Include="attribute.cpp" />
     <ClCompile Include="battle.cpp" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <ClCompile Include="item\BackPack.cpp" />
-    <ClCompile Include="item\equipment\equipment.cpp" />
-    <ClCompile Include="item\equipment\EquipmentTool.cpp" />
-    <ClCompile Include="item\equipment\EquipmentFactory.cpp" />
-    <ClCompile Include="gadgets\key.cpp" />
-=======
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-=======
     <ClCompile Include="utils\button.cpp" />
     <ClCompile Include="event\event.cpp" />
     <ClCompile Include="gadgets\dagger.cpp" />
     <ClCompile Include="gadgets\key.cpp" />
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
     <ClCompile Include="utils\rect.cpp" />
     <ClCompile Include="roles\monsters\goblin.cpp" />
     <ClCompile Include="roles\chests\chests.cpp" />
@@ -179,37 +164,10 @@
   <ItemGroup>
     <ClInclude Include="attribute.h" />
     <ClInclude Include="battle.h" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <ClInclude Include="item\equipment\accessory\accessory.h" />
-    <ClInclude Include="item\equipment\accessory\amulet.h" />
-    <ClInclude Include="item\equipment\accessory\ring.h" />
-    <ClInclude Include="item\equipment\armor\armor.h" />
-    <ClInclude Include="item\backpack.h" />
-    <ClInclude Include="item\equipment\equipment_factory.h" />
-    <ClInclude Include="item\equipment\equipment_tool.h" />
-    <ClInclude Include="item\equipment\weapon\bow.h" />
-    <ClInclude Include="item\equipment\equipment.h" />
-    <ClInclude Include="gadgets\key.h" />
-    <ClInclude Include="item\gadget\cursedstone.h" />
-    <ClInclude Include="item\gadget\expansiongem.h" />
-    <ClInclude Include="item\gadget\forgingstone.h" />
-    <ClInclude Include="item\gadget\gadget.h" />
-    <ClInclude Include="item\gadget\healingPotion.h" />
-    <ClInclude Include="item\gadget\key.h" />
-    <ClInclude Include="item\gadget\teleportscroll.h" />
-    <ClInclude Include="item\item.h" />
-    <ClInclude Include="item\equipment\weapon\lance.h" />
-    <ClInclude Include="item\equipment\weapon\sword.h" />
-    <ClInclude Include="item\equipment\weapon\weapon.h" />
-=======
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-=======
     <ClInclude Include="utils\button.h" />
     <ClInclude Include="event\event.h" />
     <ClInclude Include="gadgets\dagger.h" />
     <ClInclude Include="gadgets\key.h" />
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
     <ClInclude Include="utils\rect.h" />
     <ClInclude Include="roles\monsters\goblin.h" />
     <ClInclude Include="roles\chests\chests.h" />
@@ -238,10 +196,6 @@
     <ClInclude Include="utils\random.h" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-    <Image Include="half_heart.png" />
-    <Image Include="heart.png" />
-=======
     <Image Include="res\background\background-mountain-bg.png" />
     <Image Include="res\background\background-mountain-far.png" />
     <Image Include="res\background\background-mountain-mountains.png" />
@@ -351,7 +305,6 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\UnicornTales(Master)9.wav" />
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

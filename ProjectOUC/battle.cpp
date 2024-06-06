@@ -10,11 +10,7 @@ Battle::Battle(Character* _attacker, Character* _defenser)
 	tA = tB = spA = spB = 0;
 	attacker = _attacker;
 	defenser = _defenser;
-<<<<<<< HEAD
-	if (_attacker->get_attr().attackFirstLevel < _defenser->get_attr().attackFirstLevel)
-=======
 	if (_attacker->get_attr().speed < _defenser->get_attr().speed)
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	{
 		attacker = _defenser;
 		defenser = _attacker;
@@ -32,11 +28,8 @@ void Battle::winnerGetGadgets(Character* winner, Character* loser)
 	if (loser->get_coin()) std::cout << "获得了" << loser->get_coin() << "个铜币\n";
 	winner->modify_food(loser->get_food());
 	if (loser->get_food()) std::cout << "获得了" << loser->get_food() << "个食物\n";
-<<<<<<< HEAD
-=======
 	winner->set_exp(winner->get_exp() + loser->get_exp());
 	winner->levelUp();
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 }
 
 void Battle::useAllGadgets(Character* owner, Character* enemy, int cond)
@@ -52,15 +45,9 @@ void Battle::useAllGadgets(Character* owner, Character* enemy, int cond)
 		if (owner->gadgets[i] == 0) continue;
 		switch (cond)
 		{
-<<<<<<< HEAD
-		case 1:gadgetList[i]->before_battle(owner, enemy, owner->gadgets[i]); break;
-		case 2:gadgetList[i]->after_battle(owner, enemy, owner->gadgets[i]); break;
-		case 3:gadgetList[i]->during_battle(owner, enemy, owner->gadgets[i]); break;
-=======
 			case 1:gadgetList[i]->before_battle(owner, enemy, owner->gadgets[i]); break;
 			case 2:gadgetList[i]->after_battle(owner, enemy, owner->gadgets[i]); break;
 			case 3:gadgetList[i]->during_battle(owner, enemy, owner->gadgets[i]); break;
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		}
 	}
 }
@@ -105,10 +92,6 @@ bool Battle::battle()
 	int ending = checkEnd(attacker, defenser);
 	if (ending == 0) return false;
 	else if (ending == 1) return true;
-<<<<<<< HEAD
-
-=======
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	useAllGadgets(defenser, attacker, 1);
 	ending = checkEnd(defenser, attacker);
 	if (ending == 0) return false;
@@ -134,11 +117,7 @@ bool Battle::battleStep()
 	//std::cout << defenser->get_health() << " " << attacker->get_health() << "\n";
 	// 回合开始道具
 	// 行动点先到达attackInterval的行动
-<<<<<<< HEAD
-	int afl1 = attacker->get_attr().attackFirstLevel, afl2 = defenser->get_attr().attackFirstLevel;
-=======
 	int afl1 = attacker->get_attr().speed, afl2 = defenser->get_attr().speed;
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	if (afl1 <= 0) afl1 = 1;
 	if (afl2 <= 0) afl2 = 1;
 	int t = min((attackInterval - spA + afl1 - 1) / afl1, (attackInterval - spB + afl2 - 1) / afl2);
@@ -192,28 +171,6 @@ bool Battle::attack(int player)
 	}
 
 	int damage = 0;
-<<<<<<< HEAD
-	bool miss = false;
-	bool critical = 0;
-	int attack = c1->calc_attack();
-	int defense = c2->get_defense();
-<<<<<<< HEAD
-	int block = c2->get_block();
-=======
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-	float hitRate = c1->get_hitRate() - c2->get_missRate();
-	float car = c1->get_criticalAttackRate();
-
-	if (random(0, 10000) < (int)(10000.0 * car / (car+100))) critical = true;
-	if (random(0, 10000) < (int)(10000.0 * hitRate / (hitRate+100))) miss = true;
-
-	if (critical) attack = attack * 2;
-<<<<<<< HEAD
-	damage = calc_damage(attack, defense, block);
-=======
-	damage = calc_damage(attack, defense);
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-=======
 	bool miss = true;
 	bool critical = 0;
 	int attack = c1->calc_attack();
@@ -229,7 +186,6 @@ bool Battle::attack(int player)
 
 	if (critical) attack = attack * 2;
 	damage = calc_damage(attack, defense, block);
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	damage = max(damage, 0);
 	if (miss) damage = 0;
 
