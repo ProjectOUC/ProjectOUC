@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define _CRT_SECURE_NO_WARNINGS
 #include "gaming.h"
 
@@ -7,6 +8,11 @@
 
 
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+#define _CRT_SECURE_NO_WARNINGS
+#include "gaming.h"
+
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 void checkTile(std::vector<Scene*>& scenes, Player* player)
 {
 	SetConsoleOutputCP(CP_UTF8);
@@ -61,16 +67,34 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 				return;
 			}
 			std::cout << "战胜" << tile->monsters[i]->get_name() << "\n" <<
+<<<<<<< HEAD
 				"最大生命: " << player->get_maxHealth() <<
 				"\n剩余生命: " << player->get_health() <<
 				"\n防御: " << player->get_defense() <<
 				"\n攻击: " << player->calc_min_attack() << "-" << player->calc_max_attack() <<
 				"\n速度: " << player->get_attackFirstLevel() <<
+=======
+				"最大生命: " << player->calc_maxHealth() <<
+				"\n剩余生命: " << player->get_health() <<
+				"\n防御: " << player->get_defense() <<
+				"\n攻击: " << player->calc_min_attack() << "-" << player->calc_max_attack() <<
+				"\n速度: " << player->get_speed() <<
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 				"\n力量: " << player->get_strength() <<
 				"\n敏捷: " << player->get_agility() <<
 				"\n智力: " << player->get_wisdom() <<
 				"\n命中: " << player->get_hitRate() <<
+<<<<<<< HEAD
 				"\n闪避: " << player->get_missRate() << "\n\n";
+=======
+				"\n闪避: " << player->get_missRate() <<
+				"\n格挡: " << player->calc_block() <<
+				"\n\n当前经验: " << player->get_exp() <<
+				"\n升级经验: " << player->get_levelUpExp() <<
+				"\n等级: " << player->get_level() <<
+				"\n\n当前食物: " << player->get_food() <<
+				"\n最大食物: " << player->calc_food_capacity() << "\n\n";
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		}
 		tile->monsters.clear();
 		tile->modify_type(EMPTY_TILE);
@@ -84,6 +108,9 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 	else if (tile->get_type() == CHEST_TILE)
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		if (player->gadgets[findGadget("Key")] > 0)
 		{
 			player->gadgets[findGadget("Key")]--;
@@ -110,6 +137,7 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 			player->modify_food(pos.stage);
 			std::cout << "没有钥匙，无法打开宝箱\n";
 		}
+<<<<<<< HEAD
 =======
 		player->modify_moved(true);
 		for (int i = 0; i < tile->chests.size(); ++i)
@@ -126,6 +154,8 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		tile->chests.clear();
 		tile->modify_type(EMPTY_TILE);
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	}
 
 	else if (tile->get_type() == START_TILE)
@@ -134,11 +164,16 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		{
 			player->moveTo(scenes[pos.stage - 1]->get_endPos());
 <<<<<<< HEAD
+<<<<<<< HEAD
 			pos = player->get_pos();
 			scenes[pos.stage]->refreshMonsters();
 =======
 			scenes[pos.stage - 1]->refreshMonsters();
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+			pos = player->get_pos();
+			scenes[pos.stage]->refreshMonsters();
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		}
 		player->modify_moved(false);
 		
@@ -149,16 +184,24 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		{
 			player->moveTo(scenes[pos.stage + 1]->get_startPos());
 <<<<<<< HEAD
+<<<<<<< HEAD
 			pos = player->get_pos();
 			scenes[pos.stage]->refreshMonsters();
 =======
 			scenes[pos.stage + 1]->refreshMonsters();
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+			pos = player->get_pos();
+			scenes[pos.stage]->refreshMonsters();
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		}
 		player->modify_moved(false);
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	else if (tile->get_type() == DOOR_TILE)
 	{
 		if (player->gadgets[findGadget("Key")] > 0)
@@ -176,6 +219,18 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	else if (tile->get_type() == EVENT_TILE)
+	{
+		player->modify_moved(false);
+		player->moveTo(player->get_lastPos());
+		player->modify_food(pos.stage);
+		tile->event->occurEvent((Character**)(&player));
+		std::cout << tile->event->getEventDescription() << "\n";
+	}
+
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	return;
 }
 
@@ -183,7 +238,11 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 {
 	FILE* fp;
 	std::string pathPrefix = autoSave ? "init/autoSave-" : "init/";
+<<<<<<< HEAD
 	for (int i = 0; i < 3; ++i)
+=======
+	for (int i = 0; i < 5; ++i)
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	{
 		std::string path = pathPrefix + "scene" + std::to_string(i);
 		Scene* scene = scenes[i];
@@ -226,6 +285,10 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 				fprintf(fp, "\n");
 			}
 
+<<<<<<< HEAD
+=======
+			int eventCount = 0;
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 			fprintf(fp, "tiles\n");
 			for (int i = 0; i < h; ++i)
 			{
@@ -233,9 +296,31 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 				{
 					if (j != 0) fprintf(fp, " ");
 					fprintf(fp, "%d", scene->get_tiles(i, j)->get_type());
+<<<<<<< HEAD
 				}
 				fprintf(fp, "\n");
 			}
+=======
+					if (scene->get_tiles(i, j)->get_type() == EVENT_TILE)
+						eventCount++;
+				}
+				fprintf(fp, "\n");
+			}
+
+			fprintf(fp, "Event:%d\n", eventCount);
+			for (int i = 0; i < h; ++i)
+			{
+				for (int j = 0; j < w; ++j)
+				{
+					Tile* tile = scene->get_tiles(i, j);
+					if (tile->get_type() != EVENT_TILE) continue;
+					fprintf(fp, "Event:\n");
+					fprintf(fp, "%d %d\n", i, j);
+					fprintf(fp, "%s\n", (tile->event->getEventPath()).c_str());
+				}
+
+			}
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		}
 		fclose(fp);
 	}
@@ -246,9 +331,24 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 
 void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 {
+<<<<<<< HEAD
 	FILE* fp;
 	std::string pathPrefix = saveIndex ? "init/" : "init/autoSave-";
 	for (int i = 0; i < 3; ++i)
+=======
+	/*
+	功能: 加载存档
+	参数: 
+	- saveIndex: 选择的存档
+		- 0: 自动存档
+		- k: 存档k, 路径为init/scene<k>, 将<k>替换为字符k即可
+
+	*/
+
+	FILE* fp;
+	std::string pathPrefix = saveIndex ? "init/" : "init/autoSave-";
+	for (int i = 0; i < 5; ++i)
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	{
 		std::string path = pathPrefix + "scene" + std::to_string(i);
 		Scene* scene = scenes[i];
@@ -268,8 +368,12 @@ void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 		exit(0);
 	}
 	*player = new Player(path);
+<<<<<<< HEAD
 }
 =======
 	return;
 }
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+}
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

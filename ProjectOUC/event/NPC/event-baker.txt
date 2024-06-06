@@ -1,0 +1,12 @@
+EVENT_NPC
+面包师
+购买食物
+event/NPC/event-baker.txt
+res/event/baker.jpg
+2
+Button1:
+BUTTON_FOOD
+Descirption:3金币购买1个面包
+Button2:
+BUTTON_QUIT
+Description:离开

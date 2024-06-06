@@ -6,6 +6,7 @@ Player* getPlayer(int level)
 	static Attr attr;
 	Player* player = nullptr;
 	if (level == 1)
+<<<<<<< HEAD
 	{
 		attr.agility = 5;
 		attr.wisdom = 1;
@@ -50,5 +51,10 @@ Player* getPlayer(int level)
 		player->set_food_capacity(100);
 		player->set_food(100);
 	}
+=======
+		player = new Player("init/basic-warrior.txt");
+	else if (level == 2)
+		player = new Player("init/basic-rogue.txt");
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	return player;
 }

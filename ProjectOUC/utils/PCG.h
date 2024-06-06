@@ -48,7 +48,11 @@ std::vector<std::vector<int>> caveGenerate(
 	double fillIter,
 	bool paint=false);
 
+<<<<<<< HEAD
 void fillFragments(std::vector<std::vector<int>>& scene);
+=======
+int fillFragments(std::vector<std::vector<int>>& scene);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 
 void initBirthPoint(std::vector<std::vector<int>>& scene);
 

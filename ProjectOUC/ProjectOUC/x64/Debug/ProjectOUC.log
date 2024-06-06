@@ -1,6 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿  ProjectOUC.vcxproj -> E:\project\VS\oucGame\ProjectOUC\x64\Debug\ProjectOUC.exe
 =======
 ﻿  player.cpp
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+﻿  character.cpp
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\roles\character.cpp(110,13): warning C4477: “fscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“bool *”
+  ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

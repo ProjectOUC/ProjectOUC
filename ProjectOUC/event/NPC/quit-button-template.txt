@@ -1,0 +1,3 @@
+Button<buttonCount>
+BUTTON_QUIT
+Description:离开

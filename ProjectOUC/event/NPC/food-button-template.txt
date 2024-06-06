@@ -1,0 +1,3 @@
+Button<buttonCount>
+BUTTON_FOOD
+Descirption:3金币购买1个面包

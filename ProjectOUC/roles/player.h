@@ -9,11 +9,17 @@ public:
 	Player(const Player& player) :
 		Character(player) {};
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	Player(std::string path) :
 		Character(path) {};
 =======
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+
+	Player(std::string path) :
+		Character(path) {};
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 };
 
 Player* getPlayer(int level);

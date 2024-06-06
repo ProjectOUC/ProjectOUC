@@ -1,4 +1,5 @@
 character type: 1
+<<<<<<< HEAD
 name: Rogue
 pos: 1 3 8
 lastPos: 0 1 8
@@ -24,3 +25,37 @@ missRate: 20.000000
 teleport: 0
 gadgets: 7
  0 0 0 0 0 1 2
+=======
+name: Warrior
+pos: 1 9 20
+lastPos: 1 10 20
+coin: 102
+food capacity: 200
+food: 90
+essentialAttribute: 1
+level: 1
+exp: 6
+levelUpExp: 25
+strengthGen: 5
+agilityGen: 4
+wisdomGen: 2
+attribute:
+strength: 11
+agility: 6
+wisdom: 3
+maxHealth: 290
+health: 331
+speed: 30
+attack: 5
+diceNum: 3
+facet: 5
+defense: 10
+block: 0
+visibleRadius: 1
+criticalAttackRate: 5.000000
+hitRate: 85.000000
+missRate: 5.000000
+teleport: 0
+gadgets: 7
+ 1 1 1 0 0 1 0
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

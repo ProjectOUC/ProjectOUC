@@ -2,6 +2,7 @@
 #include "chest.h"
 
 Chest::Chest(Attr _attr, std::string _name, int _coin, Position _pos, bool _moved) :
+<<<<<<< HEAD
 	Character(_attr, _name, CHEST, _coin, _pos, _moved) {};
 
 Chest getChest(int level)
@@ -19,3 +20,6 @@ Chest getChest(int level)
 		return Chest(attr, "Chest Monster", 10);
 	}
 }
+=======
+	Character(_attr, _name, CHEST, _coin, _pos, _moved) {};
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

@@ -1,4 +1,5 @@
 #pragma once
+<<<<<<< HEAD
 #include "monster.h"
 
 Monster getMonster(int level)
@@ -29,3 +30,6 @@ Monster getMonster(int level)
 		return Monster(attr, "Weak Test Monster");
 	}
 }
+=======
+#include "monster.h"
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c

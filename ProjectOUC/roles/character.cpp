@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #define _CRT_SECURE_NO_WARNINGS
 =======
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+#define _CRT_SECURE_NO_WARNINGS
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 #pragma once
 #include "character.h"
 
@@ -23,7 +27,17 @@ Character::Character() :
 	moved(false),
 	food(0),
 	food_capacity(0),
+<<<<<<< HEAD
 	essentialAttribute(0)
+=======
+	essentialAttribute(0),
+	level(0),
+	exp(0),
+	levelUpExp(0),
+	strengthGen(0),
+	agilityGen(0),
+	wisdomGen(0)
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 {}
 
 
@@ -39,6 +53,10 @@ Character::Character(Attr _attr, std::string _name, char_type _character_type, i
 	food = food_capacity = 0;
 	essentialAttribute = 0;
 	gadgets.resize(max_gadget_index);
+<<<<<<< HEAD
+=======
+	level = exp = levelUpExp = agilityGen = strengthGen = wisdomGen = 0;
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 };
 
 Character::Character(const Character& c) :
@@ -51,12 +69,25 @@ Character::Character(const Character& c) :
 	moved(c.moved),
 	food(c.food),
 	food_capacity(c.food_capacity),
+<<<<<<< HEAD
 	essentialAttribute(c.essentialAttribute)
+=======
+	essentialAttribute(c.essentialAttribute),
+	level(c.level),
+	exp(c.exp),
+	levelUpExp(c.levelUpExp),
+	strengthGen(c.strengthGen),
+	agilityGen(c.agilityGen),
+	wisdomGen(c.wisdomGen)
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 {
 	gadgets.resize(max_gadget_index);
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 Character::Character(std::string path)
 {
 	FILE* fp;
@@ -76,17 +107,34 @@ Character::Character(std::string path)
 	fscanf(fp, "food capacity: %d\n", &food_capacity);
 	fscanf(fp, "food: %d\n", &food);
 	fscanf(fp, "essentialAttribute: %d\n", &essentialAttribute);
+<<<<<<< HEAD
+=======
+	fscanf(fp, "level: %d\n", &level);
+	fscanf(fp, "exp: %d\n", &exp);
+	fscanf(fp, "levelUpExp: %d\n", &levelUpExp);
+	fscanf(fp, "strengthGen: %d\n", &strengthGen);
+	fscanf(fp, "agilityGen: %d\n", &agilityGen);
+	fscanf(fp, "wisdomGen: %d\n", &wisdomGen);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
  	fscanf(fp, "attribute:\n");
 	fscanf(fp, "strength: %d\n", &attr.strength);
 	fscanf(fp, "agility: %d\n", &attr.agility);
 	fscanf(fp, "wisdom: %d\n", &attr.wisdom);
 	fscanf(fp, "maxHealth: %d\n", &attr.maxHealth);
 	fscanf(fp, "health: %d\n", &attr.health);
+<<<<<<< HEAD
 	fscanf(fp, "attackFirstLevel: %d\n", &attr.attackFirstLevel);
+=======
+	fscanf(fp, "speed: %d\n", &attr.speed);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	fscanf(fp, "attack: %d\n", &attr.attack);
 	fscanf(fp, "diceNum: %d\n", &attr.diceNum);
 	fscanf(fp, "facet: %d\n", &attr.facet);
 	fscanf(fp, "defense: %d\n", &attr.defense);
+<<<<<<< HEAD
+=======
+	fscanf(fp, "block: %d\n", &attr.block);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 	fscanf(fp, "visibleRadius: %d\n", &attr.visibleRadius);
 	fscanf(fp, "criticalAttackRate: %f\n", &attr.criticalAttackRate);
 	fscanf(fp, "hitRate: %f\n", &attr.hitRate);
@@ -102,8 +150,11 @@ Character::Character(std::string path)
 	fclose(fp);
 }
 
+<<<<<<< HEAD
 =======
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 void Character::take_gadget(const Gadget* g, int num)
 {
 	Attr attr = g->get_gadget();
@@ -180,6 +231,9 @@ void Character::move(direction dir)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 void Character::saveCharacter(std::string path)
 {
 	FILE* fp;
@@ -193,18 +247,35 @@ void Character::saveCharacter(std::string path)
 		fprintf(fp, "food capacity: %d\n", food_capacity);
 		fprintf(fp, "food: %d\n", food);
 		fprintf(fp, "essentialAttribute: %d\n", essentialAttribute);
+<<<<<<< HEAD
 
+=======
+		fprintf(fp, "level: %d\n", level);
+		fprintf(fp, "exp: %d\n", exp);
+		fprintf(fp, "levelUpExp: %d\n", levelUpExp);
+		fprintf(fp, "strengthGen: %d\n", strengthGen);
+		fprintf(fp, "agilityGen: %d\n", agilityGen);
+		fprintf(fp, "wisdomGen: %d\n", wisdomGen);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		fprintf(fp, "attribute:\n");
 		fprintf(fp, "strength: %d\n", attr.strength);
 		fprintf(fp, "agility: %d\n", attr.agility);
 		fprintf(fp, "wisdom: %d\n", attr.wisdom);
 		fprintf(fp, "maxHealth: %d\n", attr.maxHealth);
 		fprintf(fp, "health: %d\n", attr.health);
+<<<<<<< HEAD
 		fprintf(fp, "attackFirstLevel: %d\n", attr.attackFirstLevel);
+=======
+		fprintf(fp, "speed: %d\n", attr.speed);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		fprintf(fp, "attack: %d\n", attr.attack);
 		fprintf(fp, "diceNum: %d\n", attr.diceNum);
 		fprintf(fp, "facet: %d\n", attr.facet);
 		fprintf(fp, "defense: %d\n", attr.defense);
+<<<<<<< HEAD
+=======
+		fprintf(fp, "block: %d\n", attr.block);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 		fprintf(fp, "visibleRadius: %d\n", attr.visibleRadius);
 		fprintf(fp, "criticalAttackRate: %f\n", attr.criticalAttackRate);
 		fprintf(fp, "hitRate: %f\n", attr.hitRate);
@@ -218,6 +289,7 @@ void Character::saveCharacter(std::string path)
 	fclose(fp);
 }
 
+<<<<<<< HEAD
 int calc_damage(int attack, int defense, int block)
 {
 	return max((int)(1.0f * attack / (defense + 50) * 50) - block, 0);
@@ -226,4 +298,27 @@ int calc_damage(int attack, int defense)
 {
 	return (int)(1.0f * attack / (defense + 50) * 50);
 >>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
+=======
+void Character::levelUp()
+{
+	if (character_type != PLAYER) return;
+	static Attr attrGen;
+	static int maxLevel = 20;
+	attrGen.strength = strengthGen;
+	attrGen.agility = agilityGen;
+	attrGen.wisdom = wisdomGen;
+	while (exp >= levelUpExp && level < maxLevel)
+	{
+		exp = exp - levelUpExp;
+		level++;
+		levelUpExp = (int)(25 * level + 75);
+		attr = attr + attrGen;
+		set_health(calc_maxHealth());
+	}
+}
+
+int calc_damage(int attack, int defense, int block)
+{
+	return max((int)(1.0f * attack / (defense + 100) * 100) - block, 1);
+>>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
 }
