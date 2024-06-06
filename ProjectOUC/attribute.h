@@ -13,43 +13,36 @@ struct Attr
 	Attr& operator=(const Attr& other);
 	Attr operator+(const Attr& other);
 	Attr operator-(const Attr& other);
-	// ���ظ��������
 	Attr operator-() const;
 	Attr operator*(const int mul);
 	friend Attr operator*(const int mul, const Attr& other);
 	int get_maxHealth();
 	
 	
-	int attackFirstLevel;
+	int speed;
 
-	// ���������ݡ��ǻ�
 	int strength;
 	int agility;
 	int wisdom;
 
-	// �������ֵ����ǰ����ֵ
 	int maxHealth;
 	int health;
 
-	// ����������������������������������ֵ��
 	int attack;
 	int diceNum;
 	int facet;
 	int defense;
 	int block;
 
-	// �ɼ��뾶
 	int visibleRadius;
 
-	// ������
 	float criticalAttackRate;
 	float hitRate;
 	float missRate;
 
-	bool teleport; // �Ƿ��ܹ�����
+	bool teleport; 
 
-	// ��������
 	int capacity;
-	// װ���;ö�
 	int durability;
+
 };

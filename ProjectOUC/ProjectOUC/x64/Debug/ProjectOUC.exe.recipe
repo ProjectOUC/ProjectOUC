@@ -2,15 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-<<<<<<< HEAD
-<<<<<<< HEAD
       <FullPath>E:\project\VS\oucGame\ProjectOUC\x64\Debug\ProjectOUC.exe</FullPath>
-=======
-      <FullPath>D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe</FullPath>
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-=======
-      <FullPath>D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe</FullPath>
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

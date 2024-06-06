@@ -1,12 +1,2 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.39.33519:TargetPlatformVersion=10.0.22621.0:
 Debug|x64|E:\project\VS\oucGame\ProjectOUC\|
-=======
-PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.39.33519:TargetPlatformVersion=10.0.22000.0:
-Debug|x64|D:\Courses\GDAD\ProjectOUC\ProjectOUC\|
->>>>>>> 2bcc77c05f7a479fed838f813342c8af50a3155d
-=======
-PlatformToolSet=v143:VCToolArchitecture=Native64Bit:VCToolsVersion=14.39.33519:TargetPlatformVersion=10.0.22000.0:
-Debug|x64|D:\Courses\GDAD\ProjectOUC\ProjectOUC\|
->>>>>>> ebf75e24e5d42300b2e6462fb013eaafc4b87d1c
