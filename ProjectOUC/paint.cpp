@@ -138,6 +138,13 @@ static IMAGE img_gadget_cursedstone;
 static IMAGE img_player_1;
 static IMAGE img_player_2;
 static IMAGE img_skull;
+static IMAGE img_goblin;
+static IMAGE img_slime;
+static IMAGE img_orc;
+static IMAGE img_dragon;
+static IMAGE img_skeleton;
+static IMAGE img_vampire;
+static IMAGE img_witch;
 static IMAGE img_chest;
 static IMAGE img_start;
 static IMAGE img_end;
@@ -258,6 +265,14 @@ void Loading_image()
 
 	loadimage(&img_chest, _T("res\\chest\\chest.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_skull, _T("res\\monster\\skull.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_goblin, _T("res\\monster\\goblin.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_slime, _T("res\\monster\\slime.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_orc, _T("res\\monster\\orc.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_dragon, _T("res\\monster\\dragon.png"), 5* LENGTH_PIXIV, 5 * LENGTH_PIXIV);
+	loadimage(&img_skeleton, _T("res\\monster\\skeleton2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_vampire, _T("res\\monster\\vampire.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_witch, _T("res\\monster\\witch.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
 	loadimage(&img_start, _T("res\\status\\start.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_end, _T("res\\status\\end.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_heart_point, _T("res\\GUI\\heart.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -524,7 +539,7 @@ void Chest_paint(int x, int y)
 
 void Monster_paint(int x, int y)
 {
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
+	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_witch);
 }
 
 void Cave_Wall_paint(Scene* scene, int pos)

@@ -580,6 +580,30 @@
     <Image Include="res\gadgets\telescroll.png">
       <Filter>资源文件\gadgets</Filter>
     </Image>
+    <Image Include="res\monster\goblin.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\slime.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\orc.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\dragon.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\skeleton.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\skeleton2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\vampire.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\witch.png">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Media Include="res\UnicornTales(Master)9.wav">
