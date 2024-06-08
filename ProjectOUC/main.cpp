@@ -40,7 +40,8 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			else Cave_Empty_paint(i, j, scene, pos.stage);
 
 			Tile* tile = scene->get_tiles(i, j);
-			if (tile->get_type() == BATTLE_TILE) Monster_paint(i, j);
+			int monster_type = random(1, 10);
+			if (tile->get_type() == BATTLE_TILE) Monster_paint(i, j,monster_type);
 			else if (tile->get_type() == CHEST_TILE) Chest_paint(i, j);
 			else if (i == pos.x && j == pos.y)
 			{

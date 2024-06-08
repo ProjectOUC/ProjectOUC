@@ -145,6 +145,10 @@ static IMAGE img_dragon;
 static IMAGE img_skeleton;
 static IMAGE img_vampire;
 static IMAGE img_witch;
+static IMAGE img_ghost;
+static IMAGE img_werewolf;
+
+
 static IMAGE img_chest;
 static IMAGE img_start;
 static IMAGE img_end;
@@ -272,6 +276,8 @@ void Loading_image()
 	loadimage(&img_skeleton, _T("res\\monster\\skeleton2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_vampire, _T("res\\monster\\vampire.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_witch, _T("res\\monster\\witch.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_ghost, _T("res\\monster\\ghost.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_werewolf, _T("res\\monster\\werewolf.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
 	loadimage(&img_start, _T("res\\status\\start.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_end, _T("res\\status\\end.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -539,8 +545,49 @@ void Chest_paint(int x, int y)
 
 void Monster_paint(int x, int y)
 {
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_witch);
+	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
 }
+void Monster_paint(int x, int y, int type)
+{
+	switch (type)
+	{
+	case 0:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
+		break;
+	case 1:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_goblin);
+		break;
+	case 2:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_slime);
+		break;
+	case 3:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_orc);
+		break;
+	case 4:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
+		break;
+	case 5:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skeleton);
+		break;
+	case 6:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_vampire);
+		break;
+	case 7:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_witch);
+		break;
+	case 8:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_ghost);
+		break;
+	case 9:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_werewolf);
+		break;
+	default:
+		std::cerr << "Unknown monster type: " << type << std::endl;
+		break;
+	}
+}
+
+
 
 void Cave_Wall_paint(Scene* scene, int pos)
 {

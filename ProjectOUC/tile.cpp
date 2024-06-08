@@ -46,15 +46,47 @@ void Tile::initBattleTile(int level)
 	}
 	else
 	{
-		//std::cout << level << "\n";
 		Monster* monster;
-		static std::vector<int> weights = { 10, 10 };
-		int ind = randIndByWeights(weights);
-		if (ind == 0) monster = (Monster*)new Goblin(level);
-		else if (ind == 1) monster = (Monster*)new Slime(level);
+		static std::vector<int> weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }; // 根据需要调整权重
+		int tile_monster_type = randIndByWeights(weights); // 随机选择一个怪物类型
+
+		switch (tile_monster_type)
+		{
+		case 0:
+			monster = (Monster*)new Goblin(level);
+			break;
+		case 1:
+			monster = (Monster*)new Slime(level);
+			break;
+		case 2:
+			monster = (Monster*)new Orc(level);
+			break;
+		case 3:
+			monster = (Monster*)new Dragon(level);
+			break;
+		case 4:
+			monster = (Monster*)new Skeleton(level);
+			break;
+		case 5:
+			monster = (Monster*)new Vampire(level);
+			break;
+		case 6:
+			monster = (Monster*)new Witch(level);
+			break;
+		case 7:
+			monster = (Monster*)new Ghost(level);
+			break;
+		case 8:
+			monster = (Monster*)new Werewolf(level);
+			break;
+		default:
+			monster = (Monster*)new Goblin(level); // 默认选择
+			break;
+		}
 		monsters.push_back(monster);
 	}
 }
+
 
 void Tile::initChestTile(int level)
 {

@@ -1,10 +1,10 @@
 character type: 1
 name: Warrior
-pos: 1 6 21
-lastPos: 0 1 8
+pos: 1 21 27
+lastPos: 1 22 27
 coin: 100
 food capacity: 200
-food: 100
+food: 99
 essentialAttribute: 1
 level: 1
 exp: 0
