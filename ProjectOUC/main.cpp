@@ -40,15 +40,18 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			else Cave_Empty_paint(i, j, scene, pos.stage);
 
 			Tile* tile = scene->get_tiles(i, j);
-			int monster_type = random(1, 10);
-			if (tile->get_type() == BATTLE_TILE) Monster_paint(i, j,monster_type);
+			if (tile->get_type() == BATTLE_TILE) {
+				// 位置%怪物类型数量
+				int monster_type = (i + j) % 10;
+				Monster_paint(i, j, monster_type);
+			}
 			else if (tile->get_type() == CHEST_TILE) Chest_paint(i, j);
 			else if (i == pos.x && j == pos.y)
 			{
-				if(player->get_name()== "Rogue")
-					Player_paint(i, j,2);
-				else 
-					Player_paint(i, j,1);
+				if (player->get_name() == "Rogue")
+					Player_paint(i, j, 2);
+				else
+					Player_paint(i, j, 1);
 			}	
 			else if (tile->get_type() == START_TILE) Start_paint(i, j);
 			else if (tile->get_type() == END_TILE) End_paint(i,j);

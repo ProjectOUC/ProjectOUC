@@ -272,7 +272,7 @@ void Loading_image()
 	loadimage(&img_goblin, _T("res\\monster\\goblin.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_slime, _T("res\\monster\\slime.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_orc, _T("res\\monster\\orc.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_dragon, _T("res\\monster\\dragon.png"), 5* LENGTH_PIXIV, 5 * LENGTH_PIXIV);
+	loadimage(&img_dragon, _T("res\\monster\\dragon.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_skeleton, _T("res\\monster\\skeleton2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_vampire, _T("res\\monster\\vampire.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_witch, _T("res\\monster\\witch.png"), LENGTH_PIXIV, LENGTH_PIXIV);

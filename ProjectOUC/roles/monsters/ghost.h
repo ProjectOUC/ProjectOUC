@@ -4,7 +4,7 @@
 class Ghost : public Monster
 {
 public:
-    Ghost(int _level = 0, Attr _attr = Attr(), std::string _name = "Phantom", int _coin = 0, Position _pos = Position(), bool _moved = false) :
+    Ghost(int _level = 0, Attr _attr = Attr(), std::string _name = "Ghost", int _coin = 0, Position _pos = Position(), bool _moved = false) :
         Monster(_level, _attr, _name, _coin, _pos, _moved)
     {
         Attr attr;

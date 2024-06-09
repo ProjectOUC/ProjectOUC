@@ -1,9 +1,5 @@
-﻿  battle.cpp
-  event.cpp
-E:\project\VS\oucGame\ProjectOUC\event\event.cpp(96,15): warning C4477: “fscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“bool *”
-  gaming.cpp
-  main.cpp
-E:\project\VS\oucGame\ProjectOUC\main.cpp(74,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+﻿  main.cpp
+E:\project\VS\oucGame\ProjectOUC\main.cpp(77,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
   paint.cpp
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(310,93): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(310,74): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
@@ -17,9 +13,5 @@ E:\project\VS\oucGame\ProjectOUC\paint.cpp(314,103): warning C4244: “参数”
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(314,84): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(315,103): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(315,84): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-  monsters.cpp
-  scene.cpp
-  tile.cpp
-  button.cpp
   正在生成代码...
   ProjectOUC.vcxproj -> E:\project\VS\oucGame\ProjectOUC\x64\Debug\ProjectOUC.exe
