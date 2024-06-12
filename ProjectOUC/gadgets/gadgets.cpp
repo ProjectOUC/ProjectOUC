@@ -1,6 +1,6 @@
 #include "gadgets.h"
 
-extern const int max_gadget_index = 6;
+extern const int max_gadget_index = 7;
 std::vector<Gadget*> gadgetList;
 std::vector<int> gadgetVisited;
 
@@ -21,6 +21,8 @@ void initGadgetList()
 	gadgetList[4] = new Bow;
 
 	gadgetList[5] = new TeleportScroll;
+
+	gadgetList[6] = new Key;
 
 	for (int i = 0; i < max_gadget_index; ++i)
 	{

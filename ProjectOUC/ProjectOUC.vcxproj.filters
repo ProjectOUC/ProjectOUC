@@ -135,20 +135,26 @@
     <ClCompile Include="gaming.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="roles\monsters\monsters.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="utils\rect.cpp">
+      <Filter>utils</Filter>
     </ClCompile>
-    <ClCompile Include="roles\chests\chests.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="gadgets\key.cpp">
+      <Filter>道具</Filter>
     </ClCompile>
-    <ClCompile Include="roles\monsters\goblin.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="gadgets\dagger.cpp">
+      <Filter>道具</Filter>
     </ClCompile>
     <ClCompile Include="roles\monsters\slime.cpp">
-      <Filter>源文件</Filter>
+      <Filter>role</Filter>
     </ClCompile>
-    <ClCompile Include="utils\rect.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="roles\monsters\monsters.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\monsters\goblin.cpp">
+      <Filter>role</Filter>
+    </ClCompile>
+    <ClCompile Include="roles\chests\chests.cpp">
+      <Filter>role</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,23 +224,29 @@
     <ClInclude Include="gaming.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="roles\characters.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="utils\rect.h">
+      <Filter>utils</Filter>
     </ClInclude>
-    <ClInclude Include="roles\monsters\monsters.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="gadgets\key.h">
+      <Filter>道具</Filter>
     </ClInclude>
-    <ClInclude Include="roles\chests\chests.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="roles\monsters\goblin.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="gadgets\dagger.h">
+      <Filter>道具</Filter>
     </ClInclude>
     <ClInclude Include="roles\monsters\slime.h">
-      <Filter>头文件</Filter>
+      <Filter>role</Filter>
     </ClInclude>
-    <ClInclude Include="utils\rect.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="roles\monsters\monsters.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\goblin.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\chests\chests.h">
+      <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\characters.h">
+      <Filter>role</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

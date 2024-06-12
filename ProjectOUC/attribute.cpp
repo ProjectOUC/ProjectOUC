@@ -3,7 +3,7 @@
 
 Attr::Attr()
 {
-	attackFirstLevel = 0;
+	speed = 0;
 
 	strength = 0;
 	agility = 0;
@@ -15,6 +15,7 @@ Attr::Attr()
 	diceNum = 0;
 	facet = 0;
 	defense = 0;
+	block = 0;
 
 	visibleRadius = 0;
 
@@ -25,11 +26,11 @@ Attr::Attr()
 	teleport = false;
 }
 
-Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
-	int _health, int _attack, int _diceNum, int _facet, int _defense,
+Attr::Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
+	int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 	int _visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport)
 {
-	this->attackFirstLevel = _attackFirstLevel;
+	this->speed = _speed;
 	this->strength = _strength;
 	this->agility = _agility;
 	this->wisdom = _wisdom;
@@ -39,6 +40,7 @@ Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int 
 	this->diceNum = _diceNum;
 	this->facet = _facet;
 	this->defense = _defense;
+	this->block = _block;
 	this->visibleRadius = _visibleRadius;
 	this->criticalAttackRate = _criticalAttackRate;
 	this->hitRate = _hitRate;
@@ -48,7 +50,7 @@ Attr::Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int 
 
 Attr::Attr(const Attr& other)
 {
-	this->attackFirstLevel = other.attackFirstLevel;
+	this->speed = other.speed;
 	this->strength = other.strength;
 	this->agility = other.agility;
 	this->wisdom = other.wisdom;
@@ -58,6 +60,7 @@ Attr::Attr(const Attr& other)
 	this->diceNum = other.diceNum;
 	this->facet = other.facet;
 	this->defense = other.defense;
+	this->block = other.block;
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
 	this->hitRate = other.hitRate;
@@ -67,7 +70,7 @@ Attr::Attr(const Attr& other)
 
 Attr& Attr::operator=(const Attr& other)
 {
-	this->attackFirstLevel = other.attackFirstLevel;
+	this->speed = other.speed;
 	this->strength = other.strength;
 	this->agility = other.agility;
 	this->wisdom = other.wisdom;
@@ -77,6 +80,7 @@ Attr& Attr::operator=(const Attr& other)
 	this->diceNum = other.diceNum;
 	this->facet = other.facet;
 	this->defense = other.defense;
+	this->block = other.block;
 	this->visibleRadius = other.visibleRadius;
 	this->criticalAttackRate = other.criticalAttackRate;
 	this->hitRate = other.hitRate;
@@ -89,7 +93,7 @@ Attr& Attr::operator=(const Attr& other)
 Attr Attr::operator+(const Attr& other)
 {
 	Attr attr(
-		this->attackFirstLevel + other.attackFirstLevel,
+		this->speed + other.speed,
 		this->strength + other.strength,
 		this->agility + other.agility,
 		this->wisdom + other.wisdom,
@@ -99,6 +103,7 @@ Attr Attr::operator+(const Attr& other)
 		this->diceNum + other.diceNum,
 		this->facet + other.facet,
 		this->defense + other.defense,
+		this->block + other.block,
 		this->visibleRadius + other.visibleRadius,
 		this->criticalAttackRate + other.criticalAttackRate,
 		this->hitRate + other.hitRate,
@@ -112,7 +117,7 @@ Attr Attr::operator+(const Attr& other)
 Attr Attr::operator-(const Attr& other)
 {
 	Attr attr(
-		this->attackFirstLevel - other.attackFirstLevel,
+		this->speed - other.speed,
 		this->strength - other.strength,
 		this->agility - other.agility,
 		this->wisdom - other.wisdom,
@@ -122,6 +127,7 @@ Attr Attr::operator-(const Attr& other)
 		this->diceNum - other.diceNum,		
 		this->facet - other.facet,
 		this->defense - other.defense,
+		this->block - other.block,
 		this->visibleRadius - other.visibleRadius,
 		this->criticalAttackRate - other.criticalAttackRate,
 		this->hitRate - other.hitRate,
@@ -135,7 +141,7 @@ Attr Attr::operator-(const Attr& other)
 Attr Attr::operator*(const int mul)
 {
 	return Attr(
-		mul * this->attackFirstLevel,
+		mul * this->speed,
 		mul * this->strength,
 		mul * this->agility,
 		mul * this->wisdom,
@@ -145,6 +151,7 @@ Attr Attr::operator*(const int mul)
 		mul * this->diceNum,
 		mul * this->facet,
 		mul * this->defense,
+		mul * this->block,
 		mul * this->visibleRadius,
 		mul * this->criticalAttackRate,
 		mul * this->hitRate,
@@ -156,7 +163,7 @@ Attr Attr::operator*(const int mul)
 Attr operator*(const int mul, const Attr& other)
 {
 	return Attr(
-		mul * other.attackFirstLevel,
+		mul * other.speed,
 		mul * other.strength,
 		mul * other.agility,
 		mul * other.wisdom,
@@ -166,6 +173,7 @@ Attr operator*(const int mul, const Attr& other)
 		mul * other.diceNum,
 		mul * other.facet,
 		mul * other.defense,
+		mul * other.block,
 		mul * other.visibleRadius,
 		mul * other.criticalAttackRate,
 		mul * other.hitRate,

@@ -3,6 +3,7 @@
 #include <graphics.h>
 #include "roles/characters.h"
 #include "gadgets/gadgets.h"
+#include "utils/rect.h"
 #include "scene.h"
 #include "paint.h"
 #include "gaming.h"
@@ -30,14 +31,17 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 	Scene* scene = scenes[pos.stage];
 	if (scene->get_scene_type() == Scene::CAVE)Cave_Wall_paint(scene, 1);
 	else if (scene->get_scene_type() == Scene::MAZE)Maze_Wall_paint(scene, pos.stage);
-	else if (scene->get_scene_type() == Scene::TOWN)TOWN_Wall_paint(scene, pos.stage);
+	else if (scene->get_scene_type() == Scene::TOWN)
+	{
+		TOWN_Wall_paint(scene, pos.stage);
+		Town_scene_paint(WIDTH, HEIGHT,pos);
+	}
 	for (i = 0; i <	scene->get_width(); ++i)
 	{
 		for (j = 0; j < scene->get_height(); ++j)
 		{
 			if(scene->get_scene_type() == Scene::CAVE)Cave_Empty_paint(i, j, scene, pos.stage);
 			else if(scene->get_scene_type() == Scene::MAZE)Maze_Empty_paint(i, j, scene, pos.stage);
-			else Cave_Empty_paint(i, j, scene, pos.stage);
 
 			Tile* tile = scene->get_tiles(i, j);
 			if (tile->get_type() == BATTLE_TILE) Monster_paint(i, j);
@@ -53,6 +57,7 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			else if (tile->get_type() == END_TILE) End_paint(i,j);
 		}
 	}
+	
 }
 
 int main()
@@ -66,7 +71,7 @@ int main()
 	//SwitchToWindow(current_window_type);
 	
 	initGadgetList();
-	Player* player=getPlayer(random(1,2));
+	Player* player = nullptr;
 	std::vector<Scene*> scenes(5);
 	bool loadGame = false;
 	scenes[0] = new Scene("init/basic-town.txt", 0);
@@ -74,10 +79,10 @@ int main()
 	scenes[2] = new Scene("init/basic-cave.txt", 2);
 	scenes[3] = new Scene("init/basic-maze.txt", 3);
 	scenes[4] = new Scene("init/basic-maze.txt", 4);
-	Loading_image();
-	direction d[4] = { LEFT, RIGHT, UP, DOWN };
-	int movePause = 0; //防止卡进墙里
 
+	Loading_image();
+
+	direction d[4] = { LEFT, RIGHT, UP, DOWN };
 	ExMessage msg;
 	int begin = 1;
 	int choice = 1;
@@ -86,9 +91,9 @@ int main()
 	cleardevice();
 	mciSendString("open res/UnicornTales(Master)9.wav alias BGM", NULL, 0, NULL);
 	mciSendString("play BGM repeat from 0", NULL, 0, NULL);
+
 	while (begin)
 	{
-		
 		BeginBatchDraw();
 		start_paint(WIDTH, HEIGHT);
 		if (peekmessage(&msg, EM_MOUSE))
@@ -96,16 +101,16 @@ int main()
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
-				if (msg.x >= WIDTH / 2 - 100 && msg.x <= WIDTH / 2 + 100 && msg.y >= HEIGHT / 3 - 50 && msg.y <= HEIGHT / 3 + 50)
-				{
-					begin = 0;
-					break;
-				}
-				else if (msg.x >= WIDTH / 2 - 100 && msg.x <= WIDTH / 2 + 100 && msg.y >= (HEIGHT / 3) * 2 - 50 && msg.y <= (HEIGHT / 3) * 2 + 50)
-				{
-					return 0;
-					break;
-				}
+			if (Rect(WIDTH/2-100, HEIGHT/3-50, WIDTH/2+100, HEIGHT/3+50).include(msg.x, msg.y))
+			{
+				begin = 0;
+				break;
+			}
+			else if (Rect(WIDTH / 2 - 100, HEIGHT / 3*2 - 50, WIDTH / 2 + 100, HEIGHT / 3*2 + 50).include(msg.x, msg.y))
+			{
+				return 0;
+				break;
+			}
 			default:
 				break;
 			}
@@ -113,6 +118,8 @@ int main()
 		EndBatchDraw();
 	}
 	cleardevice();
+
+
 	while (choice)
 	{
 		Player_choice(WIDTH, HEIGHT);
@@ -140,10 +147,10 @@ int main()
 	}
 
 	player->moveTo(scenes[0]->get_startPos());
-	player->gadgets[findGadget("TeleportScroll")]++;
+	bool moved = false;
+	int saveInterval = 1000;
 	while (running)
 	{
-		movePause = max(movePause-1, 0);
 		DWORD start_time = GetTickCount();
 
 		BeginBatchDraw();
@@ -153,40 +160,58 @@ int main()
 		GUI_paint(scenes,player);
 
 		//Player_paint(scene);
-		
+
+		/* 自动存档 */
+		saveInterval--;
+		if (saveInterval == 0)
+		{
+			saveInterval = 1000;
+			saveGame(scenes, player, true);
+		}
 
 		ExMessage msg;
 		while (peekmessage(&msg))
 		{
-			if (msg.message == WM_KEYDOWN)
+			if (msg.message == WM_KEYUP)
 			{
-				if (movePause) continue;
-				movePause = 2;
 				switch (msg.ch)
 				{
-				case 72://上键的虚拟值
 				case 'W':
-				case 'w':
-				case VK_UP:
-					player->move(UP);
-					break;
-				case 80://下键的虚拟值
-				case 'S':
-				case 's':
-				case VK_DOWN:
-					player->move(DOWN);
-					break;
-				case 75://左键的虚拟值
 				case 'A':
-				case 'a':
-				case VK_LEFT:
-					player->move(LEFT);
-					break;
-				case 77://右键的虚拟值
+				case 'S':
 				case 'D':
-				case 'd':
+				case VK_UP:
+				case VK_LEFT:
+				case VK_DOWN:
 				case VK_RIGHT:
-					player->move(RIGHT);
+					moved = false;
+				default:
+					break;
+				}
+			}
+			if (msg.message == WM_KEYDOWN)
+			{
+				switch (msg.ch)
+				{
+				case 'W':
+				case VK_UP:
+					if (!moved) player->move(UP);
+					moved = true;
+					break;
+				case 'S':
+				case VK_DOWN:
+					if (!moved) player->move(DOWN);
+					moved = true;
+					break;
+				case 'A':
+				case VK_LEFT:
+					if (!moved) player->move(LEFT);
+					moved = true;
+					break;
+				case 'D':
+				case VK_RIGHT:
+					if (!moved) player->move(RIGHT);
+					moved = true;
 					break;
 				case 'E':
 				case 'e':
@@ -199,6 +224,7 @@ int main()
 							gadgets_paint(index,player->gadgets[index]);
 						}
 						FlushBatchDraw();
+						
 						while (peekmessage(&msg))
 						{
 							if (msg.message == WM_KEYDOWN)
@@ -213,7 +239,7 @@ int main()
 										break;
 								}
 							}
-						}
+						}		
 					}
 					item = 1;
 					break;
@@ -238,6 +264,7 @@ int main()
 				gadgetInHand = ind;
 				player->use_gadget();
 				player->set_health(player->get_maxHealth());
+				player->set_food(player->get_food_capacity());
 			}
 			else
 			{

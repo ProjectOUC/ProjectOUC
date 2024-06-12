@@ -1,2 +1,4 @@
-﻿  player.cpp
+﻿  main.cpp
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\main.cpp(61,12): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\main.cpp(216,11): warning C4101: “type”: 未引用的局部变量
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

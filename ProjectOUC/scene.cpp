@@ -18,6 +18,7 @@ extern const int BIRTH;
 extern const int FILLED;
 extern const int MONST;
 extern const int TREASURE;
+extern const int CLOSEDOOR;
 
 Scene::Scene(std::string path, int given_stage)
 {
@@ -104,7 +105,7 @@ Scene::Scene(std::string path, int given_stage)
 		{
 			for (int j = 0; j < width; ++j)
 			{
-				int level = (dist[i][j] - 5) / 10;
+				int level = (dist[i][j] - 5) / 8;
 				static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
 				level = max(0, level - 5 + randIndByWeights(weights));
 				level += 10 * (scene_type - 1);
@@ -145,11 +146,14 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 		{
 			tiles[i][j] = new Tile;
 			if (scene[i][j] == WALL) tiles[i][j]->initWallTile();
-			else if (scene[i][j] == FILLED || scene[i][j] == EMPTY) tiles[i][j]->initEmptyTile();
 			else if (scene[i][j] == BIRTH)
 			{
 				startPos = Position(stage, i, j);
 				tiles[i][j]->initStartTile();
+			} 
+			else
+			{
+				tiles[i][j]->initEmptyTile();
 			}
 		}
 	}
@@ -184,13 +188,14 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 			else if (dist[i][j] <= 5) tiles[i][j]->initEmptyTile();
 			else
 			{
-				int level = (dist[i][j] - 5) / 10;
+				int level = (dist[i][j] - 5) / 8;
 				static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
 				level = max(0, level - 5 + randIndByWeights(weights));
 				level += 10 * (scene_type-1);
 
 				if (scene[i][j] == MONST) tiles[i][j]->initBattleTile(level);
 				else if (scene[i][j] == TREASURE) tiles[i][j]->initChestTile(level);
+				else if (scene[i][j] == CLOSEDOOR) tiles[i][j]->initDoorTile(level);
 				else if (scene[i][j] == FILLED || scene[i][j] == EMPTY)
 				{
 					refresh[i][j] = 1;
@@ -207,18 +212,24 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 
 void Scene::refreshMonsters()
 {
+	int cnt = 0;
 	for (int i = 0; i < height; ++i)
 	{
 		for (int j = 0; j < width; ++j)
 		{
 			if (refresh[i][j] != 1) continue;
+			cnt++;
 			tiles[i][j]->initEmptyTile();
-			int level = (dist[i][j] - 5) / 10;
+			if (!oneIn(32/cnt)) continue;
+
+			cnt = 0;
+			if (dist[i][j] <= 5) continue;
+			int level = (dist[i][j] - 5) / 8;
 			static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
-			level = max(0, level - 5 + randIndByWeights(weights));
-			level += 10 * (scene_type - 1);
-			if (!oneIn(8)) tiles[i][j]->initEmptyTile(level);
-			else if (oneIn(10)) tiles[i][j]->initChestTile(level);
+			int rd = level - 3 + randIndByWeights(weights);
+			level = max(0, rd);
+			level = level + 10 * (startPos.stage - 1);
+			if (oneIn(10)) tiles[i][j]->initChestTile(level);
 			else tiles[i][j]->initBattleTile(level);
 		}
 	}
@@ -325,40 +336,3 @@ Scene::~Scene()
 		for (int j = 0; j < width; ++j)
 			delete tiles[i][j];
 };
-
-void SwitchToWindow(window_type t)
-{
-	cleardevice();
-	switch (t)
-	{
-	case BAG_WINDOW: SwitchToBagWindow(); break;
-	case MAIN_WINDOW: SwitchToMainWindow(); break;
-	case MAP_WINDOW: SwitchToMapWindow(); break;
-	default: break;
-	}
-}
-
-void SwitchToBagWindow()
-{
-	//Todo
-	;
-}
-
-void SwitchToBattleWindow()
-{
-	//Todo
-	;
-}
-
-void SwitchToMainWindow()
-{
-	line(0, 100, GAME_WIDTH, 100);
-	line(100, 0, 100, GAME_HEIGHT);
-	outtextxy(105, 0, _T("ÄãºÃ"));
-}
-
-void SwitchToMapWindow()
-{
-	//Todo
-	;
-}

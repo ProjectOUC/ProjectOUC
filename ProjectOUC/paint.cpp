@@ -107,6 +107,70 @@ static IMAGE img_maze_updown_left_floor;
 static IMAGE img_maze_updown_floor;
 static IMAGE img_maze_updown_right_floor;
 
+static IMAGE img_grass_left_up;
+static IMAGE img_grass_up;
+static IMAGE img_grass_right_up;
+static IMAGE img_grass_left;
+static IMAGE img_grass_middle;
+static IMAGE img_grass_right;
+static IMAGE img_grass_left_down;
+static IMAGE img_grass_down;
+static IMAGE img_grass_right_down;
+static IMAGE img_grass_leftright_up;
+static IMAGE img_grass_leftright;
+static IMAGE img_grass_leftright_down;
+static IMAGE img_grass_updown_left;
+static IMAGE img_grass_updown;
+static IMAGE img_grass_updown_right;
+
+static IMAGE img_town_left_up_base;
+static IMAGE img_town_left_base;
+static IMAGE img_town_up_base;
+static IMAGE img_town_right_up_base;
+static IMAGE img_town_right_base;
+static IMAGE img_town_middle_base;
+static IMAGE img_town_left_down_base;
+static IMAGE img_town_down_base;
+static IMAGE img_town_right_down_base;
+static IMAGE img_town_leftright_up_base;
+static IMAGE img_town_leftright_base;
+static IMAGE img_town_leftright_down_base;
+static IMAGE img_town_updown_left_base;
+static IMAGE img_town_updown_base;
+static IMAGE img_town_updown_right_base;
+
+static IMAGE img_town_left_up_road;
+static IMAGE img_town_up_road;
+static IMAGE img_town_right_up_road;
+static IMAGE img_town_left_road;
+static IMAGE img_town_middle_road;
+static IMAGE img_town_right_road;
+static IMAGE img_town_left_down_road;
+static IMAGE img_town_down_road;
+static IMAGE img_town_right_down_road;
+static IMAGE img_town_leftright_up_road;
+static IMAGE img_town_leftright_road;
+static IMAGE img_town_leftright_down_road;
+static IMAGE img_town_updown_left_road;
+static IMAGE img_town_updown_road;
+static IMAGE img_town_updown_right_road;
+
+static IMAGE img_town_left_up_floor;
+static IMAGE img_town_up_floor;
+static IMAGE img_town_right_up_floor;
+static IMAGE img_town_left_floor;
+static IMAGE img_town_middle_floor;
+static IMAGE img_town_right_floor;
+static IMAGE img_town_left_down_floor;
+static IMAGE img_town_down_floor;
+static IMAGE img_town_right_down_floor;
+static IMAGE img_town_leftright_floor;
+static IMAGE img_town_leftright_up_floor;
+static IMAGE img_town_leftright_down_floor;
+static IMAGE img_town_updown_floor;
+static IMAGE img_town_updown_left_floor;
+static IMAGE img_town_updown_right_floor;
+
 static IMAGE img_speak_middle;
 static IMAGE img_speak_left_up;
 static IMAGE img_speak_up;
@@ -134,9 +198,12 @@ static IMAGE img_gadget_healpotion;
 static IMAGE img_gadget_telescroll;
 static IMAGE img_gadget_bow;
 static IMAGE img_gadget_cursedstone;
+static IMAGE img_gadget_key;
 
 static IMAGE img_player_1;
 static IMAGE img_player_2;
+static IMAGE img_food_npc;
+
 static IMAGE img_skull;
 static IMAGE img_chest;
 static IMAGE img_start;
@@ -145,6 +212,25 @@ static IMAGE img_heart_point;
 static IMAGE img_money;
 static IMAGE img_food;
 static IMAGE img_background_forest;
+static IMAGE img_tree;
+static IMAGE img_door;
+static IMAGE img_counter_leftright_left;
+static IMAGE img_counter_leftright;
+static IMAGE img_counter_leftright_right;
+static IMAGE img_counter_updown;
+static IMAGE img_counter_updown_up;
+static IMAGE img_counter_updown_down;
+static IMAGE img_door_0;
+static IMAGE img_food_cupboard_0;
+static IMAGE img_food_cupboard_1;
+static IMAGE img_food_sold;
+static IMAGE img_fountain;
+static IMAGE img_left_chair;
+static IMAGE img_right_chair;
+static IMAGE img_table;
+static IMAGE img_light;
+static IMAGE img_carpet;
+
 #pragma comment(lib,"MSIMG32.LIB")
 
 Paint::Paint(int width, int height)
@@ -233,6 +319,70 @@ void Loading_image()
 	loadimage(&img_maze_updown_floor, _T("res\\maze_floor\\maze_updown_floor.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_maze_updown_right_floor, _T("res\\maze_floor\\maze_updown_right_floor.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
+	loadimage(&img_grass_left_up, _T("res\\grass\\grass_left_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_up, _T("res\\grass\\grass_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_right_up, _T("res\\grass\\grass_right_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_left, _T("res\\grass\\grass_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_middle, _T("res\\grass\\grass_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_right, _T("res\\grass\\grass_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_left_down, _T("res\\grass\\grass_left_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_down, _T("res\\grass\\grass_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_right_down, _T("res\\grass\\grass_right_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_leftright_up, _T("res\\grass\\grass_leftright_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_leftright, _T("res\\grass\\grass_leftright.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_leftright_down, _T("res\\grass\\grass_leftright_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_updown_left , _T("res\\grass\\grass_updown_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_updown, _T("res\\grass\\grass_updown.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_updown_right, _T("res\\grass\\grass_updown_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
+	loadimage(&img_town_left_up_base, _T("res\\town_base\\town_base_left_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_up_base, _T("res\\town_base\\town_base_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_up_base, _T("res\\town_base\\town_base_right_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_left_base, _T("res\\town_base\\town_base_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_base, _T("res\\town_base\\town_base_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_middle_base, _T("res\\town_base\\town_base_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_left_down_base, _T("res\\town_base\\town_base_left_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_down_base, _T("res\\town_base\\town_base_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_down_base, _T("res\\town_base\\town_base_right_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_up_base, _T("res\\town_base\\town_base_leftright_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_base, _T("res\\town_base\\town_base_leftright.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_down_base, _T("res\\town_base\\town_base_leftright_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_left_base, _T("res\\town_base\\town_base_updown_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_base, _T("res\\town_base\\town_base_updown.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_right_base, _T("res\\town_base\\town_base_updown_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
+	loadimage(&img_town_left_up_road, _T("res\\town_road\\town_road_left_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_up_road, _T("res\\town_road\\town_road_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_up_road, _T("res\\town_road\\town_road_right_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_left_road, _T("res\\town_road\\town_road_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_road, _T("res\\town_road\\town_road_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_middle_road, _T("res\\town_road\\town_road_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_left_down_road, _T("res\\town_road\\town_road_left_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_down_road, _T("res\\town_road\\town_road_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_down_road, _T("res\\town_road\\town_road_right_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_up_road, _T("res\\town_road\\town_road_leftright_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_road, _T("res\\town_road\\town_road_leftright.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_down_road, _T("res\\town_road\\town_road_leftright_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_left_road, _T("res\\town_road\\town_road_updown_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_road, _T("res\\town_road\\town_road_updown.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_right_road, _T("res\\town_road\\town_road_updown_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
+	loadimage(&img_town_left_up_floor, _T("res\\town_floor\\town_floor_left_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_up_floor, _T("res\\town_floor\\town_floor_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_up_floor, _T("res\\town_floor\\town_floor_right_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_left_floor, _T("res\\town_floor\\town_floor_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_floor, _T("res\\town_floor\\town_floor_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_middle_floor, _T("res\\town_floor\\town_floor_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_left_down_floor, _T("res\\town_floor\\town_floor_left_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_down_floor, _T("res\\town_floor\\town_floor_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_right_down_floor, _T("res\\town_floor\\town_floor_right_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_up_floor, _T("res\\town_floor\\town_floor_leftright_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_floor, _T("res\\town_floor\\town_floor_leftright.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_leftright_down_floor, _T("res\\town_floor\\town_floor_leftright_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_left_floor, _T("res\\town_floor\\town_floor_updown_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_floor, _T("res\\town_floor\\town_floor_updown.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_town_updown_right_floor, _T("res\\town_floor\\town_floor_updown_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
 	loadimage(&img_GUI_left_up, _T("res\\GUI\\GUI_left_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_GUI_up, _T("res\\GUI\\GUI_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_GUI_left_down, _T("res\\GUI\\GUI_left_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -255,6 +405,7 @@ void Loading_image()
 
 	loadimage(&img_player_1, _T("res\\player\\player_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_player_2, _T("res\\player\\player_2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_food_npc, _T("res\\player\\food_npc.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
 	loadimage(&img_chest, _T("res\\chest\\chest.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_skull, _T("res\\monster\\skull.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -264,6 +415,24 @@ void Loading_image()
 	loadimage(&img_money, _T("res\\GUI\\money_bag.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_food, _T("res\\GUI\\food.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_background_forest, _T("res\\background\\background_forest.jpg"),WIDTH,HEIGHT);
+	loadimage(&img_tree, _T("res\\grass\\tree.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_door, _T("res\\town_floor\\door.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_door_0, _T("res\\town_floor\\door_0.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_left_chair, _T("res\\town_floor\\left_chair.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_right_chair, _T("res\\town_floor\\right_chair.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_table, _T("res\\town_floor\\table.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_light, _T("res\\town_floor\\light.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_fountain, _T("res\\town_floor\\fountain.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_carpet, _T("res\\town_floor\\carpet.png"), LENGTH_PIXIV*2, LENGTH_PIXIV*2);
+	loadimage(&img_food_sold, _T("res\\town_floor\\food_sold.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_food_cupboard_0, _T("res\\town_floor\\food_cupboard_0.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_food_cupboard_1, _T("res\\town_floor\\food_cupboard_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_counter_leftright, _T("res\\town_floor\\counter_leftright_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_counter_leftright_left, _T("res\\town_floor\\counter_leftright_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_counter_leftright_right, _T("res\\town_floor\\counter_leftright_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_counter_updown, _T("res\\town_floor\\counter_updown_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_counter_updown_up, _T("res\\town_floor\\counter_updown_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_counter_updown_down, _T("res\\town_floor\\counter_updown_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
 	loadimage(&img_speak_left_up, _T("res\\speak\\item_left_up.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
 	loadimage(&img_speak_up, _T("res\\speak\\item_up.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
@@ -288,10 +457,12 @@ void Loading_image()
 
 	loadimage(&img_gadget_sword, _T("res\\gadgets\\sword.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_bow, _T("res\\gadgets\\bow.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5);
+	loadimage(&img_gadget_key, _T("res\\gadgets\\key.png"), LENGTH_PIXIV * 1.5, LENGTH_PIXIV * 1.5);
 	loadimage(&img_gadget_cursedstone, _T("res\\gadgets\\cursedstone.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_shield, _T("res\\gadgets\\shield.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_telescroll, _T("res\\gadgets\\telescroll.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_healpotion, _T("res\\gadgets\\healpotion.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
+
 }
 
 
@@ -351,10 +522,24 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(heart_point,"/%d", player->get_health());
 	char Max_heart_point[10];
 	sprintf_s(Max_heart_point, "%d", player->get_maxHealth());
+	char level[20];
+	sprintf_s(level, "level:%d", player->get_level());
+	char exp[10];
+	sprintf_s(exp, "%d", player->get_exp());
+	char upexp[10];
+	sprintf_s(upexp, "/%d", player->get_levelUpExp());
+	char attack[10];
+	sprintf_s(attack, "%d", player->get_attack());
+	char defense[10];
+	sprintf_s(defense, "%d", player->get_defense());
+	char speed[10];
+	sprintf_s(speed, "%d", player->get_speed());
+	char Max_food[10];
+	sprintf_s(Max_food, "%d", player->get_food_capacity());
 	char money_point[10];
 	sprintf_s(money_point,"%d", player->get_coin());
 	char food_point[10];
-	sprintf_s(food_point, "%d", player->get_food());
+	sprintf_s(food_point, "/%d", player->get_food());
 	int x, y;
 	for (x = 0; x < 35; x++)   //上方
 	{
@@ -389,15 +574,31 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	settextcolor(BLACK);
 	setbkmode(TRANSPARENT);
 	settextstyle(16, 0, "微软雅黑");
-	int w=textwidth(Max_heart_point);
+	int w_h=textwidth(Max_heart_point);
+	int w_f = textwidth(Max_food);
+	int w_e = textwidth(exp);
 	putimage_alpha(LENGTH_PIXIV*0+8, LENGTH_PIXIV*0+8, &img_heart_point);
 	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 0 + 8,Max_heart_point);
-	outtextxy(LENGTH_PIXIV * 1 + 8+w, LENGTH_PIXIV * 0 + 8, heart_point);
+	outtextxy(LENGTH_PIXIV * 1 + 8+w_h, LENGTH_PIXIV * 0 + 8, heart_point);
 	putimage_alpha(LENGTH_PIXIV *0+ 8, LENGTH_PIXIV * 1+ 8, &img_money);
 	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 1 + 8, money_point);
 	putimage_alpha(LENGTH_PIXIV * 0 + 8, LENGTH_PIXIV * 2 + 8, &img_food);
-	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 2 + 8, food_point);
+	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 2 + 8, Max_food);
+	outtextxy(LENGTH_PIXIV * 1 + 8 + w_f, LENGTH_PIXIV * 2 + 8, food_point);
+	outtextxy(LENGTH_PIXIV * 0+1, LENGTH_PIXIV * 4 + 8, level);
+	outtextxy(LENGTH_PIXIV * 0+1, LENGTH_PIXIV * 5 + 8, "exp:");
+	outtextxy(LENGTH_PIXIV * 0+1, LENGTH_PIXIV * 6 + 8, exp);
+	outtextxy(LENGTH_PIXIV * 0+1+w_e, LENGTH_PIXIV * 6 + 8, upexp);
+
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 8 + 8, "Attack");
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 9 + 8, attack);
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 10 + 8,"Defense");
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 11 + 8, defense);
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 12 + 8, "Speed");
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 13 + 8, speed);
 }
+
+
 void speak_paint()
 {
 	for (int x = 0; x < 12; x++)
@@ -473,6 +674,7 @@ void gadgets_paint(int index, int num)
 		putimage_alpha(LENGTH_PIXIV * (2 * x + 10), LENGTH_PIXIV * (2 * y + 10), &img_gadget_telescroll);
 		outtextxy(LENGTH_PIXIV * (2 * x + 11) + 1, LENGTH_PIXIV * (2 * y + 11) + 1, gadgets_num);
 	}
+	putimage_alpha(LENGTH_PIXIV * (2 * 6 + 10)+2, LENGTH_PIXIV * (2 * 0 + 10), &img_gadget_key);
 }
 
 void Message_paint()
@@ -494,7 +696,15 @@ void Message_paint()
 		settextcolor(WHITE);
 		setbkmode(TRANSPARENT);
 		settextstyle(16, 0, "微软雅黑");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV*0 + 8, "Hello!");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV*0 + 8,   "Welcome to game!");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 2 + 8, "        UP       ");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 3 + 8, "        W        ");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 4 + 8, "LEFT  A S D  RIGHT");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 5 + 8, "       DOWN      ");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 7 + 8, "        E        ");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 8 + 8, "Open the backpack");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 10 + 8,"       ESC       ");
+		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 11 + 8,"    Game Option  ");
 	}
 }
 
@@ -631,17 +841,13 @@ void Cave_Wall_paint(Scene* scene, int pos)
 					if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() == WALL_TILE && tile_right_up->get_type() == WALL_TILE && tile_left_down->get_type() == WALL_TILE && tile_right_down->get_type() == WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_wall);
-					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
-						&& tile_left_up->get_type() != WALL_TILE)
+					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_up_left_wall);
-					if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE
-						&& tile_right_up->get_type() != WALL_TILE)
+					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_up_right_wall);
-					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE
-						&& tile_right_down->get_type() != WALL_TILE)
+					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_right_down_wall);
-					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE
-						&& tile_left_down->get_type() != WALL_TILE)
+					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_left_down_wall);
 					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() == WALL_TILE && tile_right_up->get_type() == WALL_TILE && tile_left_down->get_type() != WALL_TILE && tile_right_down->get_type() == WALL_TILE)
@@ -925,7 +1131,7 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					Tile* tile_right_down = scene->get_tiles(x + 1, y + 1);
 					if (tile_right_down->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_floor);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_left_wall);
 					}
 					else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_wall);
@@ -935,7 +1141,7 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					Tile* tile_right_up = scene->get_tiles(x + 1, y - 1);
 					if (tile_right_up->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_floor);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_wall);
 					}
 					else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_wall);
@@ -945,7 +1151,7 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					Tile* tile_left_up = scene->get_tiles(x - 1, y - 1);
 					if (tile_left_up->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_floor);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_wall);
 					}
 					else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_wall);
@@ -955,7 +1161,7 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					Tile* tile_left_down = scene->get_tiles(x - 1, y + 1);
 					if (tile_left_down->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_floor);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_right_wall);
 					}
 					else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_wall);
@@ -1031,8 +1237,12 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_wall);
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() != WALL_TILE)
+					{
+						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_left_wall);
-					if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE
+					}
+						
+					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_right_up->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_right_wall);
 					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE
@@ -1040,7 +1250,10 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_wall);
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE
 						&& tile_left_down->get_type() != WALL_TILE)
-						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_wall);
+					{
+						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_middle_base);
+						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_left_down_wall);
+					}
 					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() == WALL_TILE && tile_right_up->get_type() == WALL_TILE && tile_left_down->get_type() != WALL_TILE && tile_right_down->get_type() == WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_right_wall);
@@ -1075,7 +1288,7 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE
 						&& tile_left_down->get_type() != WALL_TILE && tile_right_down->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_floor);
+						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_wall);
 					}
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE
@@ -1208,4 +1421,251 @@ void Maze_Empty_paint(int x, int y, Scene* scene, int pos)
 		else
 			putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_maze_floor);
 	}
+}
+
+void Town_scene_paint(int width, int height, Position pos)
+{
+	int x, y;
+	//画草
+	for (x = 1; x < 14; x++)
+	{
+		for (y = 1; y < 9; y++)
+		{
+			if (x == 13 && y != 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+			else if (x != 1 && y == 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_middle);
+		}
+	}
+	for (x = 16; x < 30; x++)
+	{
+		y = 8;
+		if (x != 21 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_updown);
+		else if (x == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_updown_right);
+	}
+	for (x = 24; x < 30; x++)
+	{
+		for (y = 11; y < 21; y++)
+		{
+			if(x==24&&y==11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_up);
+			else if(x==24&&y==20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if(x==29&&y==11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_up);
+			else if(x==29&&y==20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
+			else if(x==24&&y!=11&&y!=20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
+			else if(x==29&&y!=11&&y!=20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+			else if(y==11&&x!=24&&x!=29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_up);
+			else if(y==20&&x!=24&&x!=29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_middle);
+		}
+	}
+	for (x = 11; x < 16; x++)
+	{
+		for (y = 21; y < 24; y++)
+		{
+			if (x == 11 && y == 21)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_up);
+			else if (x == 11 && y == 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if (x == 15 && y == 21)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_up);
+			else if (x == 15 && y == 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
+			else if (x == 11 && y != 21 && y != 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
+			else if (x == 15 && y != 21 && y != 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+			else if (y == 21 && x != 11 && x != 15)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_up);
+			else if (y == 23 && x != 11 && x != 15)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_middle);
+		}
+	}
+	for (x = 7; x < 9; x++)
+	{
+		for (y = 28; y < 30; y++)
+		{
+			if (x == 7 && y == 28)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_up);
+			else if (x == 7 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if (x == 8 && y == 28)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_up);
+			else if (x == 8 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
+		}
+	}
+	for (x = 1; x < 9; x++)
+	{
+		for (y = 11; y < 24; y++)
+		{
+			if (x == 1 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_up);
+			else if (x == 1 && y == 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if (x == 8 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_up);
+			else if (x == 1 && y != 11 && y != 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
+			else if (x == 8 && y != 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+			else if (y == 11 && x != 1 && x != 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_up);
+			else if (y == 23 && x != 1 && x!=7 &&x != 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_middle);
+		}
+	}
+	for (x = 7; x < 9; x++)
+	{
+		for (y = 24; y < 27; y++)
+		{
+			if(x==7&&y==26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if(x==7&&y!=26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
+			else if(x==8&&y==26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
+			else if(x==8&&y!=26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+		}
+	}
+	//画房间地板
+	for (x = 17; x < 30; x++)
+	{
+		for (y = 1; y < 7; y++)
+		{
+			if (x == 17 && y == 1)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_up_floor);
+			else if (x == 17 && y == 6)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_floor);
+			else if (x == 29 && y == 1)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_up_floor);
+			else if (x == 29 && y == 6)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_floor);
+			else if (x == 17 && y != 1 && y != 6)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_floor);
+			else if (x == 29 && y != 1 && y != 6)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_floor);
+			else if (y == 1 && x != 17 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_floor);
+			else if (y == 6 && x != 17 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_floor);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_floor);
+		}
+	}
+	for (x = 17; x < 30; x++)
+	{
+		for (y = 22; y < 30; y++)
+		{
+			if (x == 17 && y == 22)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_up_floor);
+			else if (x == 17 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_floor);
+			else if (x == 29 && y == 22)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_up_floor);
+			else if (x == 29 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_floor);
+			else if (x == 17 && y != 22 && y != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_floor);
+			else if (x == 29 && y != 22 && y != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_floor);
+			else if (y == 22 && x != 17 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_floor);
+			else if (y == 29 && x != 17 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_floor);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_floor);
+		}
+	}
+	for (x = 12; x < 16; x++)
+	{
+		for (y = 25; y < 30; y++)
+		{
+			if (x == 12 && y == 25)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_up_floor);
+			else if (x == 12 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_floor);
+			else if (x == 15 && y == 25)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_up_floor);
+			else if (x == 15 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_floor);
+			else if (x == 12 && y != 25 && y != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_floor);
+			else if (x == 15 && y != 25 && y != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_floor);
+			else if (y == 25 && x != 12 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_floor);
+			else if (y == 29 && x != 12 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_floor);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_floor);
+		}
+	}
+	putimage_alpha(LENGTH_PIXIV * 16 + 64, LENGTH_PIXIV * 29 + 64, &img_town_updown_floor);
+	for (x = 1; x < 6; x++)
+	{
+		for (y = 25; y < 30; y++)
+		{
+			if (x == 1 && y == 25)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_up_floor);
+			else if (x == 1 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_floor);
+			else if (x == 5 && y == 25)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_up_floor);
+			else if (x == 5 && y == 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_floor);
+			else if (x == 1 && y != 25 && y != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_floor);
+			else if (x == 5 && y != 25 && y != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_floor);
+			else if (y == 25 && x != 1 && x != 5)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_floor);
+			else if (y == 29 && x != 1 && x != 5)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_floor);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_floor);
+		}
+	}
+	putimage_alpha(LENGTH_PIXIV * 6 + 64, LENGTH_PIXIV * 27 + 64, &img_town_updown_floor);
+
+	//画城镇道路
+	for (x = 14; x < 16; x++)
+	{
+		for (y = 1; y < 9; y++)
+		{
+			if(x==14)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
+			else if(x==15)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
+		}
+	}
+	for (x = 1; x < 30; x++)
+	{
+		for (y = 9; y < 11; y++)
+		{
+			if(y==9)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_road);
+			else if(y==10)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_road);
+		}
+	}
+	for (x = 22; x < 24; x++)
+	{
+		for (y = 11; y < 21; y++)
+		{
+			if (x == 22)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
+			else if (x == 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
+		}
+	}
+	for (x = 9; x < 11; x++)
+	{
+		for (y = 11; y < 30; y++)
+		{
+			if (x ==9)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
+			else if (x == 10)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
+		}
+	}
+	for (x = 11; x < 22; x++)
+	{
+		for (y = 11; y <21; y++)
+		{
+			if (x == 11 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_up_road);
+			else if (x == 11 && y == 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_road);
+			else if (x == 21 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_up_road);
+			else if (x == 21 && y == 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_down_road);
+			else if (x == 11 && y != 11 && y != 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
+			else if (x == 21 && y != 11 && y != 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
+			else if (y == 11 && x != 11 && x != 21)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_road);
+			else if (y == 20 && x != 11 && x != 21)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_road);
+			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_road);
+		}
+	}
+	// 画门
+	
+	if(pos.x==21&&pos.y==7)putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 7 + 64, &img_town_leftright_floor); 
+	else putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 7 + 64, &img_door);
+	if (pos.x == 22 && pos.y == 21) putimage_alpha(LENGTH_PIXIV * 22 + 64, LENGTH_PIXIV * 21 + 64, &img_town_leftright_floor);
+	else putimage_alpha(LENGTH_PIXIV * 22 + 64, LENGTH_PIXIV * 21 + 64, &img_door);
+	if (pos.x == 23 && pos.y == 21) putimage_alpha(LENGTH_PIXIV * 23 + 64, LENGTH_PIXIV * 21 + 64, &img_town_leftright_floor);
+	else putimage_alpha(LENGTH_PIXIV * 23 + 64, LENGTH_PIXIV * 21 + 64, &img_door);
+	
+	if (pos.x != 16 || pos.y != 29)putimage_alpha(LENGTH_PIXIV * 16 + 64, LENGTH_PIXIV * 29 + 64, &img_door_0);
+	if (pos.x != 6 || pos.y != 27)putimage_alpha(LENGTH_PIXIV * 6 + 64, LENGTH_PIXIV * 27 + 64, &img_door_0);
+	
+	
+	//补充小径
+	putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 8 + 64, &img_town_leftright_base);
+	putimage_alpha(LENGTH_PIXIV * 7 + 64, LENGTH_PIXIV * 27 + 64, &img_town_updown_base);
+	putimage_alpha(LENGTH_PIXIV * 8 + 64, LENGTH_PIXIV * 27 + 64, &img_town_updown_base);
+
+	//房间内饰
+	putimage_alpha(LENGTH_PIXIV * 16 + 64, LENGTH_PIXIV * 16 + 64, &img_fountain);
+	putimage_alpha(LENGTH_PIXIV * 20 + 64, LENGTH_PIXIV * 7 + 64, &img_food_sold);
+
+	for (x = 17; x < 23; x++)
+	{
+		y = 0;
+		if((x&2)==0)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_food_cupboard_0);
+		else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_food_cupboard_1);
+	}
+	for (x = 17; x < 24; x++)
+	{
+		y = 2;
+		if (x == 17)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_counter_leftright_left);
+		else if (x == 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_counter_leftright_right);
+		else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_counter_leftright);
+	}
+
+	putimage_alpha(LENGTH_PIXIV * 26 + 64, LENGTH_PIXIV * 2 + 64,&img_left_chair);
+	putimage_alpha(LENGTH_PIXIV * 27 + 64, LENGTH_PIXIV * 2 + 64, &img_table);
+	putimage_alpha(LENGTH_PIXIV * 28 + 64, LENGTH_PIXIV * 2 + 64, &img_right_chair);
+
+	putimage_alpha(LENGTH_PIXIV * 26 + 64, LENGTH_PIXIV * 4 + 64, &img_left_chair);
+	putimage_alpha(LENGTH_PIXIV * 27 + 64, LENGTH_PIXIV * 4 + 64, &img_table);
+	putimage_alpha(LENGTH_PIXIV * 28 + 64, LENGTH_PIXIV * 4 + 64, &img_right_chair);
+
+	putimage_alpha(LENGTH_PIXIV * 26 + 64, LENGTH_PIXIV * 6 + 64, &img_left_chair);
+	putimage_alpha(LENGTH_PIXIV * 27 + 64, LENGTH_PIXIV * 6 + 64, &img_table);
+	putimage_alpha(LENGTH_PIXIV * 28 + 64, LENGTH_PIXIV * 6 + 64, &img_right_chair);
+
+	//绘制npc
+	putimage_alpha(LENGTH_PIXIV * 19 + 64, LENGTH_PIXIV * 1 + 64, &img_food_npc);
 }
