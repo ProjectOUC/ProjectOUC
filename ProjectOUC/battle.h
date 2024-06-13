@@ -1,7 +1,5 @@
 #pragma once
-#include "roles/character.h"
-#include "scene.h"
-#include "utils/random.h"
+#include "roles/characters.h"
 
 #pragma execution_character_set("utf-8")
 
@@ -17,6 +15,8 @@ public:
 	int checkEnd(Character* c1, Character* c2);
 	void useAllGadgets(Character* onwer, Character* enemy, int cond);
 	~Battle() {};
+
+	static int isShown;
 private:
 	int turn;
 	int spA, spB, tA, tB;

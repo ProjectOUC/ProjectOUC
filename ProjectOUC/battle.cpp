@@ -4,6 +4,7 @@
 extern const int MAX_BATTLE_TURN = 1000;
 extern const int max_gadget_index;
 extern std::vector<Gadget*> gadgetList;
+int Battle::isShown = 0;
 
 Battle::Battle(Character* _attacker, Character* _defenser)
 {
@@ -88,25 +89,45 @@ bool Battle::battle()
 	* winner takes loser's gadgets
 	* return true;
 	*/
+	isShown = 1;
+
 	useAllGadgets(attacker, defenser, 1);
 	int ending = checkEnd(attacker, defenser);
-	if (ending == 0) return false;
-	else if (ending == 1) return true;
+	if (ending == 0)
+	{
+		isShown = 0;
+		return false;
+	}
+	else if (ending == 1)
+	{
+		isShown = 0;
+		return true;
+	}
 	useAllGadgets(defenser, attacker, 1);
 	ending = checkEnd(defenser, attacker);
-	if (ending == 0) return false;
-	else if (ending == 1) return true;
+	if (ending == 0)
+	{
+		isShown = 0;
+		return false;
+	}
+	else if (ending == 1)
+	{
+		isShown = 0;
+		return true;
+	}
 
 	while (!battleStep())
 	{
 		turn = turn + 1;
 		if (turn >= MAX_BATTLE_TURN)
 		{
+			isShown = 0;
 			return false;
 		}
 	}
 
 	ending = checkEnd(attacker, defenser);
+	isShown = 0;
 	if (ending == 0) return false;
 	else if (ending == 1) return true;
 	return false;

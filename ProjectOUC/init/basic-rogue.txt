@@ -16,10 +16,10 @@ attribute:
 strength: 6
 agility: 10
 wisdom: 4
-maxHealth: 190
-health: 250
-speed: 30
-attack: 1
+maxHealth: 19000
+health: 2500
+speed: 3000
+attack: 1000
 diceNum: 4
 facet: 3
 defense: 5

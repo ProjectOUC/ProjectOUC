@@ -46,39 +46,46 @@
 		-(可选) <详细过程解释>
 ```
 
-### attribute.h
+### button.h
 
-#### Attr
+#### Button
 
-- 功能：所有基础属性，包括生命、攻击、防御、闪避、暴击率等。重载了+、-、*运算符。详见游戏攻略。
+- 功能：按钮，点击后触发事件
 
-### battle.h
+- 成员：
 
-#### Battle
-
-- 功能：由两个Character触发。双方health逐渐降低，health归零一方失败，胜利者可获得其携带的物品、金币等
-- 变量
-  - attacker：主动发起攻击的Character，通常优先攻击。(有些道具可以改变攻击顺序)
-  - defenser：受到攻击的Character，通常晚于attacker攻击。
-  - turn：战斗轮数
-- 函数
-  - battle：attacker和defenser轮流攻击，直至一方生命归零
-    - 返回值：
-      - True：战斗结束，且player存活
-      - False：战斗结束且player死亡，或战斗无法结束
-  - battleStep：一轮攻击
-    - 返回值：
-      - True：有Character死亡
-      - False：回合结束，无Character死亡
-    - 详细过程：
-      - 计算damage
-      - 判断是否有Character死亡
-      - 交换双方，重复一次上述过程
-  - attack：攻击，计算过程见代码
-    - 返回值：
-      - True：有一方死亡
-      - False：双方存活
-  - winnerGetGadgets：player获得道具和金币
+  ```C++
+  
+  Button(); //默认构造函数
+  
+  static void quitButton(); //退出按钮，将Button::isShown置为0
+  
+  void tradeButton(Character** player); //交易按钮，可以触发绑定交易事件
+  
+  static void foodButton(Character** player); //购买食物按钮
+  
+  void battleButton(Character** player); //战斗按钮，触发战斗
+  
+  //以下用于判断按钮类型
+  bool isQuit() const;
+  bool isTrade() const;
+  bool isFood() const;
+  bool isBattle() const;
+  
+  buttonType getType() const;
+  
+  //按钮文字说明
+  std::string getDescription() const;
+  
+  //触发按钮
+  void onClick(ExMessage& msg, Character** player);
+  //判断玩家是否有条件点击该按钮
+  bool checkCondition(Character* player);
+  //为1时，绘制按钮，否则不绘制
+  static int isShown;
+  
+  ~Button();
+  ```
 
 ### character.h
 
@@ -100,52 +107,109 @@
   - lose_gadget：丢失一定数量的道具，并失去属性
   - use_gadget：使用当前手持的道具，并改变属性
 
-### chest.h
+### event.h
 
-- getChest()：返回一个测试用Chest
+#### Event
 
-#### Chest
+- 功能：触发事件，包括随机事件(Trap)和固定事件(NPC)
 
-- 功能：Character的子类，Player可以从中获得道具，金币等
-
-### gadget.h
-
-- max_gadget_index：道具总种类数
-- gadgetList：所有gadget的清单
-- usefulGadgetSet：所有可使用的道具的集合
-- gadgetVisited：记录某道具是否曾获得
-
-#### Gadget
-
-- 功能：道具类，可以在某些场合(如战斗)中发生作用
 - 成员：
-  - gadgetIndex：唯一标识Gadget的数字。
-  - name
+
+  ```c++
+  public:
+  	Event();
+  /*
+  *根据path生成一个event。
+  *所有event都在event文件夹中，格式见其中的template文件
+  */
+  	Event(std::string path);
+  
+  /*
+  判断Event类型
+  */
+  	bool isNPC() const;
+  	bool isTrap() const;
+  
+  	eventType getType() const;
+  	
+  /*
+  *获取event中button的数量
+  *要用来判断buttons的layout
+  */
+  	int getButtonCount() const;
+  
+  	std::string getEventName() const;
+  	std::string getEventDescription() const;
+  	std::string getEventPath() const;
+  	std::string getImgPath() const;
+  
+  	void setType(const eventType& _type);
+  	void setButtonCount(const int& _buttonCount);
+  
+  /*
+  *触发事件
+  *其中包括Event loop
+  *绘制代码写在这个函数中
+  */
+  	void occurEvent(Character** player);
+  
+  /*
+  *Trap不用考虑img，但配置文件还是要随便加一行。NPC的img在配置文件中
+  */
+  	IMAGE img;
+  
+  	~Event();
+  private:
+  	eventType type;
+  	int buttonCount;
+  	std::vector<Button*> buttons;
+  	std::string eventName;
+  	std::string eventDescription;
+  	std::string eventPath;
+  	std::string imgPath;
+  };
+  
+  
+  ```
+
+  
+
+### gaming.h
+
+- 功能：这个头文件用来处理一些game loop中发生的情况
+
 - 函数：
-  - get_gadget()：获得gadget时触发效果
-    - 返回值：Attr类型，代表获得道具时提升的属性。
-  - lose_gadget()：丢弃gadget时触发的效果
-  - initGadgetList：初始化上述全局变量，并将Gadget的每个子类创建一个对象，放入gadgetList中
-  - destroyGadgetList：释放内存
 
-#### 其余子类
+  ```C++
+  //检测player在当前格触发的事件（战斗、无法进入等）
+  void checkTile(std::vector<Scene*>& scenes, Player* player);
+  
+  //保存，game loop中每1000帧保存1次
+  void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave = true);
+  
+  //加载游戏，可以选择存档
+  void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player);
+  
+  //判断两个格子是否相互可见
+  bool canSee(int x1, int y1, int x2, int y2, Scene* scene);
+  
+  /*
+  * 加载player附近区域的光照
+  * 光照数值存储在scene->light中
+  */
+  void updateLight(std::vector<Scene*>& scenes, Player* player);
+  
+  /*
+  * 随机事件，玩家平均每走20格触发一次。
+  */
+  void randomEvent(Player** player);
+  ```
 
-- 功能：Gadget的子类，具体的一种道具
-
-### monster.h
-
-- getMonster：返回一个用于测试的Monster
-
-#### Monster
-
-- 功能：Character的子类，与Player发生战斗
-- 成员：Todo
-- 函数：
-  - getMonster：返回一个用于测试的Monster
+  
 
 ### PCG.h
 
-### Room
+#### Room
 
 - 功能：用于生成迷宫地形的房间，以及在洞穴地形中生成一些事件。
 - 成员：左下和右上的坐标；重载了赋值运算符
@@ -181,41 +245,45 @@
         bool paint);
     ```
   
-    
-
-
-
-### player.h
-
-- 功能：Character的子类，玩家操控的单位，负责探索场景，击败怪物，发现宝箱，完成任务。
-- 成员：Todo
-- 函数：Todo
 
 ### random.h
 
 - 提供了一些生成随机数的函数
 
-### scene.h
-
-- SwitchToWindow：切换窗口，可视化界面使用
-
-  > 未完成
-
-#### Scene
-
-- 功能：游戏的场景，包含每个格子中的信息
-- 成员：Todo
 - 函数：
-  - checkTile：检测当前tile是否存在Monster/Event/Chest等，并触发
-  - move：向一个方向移动，并checkTile
-  - initScene：初始化场景，包括确定场景大小，分配每个tile的类型，确定起点和终点等。
-  - initSceneByNum：通过一个num向量初始化场景，num向量用于控制每种格子的个数。
+
+- ```C++
+  int random(): 返回一个随机数，大小不超过32768*32768
+      
+  int random(int l, int r): 返回一个随机数，大小为[l, r]
+      
+  std::vector<int> random(int l, int r, int k, bool re): 生成k个[l, r]间的随机数
+  	[l, r]: 结果的可能范围
+  	k: 生成次数
+  	re: true时，生成的数可以重复，否则不可以。
+          
+  int random(std::vector<int>& vec): 随机返回vec中的一个数
+          
+  int randInt(std::vector<int>& vec): 随机返回vec的一个下标
+          
+  int randIndByWeights(std::vector<int>& weights): 随机返回weights的一个下标k。k的概率与weights[k]成正比。
+          
+  bool oneIn(int x): 1/x概率返回true。生成一个不超过x的随机数。如果为1，返回true，否则返回false
+          
+  bool aInb(int a, int b): a/b概率返回true。生成一个不超过b的随机数。如果不超过a，返回true，否则返回false。
+          
+  int roll(int diceNum, int facet): 掷diceNum个facet面骰，并返回点数之和
+  ```
 
 ## 五、参考文献
 
 ### 地图生成 
 
 1. [房间和迷宫：一个地牢生成算法 | indienova 独立游戏](https://indienova.com/indie-game-development/rooms-and-mazes-a-procedural-dungeon-generator/)
+
+### 随机数
+
+1. PRD算法：https://gaming.stackexchange.com/questions/161430/calculating-the-constant-c-in-dota-2-pseudo-random-distribution
 
 ### 图形库
 

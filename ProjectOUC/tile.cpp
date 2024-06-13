@@ -26,6 +26,7 @@ void Tile::initWallTile(int level)
 
 void Tile::initEmptyTile(int level)
 {
+	if (event) delete event;
 	for (int i = 0; i < monsters.size(); ++i) delete monsters[i];
 	for (int i = 0; i < chests.size(); ++i) delete chests[i];
 	monsters.clear();
@@ -68,8 +69,9 @@ void Tile::initChestTile(int level)
 	{
 		Chest* chest = new Chest();
 		chest->set_coin(50 + 10 * level + roll(2, 5));
-		chest->set_food_capacity(10 + 5 * level);
-		chest->set_food(5 + 5 * level + roll(2, 2));
+		chest->set_food_capacity(10 + 3 * level);
+		chest->set_food(5 + 3 * level + roll(2, 2));
+		level = max(level, 20);
 		int treasure_count = level / 4 + 1;
 		for (int i = 0; i < treasure_count; ++i)
 		{
@@ -94,7 +96,8 @@ void Tile::initEndTile(int level)
 
 void Tile::initDoorTile(int level)
 {
-	type = DOOR_TILE;
+	type = EVENT_TILE;
+	event = new Event("event/NPC/event-door.txt");
 	unreachable = false;
 }
 

@@ -1,8 +1,5 @@
 #pragma once
 
-#include <string>
-#include <vector>
-
 #include "graphics.h"
 #include "../attribute.h"
 #include "../gadgets/gadget.h"

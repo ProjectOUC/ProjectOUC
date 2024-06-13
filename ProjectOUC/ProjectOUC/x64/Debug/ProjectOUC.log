@@ -1,3 +1,2 @@
-﻿  character.cpp
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\roles\character.cpp(110,13): warning C4477: “fscanf”: 格式字符串“%d”需要类型“int *”的参数，但可变参数 1 拥有了类型“bool *”
+﻿  button.cpp
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

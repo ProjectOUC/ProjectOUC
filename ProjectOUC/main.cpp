@@ -1,6 +1,4 @@
-#include <iostream>
 #include <conio.h>
-#include <graphics.h>
 #include "roles/characters.h"
 #include "gadgets/gadgets.h"
 #include "utils/rect.h"
@@ -20,7 +18,6 @@ bool moveConstraint;
 const int fps = 60;
 extern const int max_gadget_index;
 extern std::vector<Gadget*> gadgetList;
-extern std::set<int> usefulGadgetSet;
 
 void pt_scene(std::vector<Scene*>& scenes, Player* player)
 {
@@ -62,6 +59,20 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			if (tile->event)
 			{
 				putimage_alpha(16 * i + 64, 16 * j + 64, &tile->event->img);
+				for (int x = 0; x <= 16; ++x)
+				{
+					for (int y = 0; y <= 16; ++y)
+					{
+						COLORREF color = getpixel(16*i+64+x, 16*j+64+y);
+						int r = GetRValue(color) * scene->light[i][j];
+						int g = GetGValue(color) * scene->light[i][j];
+						int b = GetBValue(color) * scene->light[i][j];
+
+						color = RGB(r, g, b);
+						putpixel(16*i+64+x, 16*j+64+y, color);
+					}
+				}
+
 			}
 		}
 	}
@@ -157,6 +168,9 @@ int main()
 	player->moveTo(scenes[0]->get_startPos());
 	bool moved = false;
 	int saveInterval = 1000;
+	updateLight(scenes, player);
+	
+
 	while (running)
 	{
 		DWORD start_time = GetTickCount();
@@ -258,8 +272,11 @@ int main()
 				}
 			}
 		}
+
 		FlushBatchDraw();
 		checkTile(scenes, player);
+		updateLight(scenes, player);
+		randomEvent(&player);
 
 		if (player->dead())
 		{

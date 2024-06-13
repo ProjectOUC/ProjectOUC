@@ -1,9 +1,5 @@
 #pragma once
-#include "roles/characters.h"
-#include "utils/button.h"
 #include "event/event.h"
-
-#include <list>
 
 #pragma execution_character_set("utf-8")
 
@@ -18,6 +14,8 @@ enum tile_type
 	END_TILE,
 	DOOR_TILE,
 };
+struct Button;
+class Event;
 
 class Tile
 {
