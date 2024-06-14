@@ -1,4 +1,5 @@
 character type: 1
+<<<<<<< HEAD
 name: Warrior
 pos: 0 9 10
 lastPos: 0 10 10
@@ -21,13 +22,37 @@ health: 400
 speed: 30
 attack: 5
 diceNum: 3
+=======
+name: Rogue
+pos: 2 3 23
+lastPos: 2 3 22
+coin: 575
+food capacity: 100
+food: 116
+essentialAttribute: 2
+level: 7
+exp: 229
+levelUpExp: 250
+strengthGen: 3
+agilityGen: 5
+wisdomGen: 2
+attribute:
+strength: 29
+agility: 40
+wisdom: 16
+maxHealth: 19000
+health: 19290
+speed: 3000
+attack: 1000
+diceNum: 4
+>>>>>>> cyy
 facet: 5
-defense: 10
+defense: 5
 block: 0
 visibleRadius: 1
-criticalAttackRate: 5.000000
-hitRate: 85.000000
-missRate: 5.000000
+criticalAttackRate: 12.000000
+hitRate: 95.000000
+missRate: 20.000000
 teleport: 0
 gadgets: 7
- 1 1 1 0 0 1 0
+ 3 0 4 0 0 2 4

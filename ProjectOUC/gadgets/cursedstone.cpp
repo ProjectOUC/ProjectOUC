@@ -8,7 +8,7 @@ Attr CursedStone::get_gadget() const
 Attr CursedStone::lose_gadget() const
 {
 	static Attr attr;
-	attr.health = 20;
+	attr.health = attr.maxHealth = 20;
 	return attr;
 }
 Attr CursedStone::use_gadget() const

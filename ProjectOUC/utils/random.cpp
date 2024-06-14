@@ -1,10 +1,15 @@
 #include "random.h"
 #include <iostream>
 
+int random()
+{
+	return rand() * 32768 + rand();
+}
+
 int random(int l, int r)
 {
 	if (l > r) return 0;
-	return rand() % (r - l + 1) + l;
+	return random() % (r - l + 1) + l;
 }
 
 std::vector<int> random(int l, int r, int k, bool re)

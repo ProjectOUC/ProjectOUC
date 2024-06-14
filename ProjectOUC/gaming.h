@@ -11,3 +11,9 @@ void checkTile(std::vector<Scene*>& scenes, Player* player);
 void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave = true);
 
 void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player);
+
+bool canSee(int x1, int y1, int x2, int y2, Scene* scene);
+
+void updateLight(std::vector<Scene*>& scenes, Player* player);
+
+void randomEvent(Player** player);

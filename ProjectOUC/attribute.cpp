@@ -26,7 +26,31 @@ Attr::Attr()
 	teleport = false;
 }
 
+<<<<<<< HEAD
 Attr::Attr(int speed, int _strength, int _agility, int _wisdom, int _maxHealth,
+=======
+Attr::Attr(int _all)
+{
+	this->speed = _all;
+	this->strength = _all;
+	this->agility = _all;
+	this->wisdom = _all;
+	this->maxHealth = _all;
+	this->health = _all;
+	this->attack = _all;
+	this->diceNum = _all;
+	this->facet = _all;
+	this->defense = _all;
+	this->block = _all;
+	this->visibleRadius = _all;
+	this->criticalAttackRate = _all;
+	this->hitRate = _all;
+	this->missRate = _all;
+	this->teleport = 0;
+}
+
+Attr::Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
+>>>>>>> cyy
 	int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 	int _visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport)
 {
@@ -181,6 +205,26 @@ Attr Attr::operator*(const int mul)
 		mul * this->missRate,
 		this->teleport
 	);
+}
+
+bool Attr::operator<(const Attr& other)
+{
+	return
+		this->speed < other.speed ||
+		this->agility < other.agility ||
+		this->attack < other.attack ||
+		this->block < other.block ||
+		this->criticalAttackRate < other.criticalAttackRate ||
+		this->defense < other.defense ||
+		this->diceNum < other.diceNum ||
+		this->facet < other.facet ||
+		this->get_maxHealth() < other.maxHealth ||
+		this->health < other.health ||
+		this->hitRate < other.hitRate ||
+		this->missRate < other.missRate ||
+		this->strength < other.strength ||
+		this->visibleRadius < other.visibleRadius ||
+		this->wisdom < other.wisdom;
 }
 
 Attr operator*(const int mul, const Attr& other)

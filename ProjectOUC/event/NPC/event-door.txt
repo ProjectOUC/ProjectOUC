@@ -1,0 +1,18 @@
+EVENT_NPC
+门
+一扇紧闭的门，需要钥匙才能打开
+event/NPC/event-bed.txt
+res/event/door.jpg
+2
+Button1:
+BUTTON_TRADE
+Description:打开(需要1个钥匙)
+Gain:
+gadget key:-1
+End
+Need:
+gadget key:1
+End
+Button2:
+BUTTON_QUIT
+Description:离开

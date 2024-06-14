@@ -1,9 +1,5 @@
 #pragma once
-#include <string>
-#include <vector>
 #include "../utils/button.h"
-#include "../attribute.h"
-#include "graphics.h"
 
 enum eventType
 { 
@@ -22,7 +18,7 @@ public:
 	bool isTrap() const;
 
 	eventType getType() const;
-	int getEventCount() const;
+	int getButtonCount() const;
 	std::string getEventName() const;
 	std::string getEventDescription() const;
 	std::string getEventPath() const;
@@ -44,5 +40,6 @@ private:
 	std::string eventDescription;
 	std::string eventPath;
 	std::string imgPath;
+	int disappear;
 };
 

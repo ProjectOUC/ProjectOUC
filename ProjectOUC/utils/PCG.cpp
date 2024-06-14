@@ -210,13 +210,24 @@ void generatePath(std::vector<std::vector<int>>& maze, int h, int w, int winding
 
 void connectPath(std::vector<std::vector<int>>& maze, std::vector<Room*> rooms, int h, int w)
 {
+	static int cnt = 1;
+	const static int C = 557;
+	const static int maxNum = 10000;
 	for (Room* room : rooms)
 	{
 		for (int x = 2 * room->x1 + 1; x < 2 * room->x2; ++x)
 		{
 			for (int y = 2 * room->y1 + 1; y < 2 * room->y2; ++y)
 			{
-				if (oneIn(4)) maze[x][y] = TREASURE;
+				if (aInb(C * cnt, maxNum))
+				{
+					cnt = 1;
+					maze[x][y] = TREASURE;
+				}
+				else
+				{
+					cnt++;
+				}
 			}
 		}
 	}
@@ -387,7 +398,7 @@ std::vector<std::vector<int>> caveGenerate(
 
 		// Step 3
 		int caveSize = fillFragments(cave);
-		if (caveSize < 2 * height * width) continue;
+		if (caveSize < 4 * height * width / 3) continue;
 		// Step 4
 		initBirthPoint(cave);
 
