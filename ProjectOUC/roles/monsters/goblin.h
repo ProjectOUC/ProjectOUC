@@ -25,8 +25,8 @@ public:
 		attr.missRate = (float)(10 + 2 * _level);
 
 		set_attr(attr);
-		set_food(attr.strength);
-		set_coin(10 * _level + roll(2, 5));
+		set_food(attr.strength/2);
+		set_coin(5 + 3 * _level + roll(1, 3));
 		if (oneIn(5))
 		{
 			static std::vector<int> weights{5, 3, 3, 1, 2, 1, 3};

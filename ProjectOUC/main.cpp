@@ -22,7 +22,6 @@ extern const int max_gadget_index;
 extern std::vector<Gadget*> gadgetList;
 extern std::set<int> usefulGadgetSet;
 
-window_type current_window_type = MAIN_WINDOW;
 void pt_scene(std::vector<Scene*>& scenes, Player* player)
 {
 	cleardevice();
@@ -34,7 +33,7 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 	else if (scene->get_scene_type() == Scene::TOWN)
 	{
 		TOWN_Wall_paint(scene, pos.stage);
-		Town_scene_paint(WIDTH, HEIGHT,pos);
+		Town_scene_paint(WIDTH, HEIGHT, pos);
 	}
 	for (i = 0; i <	scene->get_width(); ++i)
 	{
@@ -44,21 +43,37 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			else if(scene->get_scene_type() == Scene::MAZE)Maze_Empty_paint(i, j, scene, pos.stage);
 
 			Tile* tile = scene->get_tiles(i, j);
-			if (tile->get_type() == BATTLE_TILE) Monster_paint(i, j);
+			if (tile->get_type() == BATTLE_TILE) {
+				// 位置%怪物类型数量
+				int monster_type = (i + j) % 10;
+				Monster_paint(i, j, monster_type);
+			}
 			else if (tile->get_type() == CHEST_TILE) Chest_paint(i, j);
 			else if (i == pos.x && j == pos.y)
 			{
-				if(player->get_name()== "Rogue")
-					Player_paint(i, j,2);
-				else 
-					Player_paint(i, j,1);
+				if (player->get_name() == "Rogue")
+					Player_paint(i, j, 2);
+				else
+					Player_paint(i, j, 1);
 			}	
 			else if (tile->get_type() == START_TILE) Start_paint(i, j);
 			else if (tile->get_type() == END_TILE) End_paint(i,j);
 		}
 	}
-	
+
+	for (i = 0; i < scene->get_width(); ++i)
+	{
+		for (j = 0; j < scene->get_height(); ++j)
+		{
+			Tile* tile = scene->get_tiles(i, j);
+			if (tile->event)
+			{
+				putimage_alpha(16 * i + 64, 16 * j + 64, &tile->event->img);
+			}
+		}
+	}
 }
+
 
 int main()
 {
@@ -217,14 +232,12 @@ int main()
 				case 'e':
 					while(item)
 					{
-						int type;
 						item_paint();
 						for (int index=0 ; index < max_gadget_index; index++)
 						{
 							gadgets_paint(index,player->gadgets[index]);
 						}
 						FlushBatchDraw();
-						
 						while (peekmessage(&msg))
 						{
 							if (msg.message == WM_KEYDOWN)
@@ -239,7 +252,7 @@ int main()
 										break;
 								}
 							}
-						}		
+						}
 					}
 					item = 1;
 					break;

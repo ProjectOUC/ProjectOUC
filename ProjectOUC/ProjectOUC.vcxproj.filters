@@ -156,6 +156,12 @@
     <ClCompile Include="roles\chests\chests.cpp">
       <Filter>role</Filter>
     </ClCompile>
+    <ClCompile Include="event\event.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="utils\button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="scene.h">
@@ -247,6 +253,33 @@
     </ClInclude>
     <ClInclude Include="roles\characters.h">
       <Filter>role</Filter>
+    </ClInclude>
+    <ClInclude Include="event\event.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="utils\button.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\dragon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\vampire.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\orc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\witch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\skeleton.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\ghost.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\werewolf.h">
+      <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -567,6 +600,36 @@
     </Image>
     <Image Include="res\gadgets\telescroll.png">
       <Filter>资源文件\gadgets</Filter>
+    </Image>
+    <Image Include="res\monster\goblin.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\slime.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\orc.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\dragon.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\skeleton.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\skeleton2.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\vampire.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\witch.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\ghost.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\werewolf.png">
+      <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

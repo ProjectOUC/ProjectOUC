@@ -249,7 +249,7 @@ void Character::levelUp()
 	{
 		exp = exp - levelUpExp;
 		level++;
-		levelUpExp = (int)(25 * level);
+		levelUpExp = (int)(25 * level + 75);
 		attr = attr + attrGen;
 		set_health(calc_maxHealth());
 	}
@@ -257,5 +257,5 @@ void Character::levelUp()
 
 int calc_damage(int attack, int defense, int block)
 {
-	return max((int)(1.0f * attack / (defense + 30) * 30) - block, 0);
+	return max((int)(1.0f * attack / (defense + 100) * 100) - block, 1);
 }

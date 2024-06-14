@@ -150,6 +150,15 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		}
 	}
 
+	else if (tile->get_type() == EVENT_TILE)
+	{
+		player->modify_moved(false);
+		player->moveTo(player->get_lastPos());
+		player->modify_food(pos.stage);
+		tile->event->occurEvent((Character**)(&player));
+		std::cout << tile->event->getEventDescription() << "\n";
+	}
+
 	return;
 }
 
@@ -200,6 +209,7 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 				fprintf(fp, "\n");
 			}
 
+			int eventCount = 0;
 			fprintf(fp, "tiles\n");
 			for (int i = 0; i < h; ++i)
 			{
@@ -207,8 +217,24 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 				{
 					if (j != 0) fprintf(fp, " ");
 					fprintf(fp, "%d", scene->get_tiles(i, j)->get_type());
+					if (scene->get_tiles(i, j)->get_type() == EVENT_TILE)
+						eventCount++;
 				}
 				fprintf(fp, "\n");
+			}
+
+			fprintf(fp, "Event:%d\n", eventCount);
+			for (int i = 0; i < h; ++i)
+			{
+				for (int j = 0; j < w; ++j)
+				{
+					Tile* tile = scene->get_tiles(i, j);
+					if (tile->get_type() != EVENT_TILE) continue;
+					fprintf(fp, "Event:\n");
+					fprintf(fp, "%d %d\n", i, j);
+					fprintf(fp, "%s\n", (tile->event->getEventPath()).c_str());
+				}
+
 			}
 		}
 		fclose(fp);
@@ -251,9 +277,4 @@ void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 		exit(0);
 	}
 	*player = new Player(path);
-}
-
-void loadGadgetImage()
-{
-	return;
 }

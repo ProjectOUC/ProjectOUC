@@ -2,9 +2,11 @@
 #include<conio.h>
 #include<graphics.h>
 #include<string>
+
 #define LENGTH_PIXIV 16
 #define WIDTH 800
 #define HEIGHT 600
+#pragma execution_character_set("utf-8")
 using namespace std;
 
 extern const int EMPTY;
@@ -107,6 +109,27 @@ static IMAGE img_maze_updown_left_floor;
 static IMAGE img_maze_updown_floor;
 static IMAGE img_maze_updown_right_floor;
 
+static IMAGE img_speak_middle;
+static IMAGE img_speak_left_up;
+static IMAGE img_speak_up;
+static IMAGE img_speak_right_up;
+static IMAGE img_speak_left;
+static IMAGE img_speak_right;
+static IMAGE img_speak_left_down;
+static IMAGE img_speak_down;
+static IMAGE img_speak_right_down;
+
+static IMAGE img_item_left_up;
+static IMAGE img_item_up;
+static IMAGE img_item_right_up;
+static IMAGE img_item_left;
+static IMAGE img_item_middle;
+static IMAGE img_item_right;
+static IMAGE img_item_left_down;
+static IMAGE img_item_down;
+static IMAGE img_item_right_down;
+static IMAGE img_item_equip;
+
 static IMAGE img_grass_left_up;
 static IMAGE img_grass_up;
 static IMAGE img_grass_right_up;
@@ -171,26 +194,15 @@ static IMAGE img_town_updown_floor;
 static IMAGE img_town_updown_left_floor;
 static IMAGE img_town_updown_right_floor;
 
-static IMAGE img_speak_middle;
-static IMAGE img_speak_left_up;
-static IMAGE img_speak_up;
-static IMAGE img_speak_right_up;
-static IMAGE img_speak_left;
-static IMAGE img_speak_right;
-static IMAGE img_speak_left_down;
-static IMAGE img_speak_down;
-static IMAGE img_speak_right_down;
-
-static IMAGE img_item_left_up;
-static IMAGE img_item_up;
-static IMAGE img_item_right_up;
-static IMAGE img_item_left;
-static IMAGE img_item_middle;
-static IMAGE img_item_right;
-static IMAGE img_item_left_down;
-static IMAGE img_item_down;
-static IMAGE img_item_right_down;
-static IMAGE img_item_equip;
+static IMAGE img_event_left_up;
+static IMAGE img_event_up;
+static IMAGE img_event_right_up;
+static IMAGE img_event_left;
+static IMAGE img_event_middle;
+static IMAGE img_event_right;
+static IMAGE img_event_left_down;
+static IMAGE img_event_down;
+static IMAGE img_event_right_down;
 
 static IMAGE img_gadget_sword;
 static IMAGE img_gadget_shield;
@@ -205,6 +217,18 @@ static IMAGE img_player_2;
 static IMAGE img_food_npc;
 
 static IMAGE img_skull;
+static IMAGE img_goblin;
+static IMAGE img_slime;
+static IMAGE img_orc;
+static IMAGE img_dragon;
+static IMAGE img_skeleton;
+static IMAGE img_vampire;
+static IMAGE img_witch;
+static IMAGE img_ghost;
+static IMAGE img_werewolf;
+
+
+
 static IMAGE img_chest;
 static IMAGE img_start;
 static IMAGE img_end;
@@ -212,6 +236,7 @@ static IMAGE img_heart_point;
 static IMAGE img_money;
 static IMAGE img_food;
 static IMAGE img_background_forest;
+
 static IMAGE img_tree;
 static IMAGE img_door;
 static IMAGE img_counter_leftright_left;
@@ -230,7 +255,6 @@ static IMAGE img_right_chair;
 static IMAGE img_table;
 static IMAGE img_light;
 static IMAGE img_carpet;
-
 #pragma comment(lib,"MSIMG32.LIB")
 
 Paint::Paint(int width, int height)
@@ -331,7 +355,7 @@ void Loading_image()
 	loadimage(&img_grass_leftright_up, _T("res\\grass\\grass_leftright_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_grass_leftright, _T("res\\grass\\grass_leftright.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_grass_leftright_down, _T("res\\grass\\grass_leftright_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_grass_updown_left , _T("res\\grass\\grass_updown_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_grass_updown_left, _T("res\\grass\\grass_updown_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_grass_updown, _T("res\\grass\\grass_updown.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_grass_updown_right, _T("res\\grass\\grass_updown_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
@@ -403,18 +427,31 @@ void Loading_image()
 	loadimage(&img_Message_middle, _T("res\\GUI\\Message_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_Message_down, _T("res\\GUI\\Message_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
+	loadimage(&img_event_left_up, _T("res\\event\\event_left_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_up, _T("res\\event\\event_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_left_down, _T("res\\event\\event_left_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_right_up, _T("res\\event\\event_right_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_right, _T("res\\event\\event_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_right_down, _T("res\\event\\event_right_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_left, _T("res\\event\\event_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_middle, _T("res\\event\\event_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_event_down, _T("res\\event\\event_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
 	loadimage(&img_player_1, _T("res\\player\\player_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_player_2, _T("res\\player\\player_2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_food_npc, _T("res\\player\\food_npc.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
 	loadimage(&img_chest, _T("res\\chest\\chest.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_skull, _T("res\\monster\\skull.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_start, _T("res\\status\\start.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_end, _T("res\\status\\end.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_heart_point, _T("res\\GUI\\heart.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_money, _T("res\\GUI\\money_bag.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_food, _T("res\\GUI\\food.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_background_forest, _T("res\\background\\background_forest.jpg"),WIDTH,HEIGHT);
+	loadimage(&img_goblin, _T("res\\monster\\goblin.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_slime, _T("res\\monster\\slime.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_orc, _T("res\\monster\\orc.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_dragon, _T("res\\monster\\dragon.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_skeleton, _T("res\\monster\\skeleton2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_vampire, _T("res\\monster\\vampire.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_witch, _T("res\\monster\\witch.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_ghost, _T("res\\monster\\ghost.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_werewolf, _T("res\\monster\\werewolf.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+
 	loadimage(&img_tree, _T("res\\grass\\tree.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_door, _T("res\\town_floor\\door.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_door_0, _T("res\\town_floor\\door_0.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -423,7 +460,7 @@ void Loading_image()
 	loadimage(&img_table, _T("res\\town_floor\\table.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_light, _T("res\\town_floor\\light.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_fountain, _T("res\\town_floor\\fountain.png"), LENGTH_PIXIV, LENGTH_PIXIV);
-	loadimage(&img_carpet, _T("res\\town_floor\\carpet.png"), LENGTH_PIXIV*2, LENGTH_PIXIV*2);
+	loadimage(&img_carpet, _T("res\\town_floor\\carpet.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
 	loadimage(&img_food_sold, _T("res\\town_floor\\food_sold.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_food_cupboard_0, _T("res\\town_floor\\food_cupboard_0.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_food_cupboard_1, _T("res\\town_floor\\food_cupboard_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -433,6 +470,12 @@ void Loading_image()
 	loadimage(&img_counter_updown, _T("res\\town_floor\\counter_updown_middle.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_counter_updown_up, _T("res\\town_floor\\counter_updown_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_counter_updown_down, _T("res\\town_floor\\counter_updown_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_start, _T("res\\status\\start.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_end, _T("res\\status\\end.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_heart_point, _T("res\\GUI\\heart.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_money, _T("res\\GUI\\money_bag.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_food, _T("res\\GUI\\food.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_background_forest, _T("res\\background\\background_forest.jpg"),WIDTH,HEIGHT);
 
 	loadimage(&img_speak_left_up, _T("res\\speak\\item_left_up.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
 	loadimage(&img_speak_up, _T("res\\speak\\item_up.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
@@ -457,12 +500,10 @@ void Loading_image()
 
 	loadimage(&img_gadget_sword, _T("res\\gadgets\\sword.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_bow, _T("res\\gadgets\\bow.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5);
-	loadimage(&img_gadget_key, _T("res\\gadgets\\key.png"), LENGTH_PIXIV * 1.5, LENGTH_PIXIV * 1.5);
 	loadimage(&img_gadget_cursedstone, _T("res\\gadgets\\cursedstone.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_shield, _T("res\\gadgets\\shield.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_telescroll, _T("res\\gadgets\\telescroll.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_healpotion, _T("res\\gadgets\\healpotion.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
-
 }
 
 
@@ -518,8 +559,8 @@ void Player_choice(int width,int height)
 
 void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 {
-	char heart_point[10]; 
-	sprintf_s(heart_point,"/%d", player->get_health());
+	char heart_point[10];
+	sprintf_s(heart_point, "/%d", player->get_health());
 	char Max_heart_point[10];
 	sprintf_s(Max_heart_point, "%d", player->get_maxHealth());
 	char level[20];
@@ -537,7 +578,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	char Max_food[10];
 	sprintf_s(Max_food, "%d", player->get_food_capacity());
 	char money_point[10];
-	sprintf_s(money_point,"%d", player->get_coin());
+	sprintf_s(money_point, "%d", player->get_coin());
 	char food_point[10];
 	sprintf_s(food_point, "/%d", player->get_food());
 	int x, y;
@@ -546,13 +587,13 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 		for (y = 0; y < 4; y++)
 		{
 			if (x == 0 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_left_up);
-			else if (x == 0 && y != 0&&y!=3)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_left);
-			else if (x != 0 && y == 0&&x!=34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_up);
+			else if (x == 0 && y != 0 && y != 3)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_left);
+			else if (x != 0 && y == 0 && x != 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_up);
 			else if (x == 0 && y == 3)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_left_down);
 			else if (x == 34 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_right_up);
 			else if (x == 34 && y == 3)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_right_down);
-			else if (x != 34 && y == 3&&x!=0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_down);
-			else if (x == 34 && y != 3&&y!=0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_right);
+			else if (x != 34 && y == 3 && x != 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_down);
+			else if (x == 34 && y != 3 && y != 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_right);
 			else putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_GUI_middle);
 		}
 	}
@@ -560,44 +601,43 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	{
 		for (y = 0; y < 31; y++)
 		{
-			if(x==0&&y==0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_left_up);
-			else if(x==0&&y!=0&&y!=30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_left);
-			else if(x!=0&&x!=3&&y==0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_up);
-			else if(x==0&&y==30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_left_down);
-			else if(x==3&&y==0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_right_up);
-			else if(x==3&&y==30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_right_down);
-			else if(x!=0&&x!=3&&y==30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_down);
-			else if(x==3&&y!=0&&y!=30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_right);
-			else putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y+64, &img_GUI_middle);
+			if (x == 0 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_left_up);
+			else if (x == 0 && y != 0 && y != 30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_left);
+			else if (x != 0 && x != 3 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_up);
+			else if (x == 0 && y == 30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_left_down);
+			else if (x == 3 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_right_up);
+			else if (x == 3 && y == 30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_right_down);
+			else if (x != 0 && x != 3 && y == 30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_down);
+			else if (x == 3 && y != 0 && y != 30)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_right);
+			else putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y + 64, &img_GUI_middle);
 		}
 	}
 	settextcolor(BLACK);
 	setbkmode(TRANSPARENT);
 	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
-	int w_h=textwidth(Max_heart_point);
+	int w_h = textwidth(Max_heart_point);
 	int w_f = textwidth(Max_food);
 	int w_e = textwidth(exp);
-	putimage_alpha(LENGTH_PIXIV*0+8, LENGTH_PIXIV*0+8, &img_heart_point);
-	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 0 + 8,Max_heart_point);
-	outtextxy(LENGTH_PIXIV * 1 + 8+w_h, LENGTH_PIXIV * 0 + 8, heart_point);
-	putimage_alpha(LENGTH_PIXIV *0+ 8, LENGTH_PIXIV * 1+ 8, &img_money);
+	putimage_alpha(LENGTH_PIXIV * 0 + 8, LENGTH_PIXIV * 0 + 8, &img_heart_point);
+	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 0 + 8, Max_heart_point);
+	outtextxy(LENGTH_PIXIV * 1 + 8 + w_h, LENGTH_PIXIV * 0 + 8, heart_point);
+	putimage_alpha(LENGTH_PIXIV * 0 + 8, LENGTH_PIXIV * 1 + 8, &img_money);
 	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 1 + 8, money_point);
 	putimage_alpha(LENGTH_PIXIV * 0 + 8, LENGTH_PIXIV * 2 + 8, &img_food);
 	outtextxy(LENGTH_PIXIV * 1 + 8, LENGTH_PIXIV * 2 + 8, Max_food);
 	outtextxy(LENGTH_PIXIV * 1 + 8 + w_f, LENGTH_PIXIV * 2 + 8, food_point);
-	outtextxy(LENGTH_PIXIV * 0+1, LENGTH_PIXIV * 4 + 8, level);
-	outtextxy(LENGTH_PIXIV * 0+1, LENGTH_PIXIV * 5 + 8, "exp:");
-	outtextxy(LENGTH_PIXIV * 0+1, LENGTH_PIXIV * 6 + 8, exp);
-	outtextxy(LENGTH_PIXIV * 0+1+w_e, LENGTH_PIXIV * 6 + 8, upexp);
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 4 + 8, level);
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 5 + 8, "exp:");
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 6 + 8, exp);
+	outtextxy(LENGTH_PIXIV * 0 + 1 + w_e, LENGTH_PIXIV * 6 + 8, upexp);
 
 	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 8 + 8, "Attack");
 	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 9 + 8, attack);
-	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 10 + 8,"Defense");
+	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 10 + 8, "Defense");
 	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 11 + 8, defense);
 	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 12 + 8, "Speed");
 	outtextxy(LENGTH_PIXIV * 0 + 1, LENGTH_PIXIV * 13 + 8, speed);
 }
-
 
 void speak_paint()
 {
@@ -674,7 +714,6 @@ void gadgets_paint(int index, int num)
 		putimage_alpha(LENGTH_PIXIV * (2 * x + 10), LENGTH_PIXIV * (2 * y + 10), &img_gadget_telescroll);
 		outtextxy(LENGTH_PIXIV * (2 * x + 11) + 1, LENGTH_PIXIV * (2 * y + 11) + 1, gadgets_num);
 	}
-	putimage_alpha(LENGTH_PIXIV * (2 * 6 + 10)+2, LENGTH_PIXIV * (2 * 0 + 10), &img_gadget_key);
 }
 
 void Message_paint()
@@ -693,19 +732,19 @@ void Message_paint()
 			else if (x == 46 && y != 0 && y != 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_right);
 			else putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_middle);
 		}
-		settextcolor(WHITE);
-		setbkmode(TRANSPARENT);
-		settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV*0 + 8,   "Welcome to game!");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 2 + 8, "        UP       ");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 3 + 8, "        W        ");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 4 + 8, "LEFT  A S D  RIGHT");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 5 + 8, "       DOWN      ");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 7 + 8, "        E        ");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 8 + 8, "Open the backpack");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 10 + 8,"       ESC       ");
-		outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 11 + 8,"    Game Option  ");
 	}
+	settextcolor(WHITE);
+	setbkmode(TRANSPARENT);
+	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 0 + 8, "Welcome to game!");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 2 + 8, "        UP       ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 3 + 8, "        W        ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 4 + 8, "LEFT  A S D  RIGHT");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 5 + 8, "       DOWN      ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 7 + 8, "        E        ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 8 + 8, "Open the backpack");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 10 + 8, "       ESC       ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 11 + 8, "    Game Option  ");
 }
 
 void Player_paint(int x,int y,int type)
@@ -734,8 +773,99 @@ void Chest_paint(int x, int y)
 
 void Monster_paint(int x, int y)
 {
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
+	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
 }
+void Monster_paint(int x, int y, int type)
+{
+	switch (type)
+	{
+	case 0:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
+		break;
+	case 1:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_goblin);
+		break;
+	case 2:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_slime);
+		break;
+	case 3:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_orc);
+		break;
+	case 4:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
+		break;
+	case 5:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skeleton);
+		break;
+	case 6:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_vampire);
+		break;
+	case 7:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_witch);
+		break;
+	case 8:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_ghost);
+		break;
+	case 9:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_werewolf);
+		break;
+	default:
+		std::cerr << "Unknown monster type: " << type << std::endl;
+		break;
+	}
+}
+
+void Button_paint(int count, std::vector<Button*> button)
+{
+	char options[10];
+	settextcolor(WHITE);
+	setbkmode(TRANSPARENT);
+	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
+	int w;
+	for (int x = 0; x < 12; x++)  //»æÖÆÁÄÌì¿ò
+	{
+		for (int y = 0; y < 20; y++)
+		{
+			if (x == 0 && y == 0)putimage_alpha(LENGTH_PIXIV * (x+12), LENGTH_PIXIV * (y+8), &img_event_left_up);
+			else if (x == 0 && y != 0 && y != 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_left);
+			else if (x != 0 && x != 11 && y == 0)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_up);
+			else if (x == 0 && y == 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_left_down);
+			else if (x == 11 && y == 0)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_right_up);
+			else if (x == 11 && y == 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_right_down);
+			else if (x != 0 && x != 11 && y == 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_down);
+			else if (x == 11 && y != 0 && y != 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_right);
+			else putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_middle);
+		}
+	}
+	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, "Event name");
+	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, "Description");
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = 0; j < 11; j++)
+		{
+			if (j == 0)
+			{
+				putimage_alpha(LENGTH_PIXIV * (j + 12)+8, LENGTH_PIXIV * ((3*i-1) + 18), &img_event_left_up);
+				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_left_down);
+			}
+			else if (j == 10)
+			{
+				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i -1) + 18), &img_event_right_up);
+				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i ) + 18), &img_event_right_down);
+			}
+			else
+			{
+				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i - 1) + 18), &img_event_up);
+				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_down);
+			}
+		}
+		/*sprintf_s(options, "%d:", i + 1);
+		int d_n = textwidth(options);
+		outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i+3 + 8) + 4, options);
+		outtextxy(LENGTH_PIXIV * (0 + 12) + 2+d_n, LENGTH_PIXIV * (i + 3 + 8) + 4, _T(button[i]->getDescription().c_str()));*/
+	}
+}
+
 
 void Cave_Wall_paint(Scene* scene, int pos)
 {
@@ -841,13 +971,17 @@ void Cave_Wall_paint(Scene* scene, int pos)
 					if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() == WALL_TILE && tile_right_up->get_type() == WALL_TILE && tile_left_down->get_type() == WALL_TILE && tile_right_down->get_type() == WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_wall);
-					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE)
+					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
+						&& tile_left_up->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_up_left_wall);
-					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE)
+					if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE
+						&& tile_right_up->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_up_right_wall);
-					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE)
+					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE
+						&& tile_right_down->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_right_down_wall);
-					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE)
+					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE
+						&& tile_left_down->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cave_left_down_wall);
 					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() == WALL_TILE && tile_right_up->get_type() == WALL_TILE && tile_left_down->get_type() != WALL_TILE && tile_right_down->get_type() == WALL_TILE)
@@ -1238,10 +1372,10 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_middle_base);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_left_wall);
 					}
-						
+
 					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_right_up->get_type() != WALL_TILE)
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_right_wall);
@@ -1251,8 +1385,8 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE
 						&& tile_left_down->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_middle_base);
-						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_left_down_wall);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_wall);
 					}
 					else if (tile_left->get_type() == WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() == WALL_TILE
 						&& tile_left_up->get_type() == WALL_TILE && tile_right_up->get_type() == WALL_TILE && tile_left_down->get_type() != WALL_TILE && tile_right_down->get_type() == WALL_TILE)
@@ -1288,7 +1422,7 @@ void TOWN_Wall_paint(Scene* scene, int pos)
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() == WALL_TILE && tile_right->get_type() != WALL_TILE && tile_down->get_type() != WALL_TILE
 						&& tile_left_down->get_type() != WALL_TILE && tile_right_down->get_type() != WALL_TILE)
 					{
-						putimage_alpha(LENGTH_PIXIV* x + 64, LENGTH_PIXIV* y + 64, &img_town_middle_base);
+						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_middle_base);
 						putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_wall);
 					}
 					else if (tile_left->get_type() != WALL_TILE && tile_up->get_type() != WALL_TILE && tile_right->get_type() == WALL_TILE && tile_down->get_type() != WALL_TILE
@@ -1422,7 +1556,6 @@ void Maze_Empty_paint(int x, int y, Scene* scene, int pos)
 			putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_maze_floor);
 	}
 }
-
 void Town_scene_paint(int width, int height, Position pos)
 {
 	int x, y;
@@ -1446,14 +1579,14 @@ void Town_scene_paint(int width, int height, Position pos)
 	{
 		for (y = 11; y < 21; y++)
 		{
-			if(x==24&&y==11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_up);
-			else if(x==24&&y==20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
-			else if(x==29&&y==11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_up);
-			else if(x==29&&y==20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
-			else if(x==24&&y!=11&&y!=20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
-			else if(x==29&&y!=11&&y!=20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
-			else if(y==11&&x!=24&&x!=29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_up);
-			else if(y==20&&x!=24&&x!=29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
+			if (x == 24 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_up);
+			else if (x == 24 && y == 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if (x == 29 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_up);
+			else if (x == 29 && y == 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
+			else if (x == 24 && y != 11 && y != 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
+			else if (x == 29 && y != 11 && y != 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+			else if (y == 11 && x != 24 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_up);
+			else if (y == 20 && x != 24 && x != 29)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
 			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_middle);
 		}
 	}
@@ -1492,7 +1625,7 @@ void Town_scene_paint(int width, int height, Position pos)
 			else if (x == 1 && y != 11 && y != 23)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
 			else if (x == 8 && y != 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
 			else if (y == 11 && x != 1 && x != 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_up);
-			else if (y == 23 && x != 1 && x!=7 &&x != 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
+			else if (y == 23 && x != 1 && x != 7 && x != 8)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_down);
 			else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_middle);
 		}
 	}
@@ -1500,10 +1633,10 @@ void Town_scene_paint(int width, int height, Position pos)
 	{
 		for (y = 24; y < 27; y++)
 		{
-			if(x==7&&y==26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
-			else if(x==7&&y!=26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
-			else if(x==8&&y==26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
-			else if(x==8&&y!=26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
+			if (x == 7 && y == 26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left_down);
+			else if (x == 7 && y != 26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_left);
+			else if (x == 8 && y == 26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right_down);
+			else if (x == 8 && y != 26)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_grass_right);
 		}
 	}
 	//»­·¿¼äµØ°å
@@ -1575,16 +1708,16 @@ void Town_scene_paint(int width, int height, Position pos)
 	{
 		for (y = 1; y < 9; y++)
 		{
-			if(x==14)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
-			else if(x==15)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
+			if (x == 14)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
+			else if (x == 15)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
 		}
 	}
 	for (x = 1; x < 30; x++)
 	{
 		for (y = 9; y < 11; y++)
 		{
-			if(y==9)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_road);
-			else if(y==10)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_road);
+			if (y == 9)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_up_road);
+			else if (y == 10)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_down_road);
 		}
 	}
 	for (x = 22; x < 24; x++)
@@ -1599,13 +1732,13 @@ void Town_scene_paint(int width, int height, Position pos)
 	{
 		for (y = 11; y < 30; y++)
 		{
-			if (x ==9)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
+			if (x == 9)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_road);
 			else if (x == 10)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_right_road);
 		}
 	}
 	for (x = 11; x < 22; x++)
 	{
-		for (y = 11; y <21; y++)
+		for (y = 11; y < 21; y++)
 		{
 			if (x == 11 && y == 11)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_up_road);
 			else if (x == 11 && y == 20)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_town_left_down_road);
@@ -1619,18 +1752,18 @@ void Town_scene_paint(int width, int height, Position pos)
 		}
 	}
 	// »­ÃÅ
-	
-	if(pos.x==21&&pos.y==7)putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 7 + 64, &img_town_leftright_floor); 
+
+	if (pos.x == 21 && pos.y == 7)putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 7 + 64, &img_town_leftright_floor);
 	else putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 7 + 64, &img_door);
 	if (pos.x == 22 && pos.y == 21) putimage_alpha(LENGTH_PIXIV * 22 + 64, LENGTH_PIXIV * 21 + 64, &img_town_leftright_floor);
 	else putimage_alpha(LENGTH_PIXIV * 22 + 64, LENGTH_PIXIV * 21 + 64, &img_door);
 	if (pos.x == 23 && pos.y == 21) putimage_alpha(LENGTH_PIXIV * 23 + 64, LENGTH_PIXIV * 21 + 64, &img_town_leftright_floor);
 	else putimage_alpha(LENGTH_PIXIV * 23 + 64, LENGTH_PIXIV * 21 + 64, &img_door);
-	
+
 	if (pos.x != 16 || pos.y != 29)putimage_alpha(LENGTH_PIXIV * 16 + 64, LENGTH_PIXIV * 29 + 64, &img_door_0);
 	if (pos.x != 6 || pos.y != 27)putimage_alpha(LENGTH_PIXIV * 6 + 64, LENGTH_PIXIV * 27 + 64, &img_door_0);
-	
-	
+
+
 	//²¹³äÐ¡¾¶
 	putimage_alpha(LENGTH_PIXIV * 21 + 64, LENGTH_PIXIV * 8 + 64, &img_town_leftright_base);
 	putimage_alpha(LENGTH_PIXIV * 7 + 64, LENGTH_PIXIV * 27 + 64, &img_town_updown_base);
@@ -1643,7 +1776,7 @@ void Town_scene_paint(int width, int height, Position pos)
 	for (x = 17; x < 23; x++)
 	{
 		y = 0;
-		if((x&2)==0)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_food_cupboard_0);
+		if ((x & 2) == 0)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_food_cupboard_0);
 		else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_food_cupboard_1);
 	}
 	for (x = 17; x < 24; x++)
@@ -1654,7 +1787,7 @@ void Town_scene_paint(int width, int height, Position pos)
 		else putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_counter_leftright);
 	}
 
-	putimage_alpha(LENGTH_PIXIV * 26 + 64, LENGTH_PIXIV * 2 + 64,&img_left_chair);
+	putimage_alpha(LENGTH_PIXIV * 26 + 64, LENGTH_PIXIV * 2 + 64, &img_left_chair);
 	putimage_alpha(LENGTH_PIXIV * 27 + 64, LENGTH_PIXIV * 2 + 64, &img_table);
 	putimage_alpha(LENGTH_PIXIV * 28 + 64, LENGTH_PIXIV * 2 + 64, &img_right_chair);
 

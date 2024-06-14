@@ -6,6 +6,7 @@
 #include "bow.h"
 #include "teleportscroll.h"
 #include "key.h"
+#include "dagger.h"
 
 void initGadgetList();
 void destroyGadgetList();

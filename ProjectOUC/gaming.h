@@ -11,5 +11,3 @@ void checkTile(std::vector<Scene*>& scenes, Player* player);
 void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave = true);
 
 void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player);
-
-void loadGadgetImage();

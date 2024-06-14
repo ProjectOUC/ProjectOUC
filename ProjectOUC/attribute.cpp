@@ -26,11 +26,11 @@ Attr::Attr()
 	teleport = false;
 }
 
-Attr::Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
+Attr::Attr(int speed, int _strength, int _agility, int _wisdom, int _maxHealth,
 	int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 	int _visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport)
 {
-	this->speed = _speed;
+	this->speed = speed;
 	this->strength = _strength;
 	this->agility = _agility;
 	this->wisdom = _wisdom;
@@ -137,6 +137,29 @@ Attr Attr::operator-(const Attr& other)
 	if (attr.health > attr.get_maxHealth()) attr.health = attr.get_maxHealth();
 	return attr;
 }
+
+// 重载负号
+Attr Attr::operator-() const {
+	return Attr(
+		-this->speed,
+		-this->strength,
+		-this->agility,
+		-this->wisdom,
+		-this->maxHealth,
+		-this->health,
+		-this->attack,
+		-this->diceNum,
+		-this->facet,
+		-this->defense,
+		-this->block,
+		-this->visibleRadius,
+		-this->criticalAttackRate,
+		-this->hitRate,
+		-this->missRate,
+		this->teleport
+	);
+}
+
 
 Attr Attr::operator*(const int mul)
 {

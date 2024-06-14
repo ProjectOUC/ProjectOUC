@@ -1,7 +1,3 @@
-#pragma once
-class dagger
-{
-};
 
 #pragma once
 #include "gadget.h"

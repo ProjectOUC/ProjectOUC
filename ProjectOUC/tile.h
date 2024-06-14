@@ -1,5 +1,7 @@
 #pragma once
 #include "roles/characters.h"
+#include "utils/button.h"
+#include "event/event.h"
 
 #include <list>
 
@@ -14,7 +16,7 @@ enum tile_type
 	EMPTY_TILE,
 	START_TILE,
 	END_TILE,
-	DOOR_TILE
+	DOOR_TILE,
 };
 
 class Tile
@@ -27,6 +29,7 @@ public:
 	void initStartTile(int level = -1);
 	void initEndTile(int level = -1);
 	void initDoorTile(int level = -1);
+	void initEventTile(int level = -1);
 
 	void modify_visited() { visited = true; }
 	void modify_type(tile_type new_type) { type = new_type; }
@@ -40,11 +43,13 @@ public:
 
 	std::vector<Monster*> monsters;
 	std::vector<Chest*> chests;
+	Event* event;
 
 	~Tile()
 	{
-		for (int i = 0; i < monsters.size(); ++i) delete monsters[i];
-		for (int i = 0; i < chests.size(); ++i) delete chests[i];
+		for (int i = 0; i < monsters.size(); ++i) if (monsters[i]) delete monsters[i];
+		for (int i = 0; i < chests.size(); ++i) if (chests[i]) delete chests[i];
+		if (event) delete event;
 	}
 private:
 	tile_type type;

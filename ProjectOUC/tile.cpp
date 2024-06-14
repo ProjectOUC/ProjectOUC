@@ -40,23 +40,53 @@ void Tile::initBattleTile(int level)
 {
 	type = BATTLE_TILE;
 	unreachable = false;
-	// Todo:  改为随机生成Monster
-	// 已完成
 	if (level < 0)
 	{
 		return;
 	}
 	else
 	{
-		//std::cout << level << "\n";
 		Monster* monster;
-		static std::vector<int> weights = { 10, 10 };
-		int ind = randIndByWeights(weights);
-		if (ind == 0) monster = (Monster*)new Goblin(level);
-		else if (ind == 1) monster = (Monster*)new Slime(level);
+		static std::vector<int> weights = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 }; // 根据需要调整权重
+		int tile_monster_type = randIndByWeights(weights); // 随机选择一个怪物类型
+
+		switch (tile_monster_type)
+		{
+		case 0:
+			monster = (Monster*)new Goblin(level);
+			break;
+		case 1:
+			monster = (Monster*)new Slime(level);
+			break;
+		case 2:
+			monster = (Monster*)new Orc(level);
+			break;
+		case 3:
+			monster = (Monster*)new Dragon(level);
+			break;
+		case 4:
+			monster = (Monster*)new Skeleton(level);
+			break;
+		case 5:
+			monster = (Monster*)new Vampire(level);
+			break;
+		case 6:
+			monster = (Monster*)new Witch(level);
+			break;
+		case 7:
+			monster = (Monster*)new Ghost(level);
+			break;
+		case 8:
+			monster = (Monster*)new Werewolf(level);
+			break;
+		default:
+			monster = (Monster*)new Goblin(level); // 默认选择
+			break;
+		}
 		monsters.push_back(monster);
 	}
 }
+
 
 void Tile::initChestTile(int level)
 {
@@ -69,10 +99,10 @@ void Tile::initChestTile(int level)
 	else
 	{
 		Chest* chest = new Chest();
-		chest->set_coin(50 + 20 * level + roll(5, 3));
-		chest->set_food_capacity(10 * 5 * level);
+		chest->set_coin(50 + 10 * level + roll(2, 5));
+		chest->set_food_capacity(10 + 5 * level);
 		chest->set_food(5 + 5 * level + roll(2, 2));
-		int treasure_count = -level / 2 + roll(level, 2);
+		int treasure_count = level / 4 + 1;
 		for (int i = 0; i < treasure_count; ++i)
 		{
 			int ind = random(0, max_gadget_index-1);
@@ -97,5 +127,11 @@ void Tile::initEndTile(int level)
 void Tile::initDoorTile(int level)
 {
 	type = DOOR_TILE;
+	unreachable = false;
+}
+
+void Tile::initEventTile(int level)
+{
+	type = EVENT_TILE;
 	unreachable = false;
 }
