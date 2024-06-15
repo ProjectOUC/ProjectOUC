@@ -167,6 +167,13 @@
   <ItemGroup>
     <ClInclude Include="attribute.h" />
     <ClInclude Include="battle.h" />
+    <ClInclude Include="roles\monsters\dragon.h" />
+    <ClInclude Include="roles\monsters\ghost.h" />
+    <ClInclude Include="roles\monsters\orc.h" />
+    <ClInclude Include="roles\monsters\skeleton.h" />
+    <ClInclude Include="roles\monsters\vampire.h" />
+    <ClInclude Include="roles\monsters\werewolf.h" />
+    <ClInclude Include="roles\monsters\witch.h" />
     <ClInclude Include="utils\button.h" />
     <ClInclude Include="event\event.h" />
     <ClInclude Include="gadgets\dagger.h" />
@@ -287,7 +294,17 @@
     <Image Include="res\maze_wall\maze_up_right_wall.png" />
     <Image Include="res\maze_wall\maze_up_wall.png" />
     <Image Include="res\maze_wall\maze_wall.png" />
+    <Image Include="res\monster\dragon.png" />
+    <Image Include="res\monster\ghost.png" />
+    <Image Include="res\monster\goblin.png" />
+    <Image Include="res\monster\orc.png" />
+    <Image Include="res\monster\skeleton.png" />
+    <Image Include="res\monster\skeleton2.png" />
     <Image Include="res\monster\skull.png" />
+    <Image Include="res\monster\slime.png" />
+    <Image Include="res\monster\vampire.png" />
+    <Image Include="res\monster\werewolf.png" />
+    <Image Include="res\monster\witch.png" />
     <Image Include="res\player\player_1.png" />
     <Image Include="res\player\player_2.png" />
     <Image Include="res\status\end.png" />

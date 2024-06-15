@@ -1,7 +1,21 @@
 Button<buttonCount>
 BUTTON_TRADE
+<<<<<<< HEAD
+Description:sleep
+coinCost:0
+healthCost:0
+minStrength:0
+minAgility:0
+attrGain:
+speed:0
+strength:0
+agility:0
+wisdom:0
+maxHealth:0
+=======
 Description:
 Gain:
+>>>>>>> cyy
 health:0
 coin:0
 gadget 1:3

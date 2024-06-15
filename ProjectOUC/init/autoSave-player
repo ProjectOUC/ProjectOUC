@@ -1,4 +1,28 @@
 character type: 1
+<<<<<<< HEAD
+name: Warrior
+pos: 0 9 10
+lastPos: 0 10 10
+coin: 100
+food capacity: 200
+food: 100
+essentialAttribute: 1
+level: 1
+exp: 0
+levelUpExp: 25
+strengthGen: 5
+agilityGen: 4
+wisdomGen: 2
+attribute:
+strength: 11
+agility: 6
+wisdom: 3
+maxHealth: 290
+health: 400
+speed: 30
+attack: 5
+diceNum: 3
+=======
 name: Rogue
 <<<<<<< Updated upstream
 pos: 2 3 23
@@ -33,7 +57,11 @@ health: 2500
 speed: 3000
 attack: 1000
 diceNum: 4
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> cyy
+>>>>>>> main
 facet: 5
 =======
 facet: 3

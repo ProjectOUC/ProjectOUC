@@ -4,7 +4,7 @@
 class Bow : public Gadget
 {
 public:
-	Bow(int _gadgetIndex = 4, std::string _name ="Bow") :
+	Bow(int _gadgetIndex = 4, std::string _name = "Bow") :
 		Gadget(_gadgetIndex, _name)
 	{
 		set_stackable(false);

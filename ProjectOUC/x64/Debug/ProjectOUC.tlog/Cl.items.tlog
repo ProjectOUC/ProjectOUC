@@ -1,5 +1,9 @@
 D:\ProjectOUC-main\ProjectOUC\attribute.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\attribute.obj
 D:\ProjectOUC-main\ProjectOUC\battle.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\battle.obj
+D:\ProjectOUC-main\ProjectOUC\utils\button.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\button.obj
+D:\ProjectOUC-main\ProjectOUC\event\event.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\event.obj
+D:\ProjectOUC-main\ProjectOUC\gadgets\dagger.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\dagger.obj
+D:\ProjectOUC-main\ProjectOUC\gadgets\key.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\key.obj
 D:\ProjectOUC-main\ProjectOUC\utils\rect.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\rect.obj
 D:\ProjectOUC-main\ProjectOUC\roles\monsters\goblin.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\goblin.obj
 D:\ProjectOUC-main\ProjectOUC\roles\chests\chests.cpp;D:\ProjectOUC-main\ProjectOUC\x64\Debug\chests.obj

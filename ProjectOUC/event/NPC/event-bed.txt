@@ -1,13 +1,18 @@
 EVENT_NPC
 床
-可以恢复所有体力
+sleep?
 event/NPC/event-bed.txt
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 res/event/bed.jpg
 =======
 res/event/bed.png
 >>>>>>> Stashed changes
 2
+=======
+res/event/bed.png
+3
+>>>>>>> main
 Button1:
 BUTTON_TRADE
 Description:恢复

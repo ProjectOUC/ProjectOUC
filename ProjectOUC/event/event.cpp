@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "event.h"
+#include"../paint.h"
 #include <iostream>
 #include <io.h>
 #include <filesystem>
@@ -358,7 +359,6 @@ bool Event::isDisappear()
 
 void Event::occurEvent(Character** player)
 {
-
 	/*
 		这里会将Button::isShown设为1，然后不断绘制Event中的button
 	并判断是否有button被点击
@@ -377,6 +377,7 @@ void Event::occurEvent(Character** player)
 	while (Button::isShown)
 	{
 		//
+<<<<<<< HEAD
 
 		Button_paint(this);
 		FlushBatchDraw();
@@ -389,7 +390,62 @@ void Event::occurEvent(Character** player)
 				if (disappear >= 0) disappear = max(0, disappear - d);
 			}
 
+=======
+		Button_paint(buttonCount,buttons);
+		FlushBatchDraw();
+		while (peekmessage(&msg))
+		{
+			if (msg.message == WM_KEYDOWN)
+			{
+				switch (msg.ch)
+				{
+				case '1':
+					if (buttonCount >= 1)    //根据按钮个数判断输出是否合法
+					{
+						Button::isShown = 0;
+					}
+					break;
+				case '2':
+					if (buttonCount >= 2)
+					{
+						Button::isShown = 0;
+					}
+					break;
+				case '3':
+					if (buttonCount >= 3)
+					{
+						Button::isShown = 0;
+					}
+					break;
+				default:
+					break;
+				}
+			}
 		}
+		//for (Button* btn : buttons)
+			//btn->onClick(msg, player);
+		/*注释或删除break以正常循环*/
+
+		/*if (DEBUG)
+		{
+			for (Button* btn : buttons)
+			{
+				if (btn->getType() == BUTTON_TRADE)
+					btn->tradeButton(player);
+				else if (btn->getType() == BUTTON_FOOD)
+					
+					btn->foodButton(player);
+				else if (btn->getType() == BUTTON_BATTLE)
+					btn->battleButton(player);
+			}
+<<<<<<< HEAD
+		}*/
+		
+=======
+			break;
+>>>>>>> main
+		}
+>>>>>>> cyy
 	}
 }
 
