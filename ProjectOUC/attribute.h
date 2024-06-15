@@ -3,10 +3,7 @@
 struct Attr
 {
 	Attr();
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
 	Attr(int _all);
 	Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
 		int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
@@ -43,10 +40,5 @@ struct Attr
 	float hitRate;
 	float missRate;
 
-<<<<<<< Updated upstream
-	bool teleport;
-};
-=======
 	bool teleport; 
 };
->>>>>>> Stashed changes

@@ -351,8 +351,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(heart_point,"/%d", player->get_health());
 	char Max_heart_point[10];
 	sprintf_s(Max_heart_point, "%d", player->get_maxHealth());
-<<<<<<< Updated upstream
-=======
+
 	char level[20];
 	sprintf_s(level, "level:%d", player->get_level());
 	char exp[10];
@@ -367,7 +366,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(speed, "%d", player->calc_speed());
 	char Max_food[10];
 	sprintf_s(Max_food, "%d", player->calc_food_capacity());
->>>>>>> Stashed changes
+
 	char money_point[10];
 	sprintf_s(money_point,"%d", player->get_coin());
 	char food_point[10];
@@ -543,8 +542,7 @@ void Monster_paint(int x, int y)
 {
 	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
 }
-<<<<<<< Updated upstream
-=======
+
 void Monster_paint(int x, int y, int type)
 {
 	switch (type)
@@ -637,8 +635,6 @@ void Button_paint(Event* event)
 		outtextxy(LENGTH_PIXIV * (0 + 12) + 8+d_n, LENGTH_PIXIV * (i*3 + 17) + 8, _T(button->getDescription().c_str()));
 	}
 }
-
->>>>>>> Stashed changes
 
 void Cave_Wall_paint(Scene* scene, int pos)
 {

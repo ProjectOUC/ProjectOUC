@@ -76,6 +76,8 @@ Event::Event(std::string path)
 		buttons[i]->description.resize(128);
 		fscanf(fp, "Description:%s\n", &buttons[i]->description[0]);
 
+
+
 		if (buttons[i]->type == BUTTON_TRADE)
 		{
 			fscanf(fp, "Gain:\n");
@@ -375,25 +377,7 @@ void Event::occurEvent(Character** player)
 	while (Button::isShown)
 	{
 		//
-<<<<<<< Updated upstream
-		
-		for (Button* btn : buttons)
-			btn->onClick(msg, player);
 
-		/*注释或删除break以正常循环*/
-		if (DEBUG)
-		{
-			for (Button* btn : buttons)
-			{
-				if (btn->getType() == BUTTON_TRADE)
-					btn->tradeButton(player);
-				else if (btn->getType() == BUTTON_FOOD)
-					btn->foodButton(player);
-				else if (btn->getType() == BUTTON_BATTLE)
-					btn->battleButton(player);
-			}
-			break;
-=======
 		Button_paint(this);
 		FlushBatchDraw();
 		peekmessage(&msg);
@@ -404,7 +388,7 @@ void Event::occurEvent(Character** player)
 				int d = btn->onClick(msg.x, msg.y, player);
 				if (disappear >= 0) disappear = max(0, disappear - d);
 			}
->>>>>>> Stashed changes
+
 		}
 	}
 }
