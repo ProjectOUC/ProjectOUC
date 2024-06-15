@@ -16,3 +16,4 @@ End
 Button2:
 BUTTON_QUIT
 Description:离开
+disappear:1

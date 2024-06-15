@@ -90,7 +90,9 @@ Attr::Attr(const Attr& other)
 
 Attr& Attr::operator=(const Attr& other)
 {
+	if (this == &other) return *this;
 	this->speed = other.speed;
+
 	this->strength = other.strength;
 	this->agility = other.agility;
 	this->wisdom = other.wisdom;

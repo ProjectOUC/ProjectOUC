@@ -2,6 +2,11 @@
 #include "event.h"
 #include <iostream>
 #include <io.h>
+#include <filesystem>
+namespace fs = std::filesystem;
+
+
+std::vector<Event*> trapList;
 
 extern const int max_gadget_index;
 
@@ -39,7 +44,7 @@ Event::Event(std::string path)
 	}
 
 	eventName.resize(32);
-	eventDescription.resize(128);
+	eventDescription.resize(256);
 	fscanf(fp, "%s\n", &eventName[0]);
 	fscanf(fp, "%s\n", &eventDescription[0]);
 	
@@ -58,6 +63,7 @@ Event::Event(std::string path)
 	for (int i = 0; i < buttonCount; ++i)
 	{
 		buttons[i] = new Button;
+		buttons[i]->pos = Rect(16 * (3 * i + 17), 16 * 12 + 8, 16 * (3 * i + 18), 16 * 22 + 8);
 		int _;
 		fscanf(fp, "Button%d:\n", &_);
 		fscanf(fp, "%s\n", buffer);
@@ -182,14 +188,13 @@ Event::Event(std::string path)
 				fscanf(fp, "%1024[^:\n]", buffer);
 				if (!_strnicmp(buffer, "End", 3))
 				{
-					std::cout << fgetc(fp);
+					fgetc(fp);
 					break;
 				}
 				if (!_strnicmp(buffer, "gadget", 6))
 				{
 					char* name = strtok(buffer, " ");
 					name = strtok(NULL, " ");
-					std::cout << name << "\n";
 					int num = -1;
 					int ind = -1;
 					fscanf(fp, ":%d\n", &num);
@@ -279,6 +284,13 @@ Event::Event(std::string path)
 			}
 		}
 	}
+	fscanf(fp, "%s\n", buffer);
+	if (!_strnicmp(buffer, "disappear", 9))
+	{
+		disappear = std::stoi(strtok(NULL, strtok(buffer, ":")));
+	}
+
+	fclose(fp);
 }
 
 
@@ -327,9 +339,19 @@ std::string Event::getImgPath() const
 	return this->imgPath;
 }
 
+Button* Event::getButton(int i) const
+{
+	return buttons[i];
+}
+
 void Event::setButtonCount(const int& _buttonCount)
 {
 	buttonCount = _buttonCount;
+}
+
+bool Event::isDisappear()
+{
+	return disappear == 0;
 }
 
 void Event::occurEvent(Character** player)
@@ -350,10 +372,10 @@ void Event::occurEvent(Character** player)
 	*/
 	ExMessage msg;
 	Button::isShown = 1;
-	int DEBUG = 1;
 	while (Button::isShown)
 	{
 		//
+<<<<<<< Updated upstream
 		
 		for (Button* btn : buttons)
 			btn->onClick(msg, player);
@@ -371,6 +393,18 @@ void Event::occurEvent(Character** player)
 					btn->battleButton(player);
 			}
 			break;
+=======
+		Button_paint(this);
+		FlushBatchDraw();
+		peekmessage(&msg);
+		if (msg.message == WM_LBUTTONDOWN)
+		{
+			for (Button* btn : buttons)
+			{
+				int d = btn->onClick(msg.x, msg.y, player);
+				if (disappear >= 0) disappear = max(0, disappear - d);
+			}
+>>>>>>> Stashed changes
 		}
 	}
 }
@@ -378,4 +412,23 @@ void Event::occurEvent(Character** player)
 Event::~Event()
 {
 	for (int i = 0; i < buttonCount; ++i) if (buttons[i]) delete buttons[i];
+}
+
+
+void initTrapList()
+{
+	std::string folderPath = "./event/Trap";
+	for (const auto& entry : fs::directory_iterator(folderPath))
+	{
+		if (fs::is_regular_file(entry.path()))
+		{
+			std::string filePath = entry.path().string();
+			trapList.push_back(new Event(filePath));
+		}
+	}
+}
+
+void destroyTrapList()
+{
+	for (int i = 0; i < trapList.size(); ++i) if (trapList[i]) delete trapList[i];
 }

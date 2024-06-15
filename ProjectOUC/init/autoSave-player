@@ -1,5 +1,6 @@
 character type: 1
 name: Rogue
+<<<<<<< Updated upstream
 pos: 2 3 23
 lastPos: 2 3 22
 coin: 575
@@ -9,25 +10,40 @@ essentialAttribute: 2
 level: 7
 exp: 229
 levelUpExp: 250
+=======
+pos: 0 3 22
+lastPos: 0 4 22
+coin: 200
+food capacity: 100
+food: 100
+essentialAttribute: 2
+level: 1
+exp: 0
+levelUpExp: 25
+>>>>>>> Stashed changes
 strengthGen: 3
 agilityGen: 5
 wisdomGen: 2
 attribute:
-strength: 29
-agility: 40
-wisdom: 16
+strength: 6
+agility: 10
+wisdom: 4
 maxHealth: 19000
-health: 19290
+health: 2500
 speed: 3000
 attack: 1000
 diceNum: 4
+<<<<<<< Updated upstream
 facet: 5
+=======
+facet: 3
+>>>>>>> Stashed changes
 defense: 5
 block: 0
-visibleRadius: 1
+visibleRadius: 2
 criticalAttackRate: 12.000000
 hitRate: 95.000000
 missRate: 20.000000
 teleport: 0
 gadgets: 7
- 3 0 4 0 0 2 4
+ 0 0 3 0 0 2 3

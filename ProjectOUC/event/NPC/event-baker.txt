@@ -6,7 +6,7 @@ res/event/baker.jpg
 2
 Button1:
 BUTTON_FOOD
-Descirption:3金币购买1个面包
+Description:3金币购买1个面包
 Button2:
 BUTTON_QUIT
 Description:离开

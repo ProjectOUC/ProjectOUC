@@ -1,2 +1,7 @@
+<<<<<<< Updated upstream
 ﻿  button.cpp
+=======
+﻿  gaming.cpp
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\gaming.cpp(360,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+>>>>>>> Stashed changes
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

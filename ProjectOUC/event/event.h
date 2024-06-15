@@ -23,9 +23,11 @@ public:
 	std::string getEventDescription() const;
 	std::string getEventPath() const;
 	std::string getImgPath() const;
+	Button* getButton(int i) const;
 
 	void setType(const eventType& _type);
 	void setButtonCount(const int& _buttonCount);
+	bool isDisappear();
 
 	void occurEvent(Character** player);
 
@@ -43,3 +45,6 @@ private:
 	int disappear;
 };
 
+void initTrapList();
+
+void destroyTrapList();
