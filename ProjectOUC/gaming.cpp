@@ -289,16 +289,52 @@ bool canSee(int x1, int y1, int x2, int y2, Scene* scene)
 		{
 			cx = cx + dx;
 			cy = cy + dy;
+			Event* event = scene->get_tiles((int)floor(cx), (int)floor(cy))->event;
 			if ((int)floor(cx) == x2 && (int)floor(cy) == y2) return true;
-			if (scene->get_tiles((int)floor(cx), (int)floor(cy))->get_type() == WALL_TILE) return false;
+			tile_type tp = scene->get_tiles((int)floor(cx), (int)floor(cy))->get_type();
+			if (tp == WALL_TILE || tp == EVENT_TILE)
+				return false;
 		} 
 		return true;
+}
+
+bool canPredict(int x, int y, Scene* scene)
+{
+	int height = scene->get_height(), width = scene->get_width();
+	if (x < 0 || y < 0 || x >= height || y >= width) return false;
+	if (scene->visited[x][y]) return false;
+	static int dx[] = { 1, 0, -1, 0 }, dy[] = { 0, -1, 0, 1 };
+
+	int cx, cy, cnt=0;
+	for (int i = 0; i < 4; ++i)
+	{
+		cx = x + dx[i], cy = y + dy[i];
+		if (cx < 0 || cy < 0 || cx >= height || cy >= width ||
+			(scene->visited[cx][cy] && scene->get_tiles(cx, cy)->get_type() == scene->get_tiles(x, y)->get_type()))
+		{
+			cnt++;
+			continue;
+		}
+	}
+	if (cnt >= 3)
+	{
+		scene->visited[x][y] = 1;
+		for (int i = 0; i < 4; ++i)
+		{
+			cx = x + dx[i], cy = y + dy[i];
+			if (cx < 0 || cy < 0 || cx >= height || cy >= width)
+				canPredict(x + dx[i], y + dy[i], scene);
+		}
+		return true;
+	}
+	return false;
 }
 
 void updateLight(std::vector<Scene*>& scenes, Player* player)
 {
 	static Position lastPos;
 	static Position curPos;
+	static int dx[] = { 1, 0, -1, 0 }, dy[] = { 0, 1, 0, -1 };
 	if (curPos == player->get_pos()) return;
 	curPos = player->get_pos();
 	lastPos = player->get_lastPos();
@@ -323,12 +359,17 @@ void updateLight(std::vector<Scene*>& scenes, Player* player)
 			{
 				if (scene->visited[x][y]) continue;
 				float dis = pow(x - curPos.x, 2) + pow(y - curPos.y, 2);
-				dis = sqrt(dis);
-				if (dis > vr) continue;
+				if (dis > vr * vr) continue;
 
-				if (canSee(curPos.x, curPos.y, x, y, scene))
+				if (canSee(curPos.x, curPos.y, x, y, scene) || canPredict(x, y, scene))
 				{
 					scene->visited[x][y] = 1;
+					for (int i = 0; i < 4; ++i)
+					{
+						int cx = x + dx[i], cy = y + dy[i];
+						if (cx >= 0 && cy >= 0 && cx < scene->get_height() && cy < scene->get_width())
+							canPredict(cx, cy, scene);
+					}
 					scene->light[x][y] = Scene::lmin + (1.0f - Scene::lmin) * dis / vr;
 				}
 				else

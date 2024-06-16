@@ -15,7 +15,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:研究墙壁上的文字(10食物)
+Description:研究图案(10食物)
 Gain:
 food:-10
 agility:1

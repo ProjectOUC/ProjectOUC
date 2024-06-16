@@ -205,7 +205,6 @@ int main()
 	{
 		moveInterval++;
 		DWORD start_time = GetTickCount();
-		std::cout << player->get_pos().x << " " << player->get_pos().y << "\n";
 		BeginBatchDraw();
 
 		pt_scene(scenes, player);
@@ -293,6 +292,10 @@ int main()
 						}
 					}
 					item = 1;
+					break;
+				case 'Q':
+				case 'q':
+					gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
 					break;
 				case 'R':
 				case 'r':
