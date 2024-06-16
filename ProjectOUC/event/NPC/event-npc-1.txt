@@ -1,0 +1,9 @@
+EVENT_NPC
+守卫
+你好，冒险者，在洞穴中务必注意安全。
+event/NPC/event-npc-1.txt
+res/event/npc_1_rev.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

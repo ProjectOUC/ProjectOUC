@@ -17,7 +17,7 @@ Button2:
 BUTTON_TRADE
 Description:º”»Î“« Ω
 Gain:
-maxHealth:30
+maxHealth:10
 End
 Need:
 End

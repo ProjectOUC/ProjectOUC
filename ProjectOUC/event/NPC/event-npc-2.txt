@@ -1,0 +1,9 @@
+EVENT_NPC
+平民
+祝你安全归来。
+event/NPC/event-npc-2.txt
+res/event/npc_2_rev.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

@@ -1,0 +1,18 @@
+EVENT_NPC
+锁匠
+需要钥匙吗？听说迷宫中有很多上锁的宝箱。
+event/NPC/event-chief.txt
+res/event/npc_3.png
+2
+Button1:
+BUTTON_TRADE
+Description:钥匙(200金币)
+Gain:
+gadget key:1
+coin:-200
+End
+Need:
+End
+Button2:
+BUTTON_QUIT
+Description:离开

@@ -1,0 +1,27 @@
+EVENT_NPC
+回收站
+回收道具
+event/NPC/event-technician-bin-2.txt
+res/event/sign_1.png
+3
+Button1:
+BUTTON_TRADE
+Description:治疗药水(10金币)
+Gain:
+gadget healpotion:-1
+coin:10
+End
+Need:
+End
+Button2:
+BUTTON_TRADE
+Description:传送卷轴(50金币)
+Gain:
+gadget teleportscroll:-1
+coin:50
+End
+Need:
+End
+Button3:
+BUTTON_QUIT
+Description:离开

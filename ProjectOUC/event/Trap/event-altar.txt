@@ -8,14 +8,14 @@ Button1:
 BUTTON_TRADE
 Description:将鲜血滴在上面
 Gain:
-maxHealth:40
-health:-60
+maxHealth:5
+health:-50
 End
 Need:
 End
 Button2:
 BUTTON_TRADE
-Description:虔诚得献上了金币
+Description:虔诚的献上金币
 Gain:
 health:50
 coin:-100

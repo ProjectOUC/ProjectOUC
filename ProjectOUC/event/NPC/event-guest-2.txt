@@ -1,0 +1,9 @@
+EVENT_NPC
+冒险者
+不知道迷宫中会有什么可怕的怪物。
+event/NPC/event-guest-2.txt
+res/event/guest_1.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

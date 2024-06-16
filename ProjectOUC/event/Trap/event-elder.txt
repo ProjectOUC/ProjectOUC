@@ -1,6 +1,6 @@
 EVENT_TRAP
 古老智者
-在一座被遗忘的山谷中，你发现了一位智慧的古老人。他身穿朴素的长袍，脸上刻满了岁月的痕迹，眼神却透露出一种深邃的智慧。他静静地站在那里，仿佛在等待着一个特别的访客。
+在一座被遗忘的山谷中，你发现了一位智慧的老人。他静静地站在那里，仿佛在等待着一个特别的访客。
 event/Trap/event-elder.txt
 res/event/elder.jpg
 3
@@ -8,9 +8,9 @@ Button1:
 BUTTON_TRADE
 Description:与智者交谈
 Gain:
-attack:2
+attack:1
 speed:1
-defense:1
+wisdom:1
 End
 Need:
 End

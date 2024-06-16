@@ -1,0 +1,9 @@
+EVENT_NPC
+平民
+今天天气真不错。
+event/NPC/event-npc-3.txt
+res/event/npc_2_rev.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

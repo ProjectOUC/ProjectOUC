@@ -593,7 +593,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	char speed[10];
 	sprintf_s(speed, "%d", player->get_speed());
 	char Max_food[10];
-	sprintf_s(Max_food, "%d", player->get_food_capacity());
+	sprintf_s(Max_food, "%d", player->calc_food_capacity());
 	char money_point[10];
 	sprintf_s(money_point, "%d", player->get_coin());
 	char food_point[10];
@@ -858,10 +858,31 @@ void Button_paint(Event* event)
 
 
 	strcpy_s(buffer, event->getEventName().c_str());
-	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, buffer);
+	int len = strlen(buffer) / 2;
+	static const int mid = HEIGHT / 2 - 16;
+	static const int FONTSIZE = 16;
+	static const int MAX_ROW_TEXT = 11;
+	static const int ROW_PIXEL_BIAS = 2;
+	
+	outtextxy(mid - len * 8, LENGTH_PIXIV * (0 + 8)+4, buffer);
+
+	strcpy_s(buffer, event->getEventDescription().c_str());
+
+	for (int i = 0; 2 * i * MAX_ROW_TEXT < strlen(buffer); i++)
+	{
+		char ch = '\0';
+		int ind = 2 * i * MAX_ROW_TEXT;
+		if ((i + 1) * 2 * MAX_ROW_TEXT < strlen(buffer))
+		{
+			swap(buffer[(i + 1) * 2 * MAX_ROW_TEXT], ch);
+			outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i + 1 + 8) + 4 + i * ROW_PIXEL_BIAS, &buffer[ind]);
+			swap(buffer[(i + 1) * 2 * MAX_ROW_TEXT], ch);
+		}
+		else
+			outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i + 1 + 8) + 4 + i * ROW_PIXEL_BIAS, &buffer[ind]);
+	}
 
 
-	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, event->getEventDescription().c_str());
 	for (int i = 0; i < count; i++)
 	{
 		Button* button = event->getButton(i);
@@ -883,10 +904,7 @@ void Button_paint(Event* event)
 				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_down);
 			}
 		}
-		sprintf_s(options, "%d:", i + 1);
-		int d_n = textwidth(options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 8, LENGTH_PIXIV * (i*3 + 17) + 8, options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 8+d_n, LENGTH_PIXIV * (i*3 + 17) + 8, _T(button->getDescription().c_str()));
+		outtextxy(LENGTH_PIXIV * (0 + 13), LENGTH_PIXIV * (i*3 + 17) + 8, _T(button->getDescription().c_str()));
 	}
 }
 

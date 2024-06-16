@@ -1,32 +1,36 @@
 EVENT_TRAP
-史莱姆陷阱
-你遇到了一个令人作呕的底座，上面放置这一本发光的书，就在你接近这本书书时，你听到了陷阱被激活的声音，你没办法毫发无伤
+古代典籍
+你发现了一个神秘的底座，上面放置着一张传送卷轴。就在你接近它时，你听到了陷阱被激活的声音。
 event/Trap/event-slime.txt
 res/event/slime.jpg
-3
+4
 Button1:
 BUTTON_TRADE
-Description:潜入
+Description:潜入(70速度)
 Gain:
+gadget teleportscroll:1
 End
 Need:
-speed:50
+speed:70
 End
 Button2:
 BUTTON_TRADE
-Description:耐心等待
+Description:冲过去
 Gain:
 health:-60
+gadget teleportscroll:1
 End
 Need:
 End
 Button3:
 BUTTON_TRADE
-Description:继续靠近
+Description:快速通过(40敏捷)
 Gain:
-maxHealth:-30
-health:-30
-wisdom:1
+gadget teleportscroll:1
 End
 Need:
+agility:40
 End
+Button4:
+BUTTON_QUIT
+Description:离开

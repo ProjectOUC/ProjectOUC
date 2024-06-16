@@ -1,0 +1,9 @@
+EVENT_NPC
+平民
+你好，冒险者。
+event/NPC/event-npc-8.txt
+res/event/npc_2.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

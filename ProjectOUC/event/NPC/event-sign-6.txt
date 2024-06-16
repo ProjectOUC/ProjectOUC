@@ -1,0 +1,9 @@
+EVENT_NPC
+训练场
+冒险者工会专用训练场。
+event/NPC/event-sign-6.txt
+res/event/sign_1.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

@@ -175,13 +175,13 @@ int main()
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
-				if (Rect(WIDTH / 5 + 20, HEIGHT / 2 - 60, WIDTH / 5 + 220, HEIGHT / 2 + 180).include(msg.x, msg.y))
+				if (Rect(WIDTH / 5 + 80, HEIGHT / 2 - 60, WIDTH / 5 + 320, HEIGHT / 2 + 100).include(msg.x, msg.y))
 				{
 					player = getPlayer(1);
 					choice = 0;
 					break;
 				}
-				else if (Rect((WIDTH / 5) * 2 + 30, HEIGHT / 2 - 60, (WIDTH / 5) * 2 + 230, HEIGHT / 2 + 180).include(msg.x, msg.y))
+				else if (Rect(WIDTH / 5 + 80, HEIGHT / 2 + 140, WIDTH / 5 + 320, HEIGHT / 2 + 300).include(msg.x, msg.y))
 				{
 					player = getPlayer(2);
 					choice = 0;
@@ -198,17 +198,14 @@ int main()
 	bool moved = false;
 	int moveInterval = 0;
 	int saveInterval = 1000;
-<<<<<<< HEAD
-=======
 	scenes[0]->allVisited();
->>>>>>> cyy
 	
 
 	while (running)
 	{
 		moveInterval++;
 		DWORD start_time = GetTickCount();
-
+		std::cout << player->get_pos().x << " " << player->get_pos().y << "\n";
 		BeginBatchDraw();
 
 		pt_scene(scenes, player);

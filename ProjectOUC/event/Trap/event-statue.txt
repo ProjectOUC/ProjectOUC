@@ -9,7 +9,7 @@ BUTTON_TRADE
 Description:Æíµ»
 Gain:
 health:50
-food:50
+food:10
 End
 Need:
 End
@@ -17,7 +17,7 @@ Button2:
 BUTTON_TRADE
 Description:´Ý»Ù(ÏûºÄ50ÉúÃü)
 Gain:
-coin:60
+coin:50
 health:-50
 End
 Need:

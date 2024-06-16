@@ -1,0 +1,9 @@
+EVENT_NPC
+平民
+你好，有事吗？
+event/NPC/event-npc-5.txt
+res/event/guest_1_rev.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

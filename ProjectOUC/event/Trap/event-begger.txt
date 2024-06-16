@@ -18,9 +18,9 @@ BUTTON_TRADE
 Description:ÇÀ½Ù
 Gain:
 coin:20
+health:-20
 End
 Need:
-health:-20
 End
 Button3:
 BUTTON_QUIT

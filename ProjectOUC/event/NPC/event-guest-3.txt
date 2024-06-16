@@ -1,0 +1,9 @@
+EVENT_NPC
+喝醉的冒险者
+再来一杯！
+event/NPC/event-guest-3.txt
+res/event/guest_1.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

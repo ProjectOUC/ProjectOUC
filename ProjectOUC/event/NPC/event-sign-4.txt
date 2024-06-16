@@ -1,0 +1,9 @@
+EVENT_NPC
+冒险者工会
+冒险者可以在这里锻炼技巧，补充冒险需要的物资。
+event/NPC/event-sign-4.txt
+res/event/sign_0.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

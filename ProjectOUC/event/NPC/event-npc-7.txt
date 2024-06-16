@@ -1,0 +1,9 @@
+EVENT_NPC
+冒险者
+为了探险时的安全，训练时不能有一丝懈怠。
+event/NPC/event-npc-7.txt
+res/event/npc_1.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开
