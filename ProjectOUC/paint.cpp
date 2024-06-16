@@ -563,10 +563,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(heart_point, "/%d", player->get_health());
 	char Max_heart_point[10];
 	sprintf_s(Max_heart_point, "%d", player->get_maxHealth());
-<<<<<<< HEAD
 
-=======
->>>>>>> main
 	char level[20];
 	sprintf_s(level, "level:%d", player->get_level());
 	char exp[10];
@@ -574,16 +571,6 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	char upexp[10];
 	sprintf_s(upexp, "/%d", player->get_levelUpExp());
 	char attack[10];
-<<<<<<< HEAD
-	sprintf_s(attack, "%d", player->calc_min_attack());
-	char defense[10];
-	sprintf_s(defense, "%d", player->get_defense());
-	char speed[10];
-	sprintf_s(speed, "%d", player->calc_speed());
-	char Max_food[10];
-	sprintf_s(Max_food, "%d", player->calc_food_capacity());
-
-=======
 	sprintf_s(attack, "%d", player->get_attack());
 	char defense[10];
 	sprintf_s(defense, "%d", player->get_defense());
@@ -591,7 +578,6 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(speed, "%d", player->get_speed());
 	char Max_food[10];
 	sprintf_s(Max_food, "%d", player->get_food_capacity());
->>>>>>> main
 	char money_point[10];
 	sprintf_s(money_point, "%d", player->get_coin());
 	char food_point[10];
@@ -784,101 +770,6 @@ void End_paint(int x, int y)
 void Chest_paint(int x, int y)
 {
 	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_chest);
-}
-
-void Monster_paint(int x, int y)
-{
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
-}
-void Monster_paint(int x, int y, int type)
-{
-	switch (type)
-	{
-	case 0:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
-		break;
-	case 1:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_goblin);
-		break;
-	case 2:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_slime);
-		break;
-	case 3:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_orc);
-		break;
-	case 4:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
-		break;
-	case 5:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skeleton);
-		break;
-	case 6:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_vampire);
-		break;
-	case 7:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_witch);
-		break;
-	case 8:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_ghost);
-		break;
-	case 9:
-		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_werewolf);
-		break;
-	default:
-		std::cerr << "Unknown monster type: " << type << std::endl;
-		break;
-	}
-}
-
-void Button_paint(int count, std::vector<Button*> button)
-{
-	char options[10];
-	settextcolor(WHITE);
-	setbkmode(TRANSPARENT);
-	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
-	int w;
-	for (int x = 0; x < 12; x++)  //»æÖÆÁÄÌì¿ò
-	{
-		for (int y = 0; y < 20; y++)
-		{
-			if (x == 0 && y == 0)putimage_alpha(LENGTH_PIXIV * (x+12), LENGTH_PIXIV * (y+8), &img_event_left_up);
-			else if (x == 0 && y != 0 && y != 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_left);
-			else if (x != 0 && x != 11 && y == 0)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_up);
-			else if (x == 0 && y == 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_left_down);
-			else if (x == 11 && y == 0)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_right_up);
-			else if (x == 11 && y == 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_right_down);
-			else if (x != 0 && x != 11 && y == 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_down);
-			else if (x == 11 && y != 0 && y != 19)putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_right);
-			else putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_middle);
-		}
-	}
-	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, "Event name");
-	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, "Description");
-	for (int i = 0; i < count; i++)
-	{
-		for (int j = 0; j < 11; j++)
-		{
-			if (j == 0)
-			{
-				putimage_alpha(LENGTH_PIXIV * (j + 12)+8, LENGTH_PIXIV * ((3*i-1) + 18), &img_event_left_up);
-				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_left_down);
-			}
-			else if (j == 10)
-			{
-				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i -1) + 18), &img_event_right_up);
-				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i ) + 18), &img_event_right_down);
-			}
-			else
-			{
-				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i - 1) + 18), &img_event_up);
-				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_down);
-			}
-		}
-		/*sprintf_s(options, "%d:", i + 1);
-		int d_n = textwidth(options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i+3 + 8) + 4, options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 2+d_n, LENGTH_PIXIV * (i + 3 + 8) + 4, _T(button[i]->getDescription().c_str()));*/
-	}
 }
 
 

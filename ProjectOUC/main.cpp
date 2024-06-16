@@ -93,8 +93,7 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 		//for (int j = max(0, min(ly, cy) - vr); j < min(max(ly, cy) + vr + 1, scene->get_height()); ++j)
 		for (int j = 0; j < scene->get_height(); ++j)
 		{
-
-			if (scene->visited[i][j] == false) fillrectangle(16 * i + 64, 16 * j + 64, 16 * i + 80, 16 * j + 80);
+			if (!scene->visited[i][j]) fillrectangle(16 * i + 64, 16 * j + 64, 16 * i + 80, 16 * j + 80);
 		}
 	}
 

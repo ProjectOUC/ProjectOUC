@@ -377,8 +377,6 @@ void Event::occurEvent(Character** player)
 	while (Button::isShown)
 	{
 		//
-<<<<<<< HEAD
-
 		Button_paint(this);
 		FlushBatchDraw();
 		peekmessage(&msg);
@@ -389,63 +387,7 @@ void Event::occurEvent(Character** player)
 				int d = btn->onClick(msg.x, msg.y, player);
 				if (disappear >= 0) disappear = max(0, disappear - d);
 			}
-
-=======
-		Button_paint(buttonCount,buttons);
-		FlushBatchDraw();
-		while (peekmessage(&msg))
-		{
-			if (msg.message == WM_KEYDOWN)
-			{
-				switch (msg.ch)
-				{
-				case '1':
-					if (buttonCount >= 1)    //根据按钮个数判断输出是否合法
-					{
-						Button::isShown = 0;
-					}
-					break;
-				case '2':
-					if (buttonCount >= 2)
-					{
-						Button::isShown = 0;
-					}
-					break;
-				case '3':
-					if (buttonCount >= 3)
-					{
-						Button::isShown = 0;
-					}
-					break;
-				default:
-					break;
-				}
-			}
 		}
-		//for (Button* btn : buttons)
-			//btn->onClick(msg, player);
-		/*注释或删除break以正常循环*/
-
-		/*if (DEBUG)
-		{
-			for (Button* btn : buttons)
-			{
-				if (btn->getType() == BUTTON_TRADE)
-					btn->tradeButton(player);
-				else if (btn->getType() == BUTTON_FOOD)
-					
-					btn->foodButton(player);
-				else if (btn->getType() == BUTTON_BATTLE)
-					btn->battleButton(player);
-			}
-<<<<<<< HEAD
-		}*/
-		
-=======
-			break;
->>>>>>> main
-		}
->>>>>>> cyy
 	}
 }
 

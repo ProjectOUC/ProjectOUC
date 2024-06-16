@@ -306,13 +306,13 @@ void updateLight(std::vector<Scene*>& scenes, Player* player)
 
 	int stage;
 	Scene* scene;
-	stage = lastPos.stage;
+	stage = curPos.stage;
 	scene = scenes[stage];
 	if (curPos.stage != lastPos.stage) lastPos = curPos;
-	for (int x = lastPos.x - vr; x <= lastPos.x + vr; ++x)
-		for (int y = lastPos.y - vr; y <= lastPos.y + vr; ++y)
-			if (x >= 0 && y >= 0 && x < scene->get_width() && y < scene->get_height())
-				scene->light[x][y] = scene->visited[x][y] ? Scene::lmin : 0.0f;
+	//for (int x = lastPos.x - vr; x <= lastPos.x + vr; ++x)
+	//	for (int y = lastPos.y - vr; y <= lastPos.y + vr; ++y)
+	//		if (x >= 0 && y >= 0 && x < scene->get_width() && y < scene->get_height())
+	//			scene->light[x][y] = scene->visited[x][y] ? Scene::lmin : 0.0f;
 
 	float cpx = curPos.x + 0.5f, cpy = curPos.y + 0.5f;
 	for (int x = curPos.x - vr; x <= curPos.x + vr; ++x)
@@ -338,8 +338,6 @@ void updateLight(std::vector<Scene*>& scenes, Player* player)
 			}
 		}
 	}
-
-	scene->light[curPos.x][curPos.y] = 1;
 }
 
 void randomEvent(Player** player)

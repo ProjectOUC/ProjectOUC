@@ -26,15 +26,6 @@ void Maze_Wall_paint(Scene* scene, int pos);
 void End_paint(int x, int y);
 void Start_paint(int x, int y);
 void Cave_Empty_paint(int x, int y, Scene* scene, int pos);
-<<<<<<< HEAD
-
-
 void Maze_Empty_paint(int x, int y, Scene* scene, int pos);
 void Town_scene_paint(int width, int height, Position pos);
 void Button_paint(Event* event);
-
-=======
-void Maze_Empty_paint(int x, int y, Scene* scene, int pos);
-void Town_scene_paint(int width, int height, Position pos);
-void Button_paint(int count, std::vector<Button*> button);
->>>>>>> main
