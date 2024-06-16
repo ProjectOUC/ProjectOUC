@@ -198,6 +198,10 @@ int main()
 	bool moved = false;
 	int moveInterval = 0;
 	int saveInterval = 1000;
+<<<<<<< HEAD
+=======
+	scenes[0]->allVisited();
+>>>>>>> cyy
 	
 
 	while (running)

@@ -24,6 +24,7 @@ public:
 	int get_dist(int x, int y) const { return dist[x][y]; }
 
 	void refreshMonsters();
+	void allVisited();
 
 	~Scene();
 

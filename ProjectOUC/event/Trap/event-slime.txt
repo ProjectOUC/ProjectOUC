@@ -8,7 +8,7 @@ Button1:
 BUTTON_TRADE
 Description:«±»Î
 Gain:
-End:
+End
 Need:
 speed:50
 End
