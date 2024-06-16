@@ -154,13 +154,13 @@ int main()
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
-				if (msg.x >= WIDTH / 3 - 8 && msg.x <= WIDTH / 3 + 8 && msg.y >= HEIGHT/2 - 8 && msg.y <= HEIGHT / 2 + 8)
+				if (Rect(WIDTH / 5 + 20, HEIGHT / 2 - 60, WIDTH / 5 + 220, HEIGHT / 2 + 180).include(msg.x, msg.y))
 				{
 					player = getPlayer(1);
-					choice=0;
+					choice = 0;
 					break;
 				}
-				else if (msg.x >= (WIDTH / 3)*2 - 8 && msg.x <= (WIDTH / 3)*2 + 8 && msg.y >= HEIGHT / 2 - 8 && msg.y <= HEIGHT / 2 + 8)
+				else if (Rect((WIDTH / 5) * 2 + 30, HEIGHT / 2 - 60, (WIDTH / 5) * 2 + 230, HEIGHT / 2 + 180).include(msg.x, msg.y))
 				{
 					player = getPlayer(2);
 					choice = 0;
@@ -170,6 +170,7 @@ int main()
 				break;
 			}
 		}
+		FlushBatchDraw();
 	}
 
 	player->moveTo(scenes[0]->get_startPos());

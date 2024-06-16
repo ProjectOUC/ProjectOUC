@@ -1,16 +1,16 @@
 ﻿  paint.cpp
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(501,93): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(501,74): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(502,89): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(502,70): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(503,105): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(503,86): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(504,95): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(504,76): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(505,103): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(505,84): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(506,103): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(506,84): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(824,6): warning C4101: “w”: 未引用的局部变量
-D:\ProjectOUC-main\ProjectOUC\paint.cpp(820,7): warning C4101: “options”: 未引用的局部变量
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(508,93): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(508,74): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(509,89): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(509,70): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(510,105): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(510,86): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(511,95): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(511,76): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(512,103): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(512,84): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(513,103): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(513,84): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(842,6): warning C4101: “w”: 未引用的局部变量
+D:\ProjectOUC-main\ProjectOUC\paint.cpp(838,7): warning C4101: “options”: 未引用的局部变量
   ProjectOUC.vcxproj -> D:\ProjectOUC-main\ProjectOUC\x64\Debug\ProjectOUC.exe

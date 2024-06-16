@@ -214,6 +214,8 @@ static IMAGE img_gadget_key;
 
 static IMAGE img_player_1;
 static IMAGE img_player_2;
+static IMAGE img_background_player_1;
+static IMAGE img_background_player_2;
 static IMAGE img_food_npc;
 
 static IMAGE img_skull;
@@ -255,6 +257,8 @@ static IMAGE img_right_chair;
 static IMAGE img_table;
 static IMAGE img_light;
 static IMAGE img_carpet;
+static IMAGE img_background_choice;
+
 #pragma comment(lib,"MSIMG32.LIB")
 
 Paint::Paint(int width, int height)
@@ -439,6 +443,8 @@ void Loading_image()
 
 	loadimage(&img_player_1, _T("res\\player\\player_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_player_2, _T("res\\player\\player_2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_background_player_1, _T("res\\player\\background_player1.png"), 300, 240);
+	loadimage(&img_background_player_2, _T("res\\player\\background_player2.png"), 300, 240);
 
 	loadimage(&img_chest, _T("res\\chest\\chest.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_skull, _T("res\\monster\\skull.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -476,6 +482,7 @@ void Loading_image()
 	loadimage(&img_money, _T("res\\GUI\\money_bag.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_food, _T("res\\GUI\\food.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_background_forest, _T("res\\background\\background_forest.jpg"),WIDTH,HEIGHT);
+	loadimage(&img_background_choice, _T("res\\background\\background_choice.png"), WIDTH, HEIGHT);
 
 	loadimage(&img_speak_left_up, _T("res\\speak\\item_left_up.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
 	loadimage(&img_speak_up, _T("res\\speak\\item_up.png"), LENGTH_PIXIV * 2, LENGTH_PIXIV * 2);
@@ -551,10 +558,19 @@ void Gameover_paint(int width, int height)
 	outtextxy(width / 2 - 100+p_x, height / 2-50+p_y, "Game Over");
 }
 
-void Player_choice(int width,int height)
+void Player_choice(int width, int height)
 {
-	putimage_alpha(width/3-LENGTH_PIXIV/2, height/2-LENGTH_PIXIV/2, &img_player_1);
-	putimage_alpha((width / 3) * 2 - LENGTH_PIXIV / 2, (height / 2) - LENGTH_PIXIV / 2, &img_player_2);
+	settextcolor(BLACK);
+	settextstyle(0, 0, "ÐÐ¿¬");
+	setbkmode(TRANSPARENT);
+
+	putimage_alpha(0, 0, &img_background_choice);
+	outtextxy(width / 5 + 150, height / 2 - 65, "KNIGHT");
+	outtextxy((width / 5) * 2 + 160, height / 2 - 65, "ROUGE");
+	settextcolor(YELLOW);
+	outtextxy(width / 2 - 100 + 10, height / 2 - 180, "Choice Your Player");
+	putimage_alpha(width / 5 + 20, height / 2 - 60, &img_background_player_1);
+	putimage_alpha((width / 5) * 2 + 30, height / 2 - 60, &img_background_player_2);
 }
 
 void GUI_paint(std::vector<Scene*>& scenes, Player* player)
@@ -722,15 +738,15 @@ void Message_paint()
 	{
 		for (int y = 0; y < 35; y++)
 		{
-			if (x == 35 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_left_up);
-			else if (x == 35 && y != 0 && y != 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_left);
-			else if (x != 35 && x != 46 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_up);
-			else if (x == 35 && y == 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_left_down);
-			else if (x == 46 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_right_up);
+			if (x == 35 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_left_up);
+			else if (x == 35 && y != 0 && y != 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_left);
+			else if (x != 35 && x != 46 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_up);
+			else if (x == 35 && y == 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_left_down);
+			else if (x == 46 && y == 0)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_right_up);
 			else if (x == 46 && y == 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_right_down);
-			else if (x != 35 && x != 46 && y == 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_down);
-			else if (x == 46 && y != 0 && y != 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_right);
-			else putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y , &img_Message_middle);
+			else if (x != 35 && x != 46 && y == 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_down);
+			else if (x == 46 && y != 0 && y != 34)putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_right);
+			else putimage_alpha(LENGTH_PIXIV * x, LENGTH_PIXIV * y, &img_Message_middle);
 		}
 	}
 	settextcolor(WHITE);
@@ -745,6 +761,8 @@ void Message_paint()
 	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 8 + 8, "Open the backpack");
 	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 10 + 8, "       ESC       ");
 	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 11 + 8, "    Game Option  ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 13 + 8, "        R        ");
+	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 14 + 8, "  Use Healpotion ");
 }
 
 void Player_paint(int x,int y,int type)
