@@ -1,12 +1,12 @@
 EVENT_TRAP
-è€ä¹ä¸
-ä¸€ä¸ªè£¹ç€æ¯›è¡£çš„è€ä¹ä¸åœ¨ä½ ç»è¿‡æ—¶å‘ä½ ä¼¸å‡ºäº†åŒæ‰‹ï¼Œä»–å¯¹ä½ è¯´ï¼šâ€œæ–½èˆç‚¹é’±å§ï¼Œå­©å­ï¼Ÿâ€
+ÀÏÆòØ¤
+Ò»¸ö¹ü×ÅÃ«ÒÂµÄÀÏÆòØ¤ÔÚÄã¾­¹ıÊ±ÏòÄãÉì³öÁËË«ÊÖ£¬Ëû¶ÔÄãËµ£º¡°Ê©ÉáµãÇ®°É£¬º¢×Ó£¿¡±
 event/Trap/event-begger.txt
 res/event/begger.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:ç»™ä»–é‡‘å¸
+Description:¸øËû½ğ±Ò
 Gain:
 health:80
 coin:-30
@@ -15,7 +15,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:æŠ¢åŠ«
+Description:ÇÀ½Ù
 Gain:
 coin:20
 End
@@ -24,4 +24,4 @@ health:-20
 End
 Button3:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª

@@ -1,12 +1,12 @@
 EVENT_NPC
-Â∫ä
+¥≤
 sleep?
 event/NPC/event-bed.txt
 res/event/bed.png
 2
 Button1:
 BUTTON_TRADE
-Description:ÊÅ¢Â§ç
+Description:ª÷∏¥
 Gain:
 health: 99999999
 End
@@ -14,4 +14,4 @@ Need:
 End
 Button2:
 BUTTON_QUIT
-Description:Á¶ªÂºÄ
+Description:¿Îø™

@@ -1,12 +1,12 @@
 EVENT_NPC
-é—¨
-ä¸€æ‰‡ç´§é—­çš„é—¨ï¼Œéœ€è¦é’¥åŒ™æ‰èƒ½æ‰“å¼€
+ÃÅ
+Ò»ÉÈ½ô±ÕµÄÃÅ£¬ĞèÒªÔ¿³×²ÅÄÜ´ò¿ª
 event/NPC/event-bed.txt
 res/event/door.jpg
 2
 Button1:
 BUTTON_TRADE
-Description:æ‰“å¼€(éœ€è¦1ä¸ªé’¥åŒ™)
+Description:´ò¿ª(ĞèÒª1¸öÔ¿³×)
 Gain:
 gadget key:-1
 End
@@ -15,5 +15,5 @@ gadget key:1
 End
 Button2:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª
 disappear:1

@@ -1,12 +1,12 @@
 EVENT_TRAP
-Г╔╜Е²⌡
-Е°╗Д╦─Ф²║Ф┌╛Ф╣╝И│⌠Х╥╞Г └Е╟╫Е╓╢О╪▄Д╫═Е▐╞Д╩╔Г°▀Х╖│Д╦─Е╓└Г╔╜Е²⌡О╪▄Д╦┼И²╒Г └И⌠╜Ф√┤Е╥╡Г╩▐Г°▀Д╦█Ф╦┘Д╨├
+╪юлЁ
+тзр╩лУпЭ╦║╣юб╥╣д╬║м╥ё╛дЦ©ирт©╢╪Шр╩╢╕╪юлЁё╛иоцФ╣дцЗндря╬╜©╢╡╩гЕак
 event/Trap/event-altar.txt
 res/event/altar.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:Е╟├И╡°Х║─Ф╩╢Е°╗Д╦┼И²╒
+Description:╫╚ойя╙╣нтзиоцФ
 Gain:
 maxHealth:40
 health:-60
@@ -15,7 +15,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:Х≥■Х╞ Е╬≈Г▄╝Д╦┼Д╨├И┤▒Е╦│
+Description:Р╞Ёо╣цовиоак╫П╠р
 Gain:
 health:50
 coin:-100
@@ -24,4 +24,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:Г╕╩Е╪─
+Description:юК©╙

@@ -819,7 +819,7 @@ void Button_paint(Event* event)
 	char options[10];
 	settextcolor(WHITE);
 	setbkmode(TRANSPARENT);
-	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
+	settextstyle(16, 0, "ËÎÌå");
 	int w;
 	for (int x = 0; x < 12; x++)  //»æÖÆÁÄÌì¿ò
 	{
@@ -836,7 +836,13 @@ void Button_paint(Event* event)
 			else putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_middle);
 		}
 	}
-	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, event->getEventName().c_str());
+	char buffer[1024];
+
+
+	strcpy_s(buffer, event->getEventName().c_str());
+	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, buffer);
+
+
 	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, event->getEventDescription().c_str());
 	for (int i = 0; i < count; i++)
 	{

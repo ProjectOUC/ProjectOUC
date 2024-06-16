@@ -1,12 +1,12 @@
 EVENT_TRAP
-æ¹–ç•”ç¥æ®¿
-ä½ æ¥åˆ°ä¸€åº§é™é™çŸ—ç«‹åœ¨æ¹–ç•”çš„ç¥ç§˜ç¥æ®¿ã€‚ç¥æ®¿çš„å»ºç­‘æå…·å¤è€é£æ ¼ï¼Œä¼¼ä¹ä¸æ°´åŸŸç›¸è¾…ç›¸æˆï¼Œä»¿ä½›èå…¥äº†å¤§è‡ªç„¶çš„çµæ°”ä¹‹ä¸­ã€‚
+ºşÅÏÉñµî
+ÄãÀ´µ½Ò»×ù¾²¾²´£Á¢ÔÚºşÅÏµÄÉñÃØÉñµî¡£ÉñµîµÄ½¨Öş¼«¾ß¹ÅÀÏ·ç¸ñ£¬ËÆºõÓëË®ÓòÏà¸¨Ïà³É£¬·Â·ğÈÚÈëÁË´ó×ÔÈ»µÄÁéÆøÖ®ÖĞ¡£
 event/Trap/event-temple.txt
 res/event/temple.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:æ²æµ´æ¹–æ°´
+Description:ãåÔ¡ºşË®
 Gain:
 health:9999
 End
@@ -14,7 +14,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:åœ¨ç¥æ®¿å‰ç¥ˆç¥·
+Description:ÔÚÉñµîÇ°Æíµ»
 Gain:
 food:50
 End
@@ -22,4 +22,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª

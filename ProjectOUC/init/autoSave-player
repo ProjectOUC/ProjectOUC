@@ -1,33 +1,33 @@
 character type: 1
 name: Rogue
-pos: 2 4 5
-lastPos: 2 4 4
-coin: 622
+pos: 0 25 10
+lastPos: 0 24 10
+coin: 200
 food capacity: 100
-food: 64
+food: 96
 essentialAttribute: 2
-level: 4
-exp: 124
-levelUpExp: 175
+level: 1
+exp: 0
+levelUpExp: 25
 strengthGen: 3
 agilityGen: 5
 wisdomGen: 2
 attribute:
-strength: 25
-agility: 25
-wisdom: 10
+strength: 6
+agility: 10
+wisdom: 4
 maxHealth: 19000
-health: 19250
+health: 2500
 speed: 3000
-attack: 1016
-diceNum: 2
-facet: 7
-defense: 15
-block: 4
+attack: 1000
+diceNum: 4
+facet: 3
+defense: 5
+block: 0
 visibleRadius: 2
 criticalAttackRate: 12.000000
 hitRate: 95.000000
 missRate: 20.000000
 teleport: 0
 gadgets: 7
- 3 3 4 0 0 2 3
+ 0 0 3 0 0 2 3

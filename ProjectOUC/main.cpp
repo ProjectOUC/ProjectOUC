@@ -1,3 +1,5 @@
+
+#include "utils/converter.h"
 #include <conio.h>
 #include "roles/characters.h"
 #include "gadgets/gadgets.h"
@@ -34,6 +36,7 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 		if (curPos == lastPos) return;
 	}
 	cleardevice();
+	
 	int i, j;
 	Position pos = player->get_pos();
 	Scene* scene = scenes[pos.stage];
@@ -81,13 +84,14 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			}
 		}
 	}
-	
+
 	int vr = player->get_attr().visibleRadius;
 	int lx = lastPos.x, ly = lastPos.y;
 	int cx = curPos.x, cy = curPos.y;
 	if (lastPos.stage != curPos.stage) lx = cx, ly = cy;
 	setfillcolor(BLACK);
 	//for (int i = max(0, min(lx, cx) - vr); i < min(max(lx, cx) + vr + 1, scene->get_width()); ++i)
+	
 	for (int i = 0; i < scene->get_width(); ++i)
 	{
 		//for (int j = max(0, min(ly, cy) - vr); j < min(max(ly, cy) + vr + 1, scene->get_height()); ++j)

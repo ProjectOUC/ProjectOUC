@@ -1,12 +1,12 @@
 EVENT_TRAP
-邪恶仪式
-在一条昏暗的街上，你遇见几个戴着兜帽的人在进行某种黑暗的仪式。当你靠近时，他们全都同时转身面对你，让你觉得十分诡异。
+а����ʽ
+��һ���谵�Ľ��ϣ��������������Ŷ�ñ�����ڽ���ĳ�ֺڰ�����ʽ�����㿿��ʱ������ȫ��ͬʱת������㣬�������ʮ�ֹ��졣
 event/Trap/ceremony.txt
 res/event/ceremony.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:继续靠近(消耗60生命)
+Description:��������(����60����)
 Gain:
 coin:50
 health:-60
@@ -15,7 +15,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:加入仪式
+Description:������ʽ
 Gain:
 maxHealth:30
 End
@@ -23,4 +23,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:离开
+Description:�뿪

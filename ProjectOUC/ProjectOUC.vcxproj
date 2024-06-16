@@ -50,7 +50,7 @@
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClCompile Include="attribute.cpp" />
     <ClCompile Include="battle.cpp" />
+    <ClCompile Include="utils\converter.cpp" />
     <ClCompile Include="utils\button.cpp" />
     <ClCompile Include="event\event.cpp" />
     <ClCompile Include="gadgets\dagger.cpp" />
@@ -167,6 +168,7 @@
   <ItemGroup>
     <ClInclude Include="attribute.h" />
     <ClInclude Include="battle.h" />
+    <ClInclude Include="utils\converter.h" />
     <ClInclude Include="roles\monsters\dragon.h" />
     <ClInclude Include="roles\monsters\ghost.h" />
     <ClInclude Include="roles\monsters\orc.h" />

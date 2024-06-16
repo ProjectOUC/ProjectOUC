@@ -1,12 +1,12 @@
 EVENT_TRAP
-å†’é™©è€…é—éª¸
-ä½ åœ¨è·¯è¾¹çœ‹åˆ°ä¸€ä¸ªæµ‘èº«ç ´çƒ‚çš„ã€è¡£æœè¢«æ’•å’¬çš„å‡Œä¹±ä¸å ªçš„é—éª¸
+Ã°ÏÕÕßÒÅº¡
+ÄãÔÚÂ·±ß¿´µ½Ò»¸ö»ëÉíÆÆÀÃµÄ¡¢ÒÂ·ş±»ËºÒ§µÄÁèÂÒ²»¿°µÄÒÅº¡
 event/Trap/event-body.txt
 res/event/body.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:ç¿»æ‰¾å°¸ä½“
+Description:·­ÕÒÊ¬Ìå
 Gain:
 coin:40
 End
@@ -14,7 +14,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:åŸ‹è‘¬å°¸ä½“
+Description:ÂñÔáÊ¬Ìå
 Gain:
 food:-10
 strength:1
@@ -23,4 +23,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª

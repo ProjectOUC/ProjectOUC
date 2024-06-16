@@ -1,12 +1,12 @@
 EVENT_NPC
-é¢åŒ…å¸ˆ
-è´­ä¹°é£Ÿç‰©
+Ãæ°üÊ¦
+¹ºÂòÊ³Îï
 event/NPC/event-baker.txt
 res/event/baker.png
 2
 Button1:
 BUTTON_FOOD
-Description:3é‡‘å¸è´­ä¹°1ä¸ªé¢åŒ…
+Description:3½ğ±Ò¹ºÂò1¸öÃæ°ü
 Button2:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª

@@ -1,12 +1,12 @@
 EVENT_TRAP
-瀑布洞穴
-你发现一处隐藏在瀑布后的洞穴入口，洞口充满了潮湿的空气和神秘的氛围。洞穴内的空间十分宽广，墙壁上点缀着古老的图腾和神秘的符文。
+�ٲ���Ѩ
+�㷢��һ���������ٲ���Ķ�Ѩ��ڣ����ڳ����˳�ʪ�Ŀ��������صķ�Χ����Ѩ�ڵĿռ�ʮ�ֿ��㣬ǽ���ϵ�׺�Ź��ϵ�ͼ�ں����صķ��ġ�
 event/Trap/event-cave.txt
 res/event/cave.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:探索洞穴深处
+Description:̽����Ѩ�
 Gain:
 coin:60
 End
@@ -14,7 +14,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:解读墙壁上的符文
+Description:���ǽ���ϵķ���
 Gain:
 strength:5
 maxHealth:-30
@@ -23,4 +23,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:离开
+Description:�뿪

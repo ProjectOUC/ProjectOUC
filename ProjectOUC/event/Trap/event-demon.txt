@@ -1,12 +1,12 @@
 EVENT_TRAP
-æ¶é­”
-ä½ åœ¨ä¸€ç³»åˆ—åŸå¢“é—´ç©¿è¡Œï¼Œå‰æ–¹çªç„¶å‡ºç°äº†ä¸€ä¸ªé•¿è§’çš„æ¶é­”ï¼Œå®ƒæ¡€æ¡€æ€ªç¬‘ç€ï¼šæˆ‘å°†æ»¡è¶³ä½ çš„æ„¿æœ›
+¶ñÄ§
+ÄãÔÚÒ»ÏµÁĞ·ØÄ¹¼ä´©ĞĞ£¬Ç°·½Í»È»³öÏÖÁËÒ»¸ö³¤½ÇµÄ¶ñÄ§£¬Ëüèîèî¹ÖĞ¦×Å£ºÎÒ½«Âú×ãÄãµÄÔ¸Íû
 event/Trap/event-demon.txt
 res/event/demon.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:æˆ‘æƒ³è¦è´¢å¯Œ(æ¶ˆè€—50ç”Ÿå‘½)
+Description:ÎÒÏëÒª²Æ¸»(ÏûºÄ50ÉúÃü)
 Gain:
 coin:30
 health:-50
@@ -15,7 +15,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:æˆ‘æƒ³è¦åŠ›é‡(æ¶ˆè€—50ç”Ÿå‘½)
+Description:ÎÒÏëÒªÁ¦Á¿(ÏûºÄ50ÉúÃü)
 Gain:
 strength:6
 health:-50
@@ -24,4 +24,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª

@@ -1,12 +1,12 @@
 EVENT_TRAP
-å²è±å§†é™·é˜±
-ä½ é‡åˆ°äº†ä¸€ä¸ªä»¤äººä½œå‘•çš„åº•åº§ï¼Œä¸Šé¢æ”¾ç½®è¿™ä¸€æœ¬å‘å…‰çš„ä¹¦ï¼Œå°±åœ¨ä½ æ¥è¿‘è¿™æœ¬ä¹¦ä¹¦æ—¶ï¼Œä½ å¬åˆ°äº†é™·é˜±è¢«æ¿€æ´»çš„å£°éŸ³ï¼Œä½ æ²¡åŠæ³•æ¯«å‘æ— ä¼¤
+Ê·À³Ä·ÏİÚå
+ÄãÓöµ½ÁËÒ»¸öÁîÈË×÷Å»µÄµ××ù£¬ÉÏÃæ·ÅÖÃÕâÒ»±¾·¢¹âµÄÊé£¬¾ÍÔÚÄã½Ó½üÕâ±¾ÊéÊéÊ±£¬ÄãÌıµ½ÁËÏİÚå±»¼¤»îµÄÉùÒô£¬ÄãÃ»°ì·¨ºÁ·¢ÎŞÉË
 event/Trap/event-slime.txt
 res/event/slime.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:æ½œå…¥
+Description:Ç±Èë
 Gain:
 End:
 Need:
@@ -14,7 +14,7 @@ speed:50
 End
 Button2:
 BUTTON_TRADE
-Description:è€å¿ƒç­‰å¾…
+Description:ÄÍĞÄµÈ´ı
 Gain:
 health:-60
 End
@@ -22,7 +22,7 @@ Need:
 End
 Button3:
 BUTTON_TRADE
-Description:ç»§ç»­é è¿‘
+Description:¼ÌĞø¿¿½ü
 Gain:
 maxHealth:-30
 health:-30

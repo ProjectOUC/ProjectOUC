@@ -1,12 +1,12 @@
 EVENT_TRAP
-ç¿…è†€é›•åƒ
-åœ¨å½¢çŠ¶ä¸åŒçš„å·¨çŸ³ä¹‹é—´ï¼Œä½ çœ‹è§ä¸€å°Šåšå·¥ç²¾ç»†çš„ç¿…è†€å½¢çŠ¶çš„è“è‰²é›•åƒï¼Œä½ å¯ä»¥çœ‹è§é›•åƒçš„è£‚ç¼ä¸­æœ‰é‡‘å¸æ‰å‡ºæ¥ã€‚æˆ–è®¸é‡Œé¢è¿˜æœ‰æ›´å¤šâ€¦â€¦
+³á°òµñÏñ
+ÔÚĞÎ×´²»Í¬µÄ¾ŞÊ¯Ö®¼ä£¬Äã¿´¼ûÒ»×ğ×ö¹¤¾«Ï¸µÄ³á°òĞÎ×´µÄÀ¶É«µñÏñ£¬Äã¿ÉÒÔ¿´¼ûµñÏñµÄÁÑ·ìÖĞÓĞ½ğ±Òµô³öÀ´¡£»òĞíÀïÃæ»¹ÓĞ¸ü¶à¡­¡­
 event/Trap/event-statue.txt
 res/event/statue.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:ç¥ˆç¥·
+Description:Æíµ»
 Gain:
 health:50
 food:50
@@ -15,7 +15,7 @@ Need:
 End
 Button2:
 BUTTON_TRADE
-Description:æ‘§æ¯(æ¶ˆè€—50ç”Ÿå‘½)
+Description:´İ»Ù(ÏûºÄ50ÉúÃü)
 Gain:
 coin:60
 health:-50
@@ -24,4 +24,4 @@ Need:
 End
 Button3:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª

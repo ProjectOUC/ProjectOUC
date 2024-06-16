@@ -1,12 +1,12 @@
 EVENT_TRAP
-å•†äºº
-ä½ å‘ç°è·¯è¾¹æœ‰å¾ˆå¤šäººèšåœ¨ä¸€èµ·ï¼Œä½ è¿‡å»çœ‹äº†çœ‹ï¼ŒåŸæ¥æ˜¯ä¸€ä¸ªå•†äººåœ¨å–ä¸œè¥¿
+ÉÌÈË
+Äã·¢ÏÖÂ·±ßÓĞºÜ¶àÈË¾ÛÔÚÒ»Æğ£¬Äã¹ıÈ¥¿´ÁË¿´£¬Ô­À´ÊÇÒ»¸öÉÌÈËÔÚÂô¶«Î÷
 event/Trap/event-store.txt
 res/event/store.jpg
 3
 Button1:
 BUTTON_TRADE
-Description:ä¹°åŒé‹å­
+Description:ÂòË«Ğ¬×Ó
 Gain:
 speed:3
 End
@@ -15,7 +15,7 @@ coin:300
 End
 Button2:
 BUTTON_TRADE
-Description:ä¹°ä»¶å¤–å¥—
+Description:Âò¼şÍâÌ×
 Gain:
 defense:5
 End
@@ -24,4 +24,4 @@ coin:300
 End
 Button3:
 BUTTON_QUIT
-Description:ç¦»å¼€
+Description:Àë¿ª
