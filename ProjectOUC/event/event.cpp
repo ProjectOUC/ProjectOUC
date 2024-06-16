@@ -385,29 +385,6 @@ void Event::occurEvent(Character** player)
 				}
 			}
 		}
-		//for (Button* btn : buttons)
-			//btn->onClick(msg, player);
-		/*注释或删除break以正常循环*/
-
-		/*if (DEBUG)
-		{
-			for (Button* btn : buttons)
-			{
-				if (btn->getType() == BUTTON_TRADE)
-					btn->tradeButton(player);
-				else if (btn->getType() == BUTTON_FOOD)
-					
-					btn->foodButton(player);
-				else if (btn->getType() == BUTTON_BATTLE)
-					btn->battleButton(player);
-			}
-<<<<<<< HEAD
-		}*/
-		
-=======
-			break;
-		}
->>>>>>> cyy
 	}
 }
 

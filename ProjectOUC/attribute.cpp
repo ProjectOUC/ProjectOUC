@@ -26,9 +26,6 @@ Attr::Attr()
 	teleport = false;
 }
 
-<<<<<<< HEAD
-Attr::Attr(int speed, int _strength, int _agility, int _wisdom, int _maxHealth,
-=======
 Attr::Attr(int _all)
 {
 	this->speed = _all;
@@ -50,11 +47,10 @@ Attr::Attr(int _all)
 }
 
 Attr::Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
->>>>>>> cyy
 	int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 	int _visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport)
 {
-	this->speed = speed;
+	this->speed = _speed;
 	this->strength = _strength;
 	this->agility = _agility;
 	this->wisdom = _wisdom;

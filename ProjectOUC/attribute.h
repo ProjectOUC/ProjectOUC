@@ -3,13 +3,8 @@
 struct Attr
 {
 	Attr();
-<<<<<<< HEAD
-
-	Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
-=======
 	Attr(int _all);
 	Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
->>>>>>> cyy
 		int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 		int visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport);
 
