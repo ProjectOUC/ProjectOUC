@@ -1,2 +1,9 @@
-﻿  main.cpp
+﻿  event.cpp
+  gaming.cpp
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\gaming.cpp(358,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  main.cpp
+  paint.cpp
+D:\Courses\GDAD\ProjectOUC\ProjectOUC\paint.cpp(823,6): warning C4101: “w”: 未引用的局部变量
+  scene.cpp
+  正在生成代码...
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

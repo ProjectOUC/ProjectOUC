@@ -197,7 +197,7 @@ int main()
 	bool moved = false;
 	int moveInterval = 0;
 	int saveInterval = 1000;
-	updateLight(scenes, player);
+	scenes[0]->allVisited();
 	
 
 	while (running)
