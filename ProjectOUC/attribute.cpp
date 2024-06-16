@@ -26,10 +26,6 @@ Attr::Attr()
 	teleport = false;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> cyy
 Attr::Attr(int _all)
 {
 	this->speed = _all;

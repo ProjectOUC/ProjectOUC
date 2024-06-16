@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 ﻿  attribute.cpp
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\attribute.cpp(43,29): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\attribute.cpp(44,18): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\attribute.cpp(45,19): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  battle.cpp
   event.cpp
   dagger.cpp
-  sword.cpp
+  shield.cpp
   random.cpp
   正在生成代码...
-=======
-﻿  main.cpp
->>>>>>> cyy
   ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

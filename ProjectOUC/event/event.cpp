@@ -379,35 +379,7 @@ void Event::occurEvent(Character** player)
 		//
 		Button_paint(this);
 		FlushBatchDraw();
-<<<<<<< HEAD
-		while (peekmessage(&msg))
-		{
-			if (msg.message == WM_KEYDOWN)
-			{
-				switch (msg.ch)
-				{
-				case '1':
-					if (buttonCount >= 1)    //根据按钮个数判断输出是否合法
-					{
-						Button::isShown = 0;
-					}
-					break;
-				case '2':
-					if (buttonCount >= 2)
-					{
-						Button::isShown = 0;
-					}
-					break;
-				case '3':
-					if (buttonCount >= 3)
-					{
-						Button::isShown = 0;
-					}
-					break;
-				default:
-					break;
-				}
-=======
+
 		peekmessage(&msg);
 		if (msg.message == WM_LBUTTONDOWN)
 		{
@@ -415,7 +387,6 @@ void Event::occurEvent(Character** player)
 			{
 				int d = btn->onClick(msg.x, msg.y, player);
 				if (disappear >= 0) disappear = max(0, disappear - d);
->>>>>>> cyy
 			}
 		}
 	}
