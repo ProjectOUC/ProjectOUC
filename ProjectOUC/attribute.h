@@ -42,8 +42,4 @@ struct Attr
 	float missRate;
 
 	bool teleport; 
-
-	int capacity;
-	int durability;
-
 };

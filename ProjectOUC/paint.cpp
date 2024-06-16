@@ -579,6 +579,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(heart_point, "/%d", player->get_health());
 	char Max_heart_point[10];
 	sprintf_s(Max_heart_point, "%d", player->get_maxHealth());
+
 	char level[20];
 	sprintf_s(level, "level:%d", player->get_level());
 	char exp[10];
@@ -789,10 +790,7 @@ void Chest_paint(int x, int y)
 	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_chest);
 }
 
-void Monster_paint(int x, int y)
-{
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
-}
+
 void Monster_paint(int x, int y, int type)
 {
 	switch (type)
@@ -833,12 +831,13 @@ void Monster_paint(int x, int y, int type)
 	}
 }
 
-void Button_paint(int count, std::vector<Button*> button)
+void Button_paint(Event* event)
 {
+	int count = event->getButtonCount();
 	char options[10];
 	settextcolor(WHITE);
 	setbkmode(TRANSPARENT);
-	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
+	settextstyle(16, 0, "ËÎÌå");
 	int w;
 	for (int x = 0; x < 12; x++)  //»æÖÆÁÄÌì¿ò
 	{
@@ -855,10 +854,17 @@ void Button_paint(int count, std::vector<Button*> button)
 			else putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_middle);
 		}
 	}
-	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, "Event name");
-	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, "Description");
+	char buffer[1024];
+
+
+	strcpy_s(buffer, event->getEventName().c_str());
+	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, buffer);
+
+
+	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, event->getEventDescription().c_str());
 	for (int i = 0; i < count; i++)
 	{
+		Button* button = event->getButton(i);
 		for (int j = 0; j < 11; j++)
 		{
 			if (j == 0)
@@ -877,13 +883,12 @@ void Button_paint(int count, std::vector<Button*> button)
 				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_down);
 			}
 		}
-		/*sprintf_s(options, "%d:", i + 1);
+		sprintf_s(options, "%d:", i + 1);
 		int d_n = textwidth(options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i+3 + 8) + 4, options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 2+d_n, LENGTH_PIXIV * (i + 3 + 8) + 4, _T(button[i]->getDescription().c_str()));*/
+		outtextxy(LENGTH_PIXIV * (0 + 12) + 8, LENGTH_PIXIV * (i*3 + 17) + 8, options);
+		outtextxy(LENGTH_PIXIV * (0 + 12) + 8+d_n, LENGTH_PIXIV * (i*3 + 17) + 8, _T(button->getDescription().c_str()));
 	}
 }
-
 
 void Cave_Wall_paint(Scene* scene, int pos)
 {

@@ -26,6 +26,10 @@ Attr::Attr()
 	teleport = false;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> cyy
 Attr::Attr(int _all)
 {
 	this->speed = _all;
@@ -90,7 +94,9 @@ Attr::Attr(const Attr& other)
 
 Attr& Attr::operator=(const Attr& other)
 {
+	if (this == &other) return *this;
 	this->speed = other.speed;
+
 	this->strength = other.strength;
 	this->agility = other.agility;
 	this->wisdom = other.wisdom;

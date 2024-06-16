@@ -24,7 +24,7 @@ diceNum: 3
 facet: 5
 defense: 10
 block: 0
-visibleRadius: 1
+visibleRadius: 2
 criticalAttackRate: 5.000000
 hitRate: 85.000000
 missRate: 5.000000

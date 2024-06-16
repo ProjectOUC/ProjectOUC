@@ -2,6 +2,7 @@
 #include "scene.h"
 #include "roles/character.h"
 #include "gadgets/gadgets.h"
+#include "event/event.h"
 
 #include <iostream>
 #include <vector>

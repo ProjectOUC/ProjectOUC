@@ -18,10 +18,10 @@ struct Button
 {
 	Button();
 
-	static void quitButton();
-	void tradeButton(Character** player);
-	static void foodButton(Character** player);
-	void battleButton(Character** player);
+	static int quitButton();
+	int tradeButton(Character** player);
+	static int foodButton(Character** player);
+	int battleButton(Character** player);
 
 	bool isQuit() const;
 	bool isTrade() const;
@@ -31,7 +31,7 @@ struct Button
 	buttonType getType() const;
 	std::string getDescription() const;
 
-	void onClick(ExMessage& msg, Character** player);
+	int onClick(int x, int y, Character** player);
 	bool checkCondition(Character* player);
 
 

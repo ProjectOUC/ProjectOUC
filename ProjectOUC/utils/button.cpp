@@ -9,20 +9,21 @@ Button::Button()
 	gainCoin = gainFood = gainFoodCapacity = gainExp = 0;
 	minCoin = minFood = minFoodCapacity = minLevel = -9999;
 	minAttr = Attr(-9999);
+	gainAttr = Attr(0);
 	monster = NULL;
 	gadgetsGain.resize(max_gadget_index, 0);
 	minGadgets.resize(max_gadget_index, -9999);
 }
 
-void Button::quitButton()
+int Button::quitButton()
 {
-	isShown = 0;
+	Button::isShown = 0;
+	return 0;
 }
 
-void Button::tradeButton(Character** player)
+int Button::tradeButton(Character** player)
 {
 	Character* p = *player;
-	std::cout << gadgetsGain[findGadget("key")];
 	if (checkCondition(p))
 	{
 		p->modify_coin(gainCoin);
@@ -36,10 +37,11 @@ void Button::tradeButton(Character** player)
 			else if (gadgetsGain[i] < 0) p->lose_gadget(gadgetList[i], -gadgetsGain[i]);
 		}
 		Button::isShown = 0;
+		return 1;
 	}
 }
 
-void Button::foodButton(Character** player)
+int Button::foodButton(Character** player)
 {
 	Character* p = *player;
 	int num = p->calc_food_capacity() - p->get_food();
@@ -47,14 +49,16 @@ void Button::foodButton(Character** player)
 	p->modify_coin(-num * 3);
 	p->modify_food(num);
 	Button::isShown = 0;
+	return 1;
 }
 
-void Button::battleButton(Character** player)
+int Button::battleButton(Character** player)
 {
 	//Todo
 	Battle battle((Character*)(*player), (Character*)monster);
 	battle.battle();
 	Button::isShown = 0;
+	return 1;
 }
 
 bool Button::isQuit() const
@@ -87,32 +91,29 @@ std::string Button::getDescription() const
 	return this->description;
 }
 
-void Button::onClick(ExMessage& msg, Character** player)
+int Button::onClick(int x, int y, Character** player)
 {
-	int x = msg.x, y = msg.y;
 	if (pos.include(x, y))
 	{
 		switch (type)
 		{
-		case BUTTON_QUIT: quitButton(); break;
+		case BUTTON_QUIT: return quitButton();
 		case BUTTON_TRADE: 
 		{
-			tradeButton(player);
-			break;
+			return tradeButton(player);
 		}
 		case BUTTON_FOOD:
 		{
-			foodButton(player);
-			break;
+			return foodButton(player);
 		}
 		case BUTTON_BATTLE:
 		{
-			battleButton(player);
-			break;
+			return battleButton(player);
 		}
 		default: break;
 		}
 	}
+	return 0;
 }
 
 bool Button::checkCondition(Character* player)

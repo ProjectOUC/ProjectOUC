@@ -91,7 +91,7 @@ public:
 
 	int get_defense() const { return attr.defense + 1 * get_agility(); }
 
-	int get_speed() const { return attr.speed + get_agility() - (int)(0.5f * get_strength()); }
+	int get_speed() const { return attr.speed * min(4.0f, max(0.25f, 1.0f*attr.agility / attr.strength)); }
 
 	int get_visibleRadius() const { return attr.visibleRadius; }
 

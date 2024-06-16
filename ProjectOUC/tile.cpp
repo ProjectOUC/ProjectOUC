@@ -27,6 +27,7 @@ void Tile::initWallTile(int level)
 void Tile::initEmptyTile(int level)
 {
 	if (event) delete event;
+	event = nullptr;
 	for (int i = 0; i < monsters.size(); ++i) delete monsters[i];
 	for (int i = 0; i < chests.size(); ++i) delete chests[i];
 	monsters.clear();

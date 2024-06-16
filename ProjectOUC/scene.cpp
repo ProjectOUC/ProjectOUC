@@ -60,6 +60,18 @@ Scene::Scene(std::string path, int given_stage)
 		light[i].resize(width);
 		for (int j = 0; j < width; ++j) tiles[i][j] = new Tile;
 	}
+
+	if (scene_type == TOWN)
+	{
+		for (int i = 0; i < height; ++i)
+		{
+			for (int j = 0; j < width; ++j)
+			{
+				visited[i][j] = 1;
+			}
+		}
+	}
+
 	fscanf(fp, "%s\n", buffer);
 	if (strncmp(buffer, "parameter", 9) == 0)
 	{

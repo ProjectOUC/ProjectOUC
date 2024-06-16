@@ -3,10 +3,18 @@
   "WorkspaceRootPath": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\",
   "Documents": [
     {
+<<<<<<< HEAD
+=======
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+>>>>>>> cyy
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\event\\event.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:event\\event.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:utils\\button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -17,12 +25,21 @@
     {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\attribute.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:attribute.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+=======
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\converter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:utils\\converter.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\converter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:utils\\converter.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+>>>>>>> cyy
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\paint.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:paint.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -45,14 +62,47 @@
     {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+=======
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:utils\\button.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\dragon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:roles\\monsters\\dragon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\ghost.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:roles\\monsters\\ghost.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+>>>>>>> cyy
     },
     {
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+<<<<<<< HEAD
       "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\PCG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:utils\\PCG.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+=======
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\orc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:roles\\monsters\\orc.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\gaming.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:gaming.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\gadgets\\gadgets.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:gadgets\\gadgets.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{5F9DAEE1-7349-4C5A-8E0F-FBAEB4F8D8C3}|ProjectOUC.vcxproj|solutionrelative:tile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+>>>>>>> cyy
     }
   ],
   "DocumentGroupContainers": [
@@ -61,6 +111,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
+<<<<<<< HEAD
           "DockedWidth": 1033,
           "SelectedChildIndex": 6,
           "Children": [
@@ -75,11 +126,43 @@
               "ViewState": "AQIAAGsAAAAAAAAAAAAtwHYAAAAKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-16T13:12:15.78Z",
+=======
+          "DockedWidth": 317,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "button.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\button.cpp",
+              "RelativeDocumentMoniker": "utils\\button.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\button.cpp",
+              "RelativeToolTip": "utils\\button.cpp",
+              "ViewState": "AQIAABYAAAAAAAAAAAAUwCMAAAA/AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-04T14:41:35.633Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "event.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\event\\event.cpp",
+              "RelativeDocumentMoniker": "event\\event.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\event\\event.cpp",
+              "RelativeToolTip": "event\\event.cpp",
+              "ViewState": "AQIAAG4BAAAAAAAAAAAAAHsBAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-04T13:45:16.822Z",
+              "IsPinned": true,
+>>>>>>> cyy
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+<<<<<<< HEAD
               "Title": "attribute.h",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\attribute.h",
               "RelativeDocumentMoniker": "attribute.h",
@@ -88,6 +171,82 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-06-16T13:12:07.855Z",
+=======
+              "Title": "converter.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\converter.cpp",
+              "RelativeDocumentMoniker": "utils\\converter.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\converter.cpp",
+              "RelativeToolTip": "utils\\converter.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAA9AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-16T11:37:08.272Z",
+>>>>>>> cyy
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+<<<<<<< HEAD
+              "DocumentIndex": 4,
+              "Title": "paint.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\paint.cpp",
+              "RelativeDocumentMoniker": "paint.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\paint.cpp",
+              "RelativeToolTip": "paint.cpp",
+              "ViewState": "AQIAAO4CAAAAAAAAAAAQwN8CAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-16T13:11:05.945Z",
+=======
+              "DocumentIndex": 3,
+              "Title": "converter.h",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\converter.h",
+              "RelativeDocumentMoniker": "utils\\converter.h",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\utils\\converter.h",
+              "RelativeToolTip": "utils\\converter.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-16T11:35:40.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ghost.h",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\ghost.h",
+              "RelativeDocumentMoniker": "roles\\monsters\\ghost.h",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\ghost.h",
+              "RelativeToolTip": "roles\\monsters\\ghost.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-16T11:26:27.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "goblin.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\goblin.cpp",
+              "RelativeDocumentMoniker": "roles\\monsters\\goblin.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\goblin.cpp",
+              "RelativeToolTip": "roles\\monsters\\goblin.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-16T11:26:26.592Z",
+>>>>>>> cyy
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+<<<<<<< HEAD
+=======
+              "Title": "dragon.h",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\dragon.h",
+              "RelativeDocumentMoniker": "roles\\monsters\\dragon.h",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\dragon.h",
+              "RelativeToolTip": "roles\\monsters\\dragon.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-16T11:26:03.915Z",
               "EditorCaption": ""
             },
             {
@@ -98,25 +257,57 @@
               "RelativeDocumentMoniker": "paint.cpp",
               "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\paint.cpp",
               "RelativeToolTip": "paint.cpp",
-              "ViewState": "AQIAAO4CAAAAAAAAAAAQwN8CAAAAAAAA",
+              "ViewState": "AQIAAD8DAAAAAAAAAAAtwEgDAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-06-16T13:11:05.945Z",
+              "WhenOpened": "2024-06-16T11:22:53.599Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\main.cpp",
+              "RelativeDocumentMoniker": "main.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\main.cpp",
+              "RelativeToolTip": "main.cpp",
+              "ViewState": "AQIAAFEAAAAAAAAAAAAiwFYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-08T10:55:58.042Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "orc.h",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\orc.h",
+              "RelativeDocumentMoniker": "roles\\monsters\\orc.h",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\roles\\monsters\\orc.h",
+              "RelativeToolTip": "roles\\monsters\\orc.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-06-16T10:49:40.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+>>>>>>> cyy
               "Title": "gaming.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\gaming.cpp",
               "RelativeDocumentMoniker": "gaming.cpp",
               "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\gaming.cpp",
               "RelativeToolTip": "gaming.cpp",
+<<<<<<< HEAD
               "ViewState": "AQIAAGEAAAAAAAAAAAAkwJ0AAAAPAAAA",
+=======
+              "ViewState": "AQIAAC4BAAAAAAAAAAASwDYBAAANAAAA",
+>>>>>>> cyy
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-16T13:11:06.215Z"
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 9,
               "Title": "event.h",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\event\\event.h",
@@ -130,11 +321,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 10,
+=======
+              "DocumentIndex": 13,
+              "Title": "tile.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\tile.cpp",
+              "RelativeDocumentMoniker": "tile.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\tile.cpp",
+              "RelativeToolTip": "tile.cpp",
+              "ViewState": "AQIAAAYAAAAAAAAAAABewBwAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-19T04:59:22.693Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+>>>>>>> cyy
               "Title": "scene.cpp",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\scene.cpp",
               "RelativeDocumentMoniker": "scene.cpp",
               "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\scene.cpp",
               "RelativeToolTip": "scene.cpp",
+<<<<<<< HEAD
               "ViewState": "AQIAALMAAAAAAAAAAAAAAIYAAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-16T13:11:06.217Z"
@@ -150,10 +357,16 @@
               "ViewState": "AQIAAHwBAAAAAAAAAAAAAIcBAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-06-16T13:11:06.218Z",
+=======
+              "ViewState": "AQIAADAAAAAAAAAAAAAiwDkAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-17T15:11:26.711Z",
+>>>>>>> cyy
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+<<<<<<< HEAD
               "DocumentIndex": 8,
               "Title": "paint.h",
               "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\paint.h",
@@ -224,6 +437,17 @@
               "ViewState": "AQIAAAAAAAAAAAAAAADwvwAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-06-16T13:11:06.223Z"
+=======
+              "DocumentIndex": 12,
+              "Title": "gadgets.cpp",
+              "DocumentMoniker": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\gadgets\\gadgets.cpp",
+              "RelativeDocumentMoniker": "gadgets\\gadgets.cpp",
+              "ToolTip": "D:\\Courses\\GDAD\\ProjectOUC\\ProjectOUC\\gadgets\\gadgets.cpp",
+              "RelativeToolTip": "gadgets\\gadgets.cpp",
+              "ViewState": "AQIAABkAAAAAAAAAAAApwCsAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-06-08T12:44:48.447Z"
+>>>>>>> cyy
             }
           ]
         }

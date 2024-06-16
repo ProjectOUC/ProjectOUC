@@ -1,3 +1,5 @@
+
+#include "utils/converter.h"
 #include <conio.h>
 #include "roles/characters.h"
 #include "gadgets/gadgets.h"
@@ -21,7 +23,20 @@ extern std::vector<Gadget*> gadgetList;
 
 void pt_scene(std::vector<Scene*>& scenes, Player* player)
 {
+	static int loopCount = 0;
+	static Position lastPos;
+	static Position curPos;
+	loopCount++;
+	if (loopCount && loopCount % 10 != 1)
+	{
+		if (curPos == player->get_pos()) return;
+		curPos = player->get_pos();
+		if (lastPos == player->get_lastPos()) return;
+		lastPos = player->get_lastPos();
+		if (curPos == lastPos) return;
+	}
 	cleardevice();
+	
 	int i, j;
 	Position pos = player->get_pos();
 	Scene* scene = scenes[pos.stage];
@@ -66,23 +81,28 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			if (tile->event)
 			{
 				putimage_alpha(16 * i + 64, 16 * j + 64, &tile->event->img);
-				for (int x = 0; x <= 16; ++x)
-				{
-					for (int y = 0; y <= 16; ++y)
-					{
-						COLORREF color = getpixel(16*i+64+x, 16*j+64+y);
-						int r = GetRValue(color) * scene->light[i][j];
-						int g = GetGValue(color) * scene->light[i][j];
-						int b = GetBValue(color) * scene->light[i][j];
-
-						color = RGB(r, g, b);
-						putpixel(16*i+64+x, 16*j+64+y, color);
-					}
-				}
-
 			}
 		}
 	}
+
+	int vr = player->get_attr().visibleRadius;
+	int lx = lastPos.x, ly = lastPos.y;
+	int cx = curPos.x, cy = curPos.y;
+	if (lastPos.stage != curPos.stage) lx = cx, ly = cy;
+	setfillcolor(BLACK);
+	//for (int i = max(0, min(lx, cx) - vr); i < min(max(lx, cx) + vr + 1, scene->get_width()); ++i)
+	
+	for (int i = 0; i < scene->get_width(); ++i)
+	{
+		//for (int j = max(0, min(ly, cy) - vr); j < min(max(ly, cy) + vr + 1, scene->get_height()); ++j)
+		for (int j = 0; j < scene->get_height(); ++j)
+		{
+			if (!scene->visited[i][j]) fillrectangle(16 * i + 64, 16 * j + 64, 16 * i + 80, 16 * j + 80);
+		}
+	}
+
+	//setfillcolor(YELLOW);
+	//fillrectangle(16 * (cx+0.5) + 64, 16 * (cy+0.5) + 64, 16 * (cx+0.5) + 80, 16 * (cy+0.5) + 80);
 }
 
 
@@ -97,6 +117,7 @@ int main()
 	//SwitchToWindow(current_window_type);
 	
 	initGadgetList();
+	initTrapList();
 	Player* player = nullptr;
 	std::vector<Scene*> scenes(5);
 	bool loadGame = false;
@@ -127,12 +148,12 @@ int main()
 			switch (msg.message)
 			{
 			case WM_LBUTTONDOWN:
-			if (Rect(WIDTH/2-100, HEIGHT/3-50, WIDTH/2+100, HEIGHT/3+50).include(msg.x, msg.y))
+			if (Rect(HEIGHT / 3 - 50, WIDTH/2-100, HEIGHT / 3 + 50, WIDTH/2+100).include(msg.x, msg.y))
 			{
 				begin = 0;
 				break;
 			}
-			else if (Rect(WIDTH / 2 - 100, HEIGHT / 3*2 - 50, WIDTH / 2 + 100, HEIGHT / 3*2 + 50).include(msg.x, msg.y))
+			else if (Rect(HEIGHT / 3 * 2 - 50, WIDTH / 2 - 100, HEIGHT / 3 * 2 + 50, WIDTH / 2 + 100).include(msg.x, msg.y))
 			{
 				return 0;
 				break;
@@ -175,12 +196,14 @@ int main()
 
 	player->moveTo(scenes[0]->get_startPos());
 	bool moved = false;
+	int moveInterval = 0;
 	int saveInterval = 1000;
 	updateLight(scenes, player);
 	
 
 	while (running)
 	{
+		moveInterval++;
 		DWORD start_time = GetTickCount();
 
 		BeginBatchDraw();
@@ -225,22 +248,22 @@ int main()
 				{
 				case 'W':
 				case VK_UP:
-					if (!moved) player->move(UP);
+					if (!moved || moveInterval > 6) moveInterval = 0, player->move(UP);
 					moved = true;
 					break;
 				case 'S':
 				case VK_DOWN:
-					if (!moved) player->move(DOWN);
+					if (!moved || moveInterval > 6) moveInterval = 0, player->move(DOWN);
 					moved = true;
 					break;
 				case 'A':
 				case VK_LEFT:
-					if (!moved) player->move(LEFT);
+					if (!moved || moveInterval > 6) moveInterval = 0, player->move(LEFT);
 					moved = true;
 					break;
 				case 'D':
 				case VK_RIGHT:
-					if (!moved) player->move(RIGHT);
+					if (!moved || moveInterval > 6) moveInterval = 0, player->move(RIGHT);
 					moved = true;
 					break;
 				case 'E':
@@ -285,6 +308,7 @@ int main()
 		checkTile(scenes, player);
 		updateLight(scenes, player);
 		randomEvent(&player);
+		
 
 		if (player->dead())
 		{
@@ -301,6 +325,7 @@ int main()
 			{
 				delete player;
 				destroyGadgetList();
+				destroyTrapList();
 				for (int i = 0; i < scenes.size(); ++i) delete scenes[i];
 				Gameover_paint(WIDTH, HEIGHT);
 				break;
