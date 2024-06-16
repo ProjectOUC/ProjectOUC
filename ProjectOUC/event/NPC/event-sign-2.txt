@@ -1,0 +1,9 @@
+EVENT_NPC
+家
+一个可以歇脚的房子
+event/NPC/event-sign-1.txt
+res/event/sign_0.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

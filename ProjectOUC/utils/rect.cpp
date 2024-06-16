@@ -24,5 +24,5 @@ Rect Rect::operator=(const Rect& other)
 
 bool Rect::include(const int x, const int y)
 {
-	return x >= left && x <= right && y >= bottom && y <= top;
+	return y >= left && y <= right && x >= bottom && x <= top;
 }

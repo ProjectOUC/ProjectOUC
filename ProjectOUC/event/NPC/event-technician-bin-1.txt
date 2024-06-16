@@ -1,0 +1,36 @@
+EVENT_NPC
+回收站
+回收道具
+event/NPC/event-technician-bin-1.txt
+res/event/sign_1.png
+4
+Button1:
+BUTTON_TRADE
+Description:剑(20金币)
+Gain:
+gadget sword:-1
+coin:20
+End
+Need:
+End
+Button2:
+BUTTON_TRADE
+Description:盾(20金币)
+Gain:
+gadget shield:-1
+coin:20
+End
+Need:
+End
+Button3:
+BUTTON_TRADE
+Description:弓(20金币)
+Gain:
+gadget bow:-1
+coin:20
+End
+Need:
+End
+Button4:
+BUTTON_QUIT
+Description:离开

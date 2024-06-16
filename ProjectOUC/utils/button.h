@@ -1,32 +1,37 @@
 #pragma once
 #include "rect.h"
-#include <string>
 #include "../roles/characters.h"
+#include "../gadgets/gadgets.h"
+#include "../battle.h"
 
 enum buttonType
 {
 	BUTTON_UNDEFINED,
 	BUTTON_QUIT,
 	BUTTON_TRADE,
-	BUTTON_FOOD
+	BUTTON_FOOD,
+	BUTTON_BATTLE
 };
+
 
 struct Button
 {
 	Button();
 
-	static void quitButton();
-	void tradeButton(Character** player);
-	static void foodButton(Character** player);
+	static int quitButton();
+	int tradeButton(Character** player);
+	static int foodButton(Character** player);
+	int battleButton(Character** player);
 
 	bool isQuit() const;
 	bool isTrade() const;
 	bool isFood() const;
+	bool isBattle() const;
 
 	buttonType getType() const;
 	std::string getDescription() const;
 
-	void onClick(ExMessage& msg, Character** player);
+	int onClick(int x, int y, Character** player);
 	bool checkCondition(Character* player);
 
 
@@ -35,11 +40,21 @@ struct Button
 	std::string description;
 	static int isShown;
 
+	Monster* monster;
 
-	int coinCost;
-	int healthCost;
-	int minStrength;
-	int minAgility;
+	int gainCoin;
+	int gainFood;
+	int gainFoodCapacity;
+	int gainExp;
+	Attr gainAttr;
+	std::vector<int> gadgetsGain;
 
-	Attr attrGain;
+	int minCoin;
+	int minFood;
+	int minFoodCapacity;
+	int minLevel;
+	Attr minAttr;
+	std::vector<int> minGadgets;
+
+	~Button();
 };

@@ -1,0 +1,36 @@
+EVENT_TRAP
+古代典籍
+你发现了一个神秘的底座，上面放置着一张传送卷轴。就在你接近它时，你听到了陷阱被激活的声音。
+event/Trap/event-slime.txt
+res/event/slime.jpg
+4
+Button1:
+BUTTON_TRADE
+Description:潜入(70速度)
+Gain:
+gadget teleportscroll:1
+End
+Need:
+speed:70
+End
+Button2:
+BUTTON_TRADE
+Description:冲过去
+Gain:
+health:-60
+gadget teleportscroll:1
+End
+Need:
+End
+Button3:
+BUTTON_TRADE
+Description:快速通过(40敏捷)
+Gain:
+gadget teleportscroll:1
+End
+Need:
+agility:40
+End
+Button4:
+BUTTON_QUIT
+Description:离开

@@ -1,0 +1,19 @@
+EVENT_NPC
+矮人冒险者
+嘿，要不要一起去喝一杯？
+event/NPC/event-guest-4.txt
+res/event/guest_2.png
+2
+Button1:
+BUTTON_TRADE
+Description:请他喝一杯(20金币)
+Gain:
+coin:-20
+gadget shield:1
+End
+Need:
+End
+Button2:
+BUTTON_QUIT
+Description:离开
+disappear:1

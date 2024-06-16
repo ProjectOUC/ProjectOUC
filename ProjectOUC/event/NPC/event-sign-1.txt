@@ -1,0 +1,9 @@
+EVENT_NPC
+告示牌
+前方是充满怪物的洞穴，平民请勿靠近。
+event/NPC/event-sign-1.txt
+res/event/sign_0.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

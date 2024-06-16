@@ -1,14 +1,9 @@
 #pragma once
-#include "graphics.h"
 #include "tile.h"
-#include "battle.h"
 #include "utils/PCG.h"
-#include "utils/random.h"
 #include "utils/position.h"
 
-#include <vector>
 #include <ctime>
-#include <iostream>
 #include <fstream>
 
 #pragma execution_character_set("utf-8")
@@ -29,16 +24,17 @@ public:
 	int get_dist(int x, int y) const { return dist[x][y]; }
 
 	void refreshMonsters();
-	//bool checkTile();
-
-	//void initScene();
-	//void initSceneByNum(std::vector<int> num);
+	void allVisited();
 
 	~Scene();
 
 	const static int TOWN = 0;
 	const static int CAVE = 1;
 	const static int MAZE = 2;
+
+	static float lmin, lmax;
+	std::vector<std::vector<int>> visited;
+	std::vector<std::vector<float>> light;
 private:
 	int width;
 	int height;

@@ -3,8 +3,8 @@
 struct Attr
 {
 	Attr();
-
-	Attr(int _attackFirstLevel, int _strength, int _agility, int _wisdom, int _maxHealth,
+	Attr(int _all);
+	Attr(int _speed, int _strength, int _agility, int _wisdom, int _maxHealth,
 		int _health, int _attack, int _diceNum, int _facet, int _defense, int _block,
 		int visibleRadius, float _criticalAttackRate, float _hitRate, float _missRate, bool _teleport);
 
@@ -15,6 +15,7 @@ struct Attr
 	Attr operator-(const Attr& other);
 	Attr operator-() const;
 	Attr operator*(const int mul);
+	bool operator<(const Attr& other);
 	friend Attr operator*(const int mul, const Attr& other);
 	int get_maxHealth();
 	
@@ -41,8 +42,4 @@ struct Attr
 	float missRate;
 
 	bool teleport; 
-
-	int capacity;
-	int durability;
-
 };

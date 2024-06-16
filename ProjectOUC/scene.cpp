@@ -10,7 +10,7 @@
 
 #pragma execution_character_set("utf-8")
 
-
+float Scene::lmin = 0.35f, Scene::lmax = 1.0f;
 const int GAME_WIDTH = 1024, GAME_HEIGHT = 768;
 extern const int EMPTY;
 extern const int WALL;
@@ -46,14 +46,32 @@ Scene::Scene(std::string path, int given_stage)
 	fscanf(fp, "stage: %d\n", &stage);
 	if (given_stage != -1) stage = given_stage;
 	startPos.stage = endPos.stage = stage;
-	tiles.resize(height); refresh.resize(height); dist.resize(height);
+	tiles.resize(height);
+	refresh.resize(height);
+	dist.resize(height);
+	visited.resize(height);
+	light.resize(height);
 	for (int i = 0; i < height; ++i)
 	{
 		tiles[i].resize(width);
 		refresh[i].resize(width);
 		dist[i].resize(width);
+		visited[i].resize(width);
+		light[i].resize(width);
 		for (int j = 0; j < width; ++j) tiles[i][j] = new Tile;
 	}
+
+	if (scene_type == TOWN)
+	{
+		for (int i = 0; i < height; ++i)
+		{
+			for (int j = 0; j < width; ++j)
+			{
+				visited[i][j] = 1;
+			}
+		}
+	}
+
 	fscanf(fp, "%s\n", buffer);
 	if (strncmp(buffer, "parameter", 9) == 0)
 	{
@@ -115,6 +133,12 @@ Scene::Scene(std::string path, int given_stage)
 				tile->initTile(ttype, level);
 			}
 		}
+		fgetc(fp);
+
+		fscanf(fp, "visited: \n");
+		for (int i = 0; i < height; ++i)
+			for (int j = 0; j < width; ++j)
+				fscanf(fp, "%d", &visited[i][j]);
 	}
 	else
 	{
@@ -150,11 +174,16 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 	tiles.resize(height);
 	refresh.resize(height);
 	dist.resize(height);
+	visited.resize(height);
+	light.resize(height);
 	for (int i = 0; i < height; ++i)
 	{
 		refresh[i].resize(width);
 		tiles[i].resize(width);
 		dist[i].resize(width);
+		visited[i].resize(width);
+		light[i].resize(width);
+
 		for (int j = 0; j < width; ++j)
 		{
 			tiles[i][j] = new Tile;
@@ -191,7 +220,6 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 		}
 	}
 
-
 	for (int i = 0; i < height; ++i)
 	{
 		for (int j = 0; j < width; ++j)
@@ -225,25 +253,43 @@ Scene::Scene(std::vector < std::vector<int> > scene, int _scene_type, int stage)
 
 void Scene::refreshMonsters()
 {
-	int cnt = 0;
+	static int cnt1 = 1, cnt2 = 1;
+	const static int C1 = 282, C2 = 148;
+	const static int maxNum = 10000;
 	for (int i = 0; i < height; ++i)
 	{
 		for (int j = 0; j < width; ++j)
 		{
 			if (refresh[i][j] != 1) continue;
-			cnt++;
+			
 			tiles[i][j]->initEmptyTile();
-			if (!oneIn(32/cnt)) continue;
 
-			cnt = 0;
+			if (!aInb(C1 * cnt1, maxNum))
+			{
+				cnt1++;
+				continue;
+			}
+			cnt1 = 1;
+
 			if (dist[i][j] <= 5) continue;
 			int level = (dist[i][j] - 5) / 8;
 			static std::vector<int> weights = { 1, 5, 10, 10, 5, 1 };
-			int rd = level - 3 + randIndByWeights(weights);
+			int rd = level - 4 + randIndByWeights(weights);
 			level = max(0, rd);
 			level = level + 10 * (startPos.stage - 1);
-			if (oneIn(10)) tiles[i][j]->initChestTile(level);
-			else tiles[i][j]->initBattleTile(level);
+			if (aInb(C2*cnt2, maxNum)) tiles[i][j]->initChestTile(level), cnt2 = 1;
+			else tiles[i][j]->initBattleTile(level), cnt2++;
+		}
+	}
+}
+
+void Scene::allVisited()
+{
+	for (int i = 0; i < height; ++i)
+	{
+		for (int j = 0; j < width; ++j)
+		{
+			visited[i][j] = 1;
 		}
 	}
 }
@@ -342,6 +388,7 @@ void Scene::initSceneByNum(std::vector<int> num)
 	}
 }
 */
+
 
 Scene::~Scene()
 {

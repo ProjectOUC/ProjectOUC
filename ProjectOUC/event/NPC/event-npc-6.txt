@@ -1,0 +1,9 @@
+EVENT_NPC
+冒险者
+你好，我们正在训练。
+event/NPC/event-npc-6.txt
+res/event/npc_1_rev.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

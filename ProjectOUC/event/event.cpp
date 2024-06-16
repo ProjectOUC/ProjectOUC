@@ -3,17 +3,24 @@
 #include"../paint.h"
 #include <iostream>
 #include <io.h>
+#include <filesystem>
+namespace fs = std::filesystem;
+
+
+std::vector<Event*> trapList;
+
+extern const int max_gadget_index;
 
 Event::Event()
 {
 	type = EVENT_UNDEFINED;
 	buttonCount = 0;
+	disappear = -1;
 }
 
 Event::Event(std::string path)
 {
-	
-
+	disappear = -1;
 	FILE* fp;
 	if ((fp = fopen(path.c_str(), "r")) == nullptr)
 	{
@@ -23,11 +30,11 @@ Event::Event(std::string path)
 
 	char buffer[1024];
 	fscanf(fp, "%s\n", buffer);
-	if (strncmp(buffer, "EVENT_NPC", 9) == 0)
+	if (_strnicmp(buffer, "EVENT_NPC", 9) == 0)
 	{
 		type = EVENT_NPC;
 	}
-	else if (strncmp(buffer, "EVENT_TRAP", 10) == 0)
+	else if (_strnicmp(buffer, "EVENT_TRAP", 10) == 0)
 	{
 		type = EVENT_TRAP;
 	}
@@ -38,7 +45,7 @@ Event::Event(std::string path)
 	}
 
 	eventName.resize(32);
-	eventDescription.resize(128);
+	eventDescription.resize(256);
 	fscanf(fp, "%s\n", &eventName[0]);
 	fscanf(fp, "%s\n", &eventDescription[0]);
 	
@@ -57,46 +64,236 @@ Event::Event(std::string path)
 	for (int i = 0; i < buttonCount; ++i)
 	{
 		buttons[i] = new Button;
+		buttons[i]->pos = Rect(16 * (3 * i + 17), 16 * 12 + 8, 16 * (3 * i + 18), 16 * 22 + 8);
 		int _;
 		fscanf(fp, "Button%d:\n", &_);
 		fscanf(fp, "%s\n", buffer);
-		if (strncmp(buffer, "BUTTON_QUIT", 11) == 0)
+		if (_strnicmp(buffer, "BUTTON_QUIT", 11) == 0)
 			buttons[i]->type = BUTTON_QUIT;
-		else if (strncmp(buffer, "BUTTON_TRADE", 12) == 0)
+		else if (_strnicmp(buffer, "BUTTON_TRADE", 12) == 0)
 			buttons[i]->type = BUTTON_TRADE;
-		else if (strncmp(buffer, "BUTTON_FOOD", 11) == 0)
+		else if (_strnicmp(buffer, "BUTTON_FOOD", 11) == 0)
 			buttons[i]->type = BUTTON_FOOD;
 		buttons[i]->description.resize(128);
 		fscanf(fp, "Description:%s\n", &buttons[i]->description[0]);
 
+
+
 		if (buttons[i]->type == BUTTON_TRADE)
 		{
-			fscanf(fp, "coinCost:%d\n", &buttons[i]->coinCost);
-			fscanf(fp, "healthCost:%d\n", &buttons[i]->healthCost);
-			fscanf(fp, "minStrength:%d\n", &buttons[i]->minStrength);
-			fscanf(fp, "minAgility:%d\n", &buttons[i]->minAgility);
-		
-			fscanf(fp, "attrGain:\n");
-			fscanf(fp, "speed:%d\n", &buttons[i]->attrGain.speed);
-			fscanf(fp, "strength:%d\n", &buttons[i]->attrGain.strength);
-			fscanf(fp, "agility:%d\n", &buttons[i]->attrGain.agility);
-			fscanf(fp, "wisdom:%d\n", &buttons[i]->attrGain.wisdom);
-			fscanf(fp, "maxHealth:%d\n", &buttons[i]->attrGain.maxHealth);
-			fscanf(fp, "health:%d\n", &buttons[i]->attrGain.health);
-			fscanf(fp, "attack:%d\n", &buttons[i]->attrGain.attack);
-			fscanf(fp, "diceNum:%d\n", &buttons[i]->attrGain.diceNum);
-			fscanf(fp, "facet:%d\n", &buttons[i]->attrGain.facet);
-			fscanf(fp, "defense:%d\n", &buttons[i]->attrGain.defense);
-			fscanf(fp, "block:%d\n", &buttons[i]->attrGain.block);
-			fscanf(fp, "visibleRadius:%d\n", &buttons[i]->attrGain.visibleRadius);
+			fscanf(fp, "Gain:\n");
+			while (1)
+			{
+				float reading = 0.0f;
+				fscanf(fp, "%1024[^:\n]", buffer);
+				if (!_strnicmp(buffer, "End", 3))
+				{
+					fgetc(fp);
+					break;
+				}
 
-			fscanf(fp, "criticalAttackRate:%f\n", &buttons[i]->attrGain.criticalAttackRate);
-			fscanf(fp, "hitRate:%f\n", &buttons[i]->attrGain.hitRate);
-			fscanf(fp, "missRate:%f\n", &buttons[i]->attrGain.missRate);
-
-			fscanf(fp, "teleport:%d\n", &buttons[i]->attrGain.teleport);
+				if (!_strnicmp(buffer, "gadget", 6))
+				{
+					char* name = strtok(buffer, " ");
+					name = strtok(NULL, " ");
+					int num = -1;
+					int ind = -1;
+					fscanf(fp, ":%d\n", &num);
+					if (isdigit(buffer[0])) ind = std::stoi(name);
+					else ind = findGadget(std::string(name));
+					if (ind < 0 || ind >= max_gadget_index) continue;
+					buttons[i]->gadgetsGain[ind] = num;
+					continue;
+				}
+				fscanf(fp, ":%f\n", &reading);
+				if (!_strnicmp(buffer, "coin", 4))
+				{
+					buttons[i]->gainCoin = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "foodCapacity", 12))
+				{
+					buttons[i]->gainFoodCapacity = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "food", 4))
+				{
+					buttons[i]->gainFood = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "exp", 3))
+				{
+					buttons[i]->gainExp = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "maxHealth", 9))
+				{
+					buttons[i]->gainAttr.maxHealth = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "health", 6))
+				{
+					buttons[i]->gainAttr.health = static_cast<int>(reading);
+				
+				}
+				else if (!_strnicmp(buffer, "strength", 8))
+				{
+					buttons[i]->gainAttr.strength = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "speed", 5))
+				{
+					buttons[i]->gainAttr.speed = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "agility", 7))
+				{
+					buttons[i]->gainAttr.agility = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "wisdom", 6))
+				{
+					buttons[i]->gainAttr.wisdom = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "attack", 6))
+				{
+					buttons[i]->gainAttr.attack = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "block", 5))
+				{
+					buttons[i]->gainAttr.block = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "criticalAttackRate", 18))
+				{
+					buttons[i]->gainAttr.criticalAttackRate = reading;
+				}
+				else if (!_strnicmp(buffer, "defense", 7))
+				{
+					buttons[i]->gainAttr.defense = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "diceNum", 7))
+				{
+					buttons[i]->gainAttr.diceNum = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "facet", 5))
+				{
+					buttons[i]->gainAttr.facet = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "hitRate", 7))
+				{
+					buttons[i]->gainAttr.hitRate = reading;
+				}
+				else if (!_strnicmp(buffer, "missRate", 8))
+				{
+					buttons[i]->gainAttr.missRate = reading;
+				}
+				else if (!_strnicmp(buffer, "visibleRadius", 13))
+				{
+					buttons[i]->gainAttr.visibleRadius = static_cast<int>(reading);
+				}
+			}
+ 			fscanf(fp, "Need:\n");
+			while (1)
+			{
+				float reading = 0.0f;
+				fscanf(fp, "%1024[^:\n]", buffer);
+				if (!_strnicmp(buffer, "End", 3))
+				{
+					fgetc(fp);
+					break;
+				}
+				if (!_strnicmp(buffer, "gadget", 6))
+				{
+					char* name = strtok(buffer, " ");
+					name = strtok(NULL, " ");
+					int num = -1;
+					int ind = -1;
+					fscanf(fp, ":%d\n", &num);
+					if (isdigit(buffer[0])) ind = std::stoi(name);
+					else ind = findGadget(std::string(name));
+					if (ind < 0 || ind >= max_gadget_index) continue;
+					buttons[i]->minGadgets[ind] = num;
+					continue;
+				}
+				fscanf(fp, ":%f\n", &reading);
+				if (!_strnicmp(buffer, "coin", 4))
+				{
+					buttons[i]->minCoin = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "foodCapacity", 12))
+				{
+					buttons[i]->minFoodCapacity = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "food", 4))
+				{
+					buttons[i]->minFood = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "level", 5))
+				{
+					buttons[i]->minLevel = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "maxHealth", 9))
+				{
+					buttons[i]->minAttr.maxHealth = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "health", 6))
+				{
+					buttons[i]->minAttr.health = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "strength", 8))
+				{
+					buttons[i]->minAttr.strength = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "speed", 5))
+				{
+					buttons[i]->minAttr.speed = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "agility", 7))
+				{
+					buttons[i]->minAttr.agility = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "wisdom", 6))
+				{
+					buttons[i]->minAttr.wisdom = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "attack", 6))
+				{
+					buttons[i]->minAttr.attack = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "block", 5))
+				{
+					buttons[i]->minAttr.block = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "criticalAttackRate", 18))
+				{
+					buttons[i]->minAttr.criticalAttackRate = reading;
+				}
+				else if (!_strnicmp(buffer, "defense", 7))
+				{
+					buttons[i]->minAttr.defense = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "diceNum", 7))
+				{
+					buttons[i]->minAttr.diceNum = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "facet", 5))
+				{
+					buttons[i]->minAttr.facet = static_cast<int>(reading);
+				}
+				else if (!_strnicmp(buffer, "hitRate", 7))
+				{
+					buttons[i]->minAttr.hitRate = reading;
+				}
+				else if (!_strnicmp(buffer, "missRate", 8))
+				{
+					buttons[i]->minAttr.missRate = reading;
+				}
+				else if (!_strnicmp(buffer, "visibleRadius", 13))
+				{
+					buttons[i]->minAttr.visibleRadius = static_cast<int>(reading);
+				}
+			}
 		}
 	}
+	fscanf(fp, "%s\n", buffer);
+	if (!_strnicmp(buffer, "disappear", 9))
+	{
+		disappear = std::stoi(strtok(NULL, strtok(buffer, ":")));
+	}
+
+	fclose(fp);
 }
 
 
@@ -115,7 +312,7 @@ eventType Event::getType() const
 	return type;
 }
 
-int Event::getEventCount() const
+int Event::getButtonCount() const
 {
 	return buttonCount;
 }
@@ -145,9 +342,19 @@ std::string Event::getImgPath() const
 	return this->imgPath;
 }
 
+Button* Event::getButton(int i) const
+{
+	return buttons[i];
+}
+
 void Event::setButtonCount(const int& _buttonCount)
 {
 	buttonCount = _buttonCount;
+}
+
+bool Event::isDisappear()
+{
+	return disappear == 0;
 }
 
 void Event::occurEvent(Character** player)
@@ -167,61 +374,45 @@ void Event::occurEvent(Character** player)
 	*/
 	ExMessage msg;
 	Button::isShown = 1;
-	int DEBUG = 1;
 	while (Button::isShown)
 	{
 		//
-		Button_paint(buttonCount,buttons);
+		Button_paint(this);
 		FlushBatchDraw();
-		while (peekmessage(&msg))
-		{
-			if (msg.message == WM_KEYDOWN)
-			{
-				switch (msg.ch)
-				{
-				case '1':
-					if (buttonCount >= 1)    //根据按钮个数判断输出是否合法
-					{
-						Button::isShown = 0;
-					}
-					break;
-				case '2':
-					if (buttonCount >= 2)
-					{
-						Button::isShown = 0;
-					}
-					break;
-				case '3':
-					if (buttonCount >= 3)
-					{
-						Button::isShown = 0;
-					}
-					break;
-				default:
-					break;
-				}
-			}
-		}
-		//for (Button* btn : buttons)
-			//btn->onClick(msg, player);
-		/*注释或删除break以正常循环*/
 
-		/*if (DEBUG)
+		peekmessage(&msg);
+		if (msg.message == WM_LBUTTONDOWN)
 		{
 			for (Button* btn : buttons)
 			{
-				if (btn->getType() == BUTTON_TRADE)
-					btn->tradeButton(player);
-				else if (btn->getType() == BUTTON_FOOD)
-					
-					btn->foodButton(player);
+				int d = btn->onClick(msg.x, msg.y, player);
+				if (disappear >= 0) disappear = max(0, disappear - d);
 			}
-		}*/
-		
+		}
 	}
 }
 
 Event::~Event()
 {
 	for (int i = 0; i < buttonCount; ++i) if (buttons[i]) delete buttons[i];
+}
+
+
+void initTrapList()
+{
+	std::string folderPath = "./event/Trap";
+	for (const auto& entry : fs::directory_iterator(folderPath))
+	{
+		if (fs::is_regular_file(entry.path()))
+		{
+			std::string filePath = entry.path().string();
+			std::cout << filePath << "\n";
+			trapList.push_back(new Event(filePath));
+		}
+	}
+}
+
+void destroyTrapList()
+{
+	for (int i = 0; i < trapList.size(); ++i) if (trapList[i]) delete trapList[i];
 }

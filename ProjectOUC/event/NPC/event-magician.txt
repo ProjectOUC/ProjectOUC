@@ -1,0 +1,36 @@
+EVENT_NPC
+法师
+你好，需要魔法物品吗？我保证会对你的冒险有很大的帮助。
+event/NPC/event-magician.txt
+res/event/npc_2_rev.png
+4
+Button1:
+BUTTON_TRADE
+Description:治疗药水(50金币)
+Gain:
+gadget healpotion:1
+coin:-50
+End
+Need:
+End
+Button2:
+BUTTON_TRADE
+Description:传送卷轴(500金币)
+Gain:
+gadget teleportscroll:1
+coin:-500
+End
+Need:
+End
+Button3:
+BUTTON_TRADE
+Description:解除诅咒(50金币)
+Gain:
+gadget cursedstone:-1
+coin:-50
+End
+Need:
+End
+Button4:
+BUTTON_QUIT
+Description:离开

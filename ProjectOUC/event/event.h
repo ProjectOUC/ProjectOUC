@@ -1,9 +1,5 @@
 #pragma once
-#include <string>
-#include <vector>
 #include "../utils/button.h"
-#include "../attribute.h"
-#include "graphics.h"
 
 enum eventType
 { 
@@ -22,14 +18,16 @@ public:
 	bool isTrap() const;
 
 	eventType getType() const;
-	int getEventCount() const;
+	int getButtonCount() const;
 	std::string getEventName() const;
 	std::string getEventDescription() const;
 	std::string getEventPath() const;
 	std::string getImgPath() const;
+	Button* getButton(int i) const;
 
 	void setType(const eventType& _type);
 	void setButtonCount(const int& _buttonCount);
+	bool isDisappear();
 
 	void occurEvent(Character** player);
 
@@ -44,5 +42,9 @@ private:
 	std::string eventDescription;
 	std::string eventPath;
 	std::string imgPath;
+	int disappear;
 };
 
+void initTrapList();
+
+void destroyTrapList();

@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "gaming.h"
 
+extern std::vector<Event*> trapList;
+
 void checkTile(std::vector<Scene*>& scenes, Player* player)
 {
 	SetConsoleOutputCP(CP_UTF8);
@@ -85,6 +87,7 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 	{
 		if (player->gadgets[findGadget("Key")] > 0)
 		{
+			std::cout << player->gadgets[findGadget("Key")] << "key\n";
 			player->gadgets[findGadget("Key")]--;
 			player->modify_moved(true);
 			for (int i = 0; i < tile->chests.size(); ++i)
@@ -133,30 +136,13 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 		player->modify_moved(false);
 	}
 
-	else if (tile->get_type() == DOOR_TILE)
-	{
-		if (player->gadgets[findGadget("Key")] > 0)
-		{
-			player->modify_moved(true);
-			player->gadgets[findGadget("Key")]--;
-			tile->modify_type(EMPTY_TILE);
-		}
-		else
-		{
-			std::cout << "无法打开门\n";
-			player->modify_moved(false);
-			player->moveTo(player->get_lastPos());
-			player->modify_food(pos.stage);
-		}
-	}
-
 	else if (tile->get_type() == EVENT_TILE)
 	{
 		player->modify_moved(false);
 		player->moveTo(player->get_lastPos());
 		player->modify_food(pos.stage);
 		tile->event->occurEvent((Character**)(&player));
-		std::cout << tile->event->getEventDescription() << "\n";
+		if (tile->event->isDisappear()) tile->initEmptyTile();
 	}
 
 	return;
@@ -186,7 +172,7 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 			fprintf(fp, "startPos: %d %d\n", scene->get_startPos().x, scene->get_startPos().y);
 			fprintf(fp, "endPos: %d %d\n", scene->get_endPos().x, scene->get_endPos().y);
 			
-			fprintf(fp, "refresh\n");
+			fprintf(fp, "refresh: \n");
 			int h = scene->get_height(), w = scene->get_width();
 			for (int i = 0; i < h; ++i)
 			{
@@ -198,7 +184,7 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 				fprintf(fp, "\n");
 			}
 
-			fprintf(fp, "dist\n");
+			fprintf(fp, "dist: \n");
 			for (int i = 0; i < h; ++i)
 			{
 				for (int j = 0; j < w; ++j)
@@ -210,7 +196,7 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 			}
 
 			int eventCount = 0;
-			fprintf(fp, "tiles\n");
+			fprintf(fp, "tiles: \n");
 			for (int i = 0; i < h; ++i)
 			{
 				for (int j = 0; j < w; ++j)
@@ -219,6 +205,17 @@ void saveGame(std::vector<Scene*>& scenes, Player* player, bool autoSave)
 					fprintf(fp, "%d", scene->get_tiles(i, j)->get_type());
 					if (scene->get_tiles(i, j)->get_type() == EVENT_TILE)
 						eventCount++;
+				}
+				fprintf(fp, "\n");
+			}
+
+			fprintf(fp, "visited: \n");
+			for (int i = 0; i < h; ++i)
+			{
+				for (int j = 0; j < w; ++j)
+				{
+					if (j != 0) fprintf(fp, " ");
+					fprintf(fp, "%d", scene->visited[i][j]);
 				}
 				fprintf(fp, "\n");
 			}
@@ -277,4 +274,93 @@ void loadGame(int saveIndex, std::vector<Scene*>& scenes, Player** player)
 		exit(0);
 	}
 	*player = new Player(path);
+}
+
+bool canSee(int x1, int y1, int x2, int y2, Scene* scene)
+{
+		float dx = x2 - x1;
+		float dy = y2 - y1;
+		float cx = x1 + 0.5f, cy = y1 + 0.5f;
+		float cpx = x2 + 0.5f, cpy = y2 + 0.5f;
+		float step = 8.0f * max(fabs(dx), fabs(dy));
+		dx = dx / step;
+		dy = dy / step;
+		for (int i = 0; i < step; ++i)
+		{
+			cx = cx + dx;
+			cy = cy + dy;
+			if ((int)floor(cx) == x2 && (int)floor(cy) == y2) return true;
+			if (scene->get_tiles((int)floor(cx), (int)floor(cy))->get_type() == WALL_TILE) return false;
+		} 
+		return true;
+}
+
+void updateLight(std::vector<Scene*>& scenes, Player* player)
+{
+	static Position lastPos;
+	static Position curPos;
+	if (curPos == player->get_pos()) return;
+	curPos = player->get_pos();
+	lastPos = player->get_lastPos();
+	int vr = player->get_visibleRadius();
+
+	int stage;
+	Scene* scene;
+	stage = curPos.stage;
+	scene = scenes[stage];
+	if (curPos.stage != lastPos.stage) lastPos = curPos;
+	//for (int x = lastPos.x - vr; x <= lastPos.x + vr; ++x)
+	//	for (int y = lastPos.y - vr; y <= lastPos.y + vr; ++y)
+	//		if (x >= 0 && y >= 0 && x < scene->get_width() && y < scene->get_height())
+	//			scene->light[x][y] = scene->visited[x][y] ? Scene::lmin : 0.0f;
+
+	float cpx = curPos.x + 0.5f, cpy = curPos.y + 0.5f;
+	for (int x = curPos.x - vr; x <= curPos.x + vr; ++x)
+	{
+		for (int y = curPos.y - vr; y <= curPos.y + vr; ++y)
+		{
+			if (x >= 0 && y >= 0 && x < scene->get_width() && y < scene->get_height())
+			{
+				if (scene->visited[x][y]) continue;
+				float dis = pow(x - curPos.x, 2) + pow(y - curPos.y, 2);
+				dis = sqrt(dis);
+				if (dis > vr) continue;
+
+				if (canSee(curPos.x, curPos.y, x, y, scene))
+				{
+					scene->visited[x][y] = 1;
+					scene->light[x][y] = Scene::lmin + (1.0f - Scene::lmin) * dis / vr;
+				}
+				else
+				{
+					scene->light[x][y] = scene->visited[x][y] ? Scene::lmin : 0;
+				}
+			}
+		}
+	}
+}
+
+void randomEvent(Player** player)
+{
+	Player* p = *player;
+	static int lastTime = 1;
+	const static int C = 38; //5%
+	const int maxNum = 10000;
+	static Position pos;
+	if (pos == p->get_pos()) return;
+	pos = p->get_pos();
+	if (pos.stage == 0) return;
+	if (!p->get_moved()) return;
+	if (aInb(C * lastTime, maxNum))
+	{
+		//Todo
+		//	放一个事件
+		int rd = random(1, trapList.size()) - 1;
+		trapList[rd]->occurEvent((Character**)player);
+		lastTime = 1;
+	}
+	else
+	{
+		lastTime++;
+	}
 }

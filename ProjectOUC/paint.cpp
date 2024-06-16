@@ -214,6 +214,14 @@ static IMAGE img_gadget_key;
 
 static IMAGE img_player_1;
 static IMAGE img_player_2;
+static IMAGE img_warrior_up;
+static IMAGE img_warrior_down;
+static IMAGE img_warrior_left;
+static IMAGE img_warrior_right;
+static IMAGE img_rogue_up;
+static IMAGE img_rogue_down;
+static IMAGE img_rogue_left;
+static IMAGE img_rogue_right;
 static IMAGE img_background_player_1;
 static IMAGE img_background_player_2;
 static IMAGE img_food_npc;
@@ -443,6 +451,14 @@ void Loading_image()
 
 	loadimage(&img_player_1, _T("res\\player\\player_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_player_2, _T("res\\player\\player_2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_up, _T("res\\player\\Rogue_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_right, _T("res\\player\\Rogue_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_left, _T("res\\player\\Rogue_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_down, _T("res\\player\\Rogue_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_up, _T("res\\player\\Warrior_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_right, _T("res\\player\\Warrior_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_left, _T("res\\player\\Warrior_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_down, _T("res\\player\\Warrior_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_background_player_1, _T("res\\player\\background_player1.png"), 300, 240);
 	loadimage(&img_background_player_2, _T("res\\player\\background_player2.png"), 300, 240);
 
@@ -579,6 +595,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	sprintf_s(heart_point, "/%d", player->get_health());
 	char Max_heart_point[10];
 	sprintf_s(Max_heart_point, "%d", player->get_maxHealth());
+
 	char level[20];
 	sprintf_s(level, "level:%d", player->get_level());
 	char exp[10];
@@ -592,7 +609,7 @@ void GUI_paint(std::vector<Scene*>& scenes, Player* player)
 	char speed[10];
 	sprintf_s(speed, "%d", player->get_speed());
 	char Max_food[10];
-	sprintf_s(Max_food, "%d", player->get_food_capacity());
+	sprintf_s(Max_food, "%d", player->calc_food_capacity());
 	char money_point[10];
 	sprintf_s(money_point, "%d", player->get_coin());
 	char food_point[10];
@@ -765,12 +782,22 @@ void Message_paint()
 	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 14 + 8, "  Use Healpotion ");
 }
 
-void Player_paint(int x,int y,int type)
+void Player_paint(int x,int y,int type,int move)
 {
-	if(type==1)
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_player_1);
+	if (type == 1)
+	{
+		if (move == 0) putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_left);
+		else if(move ==1)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_right);
+		else if (move == 2)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_up);
+		else if (move == 3)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_down);
+	}
 	else
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_player_2);
+	{
+		if (move == 0) putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_left);
+		else if (move == 1)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_right);
+		else if (move == 2)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_up);
+		else if (move == 3)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_down);
+	}
 }
 
 
@@ -789,10 +816,7 @@ void Chest_paint(int x, int y)
 	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_chest);
 }
 
-void Monster_paint(int x, int y)
-{
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
-}
+
 void Monster_paint(int x, int y, int type)
 {
 	switch (type)
@@ -833,12 +857,13 @@ void Monster_paint(int x, int y, int type)
 	}
 }
 
-void Button_paint(int count, std::vector<Button*> button)
+void Button_paint(Event* event)
 {
+	int count = event->getButtonCount();
 	char options[10];
 	settextcolor(WHITE);
 	setbkmode(TRANSPARENT);
-	settextstyle(16, 0, "Î¢ÈíÑÅºÚ");
+	settextstyle(16, 0, "ËÎÌå");
 	int w;
 	for (int x = 0; x < 12; x++)  //»æÖÆÁÄÌì¿ò
 	{
@@ -855,10 +880,38 @@ void Button_paint(int count, std::vector<Button*> button)
 			else putimage_alpha(LENGTH_PIXIV * (x + 12), LENGTH_PIXIV * (y + 8), &img_event_middle);
 		}
 	}
-	outtextxy(LENGTH_PIXIV * (0 + 15)+2, LENGTH_PIXIV * (0 + 8)+4, "Event name");
-	outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (1 + 8) + 4, "Description");
+	char buffer[1024];
+
+
+	strcpy_s(buffer, event->getEventName().c_str());
+	int len = strlen(buffer) / 2;
+	static const int mid = HEIGHT / 2 - 16;
+	static const int FONTSIZE = 16;
+	static const int MAX_ROW_TEXT = 11;
+	static const int ROW_PIXEL_BIAS = 2;
+	
+	outtextxy(mid - len * 8, LENGTH_PIXIV * (0 + 8)+4, buffer);
+
+	strcpy_s(buffer, event->getEventDescription().c_str());
+
+	for (int i = 0; 2 * i * MAX_ROW_TEXT < strlen(buffer); i++)
+	{
+		char ch = '\0';
+		int ind = 2 * i * MAX_ROW_TEXT;
+		if ((i + 1) * 2 * MAX_ROW_TEXT < strlen(buffer))
+		{
+			swap(buffer[(i + 1) * 2 * MAX_ROW_TEXT], ch);
+			outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i + 1 + 8) + 4 + i * ROW_PIXEL_BIAS, &buffer[ind]);
+			swap(buffer[(i + 1) * 2 * MAX_ROW_TEXT], ch);
+		}
+		else
+			outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i + 1 + 8) + 4 + i * ROW_PIXEL_BIAS, &buffer[ind]);
+	}
+
+
 	for (int i = 0; i < count; i++)
 	{
+		Button* button = event->getButton(i);
 		for (int j = 0; j < 11; j++)
 		{
 			if (j == 0)
@@ -877,13 +930,9 @@ void Button_paint(int count, std::vector<Button*> button)
 				putimage_alpha(LENGTH_PIXIV * (j + 12) + 8, LENGTH_PIXIV * ((3 * i) + 18), &img_event_down);
 			}
 		}
-		/*sprintf_s(options, "%d:", i + 1);
-		int d_n = textwidth(options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 2, LENGTH_PIXIV * (i+3 + 8) + 4, options);
-		outtextxy(LENGTH_PIXIV * (0 + 12) + 2+d_n, LENGTH_PIXIV * (i + 3 + 8) + 4, _T(button[i]->getDescription().c_str()));*/
+		outtextxy(LENGTH_PIXIV * (0 + 13), LENGTH_PIXIV * (i*3 + 17) + 8, _T(button->getDescription().c_str()));
 	}
 }
-
 
 void Cave_Wall_paint(Scene* scene, int pos)
 {

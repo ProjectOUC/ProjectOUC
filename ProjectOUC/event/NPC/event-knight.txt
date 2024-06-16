@@ -1,0 +1,36 @@
+EVENT_NPC
+武器商
+你好，我可以提供冒险必需的武器。
+event/NPC/event-knight.txt
+res/event/npc_1.png
+4
+Button1:
+BUTTON_TRADE
+Description:剑(200金币)
+Gain:
+gadget sword:1
+coin:-200
+End
+Need:
+End
+Button2:
+BUTTON_TRADE
+Description:弓(500金币)
+Gain:
+gadget bow:1
+coin:-500
+End
+Need:
+End
+Button3:
+BUTTON_TRADE
+Description:匕首(200金币)
+Gain:
+gadget dagger:1
+coin:-200
+End
+Need:
+End
+Button4:
+BUTTON_QUIT
+Description:离开

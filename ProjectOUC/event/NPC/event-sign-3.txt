@@ -1,0 +1,9 @@
+EVENT_NPC
+酒吧
+冒险者聚集的地方，可以在这里补充食物
+event/NPC/event-sign-3.txt
+res/event/sign_0.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

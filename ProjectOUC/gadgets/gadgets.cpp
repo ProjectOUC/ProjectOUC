@@ -35,6 +35,15 @@ void destroyGadgetList()
 int findGadget(std::string str)
 {
 	for (int i = 0; i < gadgetList.size(); ++i)
-		if (gadgetList[i]->get_name() == str) return i;
+	{
+		if (str.size() != gadgetList[i]->get_name().size()) continue;
+		bool flag = true;
+		for (int j = 0; j < str.size(); ++j)
+		{
+			if (tolower(str[j]) != tolower(gadgetList[i]->get_name()[j])) flag = false;
+		}
+		if (flag) return i;
+	}
+
 	return -1;
 }

@@ -1,0 +1,9 @@
+EVENT_NPC
+冒险者
+你听说了吗，在洞穴深处有一个迷宫，听说那里有无尽的财富。
+event/NPC/event-guest-1.txt
+res/event/guest_1_rev.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 
+int random();
+
 int random(int l, int r);
 
 std::vector<int> random(int l, int r, int k, bool re = false);

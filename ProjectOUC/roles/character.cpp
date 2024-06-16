@@ -6,7 +6,6 @@
 
 extern const int max_gadget_index;
 extern int gadgetInHand;
-extern std::set<int> usefulGadgetSet;
 extern std::vector<Gadget*> gadgetList;
 extern std::vector<int> gadgetVisited;
 
@@ -75,7 +74,7 @@ Character::Character(std::string path)
 		std::cout << "path " << path << "doesn't exist.\n";
 		exit(0);
 	}
-
+	moved = false;
 	fscanf(fp, "character type: %d\n", &character_type);
 	fscanf(fp, "name: %s\n", buffer);
 	name = buffer;

@@ -1,0 +1,9 @@
+EVENT_NPC
+喷泉
+请不要向喷泉中投掷硬币。
+event/NPC/event-sign-5.txt
+res/event/sign_1.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开
