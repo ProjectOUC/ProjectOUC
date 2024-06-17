@@ -305,7 +305,7 @@
     <Image Include="res\maze_wall\maze_up_right_wall.png" />
     <Image Include="res\maze_wall\maze_up_wall.png" />
     <Image Include="res\maze_wall\maze_wall.png" />
-    <Image Include="res\monster\basilisk .png" />
+    <Image Include="res\monster\basilisk.png" />
     <Image Include="res\monster\cyclops.png" />
     <Image Include="res\monster\dragon.png" />
     <Image Include="res\monster\ghost.png" />

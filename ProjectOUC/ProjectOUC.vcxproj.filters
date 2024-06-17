@@ -667,7 +667,7 @@
     <Image Include="res\monster\zombie.png">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="res\monster\basilisk .png">
+    <Image Include="res\monster\basilisk.png">
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\monster\cyclops.png">

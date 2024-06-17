@@ -1,17 +1,5 @@
-﻿  battle.cpp
-  event.cpp
-  gaming.cpp
-E:\project\VS\oucGame\ProjectOUC\gaming.cpp(358,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  main.cpp
-  paint.cpp
+﻿  paint.cpp
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(910,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(890,6): warning C4101: “w”: 未引用的局部变量
 E:\project\VS\oucGame\ProjectOUC\paint.cpp(886,7): warning C4101: “options”: 未引用的局部变量
-  monsters.cpp
-  scene.cpp
-  tile.cpp
-E:\project\VS\oucGame\ProjectOUC\tile.cpp(51,12): warning C4101: “monster”: 未引用的局部变量
-  button.cpp
-  正在生成代码...
-E:\project\VS\oucGame\ProjectOUC\utils\button.cpp(42,1): warning C4715: “Button::tradeButton”: 不是所有的控件路径都返回值
   ProjectOUC.vcxproj -> E:\project\VS\oucGame\ProjectOUC\x64\Debug\ProjectOUC.exe
