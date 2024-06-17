@@ -5,24 +5,28 @@ class Werewolf : public Monster
 {
 public:
     Werewolf(int _level = 0, Attr _attr = Attr(), std::string _name = "Werewolf", int _coin = 0, Position _pos = Position(), bool _moved = false) :
-        Monster(_level, _attr, _name, _coin, _pos, _moved)
+        Monster(_level, _attr, _name, _coin, _pos, _moved, WEREWOLF)
     {
-        Attr attr;
-        attr.strength = 22 + 5 * _level + roll(4, 5);
-        attr.agility = 18 + 4 * _level + roll(3, 4);
-        attr.wisdom = 8 + 2 * _level;
-        attr.maxHealth = roll(3, 30);
-        attr.health = attr.maxHealth;
-        attr.attack = 28 + 5 * _level + roll(4, 5);
-        attr.block = 12 + 3 * _level + roll(2, 4);
-        attr.defense = 25 + 8 * _level + roll(2, 4);
-        attr.speed = 22 + 6 * _level + roll(3, 3);
-        attr.hitRate = 85.0f;
-        attr.missRate = 15.0f;
-        attr.criticalAttackRate = 15.0f + 2 * _level;
+		Attr attr;
+		attr.strength = 8 + 3 * _level + roll(2, 3);
+		attr.agility = 6 + 2 * _level + roll(2, 3);
+		attr.wisdom = 1 * (_level + 1);
+		attr.maxHealth = roll(2, 20);
 
-        set_coin(20 + 8 * _level + roll(3, 5));
-        set_attr(attr);
+		attr.health = attr.get_maxHealth();
+		attr.diceNum = 2;
+		attr.facet = _level + 4;
+		attr.block = _level + 1;
+
+		attr.speed = 15 + 5 * _level + roll(2, 2);
+
+		attr.hitRate = 90;
+		attr.criticalAttackRate = (float)(10 + 2 * _level + roll(2, 2));
+		attr.missRate = (float)(10 + 2 * _level);
+
+		set_attr(attr);
+		set_food(attr.strength / 2);
+		set_coin(5 + 3 * _level + roll(1, 3));
 
         // Werewolves have a chance to carry rare gadgets
         if (oneIn(4))

@@ -144,13 +144,7 @@
     <ClCompile Include="gadgets\dagger.cpp">
       <Filter>道具</Filter>
     </ClCompile>
-    <ClCompile Include="roles\monsters\slime.cpp">
-      <Filter>role</Filter>
-    </ClCompile>
     <ClCompile Include="roles\monsters\monsters.cpp">
-      <Filter>role</Filter>
-    </ClCompile>
-    <ClCompile Include="roles\monsters\goblin.cpp">
       <Filter>role</Filter>
     </ClCompile>
     <ClCompile Include="roles\chests\chests.cpp">
@@ -285,6 +279,39 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="utils\converter.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\skull.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\zombie.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\troll.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\mummy.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\hydra.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\giant.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\basilisk.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\lich.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\cyclops.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\minotaur.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="roles\monsters\harpy.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -635,6 +662,36 @@
       <Filter>资源文件</Filter>
     </Image>
     <Image Include="res\monster\werewolf.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\zombie.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\basilisk .png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\cyclops.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\giant.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\harpy.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\hydra.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\lich.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\minotaur.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\mummy.png">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\monster\troll.png">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>

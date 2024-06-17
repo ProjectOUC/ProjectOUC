@@ -228,8 +228,16 @@ static IMAGE img_vampire;
 static IMAGE img_witch;
 static IMAGE img_ghost;
 static IMAGE img_werewolf;
-
-
+static IMAGE img_zombie;
+static IMAGE img_mummy;
+static IMAGE img_troll;
+static IMAGE img_hydra;
+static IMAGE img_giant;
+static IMAGE img_basilisk;
+static IMAGE img_lich;
+static IMAGE img_cyclops;
+static IMAGE img_minotaur;
+static IMAGE img_harpy;
 
 static IMAGE img_chest;
 static IMAGE img_start;
@@ -457,6 +465,16 @@ void Loading_image()
 	loadimage(&img_witch, _T("res\\monster\\witch.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_ghost, _T("res\\monster\\ghost.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_werewolf, _T("res\\monster\\werewolf.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_zombie, _T("res\\monster\\zombie.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_troll, _T("res\\monster\\troll.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_mummy, _T("res\\monster\\mummy.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_hydra, _T("res\\monster\\hydra.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_giant, _T("res\\monster\\giant.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_basilisk, _T("res\\monster\\basilisk.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_lich, _T("res\\monster\\lich.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_cyclops, _T("res\\monster\\cyclops.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_minotaur, _T("res\\monster\\minotaur.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_harpy, _T("res\\monster\\harpy.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 
 	loadimage(&img_tree, _T("res\\grass\\tree.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_door, _T("res\\town_floor\\door.png"), LENGTH_PIXIV, LENGTH_PIXIV);
@@ -791,45 +809,76 @@ void Chest_paint(int x, int y)
 }
 
 
-void Monster_paint(int x, int y, int type)
+void Monster_paint(int x, int y, monster_type type)
 {
 	switch (type)
 	{
-	case 0:
+	case SKULL:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skull);
 		break;
-	case 1:
+	case GOBLIN:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_goblin);
 		break;
-	case 2:
+	case SLIME:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_slime);
 		break;
-	case 3:
+	case ORC:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_orc);
 		break;
-	case 4:
+	case DRAGON:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_dragon);
 		break;
-	case 5:
+	case SKELETON:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_skeleton);
 		break;
-	case 6:
+	case VAMPIRE:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_vampire);
 		break;
-	case 7:
+	case WITCH:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_witch);
 		break;
-	case 8:
+	case GHOST:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_ghost);
 		break;
-	case 9:
+	case WEREWOLF:
 		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_werewolf);
+		break;
+	case ZOMBIE:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_zombie);
+		break;
+	case TROLL:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_troll);
+		break;
+	case MUMMY:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_mummy);
+		break;
+	case HYDRA:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_hydra);
+		break;
+	case GIANT:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_giant);
+		break;
+	case BASILISK:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_basilisk);
+		break;
+	case LICH:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_lich);
+		break;
+	case CYCLOPS:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_cyclops);
+		break;
+	case MINOTAUR:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_minotaur);
+		break;
+	case HARPY:
+		putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_harpy);
 		break;
 	default:
 		std::cerr << "Unknown monster type: " << type << std::endl;
 		break;
 	}
 }
+
 
 void Button_paint(Event* event)
 {
