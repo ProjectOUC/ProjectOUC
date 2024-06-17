@@ -1,4 +1,1 @@
-﻿  gaming.cpp
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\gaming.cpp(420,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  LINK : 没有找到 D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe 或上一个增量链接没有生成它；正在执行完全链接
-  ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe
+﻿  ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe

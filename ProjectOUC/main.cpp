@@ -198,7 +198,8 @@ int main()
 	bool moved = false;
 	int moveInterval = 0;
 	int saveInterval = 1000;
-	scenes[0]->allVisited();
+	for (int i = 0; i < 5; ++i)
+		scenes[0]->allVisited();
 	
 
 	while (running)

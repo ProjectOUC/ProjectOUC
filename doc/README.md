@@ -158,18 +158,28 @@
 - 洞穴地形生成接口如下，具体过程见代码注释
 
   - ```c++
-    std::vector<std::vector<int>> caveGenerate(
+    CAVE caveGenerate(
     	int height, 
     	int width,
     	int maxIter, //细胞自动机迭代轮数，通常不超过10，建议为5
     	int wallWeight, //初始化时，wall在地图中的占比，通常为45%-50%，建议为45%
-    	float fillIter); //用于控制细胞自动机迭代过程中，填充大片空地的轮数，建议为0.5以上
+    	float fillIter) //用于控制细胞自动机迭代过程中，填充大片空地的轮数，建议为0.5以上
+    {
+        随机初始化大小为(height, width)的地图;
+        for iter = 1 to matIter:
+        	if iter < fillIter * maxIter:
+                填充空旷区域;
+        	删除密集区域;
+        使用dsu找到各连通块;
+        使用Prim算法连通所有区域;
+        初始化入口和出口;
+    }
     ```
 
 - 迷宫地形生成接口如下，具体过程见代码注释
 
   - ```C++
-    std::vector<std::vector<int>> mazeGenerate(
+    LABYRINTH mazeGenerate(
     	int height, 
     	int width,
     	int maxRoomNum, //最大房间个数
@@ -177,10 +187,20 @@
         int maxRoomSize, //房间最大体积
         int maxIter, //最大迭代次数
         int windingPercent, //弯曲系数
-        double keepDeadEndRate, //保留死胡同的个数
-        bool paint);
+        double keepDeadEndRate) //保留死胡同的概率
+    {
+        生成一个(height, width)的空场景;
+      for iter = 1 to maxIter:
+        	if 房间数量 < maxRoomNum:
+        		 尝试放置一个大小在[minRoomSize, maxRoomSize]间的房间;
+        floodfill生成道路,有1-windingPercent%的概率与上次方向不同;
+        给每个房间开一扇门;
+        随机删除一部分墙壁;
+        对于每个死胡同，以keepDeadEndRate的概率删除;
+        设置入口和出口，生成宝箱和怪物;
+    }
     ```
-  
+    
     
 
 
