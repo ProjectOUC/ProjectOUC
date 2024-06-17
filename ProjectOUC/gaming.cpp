@@ -355,7 +355,7 @@ void updateLight(std::vector<Scene*>& scenes, Player* player)
 	{
 		for (int y = curPos.y - vr; y <= curPos.y + vr; ++y)
 		{
-			if (x >= 0 && y >= 0 && x < scene->get_width() && y < scene->get_height())
+			if (x >= 0 && y >= 0 && x < scene->get_height() && y < scene->get_width())
 			{
 				if (scene->visited[x][y]) continue;
 				float dis = pow(x - curPos.x, 2) + pow(y - curPos.y, 2);
@@ -376,6 +376,27 @@ void updateLight(std::vector<Scene*>& scenes, Player* player)
 				{
 					scene->light[x][y] = scene->visited[x][y] ? Scene::lmin : 0;
 				}
+			}
+		}
+	}
+
+	for (int x = curPos.x - vr; x <= curPos.x + vr; ++x)
+	{
+		for (int y = curPos.y - vr; y <= curPos.y + vr; ++y)
+		{
+			if (x >= 0 && y >= 0 && x < scene->get_height() && y < scene->get_width())
+			{
+				if (!scene->visited[x][y]) continue;
+				int cnt = 0;
+				for (int i = 0; i < 4; ++i)
+				{
+					int cx = x + dx[i], cy = y + dy[i];
+					if (cx >= 0 && cy >= 0 && cx < scene->get_height() && cy < scene->get_width() && !scene->visited[cx][cy])
+						cnt++;
+					else if (cx < 0 || cy < 0 || cx >= scene->get_height() || cy >= scene->get_width())
+						cnt++;
+				}
+				if (cnt == 4) scene->visited[x][y] = false;
 			}
 		}
 	}
