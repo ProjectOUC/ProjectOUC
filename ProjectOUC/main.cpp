@@ -200,14 +200,14 @@ int main()
 	bool moved = false;
 	int moveInterval = 0;
 	int saveInterval = 1000;
-	scenes[0]->allVisited();
+	for (int i = 0; i < 5; ++i)
+		scenes[0]->allVisited();
 	
 
 	while (running)
 	{
 		moveInterval++;
 		DWORD start_time = GetTickCount();
-		std::cout << player->get_pos().x << " " << player->get_pos().y << "\n";
 		BeginBatchDraw();
 
 		pt_scene(scenes, player);
@@ -299,6 +299,10 @@ int main()
 						}
 					}
 					item = 1;
+					break;
+				case 'Q':
+				case 'q':
+					gadgetInHand = (gadgetInHand + 1) % max_gadget_index;
 					break;
 				case 'R':
 				case 'r':

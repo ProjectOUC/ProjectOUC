@@ -406,7 +406,6 @@ void initTrapList()
 		if (fs::is_regular_file(entry.path()))
 		{
 			std::string filePath = entry.path().string();
-			std::cout << filePath << "\n";
 			trapList.push_back(new Event(filePath));
 		}
 	}
