@@ -1,7 +1,7 @@
 #pragma once
 #include "gadget.h";
 
-extern const int max_gadget_index = 5;
+extern const int max_gadget_index = 7;
 std::vector<Gadget*> gadgetList;
 std::set<int> usefulGadgetSet;
 std::vector<int> gadgetVisited;

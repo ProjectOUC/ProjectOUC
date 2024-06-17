@@ -2,7 +2,7 @@ EVENT_NPC
 门
 一扇紧闭的门，需要钥匙才能打开
 event/NPC/event-bed.txt
-res/event/door.jpg
+res/event/door.png
 2
 Button1:
 BUTTON_TRADE

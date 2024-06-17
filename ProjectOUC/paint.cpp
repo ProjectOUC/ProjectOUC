@@ -527,6 +527,7 @@ void Loading_image()
 	loadimage(&img_gadget_shield, _T("res\\gadgets\\shield.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_telescroll, _T("res\\gadgets\\telescroll.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_healpotion, _T("res\\gadgets\\healpotion.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
+	loadimage(&img_gadget_key, _T("res\\gadgets\\key.png"), LENGTH_PIXIV * 1.5, LENGTH_PIXIV * 1.5);
 }
 
 
@@ -713,8 +714,8 @@ void item_paint()
 
 void gadgets_paint(int index, int num)
 {
-	int x = index % 6;
-	int y = index / 6;
+	int x = index % 7;
+	int y = index / 7;
 	char gadgets_num[10];
 	sprintf_s(gadgets_num, "%d", num);
 	if (index == 0)
@@ -745,6 +746,11 @@ void gadgets_paint(int index, int num)
 	else if (index == 5) 
 	{
 		putimage_alpha(LENGTH_PIXIV * (2 * x + 10), LENGTH_PIXIV * (2 * y + 10), &img_gadget_telescroll);
+		outtextxy(LENGTH_PIXIV * (2 * x + 11) + 1, LENGTH_PIXIV * (2 * y + 11) + 1, gadgets_num);
+	}
+	else if (index == 6)
+	{
+		putimage_alpha(LENGTH_PIXIV * (2 * x + 10), LENGTH_PIXIV * (2 * y + 10), &img_gadget_key);
 		outtextxy(LENGTH_PIXIV * (2 * x + 11) + 1, LENGTH_PIXIV * (2 * y + 11) + 1, gadgets_num);
 	}
 }
