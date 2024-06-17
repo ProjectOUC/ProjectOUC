@@ -1,13 +1,13 @@
 character type: 1
 name: Warrior
-pos: 1 14 20
-lastPos: 1 15 20
-coin: 137
+pos: 0 8 4
+lastPos: 0 7 4
+coin: 110
 food capacity: 200
-food: 82
+food: 200
 essentialAttribute: 1
 level: 1
-exp: 17
+exp: 13
 levelUpExp: 25
 strengthGen: 5
 agilityGen: 4
@@ -17,7 +17,7 @@ strength: 11
 agility: 6
 wisdom: 3
 maxHealth: 290
-health: 111
+health: 400
 speed: 30
 attack: 5
 diceNum: 3
@@ -30,4 +30,4 @@ hitRate: 85.000000
 missRate: 5.000000
 teleport: 0
 gadgets: 7
- 1 1 1 0 0 1 0
+ 1 1 1 0 0 0 0

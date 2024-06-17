@@ -13,7 +13,7 @@ void Player_choice(int width, int height);
 void Message_paint();
 inline void putimage_alpha(int x, int y, IMAGE* img);
 void Gameover_paint(int width,int height);
-void Player_paint(int x, int y,int type);
+void Player_paint(int x, int y,int type, int move);
 void Chest_paint(int x,int y);
 void Monster_paint(int x, int y, monster_type type);
 void TOWN_Wall_paint(Scene* scene, int pos);

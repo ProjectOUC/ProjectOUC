@@ -20,7 +20,7 @@ bool moveConstraint;
 const int fps = 60;
 extern const int max_gadget_index;
 extern std::vector<Gadget*> gadgetList;
-
+int move_static = DOWN;
 void pt_scene(std::vector<Scene*>& scenes, Player* player)
 {
 	static int loopCount = 0;
@@ -65,9 +65,9 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			else if (i == pos.x && j == pos.y)
 			{
 				if (player->get_name() == "Rogue")
-					Player_paint(i, j, 2);
+					Player_paint(i, j, 2, move_static);
 				else
-					Player_paint(i, j, 1);
+					Player_paint(i, j, 1, move_static);
 			}	
 			else if (tile->get_type() == START_TILE) Start_paint(i, j);
 			else if (tile->get_type() == END_TILE) End_paint(i,j);
@@ -131,6 +131,7 @@ int main()
 	Loading_image();
 
 	direction d[4] = { LEFT, RIGHT, UP, DOWN };
+	
 	ExMessage msg;
 	int begin = 1;
 	int choice = 1;
@@ -251,21 +252,25 @@ int main()
 				case VK_UP:
 					if (!moved || moveInterval > 6) moveInterval = 0, player->move(UP);
 					moved = true;
+					move_static = UP;
 					break;
 				case 'S':
 				case VK_DOWN:
 					if (!moved || moveInterval > 6) moveInterval = 0, player->move(DOWN);
 					moved = true;
+					move_static = DOWN;
 					break;
 				case 'A':
 				case VK_LEFT:
 					if (!moved || moveInterval > 6) moveInterval = 0, player->move(LEFT);
 					moved = true;
+					move_static = LEFT;
 					break;
 				case 'D':
 				case VK_RIGHT:
 					if (!moved || moveInterval > 6) moveInterval = 0, player->move(RIGHT);
 					moved = true;
+					move_static = RIGHT;
 					break;
 				case 'E':
 				case 'e':

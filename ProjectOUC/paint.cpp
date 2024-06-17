@@ -214,6 +214,14 @@ static IMAGE img_gadget_key;
 
 static IMAGE img_player_1;
 static IMAGE img_player_2;
+static IMAGE img_warrior_up;
+static IMAGE img_warrior_down;
+static IMAGE img_warrior_left;
+static IMAGE img_warrior_right;
+static IMAGE img_rogue_up;
+static IMAGE img_rogue_down;
+static IMAGE img_rogue_left;
+static IMAGE img_rogue_right;
 static IMAGE img_background_player_1;
 static IMAGE img_background_player_2;
 static IMAGE img_food_npc;
@@ -451,6 +459,14 @@ void Loading_image()
 
 	loadimage(&img_player_1, _T("res\\player\\player_1.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_player_2, _T("res\\player\\player_2.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_up, _T("res\\player\\Rogue_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_right, _T("res\\player\\Rogue_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_left, _T("res\\player\\Rogue_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_rogue_down, _T("res\\player\\Rogue_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_up, _T("res\\player\\Warrior_up.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_right, _T("res\\player\\Warrior_right.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_left, _T("res\\player\\Warrior_left.png"), LENGTH_PIXIV, LENGTH_PIXIV);
+	loadimage(&img_warrior_down, _T("res\\player\\Warrior_down.png"), LENGTH_PIXIV, LENGTH_PIXIV);
 	loadimage(&img_background_player_1, _T("res\\player\\background_player1.png"), 300, 240);
 	loadimage(&img_background_player_2, _T("res\\player\\background_player2.png"), 300, 240);
 
@@ -529,6 +545,7 @@ void Loading_image()
 	loadimage(&img_gadget_shield, _T("res\\gadgets\\shield.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_telescroll, _T("res\\gadgets\\telescroll.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
 	loadimage(&img_gadget_healpotion, _T("res\\gadgets\\healpotion.png"), LENGTH_PIXIV*1.5 , LENGTH_PIXIV*1.5 );
+	loadimage(&img_gadget_key, _T("res\\gadgets\\key.png"), LENGTH_PIXIV * 1.5, LENGTH_PIXIV * 1.5);
 }
 
 
@@ -715,8 +732,8 @@ void item_paint()
 
 void gadgets_paint(int index, int num)
 {
-	int x = index % 6;
-	int y = index / 6;
+	int x = index % 7;
+	int y = index / 7;
 	char gadgets_num[10];
 	sprintf_s(gadgets_num, "%d", num);
 	if (index == 0)
@@ -747,6 +764,11 @@ void gadgets_paint(int index, int num)
 	else if (index == 5) 
 	{
 		putimage_alpha(LENGTH_PIXIV * (2 * x + 10), LENGTH_PIXIV * (2 * y + 10), &img_gadget_telescroll);
+		outtextxy(LENGTH_PIXIV * (2 * x + 11) + 1, LENGTH_PIXIV * (2 * y + 11) + 1, gadgets_num);
+	}
+	else if (index == 6)
+	{
+		putimage_alpha(LENGTH_PIXIV * (2 * x + 10), LENGTH_PIXIV * (2 * y + 10), &img_gadget_key);
 		outtextxy(LENGTH_PIXIV * (2 * x + 11) + 1, LENGTH_PIXIV * (2 * y + 11) + 1, gadgets_num);
 	}
 }
@@ -784,12 +806,22 @@ void Message_paint()
 	outtextxy(LENGTH_PIXIV * 35 + 8, LENGTH_PIXIV * 14 + 8, "  Use Healpotion ");
 }
 
-void Player_paint(int x,int y,int type)
+void Player_paint(int x,int y,int type,int move)
 {
-	if(type==1)
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_player_1);
+	if (type == 1)
+	{
+		if (move == 0) putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_left);
+		else if(move ==1)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_right);
+		else if (move == 2)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_up);
+		else if (move == 3)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_warrior_down);
+	}
 	else
-	putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_player_2);
+	{
+		if (move == 0) putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_left);
+		else if (move == 1)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_right);
+		else if (move == 2)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_up);
+		else if (move == 3)putimage_alpha(LENGTH_PIXIV * x + 64, LENGTH_PIXIV * y + 64, &img_rogue_down);
+	}
 }
 
 
