@@ -1,0 +1,9 @@
+EVENT_NPC
+战斗失败
+你没能战胜怪物。如果你有传送卷轴，或许还有一线生机...
+event/Battle/battle-lose.txt
+res/event/guest_2.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

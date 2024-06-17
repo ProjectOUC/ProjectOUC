@@ -1,0 +1,9 @@
+EVENT_NPC
+战斗胜利
+经过一番艰苦的战斗，你击败了遇到的怪物。
+event/Battle/battle-win.txt
+res/event/guest_2.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

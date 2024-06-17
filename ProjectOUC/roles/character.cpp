@@ -74,7 +74,6 @@ Character::Character(std::string path)
 		std::cout << "path " << path << "doesn't exist.\n";
 		exit(0);
 	}
-	moved = false;
 	fscanf(fp, "character type: %d\n", &character_type);
 	fscanf(fp, "name: %s\n", buffer);
 	name = buffer;
@@ -112,8 +111,7 @@ Character::Character(std::string path)
 	fscanf(fp, "gadgets: %d\n", &max_gadget_index);
 	gadgets.resize(max_gadget_index);
 	for (int i = 0; i < max_gadget_index; ++i) fscanf(fp, " %d", &gadgets[i]);
-	fprintf(fp, "\n");
-
+	std::cout << "DEBUG2\n";
 	fclose(fp);
 }
 

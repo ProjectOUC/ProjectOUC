@@ -54,8 +54,15 @@ void checkTile(std::vector<Scene*>& scenes, Player* player)
 
 			if (!battle.battle())
 			{
+				static Event* battleLose = NULL;
+				if (!battleLose) battleLose = new Event("event/Battle/battle-lose.txt");
+				battleLose->occurEvent((Character**)&player);
 				return;
 			}
+			static Event* event = NULL;
+			if (!event) event = new Event("event/Battle/battle-win.txt");
+			event->occurEvent((Character**) & player);
+
 			std::cout << "战胜" << tile->monsters[i]->get_name() << "\n" <<
 				"最大生命: " << player->calc_maxHealth() <<
 				"\n剩余生命: " << player->get_health() <<

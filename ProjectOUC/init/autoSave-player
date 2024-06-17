@@ -1,49 +1,33 @@
 character type: 1
-name: Rogue
-<<<<<<< HEAD
-pos: 1 6 5
-lastPos: 1 5 5
-coin: 300
-food capacity: 100
-food: 85
-=======
-pos: 3 5 9
-lastPos: 3 5 10
-coin: 21918
-food capacity: 10000
-food: 9707
->>>>>>> cyy
-essentialAttribute: 2
-level: 10
-exp: 142
-levelUpExp: 325
-strengthGen: 3
-agilityGen: 5
+name: Warrior
+pos: 0 5 11
+lastPos: 0 4 11
+coin: 190
+food capacity: 200
+food: 200
+essentialAttribute: 1
+level: 2
+exp: 69
+levelUpExp: 125
+strengthGen: 5
+agilityGen: 4
 wisdomGen: 2
 attribute:
-<<<<<<< HEAD
-strength: 6
-agility: 10
-wisdom: 4
-maxHealth: 18950
-health: 2500
-=======
-strength: 44
-agility: 56
-wisdom: 22
-maxHealth: 18760
-health: 19200
->>>>>>> cyy
-speed: 3000
-attack: 1021
-diceNum: 2
-facet: 7
+strength: 17
+agility: 11
+wisdom: 5
+maxHealth: 295
+health: 465
+speed: 30
+attack: 10
+diceNum: 3
+facet: 5
 defense: 10
-block: 2
+block: 0
 visibleRadius: 2
-criticalAttackRate: 17.000000
-hitRate: 95.000000
-missRate: 20.000000
+criticalAttackRate: 10.000000
+hitRate: 85.000000
+missRate: 5.000000
 teleport: 0
 gadgets: 7
- 4 1 12 0 2 8 2
+ 2 1 2 0 1 0 0

@@ -1,0 +1,9 @@
+EVENT_NPC
+传送卷轴
+你使用传送卷轴离开了危险的地下。
+event/Battle/teleport-back.txt
+res/event/guest_2.png
+1
+Button1:
+BUTTON_QUIT
+Description:离开

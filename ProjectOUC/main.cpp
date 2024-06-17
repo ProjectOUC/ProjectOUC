@@ -121,7 +121,6 @@ int main()
 	initTrapList();
 	Player* player = nullptr;
 	std::vector<Scene*> scenes(5);
-	bool loadGame = false;
 	scenes[0] = new Scene("init/basic-town.txt", 0);
 	scenes[1] = new Scene("init/basic-cave.txt", 1);
 	scenes[2] = new Scene("init/basic-cave.txt", 2);
@@ -201,7 +200,7 @@ int main()
 	int moveInterval = 0;
 	int saveInterval = 1000;
 	for (int i = 0; i < 5; ++i)
-		scenes[0]->allVisited();
+		scenes[i]->allVisited();
 	
 
 	while (running)
@@ -325,7 +324,9 @@ int main()
 			int ind = findGadget("TeleportScroll");
 			if (player->gadgets[ind] != 0)
 			{
-				std::cout << "ƒ„ π”√ªÿ≥«æÌ÷·Ã”¿Î¡À" << ((player->get_pos().stage == Scene::CAVE) ? "∂¥—®" : "√‘π¨") << "\n";
+				Event* teleportBack = new Event("event/Battle/teleport-back.txt");
+				teleportBack->occurEvent((Character**)&player);
+				delete teleportBack;
 				gadgetInHand = ind;
 				player->use_gadget();
 				player->set_health(player->get_maxHealth());
