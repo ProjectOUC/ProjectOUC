@@ -5,25 +5,28 @@ class Orc : public Monster
 {
 public:
     Orc(int _level = 0, Attr _attr = Attr(), std::string _name = "Orc", int _coin = 0, Position _pos = Position(), bool _moved = false) :
-        Monster(_level, _attr, _name, _coin, _pos, _moved)
+        Monster(_level, _attr, _name, _coin, _pos, _moved, ORC)
     {
-        Attr attr;
-        attr.strength = 18 + 4 * _level + roll(3, 5);
-        attr.agility = 8 + 2 * _level + roll(2, 3);
-        attr.wisdom = 6 + 1 * _level;
-        attr.maxHealth = roll(3, 25);
-        attr.health = attr.maxHealth;
-        attr.attack = 28 + 5 * _level + roll(3, 5);
-        attr.block = 12 + 3 * _level + roll(2, 4);
-        attr.defense = 25 + 8 * _level + roll(2, 4);
-        attr.speed = 15 + 4 * _level + roll(2, 2);
-        attr.hitRate = 75.0f;
-        attr.missRate = 25.0f;
-        attr.criticalAttackRate = 10.0f + 2 * _level;
+		Attr attr;
+		attr.strength = 8 + 3 * _level + roll(2, 3);
+		attr.agility = 6 + 2 * _level + roll(2, 3);
+		attr.wisdom = 1 * (_level + 1);
+		attr.maxHealth = roll(2, 20);
 
-        set_coin(10 + 4 * _level + roll(2, 3));
-        set_attr(attr);
+		attr.health = attr.get_maxHealth();
+		attr.diceNum = 2;
+		attr.facet = _level + 4;
+		attr.block = _level + 1;
 
+		attr.speed = 15 + 5 * _level + roll(2, 2);
+
+		attr.hitRate = 90;
+		attr.criticalAttackRate = (float)(10 + 2 * _level + roll(2, 2));
+		attr.missRate = (float)(10 + 2 * _level);
+
+		set_attr(attr);
+		set_food(attr.strength / 2);
+		set_coin(5 + 3 * _level + roll(1, 3));
         // Orcs have a chance to carry common gadgets
         if (oneIn(4))
         {

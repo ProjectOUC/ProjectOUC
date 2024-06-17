@@ -57,7 +57,8 @@ void pt_scene(std::vector<Scene*>& scenes, Player* player)
 			Tile* tile = scene->get_tiles(i, j);
 			if (tile->get_type() == BATTLE_TILE) {
 				// 位置%怪物类型数量
-				int monster_type = (i + j) % 10;
+				monster_type monster_type = tile->monsters[0]->getType();
+				/*int monster_type = (i + j) % 10;*/
 				Monster_paint(i, j, monster_type);
 			}
 			else if (tile->get_type() == CHEST_TILE) Chest_paint(i, j);

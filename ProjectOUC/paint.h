@@ -16,7 +16,7 @@ void Gameover_paint(int width,int height);
 void Player_paint(int x, int y,int type, int move);
 void Chest_paint(int x,int y);
 void Monster_paint(int x,int y);
-void Monster_paint(int x, int y, int type);
+void Monster_paint(int x, int y, monster_type type);
 void TOWN_Wall_paint(Scene* scene, int pos);
 void speak_paint();
 void item_paint();

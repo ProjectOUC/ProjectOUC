@@ -5,7 +5,7 @@ class Slime : public Monster
 {
 public:
 	Slime(int _level = 0, Attr _attr = Attr(), std::string _name = "Slime", int _coin = 0, Position _pos = Position(), bool _moved = false) :
-		Monster(_level, _attr, _name, _coin, _pos, _moved)
+		Monster(_level, _attr, _name, _coin, _pos, _moved, SLIME)
 	{
 		Attr attr;
 		attr.agility = 4 + _level + roll(1, 4);

@@ -1,5 +1,5 @@
 ﻿  paint.cpp
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\paint.cpp(861,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\paint.cpp(841,6): warning C4101: “w”: 未引用的局部变量
-D:\Courses\GDAD\ProjectOUC\ProjectOUC\paint.cpp(837,7): warning C4101: “options”: 未引用的局部变量
-  ProjectOUC.vcxproj -> D:\Courses\GDAD\ProjectOUC\ProjectOUC\x64\Debug\ProjectOUC.exe
+E:\project\VS\oucGame\ProjectOUC\paint.cpp(910,10): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+E:\project\VS\oucGame\ProjectOUC\paint.cpp(890,6): warning C4101: “w”: 未引用的局部变量
+E:\project\VS\oucGame\ProjectOUC\paint.cpp(886,7): warning C4101: “options”: 未引用的局部变量
+  ProjectOUC.vcxproj -> E:\project\VS\oucGame\ProjectOUC\x64\Debug\ProjectOUC.exe

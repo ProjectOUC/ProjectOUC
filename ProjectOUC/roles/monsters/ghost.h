@@ -5,7 +5,7 @@ class Ghost : public Monster
 {
 public:
     Ghost(int _level = 0, Attr _attr = Attr(), std::string _name = "Ghost", int _coin = 0, Position _pos = Position(), bool _moved = false) :
-        Monster(_level, _attr, _name, _coin, _pos, _moved)
+        Monster(_level, _attr, _name, _coin, _pos, _moved, GHOST)
     {
         Attr attr;
         attr.strength = 10 + 2 * _level + roll(2, 3);
